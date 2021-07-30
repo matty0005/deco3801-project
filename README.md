@@ -1,6 +1,6 @@
 ## Local Installation
 
--   create a local mysql database called AvailabilityPlanner
+-   create a local mysql database called DecoDB
 -   composer install
 -   npm install
 -   npm run watch
