@@ -16,5 +16,10 @@ To run the Web app, make sure npm run watch is running, then in a new terminal t
 php artisan serve
 ```
 
+## Test Users
+|  Username             |  Password  |
+| --------------------- | -----------|
+| test@example.com      | password   |
+
 
 
