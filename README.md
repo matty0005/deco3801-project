@@ -33,6 +33,14 @@ php artisan serve
 
 If you're using Sail, then this is taken care for you when you run `sail up`
 
+# Commiting code
+Please note before commiting code - especially when to staging or main branch, you need to run 
+```
+npm run prod
+```
+This builds all the assets for the server
+
+
 ## Test Users
 |  Username             |  Password  |
 | --------------------- | -----------|
