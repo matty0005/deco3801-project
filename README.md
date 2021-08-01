@@ -6,13 +6,12 @@
 - docker (if using laravel Sail)
 
 ### Using Sail
-- add `alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'` to end of .zshrc file (found at `~/.zshrc`)
+- add `alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'` to end of .zshrc file (found at `~/.zshrc`) then run `source ~/.zshrc`
 - `cp .env.example .env`
 - `composer install`
 - `sail up`
 - `sail php artisan key:generate`
 - `sail php artisan migrate:fresh --seed`
-
 
 
 ### Not using Sail
@@ -27,10 +26,12 @@
 Once this is complete, populate the .env file
 
 # Running
-To run the Web app, make sure npm run watch is running, then in a new terminal type in
+If you are not using Sail, To run the Web app, make sure npm run watch is running, then in a new terminal type in
 ```
 php artisan serve
 ```
+
+If you're using Sail, then this is taken care for you when you run `sail up`
 
 ## Test Users
 |  Username             |  Password  |
