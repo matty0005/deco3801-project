@@ -2,19 +2,11 @@
 ### Requirements
 - PHP8
 - composer (latest)
-- npm v14.17.4
+- npm
+- node v14.17.4 
 - docker (if using laravel Sail)
 
-### Using Sail
-- add `alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'` to end of .zshrc file (found at `~/.zshrc`) then run `source ~/.zshrc`
-- `cp .env.example .env`
-- `composer install`
-- `sail up`
-- `sail php artisan key:generate`
-- `sail php artisan migrate:fresh --seed`
-
-
-### Not using Sail
+### Setting up
 -   create a local mysql database called DecoDB
 -   `composer install`
 -   `npm install`
@@ -26,12 +18,13 @@
 Once this is complete, populate the .env file
 
 # Running
-If you are not using Sail, To run the Web app, make sure npm run watch is running, then in a new terminal type in
 ```
 php artisan serve
 ```
 
-If you're using Sail, then this is taken care for you when you run `sail up`
+```
+npm run watch
+```
 
 # Commiting code
 Please note before commiting code - especially when to staging or main branch, you need to run 

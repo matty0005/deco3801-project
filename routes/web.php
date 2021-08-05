@@ -6,6 +6,8 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PublicFacing\HomeController;
+use App\Http\Controllers\Switchs\SwitchKidsModeController;
+use App\Http\Controllers\Switchs\SwitchParentsModeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,5 +30,11 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [DashboardController:: class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/home', [HomeController:: class, 'index'])->name('home');
+
+
+// Switchers
+Route::post('/switch/kids', [SwitchKidsModeController:: class, 'index'])->middleware(['auth', 'verified']);
+Route::post('/switch/parents', [SwitchParentsModeController:: class, 'index'])->middleware(['auth', 'verified']);
+
 
 require __DIR__.'/auth.php';
