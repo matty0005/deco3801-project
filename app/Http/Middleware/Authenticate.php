@@ -11,6 +11,7 @@ use Illuminate\Auth\Middleware\Authenticate as Middleware;
 
 class Authenticate extends Middleware
 {
+    protected $guards = [];
     /**
      * Get the path the user should be redirected to when they are not authenticated.
      *
@@ -31,10 +32,11 @@ class Authenticate extends Middleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next, ...$guards)
     {
-        if (Auth::guest()) {
-            return redirect('login');
+        if (Auth::user() == null) {
+            $this->guards = $guards;
+            return parent::handle($request, $next, ...$guards);
         }
 
         $hasDoneFirstQuiz = DB::table('parent_progress_quiz')
