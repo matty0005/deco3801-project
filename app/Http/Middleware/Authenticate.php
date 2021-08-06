@@ -32,11 +32,15 @@ class Authenticate extends Middleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next, ...$guards)
+    public function handle($request, Closure $next, ...$guards)
     {
         if (Auth::user() == null) {
             $this->guards = $guards;
             return parent::handle($request, $next, ...$guards);
+
+            // $this->authenticate($request, $guards);
+
+            // return $next($request);
         }
 
         $hasDoneFirstQuiz = DB::table('parent_progress_quiz')
