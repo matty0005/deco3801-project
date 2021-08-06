@@ -24,7 +24,7 @@ class QuizQuestionsSeeder extends Seeder
                 "type" => "parent",
                 "questions" => "{\"Worries\": \"{'answers':['Never', 'Sometimes', 'Regularly'], 'required':false}\", \"Sad or Unhappy\": \"{'answers':['Never', 'Sometimes', 'Regularly'], 'required':true}\"}",
             ),
-        )
+        ));
         
     }
 }

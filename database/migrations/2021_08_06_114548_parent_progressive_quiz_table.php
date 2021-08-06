@@ -16,7 +16,6 @@ class ParentProgressiveQuizTable extends Migration
         Schema::create('parent_progress_quiz', function (Blueprint $table) {
             $table->id()->comment("AKA quiz_id");
             $table->bigInteger('user_id');
-            $table->bigInteger('quiz_questions_id');
             $table->timestamp('last_completed');
 
         });
