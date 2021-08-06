@@ -4,7 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 
 class Role
 {
@@ -20,6 +22,7 @@ class Role
         if (Session::get('kidsMode')) {
             return redirect('dashboard')->with('error','Permission Denied!!! You do not have administrative access.');
         }
+        
         return $next($request);
     }
 }

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 
 
 class DashboardController extends Controller
@@ -16,6 +18,7 @@ class DashboardController extends Controller
             return Inertia::render('Kids/Dashboard');
 
         }
+
         return Inertia::render('Parents/Dashboard');
     }
 }
