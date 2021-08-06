@@ -34,13 +34,11 @@ class Authenticate extends Middleware
      */
     public function handle($request, Closure $next, ...$guards)
     {
-        if (Auth::user() == null) {
+        $except = ['confirm-password', 'verify-email', 'email/verification-notification', 'forgot-password', 'verify-email'];
+
+        if (Auth::user() == null || in_array($request->route()->uri, $except)) {
             $this->guards = $guards;
             return parent::handle($request, $next, ...$guards);
-
-            // $this->authenticate($request, $guards);
-
-            // return $next($request);
         }
 
         $hasDoneFirstQuiz = DB::table('parent_progress_quiz')
