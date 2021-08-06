@@ -33,8 +33,8 @@ class Authenticate extends Middleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user() == null) {
-            return parent::handle($request, $next);
+        if (Auth::guest()) {
+            return redirect('login');
         }
 
         $hasDoneFirstQuiz = DB::table('parent_progress_quiz')
