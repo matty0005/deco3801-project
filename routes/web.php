@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserSettingsController;
 use App\Http\Controllers\PublicFacing\HomeController;
+use App\Http\Controllers\Forums\ForumDashboardController;
 use App\Http\Controllers\Switchs\SwitchKidsModeController;
 use App\Http\Controllers\Switchs\SwitchParentsModeController;
 /*
@@ -37,7 +38,11 @@ Route::get('/home', [HomeController:: class, 'index'])->name('home');
 Route::post('/switch/kids', [SwitchKidsModeController:: class, 'index'])->middleware(['auth', 'verified']);
 Route::post('/switch/parents', [SwitchParentsModeController:: class, 'index'])->middleware(['auth', 'verified']);
 
+// Settings 
 Route::get('/settings', [UserSettingsController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+
+// Forum
+Route::get('/forum', [ForumDashboardController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
 
 
 

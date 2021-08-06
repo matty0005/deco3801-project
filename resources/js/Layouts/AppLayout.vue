@@ -10,18 +10,10 @@
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
             <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
-            <a href="#" class="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-              Dashboard
-            </a>
-            <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-              Team
-            </a>
-            <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-              Projects
-            </a>
-            <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-              Calendar
-            </a>
+            <Link href="/dashboard" :class="isOnPage('dashboard') ? 'border-indigo-500 text-gray-900':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" role="menuitem" tabindex="-1" >Dashboard</Link>
+            <Link href="/forum" :class="isOnPage('forum') ? 'border-indigo-500 text-gray-900':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" role="menuitem" tabindex="-1" >Forum</Link>
+
+
           </div>
         </div>
         <div class="hidden sm:ml-6 sm:flex sm:items-center">
@@ -53,7 +45,7 @@
             <div v-if="showProfileDropdown" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
               <!-- Active: "bg-gray-100", Not Active: "" -->
               <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
-              <Link href="/settings"  class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" >Settings</Link>
+              <Link href="/settings" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" >Settings</Link>
               <Link href="/switch/kids" method="post"  as="button" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" >Kids mode</Link>
               <Link href="/logout" method="post"  as="button" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" >Sign out</Link>
             </div>
@@ -133,6 +125,12 @@ export default {
     methods: {
         onClickOutside () {
             this.showProfileDropDown = false
+        },
+        isOnPage (url) {
+            var ver = 0
+            var urlMod = url.split("/").filter(l => l)[ver]
+            var currentUrl = window.location.pathname.split("/").filter(t => t)[ver]
+            return urlMod === currentUrl
         },
     },
     mounted() {
