@@ -4,7 +4,7 @@
             <div class="bg-white overflow-hidden shadow rounded-lg">
                 <div class="px-4 py-5 sm:p-6 text-2xl">
                     <!-- Content goes here -->
-                    Dashboard
+                    Doctor consulation
                 </div>
                 <div class="text-gray-600 mt-2 ml-6 mb-8">
                     Welcome to ..
