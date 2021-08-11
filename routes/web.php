@@ -9,7 +9,9 @@ use App\Http\Controllers\UserSettingsController;
 use App\Http\Controllers\PublicFacing\HomeController;
 use App\Http\Controllers\Quizzes\EvaluationController;
 use App\Http\Controllers\Quizzes\FirstProgressionQuiz;
+use App\Http\Controllers\Account\ParentAvatarController;
 use App\Http\Controllers\Forums\ForumDashboardController;
+use App\Http\Controllers\Account\ParentSettingsController;
 use App\Http\Controllers\Switchs\SwitchKidsModeController;
 use App\Http\Controllers\Consultation\ConsultationController;
 use App\Http\Controllers\Switchs\SwitchParentsModeController;
@@ -43,6 +45,10 @@ Route::post('/switch/parents', [SwitchParentsModeController:: class, 'index'])->
 
 // Settings 
 Route::get('/settings', [UserSettingsController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+Route::get('/profile', [ParentSettingsController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('user_settings');
+Route::post('/profile/avatar', [ParentAvatarController:: class, 'update'])->middleware(['auth', 'verified', 'role']);
+
+
 
 // Forum
 Route::get('/forum', [ForumDashboardController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
