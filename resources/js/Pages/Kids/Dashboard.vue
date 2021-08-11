@@ -12,7 +12,7 @@
             </div>
             <div class=" bg-white overflow-hidden shadow rounded-lg">
                 <div class="px-4 py-5 sm:p-6">
-                    <CallToActionCard topTitle="You have a game to play" bottomTitle="Play the game now!" buttonText="Play" @onClicked="startActivity"/>
+                    <CallToActionCard topTitle="You have a game to play" bottomTitle="Play the game now!" buttonText="Play" @onClicked="startActivity" kidsMode/>
                 </div>
             </div>
         </div>
