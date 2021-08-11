@@ -12,7 +12,8 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                // sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                sans: ['Inter var', ...defaultTheme.fontFamily.sans],
             },
             colors: {
                 lime: colors.lime,
@@ -27,7 +28,14 @@ module.exports = {
                 fuchsia: colors.fuchsia,
                 rose: colors.rose,
                 warmGray: colors.warmGray,
-                blueGray: colors.blueGray
+                blueGray: colors.blueGray,
+                parentPrimay: '#06B6D4',
+                parentPrimayHover: '#0891B2',
+                kidsPrimary: '#F59E0B',
+                kidsPrimaryHover: '#D97706',
+                kidsSecondary: '#FACC15',
+                kidsSecondaryHover: '#EAB308',
+
 
             }
         },
