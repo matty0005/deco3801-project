@@ -37,6 +37,27 @@ module.exports = {
                 kidsSecondaryHover: '#EAB308',
 
 
+            },
+            boarderColor: {
+                lime: colors.lime,
+                orange: colors.orange,
+                amber: colors.amber,
+                emerald: colors.emerald,
+                teal: colors.teal,
+                cyan: colors.cyan,
+                sky: colors.sky,
+                purple: colors.purple,
+                violet: colors.violet,
+                fuchsia: colors.fuchsia,
+                rose: colors.rose,
+                warmGray: colors.warmGray,
+                blueGray: colors.blueGray,
+                parentPrimay: '#06B6D4',
+                parentPrimayHover: '#0891B2',
+                kidsPrimary: '#F59E0B',
+                kidsPrimaryHover: '#D97706',
+                kidsSecondary: '#FACC15',
+                kidsSecondaryHover: '#EAB308',
             }
         },
     },
