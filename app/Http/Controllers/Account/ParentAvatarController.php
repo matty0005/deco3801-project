@@ -21,12 +21,12 @@ class ParentAvatarController extends Controller
 
         $imagedata = file_get_contents($data['avatar']);
         $base64 = 'data:image/png;base64,' . base64_encode($imagedata);
-
-
+        
         DB::table('user_settings')
             ->where('user_id', Auth::user()->id)
             ->where('type', Session::get('kidsMode') ? 2:1)
             ->update([
+                'updated_at' => now(),
                 'avatar' => $base64
             ]);
 
