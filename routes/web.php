@@ -44,6 +44,9 @@ Route::get('/settings', [UserSettingsController:: class, 'index'])->middleware([
 
 // Forum
 Route::get('/forum', [ForumDashboardController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+Route::post('/forum/newthread', [ForumDashboardController::class, 'newThread']);
+Route::get('/forum/getthreads', [ForumDashboardController::class, 'getThreads']);
+Route::post('/forum/addthreadmessage', [ForumDashboardController::class, 'addThreadMessage']);
 
 // Quiz
 Route::get('/quiz/parent/progressive', [FirstProgressionQuiz:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('parent_signup_quiz');
