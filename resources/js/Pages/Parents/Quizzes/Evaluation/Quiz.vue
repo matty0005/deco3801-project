@@ -3,26 +3,21 @@
         <div class="bg-green-200 h-48"></div>
         <div class="container  mx-auto -mt-24 bg-white overflow-hidden shadow rounded-lg">
             <div class="text-3xl px-4 pt-5 py-3 sm:px-6">
-                Evaluation
+                {{ content.title }}
             </div>
             <div class="px-4 py-5 sm:p-6">
                 In this section you can assess blah
             </div>
         </div>
-        <div class="container mx-auto mt-4">
-            <List :list="quizList" @onClicked="handleQuizClick" />
-        </div>
-        <div class="container mx-auto mt-4">
-            <div class="bg-white overflow-hidden shadow rounded-lg">
-                <div class="px-4 py-5 sm:p-6 text-2xl">
-                    <!-- Content goes here -->
-                    Progressive quiz
-                </div>
-                <div class="text-gray-600 mt-2 ml-6 mb-8">
-                    Please complete this quiz to continue. The data from this quiz will be used to help you asses your childs progression throught their expereience. 
-                </div>
-                <button class="px-4 py-2 bg-parent-500 text-white rounded-md m-4" v-on:click="submitQuiz" >Submit</button>
+
+        <div class="container  mx-auto mt-4 bg-white overflow-hidden shadow rounded-lg">
+            <div class="px-4 py-5 sm:p-6">
+                {{ content.questions }}
             </div>
+        </div>
+
+        <div class="container mx-auto mt-4">
+            
         </div>
     </Layout>
 </template>
@@ -37,7 +32,7 @@
             List
         },
         props: {
-            quizList: Array
+            content: Object
         },
         methods: {
             submitQuiz() {

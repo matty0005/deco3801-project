@@ -11,6 +11,7 @@ class CreateUserSettingsTable extends Migration
      *
      * @return void
      */
+
     public function up()
     {
         Schema::create('user_settings', function (Blueprint $table) {
