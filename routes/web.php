@@ -12,6 +12,7 @@ use App\Http\Controllers\Quizzes\FirstProgressionQuiz;
 use App\Http\Controllers\Account\ParentAvatarController;
 use App\Http\Controllers\Forums\ForumDashboardController;
 use App\Http\Controllers\Account\ParentSettingsController;
+use App\Http\Controllers\Quizzes\EvaluateParentController;
 use App\Http\Controllers\Switchs\SwitchKidsModeController;
 use App\Http\Controllers\Consultation\ConsultationController;
 use App\Http\Controllers\Switchs\SwitchParentsModeController;
@@ -58,6 +59,8 @@ Route::get('/quiz/parent/progressive', [FirstProgressionQuiz:: class, 'index'])-
 Route::post('/quiz/parent/progressive', [FirstProgressionQuiz:: class, 'create'])->middleware(['auth', 'verified', 'role'])->name('parent_signup_quiz');
 
 Route::get('/evaluate', [EvaluationController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+Route::get('/evaluate/parent/{id}', [EvaluateParentController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+
 
 // Consultation
 Route::get('/consultation', [ConsultationController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
