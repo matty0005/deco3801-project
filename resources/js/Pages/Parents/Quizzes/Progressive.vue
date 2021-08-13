@@ -9,6 +9,7 @@
                 <div class="text-gray-600 mt-2 ml-6 mb-8">
                     Please complete this quiz to continue. The data from this quiz will be used to help you asses your childs progression throught their expereience. 
                 </div>
+                {{ errors }}
                 <button class="px-4 py-2 bg-parent-500 text-white rounded-md m-4" v-on:click="submitQuiz" >Submit</button>
             </div>
         </div>
@@ -21,6 +22,9 @@
     export default {
         components: {
             Layout,
+        },
+        props: {
+            errors:Object
         },
         methods: {
             submitQuiz() {
