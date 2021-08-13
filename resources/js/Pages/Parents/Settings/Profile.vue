@@ -1,69 +1,7 @@
 <template>
 <div>
     <Layout class="bg-blueGray-100 min-h-screen pb-8" >
-        <div class="container mx-auto mt-8">
-   
-            <div class="lg:grid lg:grid-cols-12 lg:gap-x-5">
-            <aside class="py-6 px-2 sm:px-6 lg:py-0 lg:px-0 lg:col-span-3">
-                <nav class="space-y-1">
-                <!-- Current: "bg-gray-50 text-parent-700 hover:text-parent-700 hover:bg-white", Default: "text-gray-900 hover:text-gray-900 hover:bg-gray-50" -->
-                <a href="#" class="bg-gray-50 text-parent-700 hover:text-parent-700 hover:bg-white group rounded-md px-3 py-2 flex items-center text-sm font-medium" aria-current="page">
-                    <!--
-                    Heroicon name: outline/user-circle
-
-                    Current: "text-parent-500 group-hover:text-parent-500", Default: "text-gray-400 group-hover:text-gray-500"
-                    -->
-                    <svg class="text-parent-500 group-hover:text-parent-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span class="truncate">
-                    Account
-                    </span>
-                </a>
-
-                <a href="#" class="text-gray-900 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-sm font-medium">
-                    <!-- Heroicon name: outline/key -->
-                    <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
-                    </svg>
-                    <span class="truncate">
-                    Password
-                    </span>
-                </a>
-
-                <a href="#" class="text-gray-900 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-sm font-medium">
-                    <!-- Heroicon name: outline/credit-card -->
-                    <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                    </svg>
-                    <span class="truncate">
-                    Plan &amp; Billing
-                    </span>
-                </a>
-
-                <a href="#" class="text-gray-900 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-sm font-medium">
-                    <!-- Heroicon name: outline/user-group -->
-                    <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                    <span class="truncate">
-                    Team
-                    </span>
-                </a>
-
-                <a href="#" class="text-gray-900 hover:text-gray-900 hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-sm font-medium">
-                    <!-- Heroicon name: outline/view-grid-add -->
-                    <svg class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z" />
-                    </svg>
-                    <span class="truncate">
-                    Integrations
-                    </span>
-                </a>
-                </nav>
-            </aside>
-
-            <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
+        <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
                 <div class="shadow sm:rounded-md sm:overflow-hidden">
                     <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
                     <div>
@@ -184,92 +122,19 @@
         
                 </div>
 
-                <div class="shadow sm:rounded-md sm:overflow-hidden">
-                    <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
-                    <div>
-                        <h3 class="text-lg leading-6 font-medium text-gray-900">Notifications</h3>
-                        <p class="mt-1 text-sm text-gray-500">Provide basic informtion about the job. Be specific with the job title.</p>
-                    </div>
-
-                    <fieldset>
-                        <legend class="text-base font-medium text-gray-900">By Email</legend>
-                        <div class="mt-4 space-y-4">
-                        <div class="flex items-start">
-                            <div class="h-5 flex items-center">
-                            <input id="comments" name="comments" type="checkbox" class="focus:ring-parent-500 h-4 w-4 text-parent-600 border-gray-300 rounded">
-                            </div>
-                            <div class="ml-3 text-sm">
-                            <label for="comments" class="font-medium text-gray-700">Comments</label>
-                            <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex items-start">
-                            <div class="h-5 flex items-center">
-                                <input id="candidates" name="candidates" type="checkbox" class="focus:ring-parent-500 h-4 w-4 text-parent-600 border-gray-300 rounded">
-                            </div>
-                            <div class="ml-3 text-sm">
-                                <label for="candidates" class="font-medium text-gray-700">Candidates</label>
-                                <p class="text-gray-500">Get notified when a candidate applies for a job.</p>
-                            </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex items-start">
-                            <div class="h-5 flex items-center">
-                                <input id="offers" name="offers" type="checkbox" class="focus:ring-parent-500 h-4 w-4 text-parent-600 border-gray-300 rounded">
-                            </div>
-                            <div class="ml-3 text-sm">
-                                <label for="offers" class="font-medium text-gray-700">Offers</label>
-                                <p class="text-gray-500">Get notified when a candidate accepts or rejects an offer.</p>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    </fieldset>
-                    <fieldset class="mt-6">
-                        <legend class="text-base font-medium text-gray-900">Push Notifications</legend>
-                        <p class="text-sm text-gray-500">These are delivered via SMS to your mobile phone.</p>
-                        <div class="mt-4 space-y-4">
-                        <div class="flex items-center">
-                            <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-parent-500 h-4 w-4 text-parent-600 border-gray-300">
-                            <label for="push-everything" class="ml-3">
-                            <span class="block text-sm font-medium text-gray-700">Everything</span>
-                            </label>
-                        </div>
-                        <div class="flex items-center">
-                            <input id="push-email" name="push-notifications" type="radio" class="focus:ring-parent-500 h-4 w-4 text-parent-600 border-gray-300">
-                            <label for="push-email" class="ml-3">
-                            <span class="block text-sm font-medium text-gray-700">Same as email</span>
-                            </label>
-                        </div>
-                        <div class="flex items-center">
-                            <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-parent-500 h-4 w-4 text-parent-600 border-gray-300">
-                            <label for="push-nothing" class="ml-3">
-                            <span class="block text-sm font-medium text-gray-700">No push notifications</span>
-                            </label>
-                        </div>
-                        </div>
-                    </fieldset>
-                    </div>
-                </div>
+               
                 <div class="flex flex-row-reverse">
                     <button v-on:click="submitData" type="submit" class="bg-parent-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-parent-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-parent-600">
                         Save
                     </button>
                 </div>
             </div>
-            
-            </div>
-        
-        </div>
-   
     </Layout>
 </div>
 </template>
 
 <script>
-    import Layout from '@/Layouts/AppLayout'
+    import Layout from '@/Layouts/SettingsLayout'
     import { useForm } from '@inertiajs/inertia-vue3'
 
     export default {
