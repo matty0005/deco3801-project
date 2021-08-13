@@ -16,8 +16,11 @@ class QuizResponsesTable extends Migration
         Schema::create('quiz_responses', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('quiz_id');
+            $table->bigInteger('user_id');
             $table->string('question');
             $table->string('response')->nullable();
+            $table->text('meta')->nullable();
+            $table->timestamps();
 
         });
     }

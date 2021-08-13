@@ -36,6 +36,7 @@ class FirstProgressionQuiz extends Controller
             $vals = collect($data['responses'][$x]);
 
             $values = [
+                'user_id' => Auth::user()->id,
                 'quiz_id' => $quiz_id,
                 'question' => $vals->keys()->first(),
                 'response' => $vals->values()->first()

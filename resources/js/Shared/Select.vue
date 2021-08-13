@@ -1,11 +1,17 @@
 <template>
     <div>
-        <!-- {{ label }} -->
-        <button v-for="option in options" :key="option.id" @click="selected(option.id)" type="button" 
-        :class="optionsSelected.indexOf(options.id) >= 0 ? 'bg-parent-600 hover:bg-parent-700 text-parent-200' : 'bg-parent-200 hover:bg-parent-300 text-parent-800'"
-        class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            {{ option.text }}
-        </button>
+        <div class="mx-3 font-bold text-gray-700">
+            {{ label }}
+        </div>
+        <div class="grid grid-cols-4 my-2">
+            <button v-for="option in options" :key="option" @click="selected(option)" type="button" 
+            :class="optionsSelected.indexOf(option) >= 0 ? 'bg-parent-400 hover:bg-parent-500 text-parent-100' : 'bg-parent-100 hover:bg-parent-200 text-parent-800'"
+            class="inline-flex items-center my-2 mx-3 px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm focus:outline-none">
+                <div class="mx-auto">
+                    {{ option }}
+                </div>
+            </button>
+        </div>
     </div>
 </template>
 

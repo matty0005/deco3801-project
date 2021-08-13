@@ -22,14 +22,13 @@ class QuizQuestionsSeeder extends Seeder
                 "id" => 1,
                 "name" => "Progressive Quiz",
                 "type" => "parent",
-                "questions" => "{\"Worries\": \"{'answers':['Never', 'Sometimes', 'Regularly'], 'required':false}\", \"Sad or Unhappy\": \"{'answers':['Never', 'Sometimes', 'Regularly'], 'required':true}\"}",
+                "questions" => "[{\"answers\": [\"Never\", \"Sometimes\", \"Regularly\"], \"question\": \"worries\", \"required\": false}, {\"answers\": [\"Never\", \"Sometimes\", \"Regularly\"], \"question\": \"Sad or unhappy\", \"required\": false}]",            
             ),
             array(
                 "id" => 2,
                 "name" => "Is your child retarded Quiz",
                 "type" => "parent",
-                "questions" => "{\"Worries\": \"{'answers':['Never', 'Sometimes', 'Regularly'], 'required':false}\", \"Sad or Unhappy\": \"{'answers':['Never', 'Sometimes', 'Regularly'], 'required':true}\"}",
-            ),
+                "questions" => "[{\"answers\": [\"Never\", \"Sometimes\", \"Regularly\"], \"question\": \"worries\", \"required\": false}, {\"answers\": [\"Never\", \"Sometimes\", \"Regularly\"], \"question\": \"Sad or unhappy\", \"required\": false}]"            ),
         ));
         
     }
