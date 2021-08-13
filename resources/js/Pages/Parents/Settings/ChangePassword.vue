@@ -30,7 +30,7 @@
                     <div class="grid grid-cols-6 gap-6">
                         <div class="col-span-6 sm:col-span-3">
                             <label for="display_name" class="block text-sm font-medium text-gray-700">Confirm new password</label>
-                            <input v-model="newPassowrdValidate" type="password" name="password" autocomplete="new-password" id="password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-parent-500 focus:border-parent-500 sm:text-sm">
+                            <input @keyup.enter="submitData" v-model="newPassowrdValidate" type="password" name="password" autocomplete="new-password" id="password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-parent-500 focus:border-parent-500 sm:text-sm">
                             <div v-if="errors.confirm_password" class="mt-1 text-red-500 text-xs">{{ errors.confirm_password }}</div>
                         </div>
                     </div>

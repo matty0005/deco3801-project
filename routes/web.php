@@ -51,10 +51,10 @@ Route::post('/switch/parents', [SwitchParentsModeController:: class, 'index'])->
 // Settings 
 Route::get('/settings', [UserSettingsController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
 Route::get('/profile', [ParentSettingsController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('user_settings');
-Route::get('/profile/change-password', [ChangePasswordController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('user_settings');
-Route::get('/profile/billing', [BillingController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('user_settings');
-Route::get('/profile/notifications', [NotificationsController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('user_settings');
-Route::get('/profile/manage/child', [ManageChildController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('user_settings');
+Route::get('/profile/change-password', [ChangePasswordController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+Route::get('/profile/billing', [BillingController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+Route::get('/profile/notifications', [NotificationsController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+Route::get('/profile/manage/child', [ManageChildController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
 
 
 
@@ -70,7 +70,7 @@ Route::get('/forum', [ForumDashboardController:: class, 'index'])->middleware(['
 
 // Quiz
 Route::get('/quiz/parent/progressive', [FirstProgressionQuiz:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('parent_signup_quiz');
-Route::post('/quiz/parent/progressive', [FirstProgressionQuiz:: class, 'create'])->middleware(['auth', 'verified', 'role'])->name('parent_signup_quiz');
+Route::post('/quiz/parent/progressive', [FirstProgressionQuiz:: class, 'create'])->middleware(['auth', 'verified', 'role']);
 
 Route::get('/evaluate', [EvaluationController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
 Route::get('/evaluate/parent/{id}', [EvaluateParentController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
