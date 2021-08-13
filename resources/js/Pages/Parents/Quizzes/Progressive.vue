@@ -22,6 +22,9 @@
         components: {
             Layout,
         },
+        props: {
+            errors:Object
+        },
         methods: {
             submitQuiz() {
                 this.$inertia.post('/quiz/parent/progressive', {
