@@ -61,6 +61,7 @@ Route::get('/profile/manage/child', [ManageChildController:: class, 'index'])->m
 
 Route::post('/profile', [ParentSettingsController:: class, 'update'])->middleware(['auth', 'verified', 'role']);
 Route::post('/profile/avatar', [ParentAvatarController:: class, 'update'])->middleware(['auth', 'verified', 'role']);
+Route::post('/profile/change-password', [ChangePasswordController:: class, 'update'])->middleware(['auth', 'verified', 'role']);
 
 
 
