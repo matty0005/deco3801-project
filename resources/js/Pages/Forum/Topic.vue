@@ -1,12 +1,30 @@
 <template>
     <div> 
-        <button @click="addThread"> Add Thread </button>
+        
+        <div class="bg-white overflow-hidden shadow rounded-lg">
+            <div class="px-4 py-5 sm:p-6">
+                <div>
+                    <div class="my-2">
+                        <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+                        <div class="mt-1">
+                            <input type="text" name="title" id="title"  v-model="title" placeholder="title" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+                        </div>
+                    </div>
+                    <div class="my-2">
+                        <label for="comment" class="block text-sm font-medium text-gray-700">Comment</label>
+                        <div class="mt-1">
+                            <input type="text" name="comment" id="comment"  v-model="comment" placeholder="comment" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" >
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row-reverse">
+                    <button class="bg-parent-200 text   -parent-800 py-2 px-4 rounded-md my-4" @click="addThread"> Add Thread </button>
+                </div>
+            </div>
+        </div>
 
-        <input class="border-b-2 border-black" v-model="title" placeholder="title"/>
-        <input class="border-b-2 border-black" v-model="comment" placeholder="comment"/>
-
-        <div v-for="(thread, index) in topic.threads" :key="index"> 
-            <Thread :thread="thread" />
+        <div v-for="(thread, index) in $page.props.formThreads" :key="index"> 
+            <Thread :thread="thread" class="my-4" />
         </div>
     </div>
 </template>
@@ -15,7 +33,6 @@
 <script>
 
 import Thread from './Thread.vue'
-import axios from 'axios'
 
 export default {
 
@@ -39,14 +56,11 @@ export default {
                 return;
             }
 
-            axios.post('/forum/newthread', {
+            this.$inertia.post('/forum/newthread', {
                 title: this.title,
                 comment: this.comment,
-                thread_topic_id: this.topic.id,
-            }).then(response => {
-                this.title = ''
-                this.comment = ''
-            });
+                thread_topic_id: this.$page.props.thread_topic_id
+            })
         }
     },
 }

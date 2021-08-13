@@ -1,20 +1,44 @@
 <template>
-    <div class="bg-gray-100 m-5">
+    <div class="bg-white overflow-hidden shadow rounded-lg">
+        <div class="px-4 py-5 sm:p-6">
+            <div class="m-3">
 
-        <p> {{thread.user.name}} posted at {{(new Date(thread.user.created_at)).toString()}}</p>
 
-        <h1 class="font-bold"> {{thread.title}} </h1>
+                <div class="font-bold text-gray-700 text-xl mb-2"> {{thread.title}} </div>
+                <div class="border-2 border-parent-300 rounded-md p-4 mb-6">
+                    <div class="font-bold text-parent-600">
+                        {{thread.user.name}} <span class="text-sm mb-4 ">posted at {{(new Date(thread.user.created_at)).toDateString()}}</span>
+                    </div>
+                     <div class="mt-2 mb-2 ml-4">
+                        {{thread.comment}}
+                    </div>
+                </div>
+                
+                <div v-for="(message, index) in thread.messages" :key="index"> 
+                    <div class="font-bold">
+                        {{message.user.name}} <span class="text-sm mb-4 text-gray-600">posted at {{(new Date(message.user.created_at)).toDateString()}}</span>
+                    </div>
+                     <div class="mt-2 mb-6 ml-4">
+                        {{message.message}}
+                    </div>
+                </div> 
 
-        <p> {{thread.comment}} </p>
+                <div class="flex flex-row mt-4 ">
+                    <div class="flex-grow">
+                        <label for="message" class="block text-sm font-medium text-gray-700">Reply</label>
+                        <div class="mt-1">
+                            <input type="text" v-model="msg" name="message" id="message" class="shadow-sm focus:ring-parent-500 focus:border-parent-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="message">
+                        </div>
+                    </div>
 
-        <input v-model="msg" />
+                    <button class="bg-parent-300 hover:bg-parent-400 rounded-md px-8 py-2 mt-6  text-sm mx-8" @click="sendMsg">Reply </button>
+                </div>
 
-        <button @click="sendMsg"> Send Message </button>
+                
+            </div>
+        </div>
+        </div>
 
-        <div v-for="(message, index) in thread.messages" :key="index"> 
-            {{message.message}} from {{message.user.name}} posted at {{(new Date(message.user.created_at)).toString()}}
-        </div> 
-    </div>
 </template>
 
 <script>
@@ -32,11 +56,9 @@ export default {
 
     methods: {
         sendMsg() {
-            axios.post('/forum/addthreadmessage', {
+            this.$inertia.post('/forum/addthreadmessage', {
                 thread_id: this.thread.id,
                 message: this.msg,
-            }).then(response => {
-                this.msg = ''
             })
         },
     },
