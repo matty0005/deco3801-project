@@ -17,7 +17,7 @@ class UserTableSeeder extends Seeder
         
         \DB::table('users')->insert(array(
             array(
-                "id" => 13,
+                "id" => 1,
                 "name" => "Test User",
                 "email" => "test@example.com",
                 "email_verified_at" => NULL,

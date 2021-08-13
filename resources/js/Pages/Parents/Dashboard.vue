@@ -1,5 +1,5 @@
 <template>
-    <Layout class="bg-gray-100 min-h-screen">
+    <Layout class="bg-blueGray-100 min-h-screen">
         <div class="container mx-auto mt-8">
             <div class="bg-white overflow-hidden shadow rounded-lg">
                 <div class="px-4 py-5 sm:p-6 text-2xl">

@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             UserTableSeeder::class,
             QuizQuestionsSeeder::class,
             ThreadTopicSeeder::class,
+            UserSettingsSeeder::class,
         ]);
     }
 }

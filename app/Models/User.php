@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -40,4 +42,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $appends = [
+        'avatar',
+    ];
+
+    public function getAvatarAttribute()
+    {
+        $avatar = DB::table('user_settings')
+            ->select('avatar')
+            ->where('user_id', $this->id)
+            ->where('type', Session::get('kidsMode') ? 2:1)
+            ->first();
+
+
+        if ($avatar == null || $avatar->avatar == ''){
+           return  '/images/default_avatar.png';
+        }
+
+        return $avatar->avatar;
+    }
 }
