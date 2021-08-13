@@ -22,12 +22,12 @@ class ChangePasswordController extends Controller
         $data = InertiaRequest::validate([
             'current' => ['required', 'max:255', new MatchOldPassword],
             'new_password' => ['required', 'max:255'],
-            'confirm_password' => ['required', 'same:new', 'max:255'],
+            'confirm_password' => ['required', 'same:new_password', 'max:255'],
         ]);
 
 
 
-        User::find(Auth::user()->id)->update(['password'=> Hash::make($data['new'])]);
+        User::find(Auth::user()->id)->update(['password'=> Hash::make($data['new_password'])]);
 
         return Redirect::route('user_settings');
 
