@@ -43,7 +43,7 @@
                         
                     </div>
                     <div class="w-full flex flex-row-reverse">
-                        <button class="w-24 mx-auto bg-parentPrimay hover:bg-parentPrimayHover text-white rounded-md px-6 py-2 m-2" type="submit">Submit</button>
+                        <button class="w-24 mx-auto bg-parent-500 hover:bg-parent-600 text-white rounded-md px-6 py-2 m-2" type="submit">Submit</button>
                         <div class="flex-grow w-2"></div>
                     </div>
 
