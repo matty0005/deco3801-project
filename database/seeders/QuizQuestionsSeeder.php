@@ -24,6 +24,12 @@ class QuizQuestionsSeeder extends Seeder
                 "type" => "parent",
                 "questions" => "{\"Worries\": \"{'answers':['Never', 'Sometimes', 'Regularly'], 'required':false}\", \"Sad or Unhappy\": \"{'answers':['Never', 'Sometimes', 'Regularly'], 'required':true}\"}",
             ),
+            array(
+                "id" => 2,
+                "name" => "Is your child retarded Quiz",
+                "type" => "parent",
+                "questions" => "{\"Worries\": \"{'answers':['Never', 'Sometimes', 'Regularly'], 'required':false}\", \"Sad or Unhappy\": \"{'answers':['Never', 'Sometimes', 'Regularly'], 'required':true}\"}",
+            ),
         ));
         
     }

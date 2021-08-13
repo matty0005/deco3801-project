@@ -47,6 +47,7 @@ Route::post('/switch/parents', [SwitchParentsModeController:: class, 'index'])->
 // Settings 
 Route::get('/settings', [UserSettingsController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
 Route::get('/profile', [ParentSettingsController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('user_settings');
+Route::post('/profile', [ParentSettingsController:: class, 'update'])->middleware(['auth', 'verified', 'role']);
 Route::post('/profile/avatar', [ParentAvatarController:: class, 'update'])->middleware(['auth', 'verified', 'role']);
 
 
