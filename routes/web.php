@@ -61,6 +61,7 @@ Route::post('/quiz/parent/progressive', [FirstProgressionQuiz:: class, 'create']
 
 Route::get('/evaluate', [EvaluationController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
 Route::get('/evaluate/parent/{id}', [EvaluateParentController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+Route::post('/evaluate/parent/{id}', [EvaluateParentController:: class, 'store'])->middleware(['auth', 'verified', 'role']);
 
 
 // Consultation
