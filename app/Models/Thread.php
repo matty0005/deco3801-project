@@ -17,4 +17,8 @@ class Thread extends Model
     public function messages() {
         return $this->hasMany('App\Models\ThreadMessage');
     }
+
+    public function topic() {
+        return $this->hasOne('App\Models\ThreadTopic', 'id', 'thread_topic_id');
+    }
 }

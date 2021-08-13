@@ -30,10 +30,6 @@ export default {
         }
     },
 
-    mounted() {
-        console.log(this.thread);
-    },
-
     methods: {
         sendMsg() {
             axios.post('/forum/addthreadmessage', {

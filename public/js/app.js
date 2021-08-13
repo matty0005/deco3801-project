@@ -18411,45 +18411,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
-/* harmony import */ var _Thread_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Thread.vue */ "./resources/js/Pages/Forum/Thread.vue");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Topic_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Topic.vue */ "./resources/js/Pages/Forum/Topic.vue");
+/* harmony import */ var _Thread_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Thread.vue */ "./resources/js/Pages/Forum/Thread.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     Layout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__.default,
-    Thread: _Thread_vue__WEBPACK_IMPORTED_MODULE_1__.default
+    Topic: _Topic_vue__WEBPACK_IMPORTED_MODULE_1__.default,
+    Thread: _Thread_vue__WEBPACK_IMPORTED_MODULE_2__.default
   },
   data: function data() {
     return {
-      threads: [],
-      title: '',
-      comment: ''
+      topics: [],
+      selectedTopic: [],
+      threads: []
     };
   },
+  mounted: function mounted() {
+    this.getTopics();
+    this.getThreads();
+  },
   methods: {
-    getThreads: function getThreads() {
+    getTopics: function getTopics() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_2___default().get('/forum/getthreads').then(function (response) {
-        _this.threads = response.data;
+      axios__WEBPACK_IMPORTED_MODULE_3___default().get('/forum/gettopics').then(function (response) {
+        _this.topics = response.data;
       });
     },
-    addThread: function addThread() {
+    getThreads: function getThreads() {
       var _this2 = this;
 
-      if (this.title == '' || this.comment == '') {
-        return;
-      }
-
-      axios__WEBPACK_IMPORTED_MODULE_2___default().post('/forum/newthread', {
-        title: this.title,
-        comment: this.comment
-      }).then(function (response) {
-        _this2.title = '';
-        _this2.comment = '';
+      axios__WEBPACK_IMPORTED_MODULE_3___default().get('/forum/getthreads').then(function (response) {
+        _this2.threads = response.data;
       });
     }
   }
@@ -18478,9 +18477,6 @@ __webpack_require__.r(__webpack_exports__);
       msg: ''
     };
   },
-  mounted: function mounted() {
-    console.log(this.thread);
-  },
   methods: {
     sendMsg: function sendMsg() {
       var _this = this;
@@ -18490,6 +18486,55 @@ __webpack_require__.r(__webpack_exports__);
         message: this.msg
       }).then(function (response) {
         _this.msg = '';
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Forum/Topic.vue?vue&type=script&lang=js":
+/*!************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Forum/Topic.vue?vue&type=script&lang=js ***!
+  \************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Thread_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Thread.vue */ "./resources/js/Pages/Forum/Thread.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    Thread: _Thread_vue__WEBPACK_IMPORTED_MODULE_0__.default
+  },
+  props: ['topic'],
+  data: function data() {
+    return {
+      title: '',
+      comment: ''
+    };
+  },
+  methods: {
+    addThread: function addThread() {
+      var _this = this;
+
+      if (this.title == '' || this.comment == '') {
+        return;
+      }
+
+      axios__WEBPACK_IMPORTED_MODULE_1___default().post('/forum/newthread', {
+        title: this.title,
+        comment: this.comment,
+        thread_topic_id: this.topic.id
+      }).then(function (response) {
+        _this.title = '';
+        _this.comment = '';
       });
     }
   }
@@ -20488,7 +20533,12 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 /* HOISTED */
 );
 
+var _hoisted_5 = {
+  "class": "flex flex-row"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_Topic = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Topic");
+
   var _component_Thread = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Thread");
 
   var _component_Layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Layout");
@@ -20497,38 +20547,40 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "bg-gray-100 min-h-screen"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
-        onClick: _cache[1] || (_cache[1] = function () {
-          return $options.getThreads && $options.getThreads.apply($options, arguments);
-        })
-      }, " Get Threads "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
-        onClick: _cache[2] || (_cache[2] = function () {
-          return $options.addThread && $options.addThread.apply($options, arguments);
-        })
-      }, " Add Thread "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
-        "class": "border-b-2 border-black",
-        "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
-          return $data.title = $event;
-        }),
-        placeholder: "title"
-      }, null, 512
-      /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.title]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
-        "class": "border-b-2 border-black",
-        "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
-          return $data.comment = $event;
-        }),
-        placeholder: "comment"
-      }, null, 512
-      /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.comment]]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.threads, function (thread, index) {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.topics, function (topic, index) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
-          key: index
+          "class": "mx-2",
+          key: index,
+          value: topic
+        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+          onClick: function onClick($event) {
+            return $data.selectedTopic = topic;
+          }
+        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(topic.title), 9
+        /* TEXT, PROPS */
+        , ["onClick"])], 8
+        /* PROPS */
+        , ["value"]);
+      }), 128
+      /* KEYED_FRAGMENT */
+      ))]), $data.selectedTopic.id ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Topic, {
+        key: 0,
+        topic: $data.selectedTopic
+      }, null, 8
+      /* PROPS */
+      , ["topic"])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+        key: 1
+      }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.threads, function (thread, index) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
+          key: index,
+          value: thread
         }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Thread, {
           thread: thread
         }, null, 8
         /* PROPS */
-        , ["thread"])]);
+        , ["thread"])], 8
+        /* PROPS */
+        , ["value"]);
       }), 128
       /* KEYED_FRAGMENT */
       ))])])])];
@@ -20583,6 +20635,57 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(message.message) + " from " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(message.user.name) + " posted at " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(new Date(message.user.created_at).toString()), 1
     /* TEXT */
     );
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))]);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Forum/Topic.vue?vue&type=template&id=e1cc99f0":
+/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Forum/Topic.vue?vue&type=template&id=e1cc99f0 ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_Thread = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Thread");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+    onClick: _cache[1] || (_cache[1] = function () {
+      return $options.addThread && $options.addThread.apply($options, arguments);
+    })
+  }, " Add Thread "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+    "class": "border-b-2 border-black",
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return $data.title = $event;
+    }),
+    placeholder: "title"
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.title]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+    "class": "border-b-2 border-black",
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+      return $data.comment = $event;
+    }),
+    placeholder: "comment"
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.comment]]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.topic.threads, function (thread, index) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
+      key: index
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Thread, {
+      thread: thread
+    }, null, 8
+    /* PROPS */
+    , ["thread"])]);
   }), 128
   /* KEYED_FRAGMENT */
   ))]);
@@ -45914,6 +46017,32 @@ _Thread_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.__file 
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Forum/Topic.vue":
+/*!********************************************!*\
+  !*** ./resources/js/Pages/Forum/Topic.vue ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Topic_vue_vue_type_template_id_e1cc99f0__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Topic.vue?vue&type=template&id=e1cc99f0 */ "./resources/js/Pages/Forum/Topic.vue?vue&type=template&id=e1cc99f0");
+/* harmony import */ var _Topic_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Topic.vue?vue&type=script&lang=js */ "./resources/js/Pages/Forum/Topic.vue?vue&type=script&lang=js");
+
+
+
+_Topic_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _Topic_vue_vue_type_template_id_e1cc99f0__WEBPACK_IMPORTED_MODULE_0__.render
+/* hot reload */
+if (false) {}
+
+_Topic_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.__file = "resources/js/Pages/Forum/Topic.vue"
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_Topic_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Kids/Dashboard.vue":
 /*!***********************************************!*\
   !*** ./resources/js/Pages/Kids/Dashboard.vue ***!
@@ -46388,6 +46517,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Forum/Topic.vue?vue&type=script&lang=js":
+/*!********************************************************************!*\
+  !*** ./resources/js/Pages/Forum/Topic.vue?vue&type=script&lang=js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Topic_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__.default)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Topic_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Topic.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Forum/Topic.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Kids/Dashboard.vue?vue&type=script&lang=js":
 /*!***********************************************************************!*\
   !*** ./resources/js/Pages/Kids/Dashboard.vue?vue&type=script&lang=js ***!
@@ -46804,6 +46949,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Forum/Topic.vue?vue&type=template&id=e1cc99f0":
+/*!**************************************************************************!*\
+  !*** ./resources/js/Pages/Forum/Topic.vue?vue&type=template&id=e1cc99f0 ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Topic_vue_vue_type_template_id_e1cc99f0__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Topic_vue_vue_type_template_id_e1cc99f0__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Topic.vue?vue&type=template&id=e1cc99f0 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Forum/Topic.vue?vue&type=template&id=e1cc99f0");
+
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Kids/Dashboard.vue?vue&type=template&id=24433b8a":
 /*!*****************************************************************************!*\
   !*** ./resources/js/Pages/Kids/Dashboard.vue?vue&type=template&id=24433b8a ***!
@@ -47158,6 +47319,8 @@ var map = {
 	"./Forum/Dashboard.vue": "./resources/js/Pages/Forum/Dashboard.vue",
 	"./Forum/Thread": "./resources/js/Pages/Forum/Thread.vue",
 	"./Forum/Thread.vue": "./resources/js/Pages/Forum/Thread.vue",
+	"./Forum/Topic": "./resources/js/Pages/Forum/Topic.vue",
+	"./Forum/Topic.vue": "./resources/js/Pages/Forum/Topic.vue",
 	"./Kids/Dashboard": "./resources/js/Pages/Kids/Dashboard.vue",
 	"./Kids/Dashboard.vue": "./resources/js/Pages/Kids/Dashboard.vue",
 	"./Parents/Dashboard": "./resources/js/Pages/Parents/Dashboard.vue",

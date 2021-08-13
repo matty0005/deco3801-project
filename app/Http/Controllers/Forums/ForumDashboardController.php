@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Thread;
 use App\Models\ThreadMessage;
+use App\Models\ThreadTopic;
 use Illuminate\Support\Facades\Auth;
 
 class ForumDashboardController extends Controller
@@ -18,6 +19,7 @@ class ForumDashboardController extends Controller
     public function newThread(Request $request) {
         $thread = new Thread();
         $thread->user_id = Auth::id();
+        $thread->thread_topic_id = $request->thread_topic_id;
         $thread->title = $request->title;
         $thread->comment = $request->comment;
         $thread->save();
@@ -35,5 +37,9 @@ class ForumDashboardController extends Controller
         $threadmessage->save();
 
         return $threadmessage;
+    }
+
+    public function getTopics(Request $request) {
+        return ThreadTopic::with(['threads.user', 'threads.messages.user'])->get();
     }
 }
