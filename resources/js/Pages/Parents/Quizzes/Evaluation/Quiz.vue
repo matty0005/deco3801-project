@@ -14,6 +14,7 @@
             <div class="px-4 py-5 sm:p-6">
                 {{ content.questions }}
             </div>
+            <Select label="Select the following that applies:" :options="options" @selected="userSelect"/>
         </div>
 
         <div class="container mx-auto mt-4">
@@ -25,11 +26,30 @@
 <script>
     import Layout from '@/Layouts/AppLayout'
     import List from "@/Shared/Lists"
+    import Select from '@/Shared/Select.vue'
 
     export default {
         components: {
             Layout,
-            List
+            List,
+            Select
+        },
+
+        data: () => {
+            return {
+                options: [
+                    {id: 1,
+                    text: "Lonely"},
+                    {id: 2,
+                    text: "String2"},
+                    {id: 3,
+                    text: "String3"},
+                    {id: 4,
+                    text: "String4"},
+                    {id: 5,
+                    text: "String5"}
+                ]
+            }
         },
         props: {
             content: Object
@@ -42,6 +62,10 @@
             },
             handleQuizClick (id) {
                 this.$inertia.visit(`/evaluate/parent/${id}`)
+            },
+
+            userSelect (id) {
+                console.log(id)
             }
         }
     }
