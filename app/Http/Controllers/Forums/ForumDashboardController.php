@@ -3,17 +3,24 @@
 namespace App\Http\Controllers\Forums;
 
 use Inertia\Inertia;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\Thread;
-use App\Models\ThreadMessage;
 use App\Models\ThreadTopic;
+use Illuminate\Http\Request;
+use App\Models\ThreadMessage;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class ForumDashboardController extends Controller
 {
     public function index() {
-        return Inertia::render('Forum/Dashboard');
+        $threads = Thread::with(['user', 'messages.user'])->get();
+        $topics = ThreadTopic::with(['threads.user', 'threads.messages.user'])->get();
+
+        return Inertia::render('Forum/Dashboard', [
+            'formThreads' => $threads,
+            'formTopics' => $topics
+        ]);
     }
 
     public function newThread(Request $request) {
@@ -23,10 +30,7 @@ class ForumDashboardController extends Controller
         $thread->title = $request->title;
         $thread->comment = $request->comment;
         $thread->save();
-    }
-
-    public function getThreads(Request $request) {
-        return Thread::with(['user', 'messages.user'])->get();
+        return redirect()->back();;
     }
 
     public function addThreadMessage(Request $request) {
@@ -36,10 +40,7 @@ class ForumDashboardController extends Controller
         $threadmessage->message = $request->message;
         $threadmessage->save();
 
-        return $threadmessage;
+        return redirect()->back();;
     }
 
-    public function getTopics(Request $request) {
-        return ThreadTopic::with(['threads.user', 'threads.messages.user'])->get();
-    }
 }

@@ -2,25 +2,31 @@
     <Layout class="bg-gray-100 min-h-screen">
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 text-3xl">
-                       Forums
-                    </div>
-                    
-                    <div class="flex flex-row">
-                        <div class="mx-2" v-for="(topic, index) in topics" :key="index" :value="topic">
-                            <button @click="selectedTopic = topic"> {{topic.title}} </button>
+                <div class="overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="bg-white overflow-hidden shadow rounded-lg">
+                        <div class="px-4 py-5 sm:p-6">
+                             <div class="p-6 text-3xl">
+                                Forums
+                            </div>
+                            
+                            <div class="flex flex-row">
+                                <div v-for="(topic, index) in topics" :key="index" @click="changeTopic(topic.title)" class="mx-2 my-2 py-2 px-8 rounded-md" :class="isOnPage(topic.title) ? 'bg-parent-300':'bg-parent-100'"  :value="topic">
+                                    <button > {{topic.title}} </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                   
 
-                    <Topic v-if="selectedTopic.id" :topic="selectedTopic" />
                     
-                    <div v-else v-for="(thread, index) in threads" :key="index" :value="thread"> 
+                    <!-- <div v-else v-for="(thread, index) in threads" :key="updateKey" :value="thread"> 
                         <Thread :thread="thread" />
-                    </div>
+                    </div> -->
                 </div>
+                    <Topic class="mb-4 -mt-4"  :topic="selectedTopic" />
             </div>
         </div>
+
     </Layout>
 </template>
 
@@ -29,13 +35,15 @@
     import Topic from './Topic.vue'
     import Thread from './Thread.vue'
 
-    import axios from 'axios'
-
     export default {
         components: {
             Layout,
             Topic,
             Thread,
+        },
+        props: {
+            formThreads: Array,
+            formTopics: Array
         },
 
         data() {
@@ -43,26 +51,29 @@
                 topics: [],
                 selectedTopic: [],
                 threads: [],
+                updateKey: 0
             }
+        },
+        watch: {
+            formThreads: function(a,b) {
+                this.updateKey++
+            }
+        },
+        methods: {
+            changeTopic(topic) {
+                this.$inertia.visit(`/forum/topic/${topic}`)
+            },
+             isOnPage (url) {
+                var ver = 2
+                // var urlMod = url.split("/").filter(l => l)[ver]
+                var currentUrl = window.location.pathname.split("/").filter(t => t)[ver]
+                return url === currentUrl
+            },
         },
 
         mounted() {
-            this.getTopics();
-            this.getThreads();
-        },
-
-        methods: {
-            getTopics() {
-                axios.get('/forum/gettopics').then(response => {
-                    this.topics = response.data;
-                });
-            },
-
-            getThreads() {
-                axios.get('/forum/getthreads').then(response => {
-                    this.threads = response.data;
-                });
-            }
+            this.topics = this.formTopics
+            this.threads = this.formThreads
         },
     }
 </script>
