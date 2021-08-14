@@ -7,7 +7,7 @@
                 <div class="font-bold text-gray-700 text-xl mb-2"> {{thread.title}} </div>
                 <div class="border-2 border-parent-300 rounded-md p-4 mb-6">
                     <div class="font-bold text-parent-600">
-                        {{thread.user.name}} <span class="text-sm mb-4 ">posted at {{(new Date(thread.user.created_at)).toDateString()}}</span>
+                        {{thread.name}} <span class="text-sm mb-4 ">posted at {{(new Date(thread.created_at)).toDateString()}}</span>
                     </div>
                      <div class="mt-2 mb-2 ml-4">
                         {{thread.comment}}
