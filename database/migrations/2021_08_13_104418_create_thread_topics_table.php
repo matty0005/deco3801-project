@@ -14,8 +14,7 @@ class CreateThreadTopicsTable extends Migration
     public function up()
     {
         Schema::create('thread_topics', function (Blueprint $table) {
-            $table->id();
-            $table->mediumText('title');
+            $table->string('title')->unique();
         });
     }
 

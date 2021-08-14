@@ -43,7 +43,7 @@ export default {
     props: {
         threads: Array,
         topics: Array,
-        thread_topic_id: Number,
+        thread_topic_title: String,
     },
 
     data() {
@@ -59,11 +59,11 @@ export default {
             if (this.title == '' || this.comment == '') {
                 return;
             }
-           
+            
             this.$inertia.post('/forum/newthread', {
                 title: this.title,
                 comment: this.comment,
-                thread_topic_id: this.thread_topic_id
+                thread_topic_title: this.thread_topic_title
             });
 
             this.title = '';

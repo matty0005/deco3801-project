@@ -23,6 +23,10 @@
                     </div>
                 </div> 
 
+                {{thread.count}} total comments
+
+                <p v-if="thread.thread_topic_title"> posted in {{thread.thread_topic_title}} </p>
+
                 <div class="flex flex-row mt-4 ">
                     <div class="flex-grow">
                         <label for="message" class="block text-sm font-medium text-gray-700">Reply</label>

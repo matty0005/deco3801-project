@@ -21,20 +21,15 @@ class ForumDashboardController extends Controller
                             'threads.title',
                             'threads.comment',
                             'threads.created_at',
+                            'threads.thread_topic_title',
                             'users.name',
                         )
-                        ->join('thread_topics', 'thread_topics.id', 'threads.thread_topic_id')
+                        ->selectRaw('(SELECT COUNT(*) FROM thread_messages tm JOIN threads t ON t.id = tm.thread_id WHERE tm.thread_id = threads.id) count')
                         ->join('users', 'users.id', 'threads.user_id')
                         ->get();
 
+        $topics = DB::table('thread_topics')->get();
 
-        $topics = DB::table('thread_topics')
-                            ->select(
-                                'thread_topics.id',
-                                'thread_topics.title',
-                            )
-                            ->get();
-                            
         return Inertia::render('Forum/Dashboard', [
             'threads' => $threads,
             'topics' => $topics
@@ -44,10 +39,11 @@ class ForumDashboardController extends Controller
     public function newThread(Request $request) {
         $thread = new Thread();
         $thread->user_id = Auth::id();
-        $thread->thread_topic_id = $request->thread_topic_id;
+        $thread->thread_topic_title = $request->thread_topic_title;
         $thread->title = $request->title;
         $thread->comment = $request->comment;
         $thread->save();
+
         return redirect()->back();
     }
 

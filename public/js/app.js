@@ -18533,7 +18533,7 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     threads: Array,
     topics: Array,
-    thread_topic_id: Number
+    thread_topic_title: String
   },
   data: function data() {
     return {
@@ -18550,7 +18550,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$inertia.post('/forum/newthread', {
         title: this.title,
         comment: this.comment,
-        thread_topic_id: this.thread_topic_id
+        thread_topic_title: this.thread_topic_title
       });
       this.title = '';
       this.comment = '';
@@ -21365,20 +21365,23 @@ var _hoisted_11 = {
   "class": "mt-2 mb-6 ml-4"
 };
 var _hoisted_12 = {
-  "class": "flex flex-row mt-4 "
+  key: 0
 };
 var _hoisted_13 = {
+  "class": "flex flex-row mt-4 "
+};
+var _hoisted_14 = {
   "class": "flex-grow"
 };
 
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
   "for": "message",
   "class": "block text-sm font-medium text-gray-700"
 }, "Reply", -1
 /* HOISTED */
 );
 
-var _hoisted_15 = {
+var _hoisted_16 = {
   "class": "mt-1"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -21402,7 +21405,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     )]);
   }), 128
   /* KEYED_FRAGMENT */
-  )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+  )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.thread.count) + " total comments ", 1
+  /* TEXT */
+  ), $props.thread.thread_topic_title ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_12, " posted in " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.thread.thread_topic_title), 1
+  /* TEXT */
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
     type: "text",
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $data.msg = $event;

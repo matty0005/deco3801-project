@@ -13,8 +13,7 @@ use Illuminate\Support\Facades\Redirect;
 class ForumTopicController extends Controller
 {
     public function index($topic_title) {
-        // $threads = Thread::with(['user', 'messages.user', 'thread_topic_id'])->get();
-
+        
         $topic = ThreadTopic::where('title', $topic_title)->first();
 
         if ($topic == null) {
@@ -29,22 +28,17 @@ class ForumTopicController extends Controller
                             'threads.created_at',
                             'users.name',
                         )
-                        ->where('thread_topics.id', $topic->id)
-                        ->join('thread_topics', 'thread_topics.id', 'threads.thread_topic_id')
+                        ->selectRaw('(SELECT COUNT(*) FROM thread_messages tm JOIN threads t ON t.id = tm.thread_id WHERE tm.thread_id = threads.id) count')
+                        ->where('threads.thread_topic_title', $topic->title)
                         ->join('users', 'users.id', 'threads.user_id')
                         ->get();
         
-        $topics = DB::table('thread_topics')
-                        ->select(
-                            'thread_topics.id',
-                            'thread_topics.title',
-                        )
-                        ->get();
+        $topics = DB::table('thread_topics')->get();
 
         return Inertia::render('Forum/Topic', [
             'threads' => $threads->toArray(),
             'topics' => $topics->toArray(),
-            'thread_topic_id' => $topic->id
+            'thread_topic_title' => $topic->title
         ]);
     }
 }
