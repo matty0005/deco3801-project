@@ -68,7 +68,7 @@ Route::post('/profile/change-password', [ChangePasswordController:: class, 'upda
 
 // Forum
 Route::get('/forum', [ForumDashboardController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('forum_home');
-Route::get('/forum/topic/{topic_id}', [ForumTopicController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('forum_topic');
+Route::get('/forum/topic/{topic_title}', [ForumTopicController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('forum_topic');
 
 
 Route::post('/forum/newthread', [ForumDashboardController::class, 'newThread']);

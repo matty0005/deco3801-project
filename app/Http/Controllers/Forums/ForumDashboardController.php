@@ -18,8 +18,8 @@ class ForumDashboardController extends Controller
         $topics = ThreadTopic::with(['threads.user', 'threads.messages.user'])->get();
 
         return Inertia::render('Forum/Dashboard', [
-            'formThreads' => $threads,
-            'formTopics' => $topics
+            'threads' => $threads,
+            'topics' => $topics
         ]);
     }
 
@@ -30,7 +30,7 @@ class ForumDashboardController extends Controller
         $thread->title = $request->title;
         $thread->comment = $request->comment;
         $thread->save();
-        return redirect()->back();;
+        return redirect()->back();
     }
 
     public function addThreadMessage(Request $request) {
@@ -40,7 +40,7 @@ class ForumDashboardController extends Controller
         $threadmessage->message = $request->message;
         $threadmessage->save();
 
-        return redirect()->back();;
+        return redirect()->back();
     }
 
 }
