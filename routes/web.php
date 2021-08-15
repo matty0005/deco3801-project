@@ -8,12 +8,13 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserSettingsController;
 use App\Http\Controllers\Account\BillingController;
 use App\Http\Controllers\Forums\ForumTopicController;
-use App\Http\Controllers\Forums\ForumThreadController;
 use App\Http\Controllers\PublicFacing\HomeController;
+use App\Http\Controllers\Forums\ForumThreadController;
 use App\Http\Controllers\Quizzes\EvaluationController;
 use App\Http\Controllers\Quizzes\FirstProgressionQuiz;
 use App\Http\Controllers\Account\ManageChildController;
 use App\Http\Controllers\Account\ParentAvatarController;
+use App\Http\Controllers\Kids\KidsDrawingPageController;
 use App\Http\Controllers\Account\NotificationsController;
 use App\Http\Controllers\Forums\ForumDashboardController;
 use App\Http\Controllers\Account\ChangePasswordController;
@@ -88,6 +89,11 @@ Route::post('/evaluate/parent/{id}', [EvaluateParentController:: class, 'store']
 
 // Consultation
 Route::get('/consultation', [ConsultationController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+
+
+// Kids 
+Route::get('/kids/draw', [KidsDrawingPageController:: class, 'index'])->middleware(['auth', 'verified']);
+
 
 
 
