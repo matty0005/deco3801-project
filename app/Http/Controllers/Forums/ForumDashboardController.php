@@ -21,6 +21,7 @@ class ForumDashboardController extends Controller
                             'threads.title',
                             'threads.comment',
                             'threads.created_at',
+                            'threads.thread_topic_title AS topic_on_dashboard',
                             'threads.thread_topic_title',
                             'users.name',
                         )

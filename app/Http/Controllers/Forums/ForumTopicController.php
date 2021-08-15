@@ -14,7 +14,7 @@ class ForumTopicController extends Controller
 {
     public function index($topic_title) {
         
-        $topic = ThreadTopic::where('title', $topic_title)->first();
+        $topic = DB::table('thread_topics')->where('title', $topic_title)->first();
 
         if ($topic == null) {
             return Redirect::route('forum_home'); //Potentially should change to 404
@@ -26,6 +26,7 @@ class ForumTopicController extends Controller
                             'threads.title',
                             'threads.comment',
                             'threads.created_at',
+                            'threads.thread_topic_title',
                             'users.name',
                         )
                         ->selectRaw('(SELECT COUNT(*) FROM thread_messages tm JOIN threads t ON t.id = tm.thread_id WHERE tm.thread_id = threads.id) count')

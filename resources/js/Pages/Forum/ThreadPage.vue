@@ -1,6 +1,6 @@
 <template>
-    <Layout class="bg-gray-100 min-h-screen">
-        <div v-if="thread" class="bg-white overflow-hidden shadow rounded-lg my-12 mx-12">
+    <Dashboard :topics="topics">
+        <div v-if="thread" class="bg-white overflow-hidden shadow rounded-lg">
             <div class="px-4 py-5 sm:p-6">
                 <div class="m-3">
 
@@ -38,22 +38,23 @@
                 </div>
             </div>
         </div>
-    </Layout>
+    </Dashboard>
 </template>
 
 <script>
 
-import Layout from '@/Layouts/AppLayout'
+import Dashboard from './Dashboard.vue'
 
 export default {
 
     components: {
-        Layout
+        Dashboard,
     },
 
     props: {
         thread: Object,
         messages: Array,
+        topics: Array,
     },
 
     data() {

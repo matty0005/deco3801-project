@@ -7,7 +7,7 @@
                 <div class="font-bold text-gray-700 text-xl mb-2 flex flex-row"> 
                     <p> {{thread.title}} </p>
 
-                    <p class="ml-auto" v-if="thread.thread_topic_title"> posted in {{thread.thread_topic_title}} </p>
+                    <p class="ml-auto" v-if="thread.topic_on_dashboard"> posted in {{thread.topic_on_dashboard}} </p>
                 </div>
                 <div class="border-2 border-parent-300 rounded-md p-4 mb-6">
                     <div class="font-bold text-parent-600">
@@ -35,7 +35,7 @@ export default {
 
     methods: {
         visitThread() {
-            this.$inertia.visit(`/forum/thread/${this.thread.id}`)
+            this.$inertia.visit(`/forum/topic/${this.thread.thread_topic_title}/${this.thread.id}`)
         },
     }
 }
