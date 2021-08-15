@@ -14,7 +14,7 @@
                 <div class="border-2 border-parent-300 rounded-md p-4 mb-6">
                     <div class="font-bold text-parent-600 flex flex-row">
 
-                        <img class="rounded-lg mr-3" :src="thread.avatar"/>
+                        <img class="rounded-lg mr-3 h-16 w-16" :src="thread.avatar"/>
 
                         <div> {{thread.display_name}} <span class="text-sm mb-4 ">posted at {{time}}</span></div>
                     </div>
