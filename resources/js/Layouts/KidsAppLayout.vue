@@ -85,12 +85,12 @@
         <slot />
     </main>
 
-    <ModalContainer v-model="verifyParent" type="warning"  confirmText="Verify" title="Change back to parents mode?" autoClose>
+    <ModalContainer v-model="verifyParent" @onConfirm="verifyMe" type="warning"  confirmText="Verify" title="Change back to parents mode?" @keyup.enter="verifyMe">
         <div>
             <div>
                 Are you sure you want to exit kids mode and go back to parents mode? Please put in your password to continue
             </div>
-            <Textfield class="my-3" v-model="parentPassword" password/> 
+            <Textfield class="my-3" v-model="parentPassword" password /> 
         </div>
     </ModalContainer>
 
@@ -109,9 +109,12 @@ export default {
     data: () => {
         return {
             showProfileDropdown: false,
-            verifyParent: true,
+            verifyParent: false,
             parentPassword: ""
         }
+    },
+    props: {
+        errors:Object
     },
     components: {
         Link,
@@ -125,6 +128,11 @@ export default {
         switchParents() {
             this.verifyParent = true
             // /switch/parents
+        },
+        verifyMe () {
+            this.$inertia.post('/switch/parents', {
+                password: this.parentPassword
+            })
         }
     },
     mounted() {

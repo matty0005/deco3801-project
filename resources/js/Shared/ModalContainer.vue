@@ -70,16 +70,18 @@ export default {
     },
     methods: {
         closeModal() {
-            if (this.autoClose) {
-               this.$emit('update:modelValue', false)
-            }
+            this.$emit('update:modelValue', false)
         },
         cancelClick () {
-            this.closeModal()
+             if (this.autoClose) {
+               this.closeModal
+            }
             this.$emit('onClose')
         },
         confirmClick() {
-            this.closeModal()
+             if (this.autoClose) {
+               this.closeModal
+            }
             this.$emit('onConfirm')
         }
     },

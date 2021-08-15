@@ -19227,9 +19227,12 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       showProfileDropdown: false,
-      verifyParent: true,
+      verifyParent: false,
       parentPassword: ""
     };
+  },
+  props: {
+    errors: Object
   },
   components: {
     Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.Link,
@@ -19242,6 +19245,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     switchParents: function switchParents() {
       this.verifyParent = true; // /switch/parents
+    },
+    verifyMe: function verifyMe() {
+      this.$inertia.post('/switch/parents', {
+        password: this.parentPassword
+      });
     }
   },
   mounted: function mounted() {
@@ -20481,16 +20489,20 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     closeModal: function closeModal() {
-      if (this.autoClose) {
-        this.$emit('update:modelValue', false);
-      }
+      this.$emit('update:modelValue', false);
     },
     cancelClick: function cancelClick() {
-      this.closeModal();
+      if (this.autoClose) {
+        this.closeModal;
+      }
+
       this.$emit('onClose');
     },
     confirmClick: function confirmClick() {
-      this.closeModal();
+      if (this.autoClose) {
+        this.closeModal;
+      }
+
       this.$emit('onConfirm');
     }
   },
@@ -21466,10 +21478,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
       return _ctx.verifyParent = $event;
     }),
+    onOnConfirm: $options.verifyMe,
     type: "warning",
     confirmText: "Verify",
     title: "Change back to parents mode?",
-    autoClose: ""
+    onKeyup: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withKeys)($options.verifyMe, ["enter"])
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Textfield, {
@@ -21488,7 +21501,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["modelValue"])]);
+  , ["modelValue", "onOnConfirm", "onKeyup"])]);
 }
 
 /***/ }),
