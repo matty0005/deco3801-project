@@ -25,7 +25,7 @@
                         <slot />
                     </div>
                    
-                    <div class="my-4" v-for="(thread, index) in threads" :key="index" :value="thread"> 
+                    <div class="mt-6" v-for="(thread, index) in threads" :key="index" :value="thread"> 
                         <Thread :thread="thread" />
                     </div>
                 </div>

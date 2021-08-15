@@ -8,7 +8,7 @@
                     <div class="font-bold text-gray-700 text-xl mb-2"> {{thread.title}} </div>
                     <div class="border-2 border-parent-300 rounded-md p-4 mb-6">
                         <div class="font-bold text-parent-600">
-                            {{thread.name}} <span class="text-sm mb-4 ">posted at {{(new Date(thread.created_at)).toDateString()}}</span>
+                            {{thread.display_name}} <span class="text-sm mb-4 ">posted at {{(new Date(thread.created_at)).toDateString()}}</span>
                         </div>
                         <div class="mt-2 mb-2 ml-4">
                             {{thread.comment}}
@@ -28,7 +28,7 @@
                     
                     <div v-for="(message, index) in messages" :key="index"> 
                         <div class="font-bold">
-                            {{message.name}} <span class="text-sm mb-4 text-gray-600">posted at {{(new Date(message.created_at)).toDateString()}}</span>
+                            {{message.display_name}} <span class="text-sm mb-4 text-gray-600">posted at {{(new Date(message.created_at)).toDateString()}}</span>
                         </div>
                         <div class="mt-2 mb-6 ml-4">
                             {{message.message}}
