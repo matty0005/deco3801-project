@@ -52,18 +52,18 @@ Route::post('/switch/parents', [SwitchParentsModeController:: class, 'index'])->
 
 // Settings 
 Route::get('/settings', [UserSettingsController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
-Route::get('/profile', [ParentSettingsController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('user_settings');
-Route::get('/profile/change-password', [ChangePasswordController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
-Route::get('/profile/billing', [BillingController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
-Route::get('/profile/notifications', [NotificationsController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
-Route::get('/profile/manage/child', [ManageChildController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+Route::get('/account', [ParentSettingsController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('user_settings');
+Route::get('/account/change-password', [ChangePasswordController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+Route::get('/account/billing', [BillingController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+Route::get('/account/notifications', [NotificationsController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+Route::get('/account/manage/child', [ManageChildController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
 
 
 
 
-Route::post('/profile', [ParentSettingsController:: class, 'update'])->middleware(['auth', 'verified', 'role']);
-Route::post('/profile/avatar', [ParentAvatarController:: class, 'update'])->middleware(['auth', 'verified', 'role']);
-Route::post('/profile/change-password', [ChangePasswordController:: class, 'update'])->middleware(['auth', 'verified', 'role']);
+Route::post('/account', [ParentSettingsController:: class, 'update'])->middleware(['auth', 'verified', 'role']);
+Route::post('/account/avatar', [ParentAvatarController:: class, 'update'])->middleware(['auth', 'verified', 'role']);
+Route::post('/account/change-password', [ChangePasswordController:: class, 'update'])->middleware(['auth', 'verified', 'role']);
 
 
 
