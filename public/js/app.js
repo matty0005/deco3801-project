@@ -18497,6 +18497,20 @@ __webpack_require__.r(__webpack_exports__);
     visitThread: function visitThread() {
       this.$inertia.visit("/forum/topic/".concat(this.thread.thread_topic_title, "/").concat(this.thread.id));
     }
+  },
+  computed: {
+    time: function time() {
+      if (this.thread && this.thread.created_at) {
+        var raw = new Date(this.thread.created_at);
+        var rawHours = raw.getHours();
+        var hours = rawHours < 10 ? "0" + rawHours : rawHours;
+        var rawMinutes = raw.getMinutes();
+        var minutes = rawMinutes < 10 ? "0" + rawMinutes : rawMinutes;
+        return hours + ":" + minutes + " " + raw.toDateString();
+      }
+
+      return "";
+    }
   }
 });
 
@@ -18536,6 +18550,23 @@ __webpack_require__.r(__webpack_exports__);
         message: this.msg
       });
       this.msg = '';
+    },
+    time: function time(obj) {
+      if (obj && obj.created_at) {
+        var raw = new Date(obj.created_at);
+        var rawHours = raw.getHours();
+        var hours = rawHours < 10 ? "0" + rawHours : rawHours;
+        var rawMinutes = raw.getMinutes();
+        var minutes = rawMinutes < 10 ? "0" + rawMinutes : rawMinutes;
+        return hours + ":" + minutes + " " + raw.toDateString();
+      }
+
+      return "";
+    }
+  },
+  computed: {
+    threadTime: function threadTime() {
+      return this.time(this.thread);
     }
   }
 });
@@ -21400,7 +21431,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.thread.display_name) + " ", 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_7, "posted at " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(new Date($props.thread.created_at).toDateString()), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_7, "posted at " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.time), 1
   /* TEXT */
   )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.thread.comment), 1
   /* TEXT */
@@ -21486,7 +21517,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* TEXT */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.thread.display_name) + " ", 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_7, "posted at " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(new Date($props.thread.created_at).toDateString()), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_7, "posted at " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.threadTime), 1
       /* TEXT */
       )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.thread.comment), 1
       /* TEXT */
@@ -21511,7 +21542,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           key: index
         }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(message.display_name) + " ", 1
         /* TEXT */
-        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_14, "posted at " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(new Date(message.created_at).toDateString()), 1
+        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_14, "posted at " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.time(message)), 1
         /* TEXT */
         )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(message.message), 1
         /* TEXT */

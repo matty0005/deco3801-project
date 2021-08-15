@@ -11,7 +11,7 @@
                 </div>
                 <div class="border-2 border-parent-300 rounded-md p-4 mb-6">
                     <div class="font-bold text-parent-600">
-                        {{thread.display_name}} <span class="text-sm mb-4 ">posted at {{(new Date(thread.created_at)).toDateString()}}</span>
+                        {{thread.display_name}} <span class="text-sm mb-4 ">posted at {{time}}</span>
                     </div>
                      <div class="mt-2 mb-2 ml-4">
                         {{thread.comment}}
@@ -36,6 +36,24 @@ export default {
     methods: {
         visitThread() {
             this.$inertia.visit(`/forum/topic/${this.thread.thread_topic_title}/${this.thread.id}`)
+        },
+    },
+
+    computed:  {
+        time() {
+            if (this.thread && this.thread.created_at) {
+
+                var raw = new Date(this.thread.created_at);
+
+                var rawHours = raw.getHours();
+                var hours = rawHours < 10 ? "0" + rawHours : rawHours;
+
+                var rawMinutes = raw.getMinutes();
+                var minutes = rawMinutes < 10 ? "0" + rawMinutes : rawMinutes;
+
+                return hours + ":" + minutes + " " + raw.toDateString();
+            }
+            return "";
         },
     }
 }
