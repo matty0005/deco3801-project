@@ -28,11 +28,14 @@ class ForumTopicController extends Controller
                             'threads.created_at',
                             'threads.thread_topic_title',
                             'user_settings.display_name',
+                            'user_settings.avatar',
                         )
                         ->selectRaw('(SELECT COUNT(*) FROM thread_messages tm JOIN threads t ON t.id = tm.thread_id WHERE tm.thread_id = threads.id) count')
                         ->where('threads.thread_topic_title', $topic->title)
                         ->join('users', 'users.id', 'threads.user_id')
+                        ->where('user_settings.type', 1)
                         ->join('user_settings','user_settings.user_id',  'users.id')
+                        ->orderBy('threads.created_at', 'DESC')
                         ->get();
         
         $topics = DB::table('thread_topics')->get();
