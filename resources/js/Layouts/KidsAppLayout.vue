@@ -36,7 +36,7 @@
                 <div v-if="showProfileDropdown" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                     <!-- Active: "bg-gray-100", Not Active: "" -->
                     <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Profile</a>
-                    <Link href="/switch/parents" method="post"  as="button" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" >Parent mode</Link>
+                    <a  @click="switchParents"  as="button" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" >Parent mode</a>
                 </div>
                 </transition>
                 </div>
@@ -75,7 +75,7 @@
             </div>
             <div class="mt-3 space-y-1">
                 <a href="#" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100">Your Profile</a>
-                <Link href="/switch/parents" method="post"  as="button" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100" role="menuitem" tabindex="-1" >Parent mode</Link>
+                <a @click="switchParents" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100" role="menuitem" tabindex="-1" >Parent mode</a>
 
             </div>
             </div>
@@ -84,25 +84,48 @@
     <main class="h-main bg-warmGray-100">
         <slot />
     </main>
-</div>
+
+    <ModalContainer v-model="verifyParent" type="warning"  confirmText="Verify" title="Change back to parents mode?" autoClose>
+        <div>
+            <div>
+                Are you sure you want to exit kids mode and go back to parents mode? Please put in your password to continue
+            </div>
+            <Textfield class="my-3" v-model="parentPassword" password/> 
+        </div>
+    </ModalContainer>
+
+
+    
+    </div>
 </template>
 
 <script>
 
 import { Link } from '@inertiajs/inertia-vue3'
+import ModalContainer from "@/Shared/ModalContainer"
+import Textfield from "@/Shared/Textfield"
+
 export default {
     data: () => {
         return {
-            showProfileDropdown: false
+            showProfileDropdown: false,
+            verifyParent: true,
+            parentPassword: ""
         }
     },
     components: {
-        Link
+        Link,
+        ModalContainer,
+        Textfield
     },
     methods: {
         onClickOutside () {
             this.showProfileDropDown = false
         },
+        switchParents() {
+            this.verifyParent = true
+            // /switch/parents
+        }
     },
     mounted() {
         document.addEventListener("click", this.onClickOutside, true);
