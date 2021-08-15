@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserSettingsController;
 use App\Http\Controllers\Account\BillingController;
+use App\Http\Controllers\Forums\ForumTopicController;
+use App\Http\Controllers\Forums\ForumThreadController;
 use App\Http\Controllers\PublicFacing\HomeController;
 use App\Http\Controllers\Quizzes\EvaluationController;
 use App\Http\Controllers\Quizzes\FirstProgressionQuiz;
@@ -66,7 +68,14 @@ Route::post('/profile/change-password', [ChangePasswordController:: class, 'upda
 
 
 // Forum
-Route::get('/forum', [ForumDashboardController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+Route::get('/forum', [ForumDashboardController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('forum_home');
+Route::get('/forum/topic/{topic_title}', [ForumTopicController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('forum_topic');
+Route::get('/forum/thread/{thread_id}', [ForumThreadController::class, 'index'])->middleware(['auth', 'verified', 'role'])->name('forum_thread');
+
+Route::post('/forum/newthread', [ForumDashboardController::class, 'newThread']);
+Route::get('/forum/getthreads', [ForumDashboardController::class, 'getThreads']);
+Route::post('/forum/addthreadmessage', [ForumDashboardController::class, 'addThreadMessage']);
+Route::get('/forum/gettopics', [ForumDashboardController::class, 'getTopics']);
 
 // Quiz
 Route::get('/quiz/parent/progressive', [FirstProgressionQuiz:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('parent_signup_quiz');
