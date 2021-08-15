@@ -51,6 +51,7 @@ class RegisteredUserController extends Controller
             ->insert([
                 'user_id' => $user->id,
                 'display_name' => $request->name,
+                'avatar' => '/images/default_avatar.png'
             ]);
 
         event(new Registered($user));
