@@ -1,6 +1,6 @@
 <template>
     <Layout class="bg-gray-100 min-h-screen">
-        <div v-if="thread" class="bg-white overflow-hidden shadow rounded-lg">
+        <div v-if="thread" class="bg-white overflow-hidden shadow rounded-lg my-12 mx-12">
             <div class="px-4 py-5 sm:p-6">
                 <div class="m-3">
 

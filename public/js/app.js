@@ -21425,7 +21425,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var _hoisted_1 = {
   key: 0,
-  "class": "bg-white overflow-hidden shadow rounded-lg"
+  "class": "bg-white overflow-hidden shadow rounded-lg my-12 mx-12"
 };
 var _hoisted_2 = {
   "class": "px-4 py-5 sm:p-6"
