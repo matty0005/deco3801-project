@@ -70,7 +70,7 @@ Route::post('/profile/change-password', [ChangePasswordController:: class, 'upda
 // Forum
 Route::get('/forum', [ForumDashboardController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('forum_home');
 Route::get('/forum/topic/{topic_title}', [ForumTopicController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('forum_topic');
-Route::get('/forum/thread/{thread_id}', [ForumThreadController::class, 'index'])->middleware(['auth', 'verified', 'role'])->name('forum_thread');
+Route::get('/forum/topic/{topic_title}/{thread_id}', [ForumThreadController::class, 'index'])->middleware(['auth', 'verified', 'role'])->name('forum_thread');
 
 Route::post('/forum/newthread', [ForumDashboardController::class, 'newThread']);
 Route::get('/forum/getthreads', [ForumDashboardController::class, 'getThreads']);
