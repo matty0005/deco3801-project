@@ -25,9 +25,12 @@ class ForumThreadController extends Controller
                         'threads.created_at',
                         'threads.thread_topic_title',
                         'user_settings.display_name',
+                        'user_settings.avatar',
                     )->where('threads.id', $thread_id)
                     ->join('users', 'users.id', 'threads.user_id')
+                    ->where('user_settings.type', 1)
                     ->join('user_settings','user_settings.user_id',  'users.id')
+                    ->orderBy('threads.created_at', 'DESC')
                     ->first();
 
         if ($thread == null) {
@@ -39,9 +42,12 @@ class ForumThreadController extends Controller
                         'thread_messages.message',
                         'thread_messages.created_at',
                         'user_settings.display_name',
+                        'user_settings.avatar',
                     )->where('thread_messages.thread_id', $thread_id)
                     ->join('users', 'users.id', 'thread_messages.user_id')
+                    ->where('user_settings.type', 1)
                     ->join('user_settings','user_settings.user_id',  'users.id')
+                    ->orderBy('thread_messages.created_at', 'ASC')
                     ->get();
 
         $topics = DB::table('thread_topics')->get();
