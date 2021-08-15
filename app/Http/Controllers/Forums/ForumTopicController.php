@@ -6,24 +6,39 @@ use Inertia\Inertia;
 use App\Models\Thread;
 use App\Models\ThreadTopic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 
 class ForumTopicController extends Controller
 {
-    public function index($topic_id) {
-        // $threads = Thread::with(['user', 'messages.user', 'thread_topic_id'])->get();
+    public function index($topic_title) {
+        
+        $topic = ThreadTopic::where('title', $topic_title)->first();
 
-        $topic_id_id = ThreadTopic::where('title', $topic_id)->get();
+        if ($topic == null) {
+            return Redirect::route('forum_home'); //Potentially should change to 404
+        }
 
-        $threads = Thread::with(['user', 'messages.user'])->where('thread_topic_id', $topic_id_id->pluck('id') )->get();
-        // dd($threads->toArray());
+        $threads = DB::table('threads')
+                        ->select(
+                            'threads.id',
+                            'threads.title',
+                            'threads.comment',
+                            'threads.created_at',
+                            'users.name',
+                        )
+                        ->selectRaw('(SELECT COUNT(*) FROM thread_messages tm JOIN threads t ON t.id = tm.thread_id WHERE tm.thread_id = threads.id) count')
+                        ->where('threads.thread_topic_title', $topic->title)
+                        ->join('users', 'users.id', 'threads.user_id')
+                        ->get();
+        
+        $topics = DB::table('thread_topics')->get();
 
-        $topics = ThreadTopic::with(['threads.user', 'threads.messages.user'])->get();
-
-        return Inertia::render('Forum/Dashboard', [
-            'formThreads' => $threads->toArray(),
-            'formTopics' => $topics->toArray(),
-            'thread_topic_id' => $topic_id_id->pluck('id')[0] // This might be risky
+        return Inertia::render('Forum/Topic', [
+            'threads' => $threads->toArray(),
+            'topics' => $topics->toArray(),
+            'thread_topic_title' => $topic->title
         ]);
     }
 }

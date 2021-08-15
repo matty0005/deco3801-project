@@ -16,7 +16,7 @@ class CreateThreadsTable extends Migration
         Schema::create('threads', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('thread_topic_id');
+            $table->string('thread_topic_title');
             $table->mediumText('title');
             $table->mediumText('comment');
             $table->timestamps();
