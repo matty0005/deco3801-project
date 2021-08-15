@@ -184,7 +184,7 @@
                 ev.preventDefault();
             },
             submitData() {
-                this.$inertia.post('/profile',{
+                this.$inertia.post('/account',{
                     'display_name': this.display_name
                 })
             },
@@ -205,7 +205,7 @@
             })
 
             function submit() {
-                avatarToUpload.post('/profile/avatar')
+                avatarToUpload.post('/account/avatar')
             }
 
             return { avatarToUpload, submit }
