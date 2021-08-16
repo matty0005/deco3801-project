@@ -19220,6 +19220,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
 /* harmony import */ var _Shared_ModalContainer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Shared/ModalContainer */ "./resources/js/Shared/ModalContainer.vue");
 /* harmony import */ var _Shared_Textfield__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Shared/Textfield */ "./resources/js/Shared/Textfield.vue");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/utils */ "./resources/js/utils.js");
+
 
 
 
@@ -19257,6 +19259,9 @@ __webpack_require__.r(__webpack_exports__);
       var currentUrl = window.location.pathname; //.split("/").filter(t => t)[ver]
 
       return url === currentUrl;
+    },
+    show: function show(week) {
+      return _utils__WEBPACK_IMPORTED_MODULE_3__.default.isWeek(week);
     }
   },
   mounted: function mounted() {
@@ -21529,7 +21534,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["class"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+  , ["class"]), $options.show(4) ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Link, {
+    key: 0,
     href: "/kids/draw",
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$options.isOnPage('/kids/draw') ? 'border-kid-500 text-gray-900' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700', " inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"]),
     role: "menuitem",
@@ -21543,7 +21549,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["class"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Profile dropdown "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  , ["class"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Profile dropdown "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "button",
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return _ctx.showProfileDropdown = !_ctx.showProfileDropdown;
@@ -25204,6 +25210,36 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/utils.js":
+/*!*******************************!*\
+  !*** ./resources/js/utils.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var isWeek = function isWeek(weekNum) {
+  var todayDate = new Date();
+  var todayWeek = todayDate.getWeek();
+  return todayWeek - 30 < weekNum;
+};
+
+Date.prototype.getWeek = function () {
+  var onejan = new Date(this.getFullYear(), 0, 1);
+  var today = new Date(this.getFullYear(), this.getMonth(), this.getDate());
+  var dayOfYear = (today - onejan + 86400000) / 86400000;
+  return Math.ceil(dayOfYear / 7);
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  isWeek: isWeek
+}); // export { default as utils } from './progress'
 
 /***/ }),
 
