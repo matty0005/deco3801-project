@@ -20077,6 +20077,10 @@ __webpack_require__.r(__webpack_exports__);
       this.canvas.height = this.canvas.offsetHeight;
       this.ctx.lineWidth = this.size;
       this.ctx.strokeStyle = this.color;
+    },
+    saveDrawing: function saveDrawing() {
+      //canvas.toDataURL('image/jpeg', 0.5);
+      var img = this.canvas.toDataURL();
     }
   }
 });
@@ -23578,16 +23582,24 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         onClick: _cache[15] || (_cache[15] = function () {
           return $options.clear && $options.clear.apply($options, arguments);
         })
-      }, _hoisted_12)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("canvas", {
+      }, _hoisted_12), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        onSave: _cache[16] || (_cache[16] = function () {
+          return $options.saveDrawing && $options.saveDrawing.apply($options, arguments);
+        }),
+        type: "button",
+        "class": "inline-flex items-center px-4 ml-8 py-1 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+      }, " Save ", 32
+      /* HYDRATE_EVENTS */
+      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("canvas", {
         "class": "my-4 border-2 bg-white boder-gray-300",
         id: "drawingCanvas",
-        onMousedown: _cache[16] || (_cache[16] = function () {
+        onMousedown: _cache[17] || (_cache[17] = function () {
           return $options.beginDrawing && $options.beginDrawing.apply($options, arguments);
         }),
-        onMousemove: _cache[17] || (_cache[17] = function () {
+        onMousemove: _cache[18] || (_cache[18] = function () {
           return $options.keepDrawing && $options.keepDrawing.apply($options, arguments);
         }),
-        onMouseup: _cache[18] || (_cache[18] = function () {
+        onMouseup: _cache[19] || (_cache[19] = function () {
           return $options.stopDrawing && $options.stopDrawing.apply($options, arguments);
         })
       }, null, 32
