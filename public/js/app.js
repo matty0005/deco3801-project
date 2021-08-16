@@ -19992,23 +19992,34 @@ __webpack_require__.r(__webpack_exports__);
       x: 0,
       y: 0,
       isDrawing: false,
-      canvas: null
+      canvas: null,
+      erase: false,
+      color: 'black',
+      size: 5
     };
   },
   mounted: function mounted() {
     console.log("hoo");
-    var canvas = document.getElementById('drawingCanvas');
-    this.ctx = canvas.getContext('2d');
+    this.canvas = document.getElementById('drawingCanvas');
+    this.ctx = this.canvas.getContext('2d');
     this.ctx.strokeStyle = 'black';
-    canvas.height = 1000;
-    canvas.width = 1000;
+    var container = document.getElementById('container');
+    console.log("container.heigh", container.height);
+    this.canvas.style.width = '100%';
+    this.canvas.style.height = '80vh'; // ...then set the internal size to match
+
+    this.canvas.width = this.canvas.offsetWidth;
+    this.canvas.height = this.canvas.offsetHeight; // this.canvas.height = window.innerHeight / 2
+    // this.canvas.width = window.innerWidth / 2
+
+    this.ctx.lineWidth = 5;
+    window.addEventListener('resize', this.updateCanvasSize);
   },
   methods: {
     drawLine: function drawLine(x1, y1, x2, y2) {
       var ctx = this.ctx;
       ctx.beginPath();
       ctx.lineCap = 'round';
-      ctx.lineWidth = 5;
       ctx.moveTo(x1, y1);
       ctx.lineTo(x2, y2);
       ctx.stroke();
@@ -20036,8 +20047,36 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     changeColor: function changeColor(color) {
+      this.erase = false;
       var ctx = this.ctx;
+      ctx.globalCompositeOperation = "source-over";
       ctx.strokeStyle = color;
+      this.color = color;
+    },
+    clear: function clear() {
+      var ctx = this.ctx;
+      ctx.fillStyle = '#ffffff';
+      ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    },
+    eraser: function eraser() {
+      this.erase = true;
+      var ctx = this.ctx;
+      ctx.globalCompositeOperation = 'destination-out';
+    },
+    changeStrokeSize: function changeStrokeSize(size) {
+      this.ctx.lineWidth = size;
+      this.size = size;
+    },
+    updateCanvasSize: function updateCanvasSize() {
+      console.log("Yeet");
+      this.canvas.style.width = '100%';
+      this.canvas.style.height = '80vh'; // ...then set the internal size to match
+
+      this.canvas.width = this.canvas.offsetWidth;
+      this.canvas.height = this.canvas.offsetHeight;
+      this.ctx.lineWidth = this.size;
+      this.ctx.strokeStyle = this.color;
     }
   }
 });
@@ -23358,11 +23397,100 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
+  id: "container",
   "class": "container mx-auto mt-8"
 };
 var _hoisted_2 = {
   "class": "flex flex-row"
 };
+
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  "class": " h-8 w-8",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  "fill-rule": "evenodd",
+  "clip-rule": "evenodd",
+  d: "M12.8786 2.70705C14.0502 1.53547 15.9497 1.53548 17.1213 2.70705L22.2928 7.87862C23.4644 9.0502 23.4644 10.9497 22.2928 12.1213L14.4142 19.9999H17.9999C18.5522 19.9999 18.9999 20.4477 18.9999 20.9999C18.9999 21.5522 18.5522 21.9999 17.9999 21.9999H5.99994C5.73473 21.9999 5.48037 21.8946 5.29284 21.7071L1.70705 18.1213C0.535474 16.9497 0.535477 15.0502 1.70705 13.8786L12.8786 2.70705ZM11.5857 19.9999L14.5857 16.9999L7.99994 10.4142L3.12126 15.2928C2.73074 15.6834 2.73074 16.3165 3.12126 16.707L6.41416 19.9999H11.5857ZM9.41416 8.99994L15.9999 15.5857L20.8786 10.707C21.2691 10.3165 21.2691 9.68336 20.8786 9.29284L15.707 4.12126C15.3165 3.73074 14.6834 3.73074 14.2928 4.12126L9.41416 8.99994Z",
+  fill: "#293644"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_4 = [_hoisted_3];
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  "class": "h-3 w-3 mx-1",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  "stroke-width": "2",
+  "stroke-linecap": "round",
+  "stroke-linejoin": "round"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("circle", {
+  cx: "12",
+  cy: "12",
+  r: "10"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_6 = [_hoisted_5];
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  "class": "h-6 w-6 mx-1",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  "stroke-width": "2",
+  "stroke-linecap": "round",
+  "stroke-linejoin": "round"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("circle", {
+  cx: "12",
+  cy: "12",
+  r: "10"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_8 = [_hoisted_7];
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  "class": "h-8 w-8 mx-1",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  "stroke-width": "2",
+  "stroke-linecap": "round",
+  "stroke-linejoin": "round"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("circle", {
+  cx: "12",
+  cy: "12",
+  r: "10"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_10 = [_hoisted_9];
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  "class": "ml-auto flex w-8 h-8",
+  fill: "currentColor",
+  viewBox: "0 0 20 20",
+  xmlns: "http://www.w3.org/2000/svg"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  "fill-rule": "evenodd",
+  d: "M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z",
+  "clip-rule": "evenodd"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_12 = [_hoisted_11];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("layout");
 
@@ -23372,69 +23500,94 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         onClick: _cache[0] || (_cache[0] = function ($event) {
-          return $options.changeColor('#EF4444');
+          return $options.changeColor('#000000');
         }),
-        "class": "bg-red-500 h-8 w-8 mr-1 rounded"
+        "class": "bg-black h-8 w-8 mr-1 rounded"
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         onClick: _cache[1] || (_cache[1] = function ($event) {
-          return $options.changeColor('#F97316');
+          return $options.changeColor('#EF4444');
         }),
-        "class": "bg-orange-500 h-8 w-8 mr-1 rounded"
+        "class": "bg-red-500 h-8 w-8 mx-1 rounded"
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         onClick: _cache[2] || (_cache[2] = function ($event) {
-          return $options.changeColor('#FACC15');
+          return $options.changeColor('#F97316');
         }),
-        "class": "bg-yellow-400 h-8 w-8 mr-1 rounded"
+        "class": "bg-orange-500 h-8 w-8 mx-1 rounded"
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         onClick: _cache[3] || (_cache[3] = function ($event) {
+          return $options.changeColor('#FACC15');
+        }),
+        "class": "bg-yellow-400 h-8 w-8 mx-1 rounded"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+        onClick: _cache[4] || (_cache[4] = function ($event) {
           return $options.changeColor('#84CC16');
         }),
         "class": "bg-lime-500 h-8 w-8 mx-1 rounded"
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-        onClick: _cache[4] || (_cache[4] = function ($event) {
+        onClick: _cache[5] || (_cache[5] = function ($event) {
           return $options.changeColor('#22C55E');
         }),
         "class": "bg-green-500 h-8 w-8 mx-1 rounded"
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-        onClick: _cache[5] || (_cache[5] = function ($event) {
+        onClick: _cache[6] || (_cache[6] = function ($event) {
           return $options.changeColor('#22D3EE');
         }),
         "class": "bg-cyan-400 h-8 w-8 mx-1 rounded"
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-        onClick: _cache[6] || (_cache[6] = function ($event) {
+        onClick: _cache[7] || (_cache[7] = function ($event) {
           return $options.changeColor('#3B82F6');
         }),
         "class": "bg-blue-500 h-8 w-8 mx-1 rounded"
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-        onClick: _cache[7] || (_cache[7] = function ($event) {
+        onClick: _cache[8] || (_cache[8] = function ($event) {
           return $options.changeColor('#A855F7');
         }),
         "class": "bg-purple-500 h-8 w-8 mx-1 rounded"
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-        onClick: _cache[8] || (_cache[8] = function ($event) {
+        onClick: _cache[9] || (_cache[9] = function ($event) {
           return $options.changeColor('#D946EF');
         }),
         "class": "bg-fuchsia-500 h-8 w-8 mx-1 rounded"
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-        onClick: _cache[9] || (_cache[9] = function ($event) {
+        onClick: _cache[10] || (_cache[10] = function ($event) {
           return $options.changeColor('#EC4899');
         }),
         "class": "bg-pink-500 h-8 w-8 mx-1 rounded"
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-        onClick: _cache[10] || (_cache[10] = function ($event) {
-          return $options.changeColor('#000000');
+        onClick: _cache[11] || (_cache[11] = function () {
+          return $options.eraser && $options.eraser.apply($options, arguments);
         }),
-        "class": "bg-black h-8 w-8 ml-4 rounded"
-      })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("canvas", {
+        "class": " h-8 w-8 mx-4 ml-16 rounded"
+      }, _hoisted_4), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+        onClick: _cache[12] || (_cache[12] = function ($event) {
+          return $options.changeStrokeSize(5);
+        }),
+        "class": "flex justify-center items-center"
+      }, _hoisted_6), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+        onClick: _cache[13] || (_cache[13] = function ($event) {
+          return $options.changeStrokeSize(10);
+        }),
+        "class": "flex justify-center items-center"
+      }, _hoisted_8), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+        onClick: _cache[14] || (_cache[14] = function ($event) {
+          return $options.changeStrokeSize(20);
+        }),
+        "class": "flex justify-center items-center"
+      }, _hoisted_10), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+        "class": "flex-grow",
+        onClick: _cache[15] || (_cache[15] = function () {
+          return $options.clear && $options.clear.apply($options, arguments);
+        })
+      }, _hoisted_12)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("canvas", {
         "class": "my-4 border-2 bg-white boder-gray-300",
         id: "drawingCanvas",
-        onMousedown: _cache[11] || (_cache[11] = function () {
+        onMousedown: _cache[16] || (_cache[16] = function () {
           return $options.beginDrawing && $options.beginDrawing.apply($options, arguments);
         }),
-        onMousemove: _cache[12] || (_cache[12] = function () {
+        onMousemove: _cache[17] || (_cache[17] = function () {
           return $options.keepDrawing && $options.keepDrawing.apply($options, arguments);
         }),
-        onMouseup: _cache[13] || (_cache[13] = function () {
+        onMouseup: _cache[18] || (_cache[18] = function () {
           return $options.stopDrawing && $options.stopDrawing.apply($options, arguments);
         })
       }, null, 32
