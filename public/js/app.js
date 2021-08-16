@@ -19999,6 +19999,7 @@ __webpack_require__.r(__webpack_exports__);
     console.log("hoo");
     var canvas = document.getElementById('drawingCanvas');
     this.ctx = canvas.getContext('2d');
+    this.ctx.strokeStyle = 'black';
     canvas.height = 1000;
     canvas.width = 1000;
   },
@@ -20006,7 +20007,7 @@ __webpack_require__.r(__webpack_exports__);
     drawLine: function drawLine(x1, y1, x2, y2) {
       var ctx = this.ctx;
       ctx.beginPath();
-      ctx.strokeStyle = 'black';
+      ctx.lineCap = 'round';
       ctx.lineWidth = 5;
       ctx.moveTo(x1, y1);
       ctx.lineTo(x2, y2);
@@ -20017,6 +20018,7 @@ __webpack_require__.r(__webpack_exports__);
       this.x = e.offsetX;
       this.y = e.offsetY;
       this.isDrawing = true;
+      this.drawLine(this.x, this.y, e.offsetX, e.offsetY);
     },
     keepDrawing: function keepDrawing(e) {
       if (this.isDrawing === true) {
@@ -20032,6 +20034,10 @@ __webpack_require__.r(__webpack_exports__);
         this.y = 0;
         this.isDrawing = false;
       }
+    },
+    changeColor: function changeColor(color) {
+      var ctx = this.ctx;
+      ctx.strokeStyle = color;
     }
   }
 });
@@ -23352,7 +23358,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "container mx-auto"
+  "class": "container mx-auto mt-8"
+};
+var _hoisted_2 = {
+  "class": "flex flex-row"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("layout");
@@ -23361,16 +23370,71 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "bg-gray-100 min-h-screen"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("canvas", {
-        "class": "border-2 boder-gray-300",
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+        onClick: _cache[0] || (_cache[0] = function ($event) {
+          return $options.changeColor('#EF4444');
+        }),
+        "class": "bg-red-500 h-8 w-8 mr-1 rounded"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+        onClick: _cache[1] || (_cache[1] = function ($event) {
+          return $options.changeColor('#F97316');
+        }),
+        "class": "bg-orange-500 h-8 w-8 mr-1 rounded"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+        onClick: _cache[2] || (_cache[2] = function ($event) {
+          return $options.changeColor('#FACC15');
+        }),
+        "class": "bg-yellow-400 h-8 w-8 mr-1 rounded"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+        onClick: _cache[3] || (_cache[3] = function ($event) {
+          return $options.changeColor('#84CC16');
+        }),
+        "class": "bg-lime-500 h-8 w-8 mx-1 rounded"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+        onClick: _cache[4] || (_cache[4] = function ($event) {
+          return $options.changeColor('#22C55E');
+        }),
+        "class": "bg-green-500 h-8 w-8 mx-1 rounded"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+        onClick: _cache[5] || (_cache[5] = function ($event) {
+          return $options.changeColor('#22D3EE');
+        }),
+        "class": "bg-cyan-400 h-8 w-8 mx-1 rounded"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+        onClick: _cache[6] || (_cache[6] = function ($event) {
+          return $options.changeColor('#3B82F6');
+        }),
+        "class": "bg-blue-500 h-8 w-8 mx-1 rounded"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+        onClick: _cache[7] || (_cache[7] = function ($event) {
+          return $options.changeColor('#A855F7');
+        }),
+        "class": "bg-purple-500 h-8 w-8 mx-1 rounded"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+        onClick: _cache[8] || (_cache[8] = function ($event) {
+          return $options.changeColor('#D946EF');
+        }),
+        "class": "bg-fuchsia-500 h-8 w-8 mx-1 rounded"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+        onClick: _cache[9] || (_cache[9] = function ($event) {
+          return $options.changeColor('#EC4899');
+        }),
+        "class": "bg-pink-500 h-8 w-8 mx-1 rounded"
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+        onClick: _cache[10] || (_cache[10] = function ($event) {
+          return $options.changeColor('#000000');
+        }),
+        "class": "bg-black h-8 w-8 ml-4 rounded"
+      })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("canvas", {
+        "class": "my-4 border-2 bg-white boder-gray-300",
         id: "drawingCanvas",
-        onMousedown: _cache[0] || (_cache[0] = function () {
+        onMousedown: _cache[11] || (_cache[11] = function () {
           return $options.beginDrawing && $options.beginDrawing.apply($options, arguments);
         }),
-        onMousemove: _cache[1] || (_cache[1] = function () {
+        onMousemove: _cache[12] || (_cache[12] = function () {
           return $options.keepDrawing && $options.keepDrawing.apply($options, arguments);
         }),
-        onMouseup: _cache[2] || (_cache[2] = function () {
+        onMouseup: _cache[13] || (_cache[13] = function () {
           return $options.stopDrawing && $options.stopDrawing.apply($options, arguments);
         })
       }, null, 32
