@@ -19260,8 +19260,8 @@ __webpack_require__.r(__webpack_exports__);
 
       return url === currentUrl;
     },
-    show: function show(week) {
-      return _utils__WEBPACK_IMPORTED_MODULE_3__.default.isWeek(week);
+    week: function week(weekNum) {
+      return _utils__WEBPACK_IMPORTED_MODULE_3__.default.isWeek(weekNum);
     }
   },
   mounted: function mounted() {
@@ -21534,7 +21534,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["class"]), $options.show(4) ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Link, {
+  , ["class"]), $options.week(5) ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Link, {
     key: 0,
     href: "/kids/draw",
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$options.isOnPage('/kids/draw') ? 'border-kid-500 text-gray-900' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700', " inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"]),
@@ -25227,7 +25227,14 @@ __webpack_require__.r(__webpack_exports__);
 var isWeek = function isWeek(weekNum) {
   var todayDate = new Date();
   var todayWeek = todayDate.getWeek();
-  return todayWeek - 30 < weekNum;
+
+  if (true) {
+    return true;
+  }
+
+  console.log("false");
+  console.log("false" == 'false');
+  return todayWeek - 29 >= weekNum;
 };
 
 Date.prototype.getWeek = function () {

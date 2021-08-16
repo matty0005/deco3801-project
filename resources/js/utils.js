@@ -2,7 +2,13 @@ var isWeek = (weekNum) => {
     var todayDate = new Date()
     var todayWeek = todayDate.getWeek()
 
-    return (todayWeek - 30) < weekNum
+    if (process.env.MIX_TUTOR_MODE == 'false') {
+        return true
+    }
+
+    console.log(process.env.MIX_TUTOR_MODE)
+    console.log(process.env.MIX_TUTOR_MODE == 'false')
+    return (todayWeek - 29) >= weekNum
     
 }
 

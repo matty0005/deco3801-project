@@ -11,7 +11,7 @@
                 <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
                 <!-- Current: "border-orange-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
                 <Link href="/dashboard" :class="isOnPage('/dashboard') ? 'border-kid-500 text-gray-900':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" role="menuitem" tabindex="-1" >Dashboard</Link>
-                <Link href="/kids/draw" v-if="show(4)" :class="isOnPage('/kids/draw') ? 'border-kid-500 text-gray-900':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" role="menuitem" tabindex="-1" >Draw</Link>
+                <Link href="/kids/draw" v-if="week(5)" :class="isOnPage('/kids/draw') ? 'border-kid-500 text-gray-900':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" role="menuitem" tabindex="-1" >Draw</Link>
 
                 </div>
             </div>
@@ -145,8 +145,8 @@ export default {
             var currentUrl = window.location.pathname//.split("/").filter(t => t)[ver]
             return url === currentUrl
         },
-        show (week) {
-            return isWeek.isWeek(week)
+        week (weekNum) {
+            return isWeek.isWeek(weekNum)
         }
     },
     mounted() {
