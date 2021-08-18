@@ -21666,7 +21666,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 return $options.likeMessage(message.id, 1);
               },
               onDislike: function onDislike($event) {
-                return _ctx.dislikeMessage(message.id, 2);
+                return $options.likeMessage(message.id, 2);
               },
               likes: message.likes,
               dislikes: message.dislikes

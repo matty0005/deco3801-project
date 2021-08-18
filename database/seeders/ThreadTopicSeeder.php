@@ -23,7 +23,7 @@ class ThreadTopicSeeder extends Seeder
         ]);
 
         DB::table('thread_topics')->insert([
-            'title' => 'ODC'
+            'title' => 'OCD'
         ]);
 
         DB::table('thread_topics')->insert([

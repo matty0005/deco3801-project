@@ -22,7 +22,7 @@
                 <div class="mt-2 mb-6 ml-10">
                     {{message.message}}
                 </div>
-                <LikeBar @like="likeMessage(message.id,1)" @dislike="dislikeMessage(message.id,2)" :likes="message.likes" :dislikes="message.dislikes"/>
+                <LikeBar @like="likeMessage(message.id,1)" @dislike="likeMessage(message.id,2)" :likes="message.likes" :dislikes="message.dislikes"/>
             </div> 
         </Thread>
     </Dashboard>
