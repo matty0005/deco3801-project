@@ -18489,7 +18489,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['likes', 'dislikes', 'status']
+  props: ['likes', 'dislikes', 'status', 'isThread', 'id'],
+  methods: {
+    like: function like(likeStatus) {
+      var update = likeStatus;
+
+      if (likeStatus == this.status) {
+        update = 0;
+      }
+
+      if (this.isThread) {
+        axios.post('/forum/likethread', {
+          thread_id: this.id,
+          liked: update
+        });
+      } else {
+        axios.post('/forum/likethreadmessage', {
+          thread_message_id: this.id,
+          liked: update
+        });
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -18528,12 +18549,6 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.$inertia.visit("/forum/topic/".concat(this.thread.thread_topic_title, "/").concat(this.thread.id));
-    },
-    likeThread: function likeThread(likeStatus) {
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/forum/likethread', {
-        thread_id: this.thread.id,
-        liked: likeStatus
-      });
     }
   },
   computed: {
@@ -18588,12 +18603,6 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    likeMessage: function likeMessage(messageId, likeStatus) {
-      axios.post('/forum/likethreadmessage', {
-        thread_message_id: messageId,
-        liked: likeStatus
-      });
-    },
     sendMsg: function sendMsg() {
       this.$inertia.post('/forum/addthreadmessage', {
         thread_id: this.thread.id,
@@ -21462,14 +21471,12 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 );
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _this = this;
-
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.likes) + " ", 1
   /* TEXT */
   ), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("svg", {
     "class": [$props.status == 1 ? ' text-blue-500 ' : '', "w-6 h-6"],
     onClick: _cache[1] || (_cache[1] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
-      return _this.$emit('like');
+      return $options.like(1);
     }, ["stop"])),
     fill: "none",
     stroke: "currentColor",
@@ -21482,7 +21489,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   ), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("svg", {
     "class": [$props.status == 2 ? ' text-red-500 ' : '', "w-6 h-6"],
     onClick: _cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
-      return _this.$emit('dislike');
+      return $options.like(2);
     }, ["stop"])),
     fill: "none",
     stroke: "currentColor",
@@ -21540,7 +21547,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_LikeBar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("LikeBar");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
-    onClick: _cache[3] || (_cache[3] = function () {
+    onClick: _cache[1] || (_cache[1] = function () {
       return $options.visitThread && $options.visitThread.apply($options, arguments);
     }),
     "class": ["bg-white overflow-hidden shadow rounded-lg", $props.clickable ? ' hover:bg-gray-50 cursor-pointer ' : '']
@@ -21562,18 +21569,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   )]), $props.thread.count >= 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.thread.count) + " total comments ", 1
   /* TEXT */
   )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_LikeBar, {
-    onLike: _cache[1] || (_cache[1] = function ($event) {
-      return $options.likeThread(1);
-    }),
-    onDislike: _cache[2] || (_cache[2] = function ($event) {
-      return $options.likeThread(2);
-    }),
     likes: $props.thread.likes,
     dislikes: $props.thread.dislikes,
-    status: $props.thread.liked
+    status: $props.thread.liked,
+    id: $props.thread.id,
+    isThread: true
   }, null, 8
   /* PROPS */
-  , ["likes", "dislikes", "status"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])], 2
+  , ["likes", "dislikes", "status", "id"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])], 2
   /* CLASS */
   );
 }
@@ -21667,18 +21670,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(message.message), 1
             /* TEXT */
             ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_LikeBar, {
-              onLike: function onLike($event) {
-                return $options.likeMessage(message.id, 1);
-              },
-              onDislike: function onDislike($event) {
-                return $options.likeMessage(message.id, 2);
-              },
               likes: message.likes,
               dislikes: message.dislikes,
-              status: message.liked
+              status: message.liked,
+              isThread: false,
+              id: message.id
             }, null, 8
             /* PROPS */
-            , ["onLike", "onDislike", "likes", "dislikes", "status"])]);
+            , ["likes", "dislikes", "status", "id"])]);
           }), 128
           /* KEYED_FRAGMENT */
           ))];

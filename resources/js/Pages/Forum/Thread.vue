@@ -25,7 +25,7 @@
                 
                 <p v-if="thread.count >= 0"> {{thread.count}} total comments </p>
 
-                <LikeBar @like="likeThread(1)" @dislike="likeThread(2)" :likes="thread.likes" :dislikes="thread.dislikes" :status="thread.liked" />
+                <LikeBar :likes="thread.likes" :dislikes="thread.dislikes" :status="thread.liked" :id="thread.id" :isThread="true" />
 
                 <slot/>
 
@@ -61,13 +61,6 @@ export default {
             }
 
             this.$inertia.visit(`/forum/topic/${this.thread.thread_topic_title}/${this.thread.id}`)
-        },
-
-        likeThread(likeStatus) {
-            axios.post('/forum/likethread', {
-                thread_id: this.thread.id,
-                liked: likeStatus,
-            })
         },
     },
 

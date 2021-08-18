@@ -22,7 +22,7 @@
                 <div class="mt-2 mb-6 ml-10">
                     {{message.message}}
                 </div>
-                <LikeBar @like="likeMessage(message.id,1)" @dislike="likeMessage(message.id,2)" :likes="message.likes" :dislikes="message.dislikes" :status="message.liked" />
+                <LikeBar :likes="message.likes" :dislikes="message.dislikes" :status="message.liked" :isThread="false" :id="message.id" />
             </div> 
         </Thread>
     </Dashboard>
@@ -55,13 +55,6 @@ export default {
     },
 
     methods: {
-
-        likeMessage(messageId, likeStatus) {
-            axios.post('/forum/likethreadmessage', {
-                thread_message_id: messageId,
-                liked: likeStatus,
-            })
-        },
 
         sendMsg() {
             this.$inertia.post('/forum/addthreadmessage', {
