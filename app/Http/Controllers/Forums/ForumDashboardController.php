@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Redirect;
 class ForumDashboardController extends Controller
 {
     public function index() {
+        $authId = Auth::id();
+
         $threads = DB::table('threads')
                         ->select(
                             'threads.id',
@@ -31,6 +33,7 @@ class ForumDashboardController extends Controller
                         ->selectRaw('(SELECT COUNT(*) FROM thread_messages tm JOIN threads t ON t.id = tm.thread_id WHERE tm.thread_id = threads.id) count')
                         ->selectRaw('(SELECT COUNT(*) FROM thread_likes tl JOIN threads t ON t.id = tl.thread_id WHERE tl.liked = 1 AND tl.thread_id = threads.id) likes')
                         ->selectRaw('(SELECT COUNT(*) FROM thread_likes tl JOIN threads t ON t.id = tl.thread_id WHERE tl.liked = 2 AND tl.thread_id = threads.id) dislikes')
+                        ->selectRaw('(SELECT liked FROM thread_likes tl JOIN threads t ON t.id = tl.thread_id WHERE tl.thread_id = threads.id AND tl.user_id = ' . $authId . ') liked')
                         ->join('users', 'users.id', 'threads.user_id')
                         ->where('user_settings.type', 1)
                         ->join('user_settings','user_settings.user_id',  'users.id')

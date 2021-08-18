@@ -18489,7 +18489,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['likes', 'dislikes']
+  props: ['likes', 'dislikes', 'status']
 });
 
 /***/ }),
@@ -21467,26 +21467,30 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.likes) + " ", 1
   /* TEXT */
   ), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("svg", {
+    "class": [$props.status == 1 ? ' text-blue-500 ' : '', "w-6 h-6"],
     onClick: _cache[1] || (_cache[1] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
       return _this.$emit('like');
     }, ["stop"])),
-    "class": "w-6 h-6",
     fill: "none",
     stroke: "currentColor",
     viewBox: "0 0 24 24",
     xmlns: "http://www.w3.org/2000/svg"
-  }, [_hoisted_2])), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.dislikes) + " ", 1
+  }, [_hoisted_2], 2
+  /* CLASS */
+  )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.dislikes) + " ", 1
   /* TEXT */
   ), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("svg", {
+    "class": [$props.status == 2 ? ' text-red-500 ' : '', "w-6 h-6"],
     onClick: _cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
       return _this.$emit('dislike');
     }, ["stop"])),
-    "class": "w-6 h-6",
     fill: "none",
     stroke: "currentColor",
     viewBox: "0 0 24 24",
     xmlns: "http://www.w3.org/2000/svg"
-  }, [_hoisted_3]))]);
+  }, [_hoisted_3], 2
+  /* CLASS */
+  ))]);
 }
 
 /***/ }),
@@ -21565,10 +21569,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $options.likeThread(2);
     }),
     likes: $props.thread.likes,
-    dislikes: $props.thread.dislikes
+    dislikes: $props.thread.dislikes,
+    status: $props.thread.liked
   }, null, 8
   /* PROPS */
-  , ["likes", "dislikes"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])], 2
+  , ["likes", "dislikes", "status"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])], 2
   /* CLASS */
   );
 }
@@ -21669,10 +21674,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                 return $options.likeMessage(message.id, 2);
               },
               likes: message.likes,
-              dislikes: message.dislikes
+              dislikes: message.dislikes,
+              status: message.liked
             }, null, 8
             /* PROPS */
-            , ["onLike", "onDislike", "likes", "dislikes"])]);
+            , ["onLike", "onDislike", "likes", "dislikes", "status"])]);
           }), 128
           /* KEYED_FRAGMENT */
           ))];

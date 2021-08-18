@@ -25,7 +25,7 @@
                 
                 <p v-if="thread.count >= 0"> {{thread.count}} total comments </p>
 
-                <LikeBar @like="likeThread(1)" @dislike="likeThread(2)" :likes="thread.likes" :dislikes="thread.dislikes"/>
+                <LikeBar @like="likeThread(1)" @dislike="likeThread(2)" :likes="thread.likes" :dislikes="thread.dislikes" :status="thread.liked" />
 
                 <slot/>
 

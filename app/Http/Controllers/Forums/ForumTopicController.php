@@ -8,6 +8,7 @@ use App\Models\ThreadTopic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class ForumTopicController extends Controller
@@ -19,6 +20,8 @@ class ForumTopicController extends Controller
         if ($topic == null) {
             return Redirect::route('forum_home'); //Potentially should change to 404
         }
+
+        $authId = Auth::id();
 
         $threads = DB::table('threads')
                         ->select(
@@ -33,6 +36,7 @@ class ForumTopicController extends Controller
                         ->selectRaw('(SELECT COUNT(*) FROM thread_messages tm JOIN threads t ON t.id = tm.thread_id WHERE tm.thread_id = threads.id) count')
                         ->selectRaw('(SELECT COUNT(*) FROM thread_likes tl JOIN threads t ON t.id = tl.thread_id WHERE tl.liked = 1 AND tl.thread_id = threads.id) likes')
                         ->selectRaw('(SELECT COUNT(*) FROM thread_likes tl JOIN threads t ON t.id = tl.thread_id WHERE tl.liked = 2 AND tl.thread_id = threads.id) dislikes')
+                        ->selectRaw('(SELECT liked FROM thread_likes tl JOIN threads t ON t.id = tl.thread_id WHERE tl.thread_id = threads.id AND tl.user_id = ' . $authId . ') liked')
                         ->where('threads.thread_topic_title', $topic->title)
                         ->join('users', 'users.id', 'threads.user_id')
                         ->where('user_settings.type', 1)

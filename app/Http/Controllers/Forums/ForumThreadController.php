@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class ForumThreadController extends Controller
@@ -18,6 +19,8 @@ class ForumThreadController extends Controller
             return Redirect::route('forum_home'); //Potentially should change to 404
         }
 
+        $authId = Auth::id();
+
         $thread = DB::table('threads')->select(
                         'threads.id',
                         'threads.title',
@@ -29,6 +32,7 @@ class ForumThreadController extends Controller
                     )
                     ->selectRaw('(SELECT COUNT(*) FROM thread_likes tl JOIN threads t ON t.id = tl.thread_id WHERE tl.liked = 1 AND tl.thread_id = threads.id) likes')
                     ->selectRaw('(SELECT COUNT(*) FROM thread_likes tl JOIN threads t ON t.id = tl.thread_id WHERE tl.liked = 2 AND tl.thread_id = threads.id) dislikes')
+                    ->selectRaw('(SELECT liked FROM thread_likes tl JOIN threads t ON t.id = tl.thread_id WHERE tl.thread_id = threads.id AND tl.user_id = ' . $authId . ') liked')
                     ->where('threads.id', $thread_id)
                     ->join('users', 'users.id', 'threads.user_id')
                     ->where('user_settings.type', 1)
@@ -49,6 +53,7 @@ class ForumThreadController extends Controller
                     )
                     ->selectRaw('(SELECT COUNT(*) FROM thread_message_likes tml JOIN thread_messages t ON t.id = tml.thread_message_id WHERE tml.liked = 1 AND tml.thread_message_id = thread_messages.id) likes')
                     ->selectRaw('(SELECT COUNT(*) FROM thread_message_likes tml JOIN thread_messages t ON t.id = tml.thread_message_id WHERE tml.liked = 2 AND tml.thread_message_id = thread_messages.id) dislikes')
+                    ->selectRaw('(SELECT liked FROM thread_message_likes tml JOIN thread_messages t ON t.id = tml.thread_message_id WHERE tml.thread_message_id = thread_messages.id AND tml.user_id = ' . $authId . ') liked')
                     ->where('thread_messages.thread_id', $thread_id)
                     ->join('users', 'users.id', 'thread_messages.user_id')
                     ->where('user_settings.type', 1)
