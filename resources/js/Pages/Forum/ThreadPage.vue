@@ -22,6 +22,7 @@
                 <div class="mt-2 mb-6 ml-10">
                     {{message.message}}
                 </div>
+                <LikeBar @like="likeMessage(message.id,1)" @dislike="dislikeMessage(message.id,2)" :likes="message.likes" :dislikes="message.dislikes"/>
             </div> 
         </Thread>
     </Dashboard>
@@ -31,12 +32,14 @@
 
 import Dashboard from './Dashboard.vue'
 import Thread from './Thread.vue'
+import LikeBar from './LikeBar.vue'
 
 export default {
 
     components: {
         Dashboard,
         Thread,
+        LikeBar,
     },
 
     props: {
@@ -52,6 +55,14 @@ export default {
     },
 
     methods: {
+
+        likeMessage(messageId, likeStatus) {
+            axios.post('/forum/likethreadmessage', {
+                thread_message_id: messageId,
+                liked: likeStatus,
+            })
+        },
+
         sendMsg() {
             this.$inertia.post('/forum/addthreadmessage', {
                 thread_id: this.thread.id,

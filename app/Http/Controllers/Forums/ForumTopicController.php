@@ -31,6 +31,8 @@ class ForumTopicController extends Controller
                             'user_settings.avatar',
                         )
                         ->selectRaw('(SELECT COUNT(*) FROM thread_messages tm JOIN threads t ON t.id = tm.thread_id WHERE tm.thread_id = threads.id) count')
+                        ->selectRaw('(SELECT COUNT(*) FROM thread_likes tl JOIN threads t ON t.id = tl.thread_id WHERE tl.liked = 1 AND tl.thread_id = threads.id) likes')
+                        ->selectRaw('(SELECT COUNT(*) FROM thread_likes tl JOIN threads t ON t.id = tl.thread_id WHERE tl.liked = 2 AND tl.thread_id = threads.id) dislikes')
                         ->where('threads.thread_topic_title', $topic->title)
                         ->join('users', 'users.id', 'threads.user_id')
                         ->where('user_settings.type', 1)

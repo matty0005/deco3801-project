@@ -26,7 +26,10 @@ class ForumThreadController extends Controller
                         'threads.thread_topic_title',
                         'user_settings.display_name',
                         'user_settings.avatar',
-                    )->where('threads.id', $thread_id)
+                    )
+                    ->selectRaw('(SELECT COUNT(*) FROM thread_likes tl JOIN threads t ON t.id = tl.thread_id WHERE tl.liked = 1 AND tl.thread_id = threads.id) likes')
+                    ->selectRaw('(SELECT COUNT(*) FROM thread_likes tl JOIN threads t ON t.id = tl.thread_id WHERE tl.liked = 2 AND tl.thread_id = threads.id) dislikes')
+                    ->where('threads.id', $thread_id)
                     ->join('users', 'users.id', 'threads.user_id')
                     ->where('user_settings.type', 1)
                     ->join('user_settings','user_settings.user_id',  'users.id')
@@ -43,7 +46,10 @@ class ForumThreadController extends Controller
                         'thread_messages.created_at',
                         'user_settings.display_name',
                         'user_settings.avatar',
-                    )->where('thread_messages.thread_id', $thread_id)
+                    )
+                    ->selectRaw('(SELECT COUNT(*) FROM thread_message_likes tml JOIN thread_messages t ON t.id = tml.thread_message_id WHERE tml.liked = 1 AND tml.thread_message_id = thread_messages.id) likes')
+                    ->selectRaw('(SELECT COUNT(*) FROM thread_message_likes tml JOIN thread_messages t ON t.id = tml.thread_message_id WHERE tml.liked = 2 AND tml.thread_message_id = thread_messages.id) dislikes')
+                    ->where('thread_messages.thread_id', $thread_id)
                     ->join('users', 'users.id', 'thread_messages.user_id')
                     ->where('user_settings.type', 1)
                     ->join('user_settings','user_settings.user_id',  'users.id')

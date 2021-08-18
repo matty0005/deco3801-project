@@ -76,6 +76,8 @@ Route::post('/forum/newthread', [ForumDashboardController::class, 'newThread']);
 Route::get('/forum/getthreads', [ForumDashboardController::class, 'getThreads']);
 Route::post('/forum/addthreadmessage', [ForumDashboardController::class, 'addThreadMessage']);
 Route::get('/forum/gettopics', [ForumDashboardController::class, 'getTopics']);
+Route::post('/forum/likethread', [ForumDashboardController::class, 'likeThread']);
+Route::post('/forum/likethreadmessage', [ForumDashboardController::class, 'likeThreadMessage']);
 
 // Quiz
 Route::get('/quiz/parent/progressive', [FirstProgressionQuiz:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('parent_signup_quiz');

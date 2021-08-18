@@ -25,6 +25,8 @@
                 
                 <p v-if="thread.count >= 0"> {{thread.count}} total comments </p>
 
+                <LikeBar @like="likeThread(1)" @dislike="likeThread(2)" :likes="thread.likes" :dislikes="thread.dislikes"/>
+
                 <slot/>
 
             </div>
@@ -36,8 +38,14 @@
 <script>
 
 import axios from 'axios'
+import LikeBar from './LikeBar.vue'
 
 export default {
+
+    components: {
+        LikeBar,
+    },
+
     props: {
         'thread': Object,
         'clickable': {
@@ -53,6 +61,13 @@ export default {
             }
 
             this.$inertia.visit(`/forum/topic/${this.thread.thread_topic_title}/${this.thread.id}`)
+        },
+
+        likeThread(likeStatus) {
+            axios.post('/forum/likethread', {
+                thread_id: this.thread.id,
+                liked: likeStatus,
+            })
         },
     },
 
