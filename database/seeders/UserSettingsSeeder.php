@@ -31,6 +31,16 @@ class UserSettingsSeeder extends Seeder
                 "created_at" => "2021-07-31 04:14:24",
                 "updated_at" => "2021-07-31 04:14:24",
             ),
+            array(
+                "id" => 2,
+                "user_id" => 2,
+                "display_name" => "Matt Gilpin",
+                "type" => 1,
+                "avatar" => '/images/default_avatar.png',
+                "created_at" => "2021-07-31 04:14:24",
+                "updated_at" => "2021-07-31 04:14:24",
+            ),
+            
         ));
     }
 }

@@ -64,7 +64,7 @@
         methods: {
             submitData() {
 
-                this.$inertia.post('/profile/change-password', {
+                this.$inertia.post('/account/change-password', {
                     current: this.currentPassword,
                     new_password: this.newPassowrd,
                     confirm_password: this.newPassowrdValidate
