@@ -13,7 +13,15 @@
 
 
 <script>
+
+import { Inertia } from '@inertiajs/inertia'
+
 export default {
+
+    components: {
+        Inertia,
+    },
+
     props: ['likes', 'dislikes', 'status', 'isThread', 'id'],
 
     methods: {
@@ -23,16 +31,31 @@ export default {
                 update = 0;
             }
 
+            let currentUrl = window.location.pathname.split("/").filter(t => t);
+            let propsToReload = ['threads'];
+
+            if (currentUrl.length == 4) {
+                propsToReload = ['thread', 'messages'];
+            }
+
+            console.log(currentUrl.length);
+
             if (this.isThread) {
                 axios.post('/forum/likethread', {
                     thread_id: this.id,
                     liked: update,
-                })
+                }).then(
+                    
+
+                    Inertia.reload({only: propsToReload})
+                )
             } else {
                 axios.post('/forum/likethreadmessage', {
                     thread_message_id: this.id,
                     liked: update,
-                })
+                }).then(
+                    Inertia.reload({only: propsToReload})
+                )
             }
         },
     }

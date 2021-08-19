@@ -84,8 +84,6 @@ class ForumDashboardController extends Controller
 
         $threadlike->liked = $request->liked;
         $threadlike->save();
-
-        return redirect()->back();
     }
 
     public function likeThreadMessage(Request $request) {
@@ -102,8 +100,6 @@ class ForumDashboardController extends Controller
         }
         $threadlike->liked = $request->liked;
         $threadlike->save();
-
-        return redirect()->back();
     }
 
 }
