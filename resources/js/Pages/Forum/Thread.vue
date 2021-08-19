@@ -37,7 +37,6 @@
 
 <script>
 
-import axios from 'axios'
 import LikeBar from './LikeBar.vue'
 
 export default {

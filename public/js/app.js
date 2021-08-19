@@ -18488,12 +18488,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  components: {
-    Inertia: _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia
-  },
   props: ['likes', 'dislikes', 'status', 'isThread', 'id'],
   methods: {
     like: function like(likeStatus) {
@@ -18501,23 +18496,21 @@ __webpack_require__.r(__webpack_exports__);
 
       if (likeStatus == this.status) {
         update = 0;
-      } // let currentUrl = window.location.pathname.split("/").filter(t => t);
-      // let propsToReload = ['threads'];
-      // if (currentUrl.length == 4) {
-      //     propsToReload = ['thread', 'messages'];
-      // }
-      //Inertia.reload({only: propsToReload})
-
+      }
 
       if (this.isThread) {
         this.$inertia.post('/forum/likethread', {
           thread_id: this.id,
           liked: update
+        }, {
+          preserveScroll: true
         });
       } else {
         this.$inertia.post('/forum/likethreadmessage', {
           thread_message_id: this.id,
           liked: update
+        }, {
+          preserveScroll: true
         });
       }
     }
@@ -18537,14 +18530,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _LikeBar_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LikeBar.vue */ "./resources/js/Pages/Forum/LikeBar.vue");
-
+/* harmony import */ var _LikeBar_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LikeBar.vue */ "./resources/js/Pages/Forum/LikeBar.vue");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    LikeBar: _LikeBar_vue__WEBPACK_IMPORTED_MODULE_1__.default
+    LikeBar: _LikeBar_vue__WEBPACK_IMPORTED_MODULE_0__.default
   },
   props: {
     'thread': Object,
@@ -18618,6 +18608,8 @@ __webpack_require__.r(__webpack_exports__);
       this.$inertia.post('/forum/addthreadmessage', {
         thread_id: this.thread.id,
         message: this.msg
+      }, {
+        preserveScroll: true
       });
       this.msg = '';
     },
@@ -18679,6 +18671,8 @@ __webpack_require__.r(__webpack_exports__);
         title: this.title,
         comment: this.comment,
         thread_topic_title: this.thread_topic_title
+      }, {
+        preserveScroll: true
       });
       this.title = '';
       this.comment = '';

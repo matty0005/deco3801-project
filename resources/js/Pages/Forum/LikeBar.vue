@@ -13,15 +13,7 @@
 
 
 <script>
-
-import { Inertia } from '@inertiajs/inertia'
-
 export default {
-
-    components: {
-        Inertia,
-    },
-
     props: ['likes', 'dislikes', 'status', 'isThread', 'id'],
 
     methods: {
@@ -31,24 +23,19 @@ export default {
                 update = 0;
             }
 
-            // let currentUrl = window.location.pathname.split("/").filter(t => t);
-            // let propsToReload = ['threads'];
-
-            // if (currentUrl.length == 4) {
-            //     propsToReload = ['thread', 'messages'];
-            // }
-
-            //Inertia.reload({only: propsToReload})
-
             if (this.isThread) {
                 this.$inertia.post('/forum/likethread', {
                     thread_id: this.id,
                     liked: update,
+                }, {
+                    preserveScroll: true,
                 })
             } else {
                 this.$inertia.post('/forum/likethreadmessage', {
                     thread_message_id: this.id,
                     liked: update,
+                }, {
+                    preserveScroll: true,
                 })
             }
         },

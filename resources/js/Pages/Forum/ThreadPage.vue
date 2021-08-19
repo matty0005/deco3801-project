@@ -60,6 +60,8 @@ export default {
             this.$inertia.post('/forum/addthreadmessage', {
                 thread_id: this.thread.id,
                 message: this.msg,
+            }, {
+                preserveScroll: true,
             })
 
             this.msg = '';
