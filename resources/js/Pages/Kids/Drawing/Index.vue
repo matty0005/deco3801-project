@@ -144,7 +144,6 @@
                 this.size = size
             },
             updateCanvasSize () {
-                console.log("Yeet")
                 this.canvas.style.width ='100%';
                 this.canvas.style.height='80vh';
                 // set the internal size to match

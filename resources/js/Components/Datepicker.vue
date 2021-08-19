@@ -51,13 +51,12 @@
                                             <div
                                                 @click.stop="getDateValue(date)"
                                                 class="cursor-pointer text-center text-sm leading-none rounded-full leading-loose transition ease-in-out duration-100"
-                                                :class="{'bg-ditaPrimary text-ditaPrimaryText': isToday(date) == true, 'font-bold bg-ditaSecondary text-ditaSecondaryText': isSelected(date) == true, 'text-gray-700 hover:bg-parent-100': isToday(date) == false }"	
+                                                :class="{'font-bold bg-ditaPrimary text-ditaPrimaryText': isToday(date) == true, 'bg-ditaSecondary text-ditaSecondaryText': isSelected(date) == true, 'text-gray-700 hover:bg-parent-100': isToday(date) == false }"	
                                             > {{ date }}</div>
                                         </div>
                                     </template>
                                 </div>
                             </div>
-
                         </div>	 
                   </div>
                </div>

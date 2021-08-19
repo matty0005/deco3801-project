@@ -1,6 +1,7 @@
 <template>
     <Layout class="bg-blueGray-100 min-h-screen">
-        <div class="container mx-auto mt-8">
+        <div class="bg-green-200 h-48"></div>
+        <div class="container mx-auto -mt-24">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
                 <!-- Main 3 column grid -->
                 <div class="grid grid-cols-1 gap-4 items-start lg:grid-cols-3 lg:gap-8">
@@ -17,7 +18,7 @@
                                 </div>
                                 <div class="mt-6 text-center sm:mt-6 sm:pt-1 sm:text-left">
                                     <p class="text-xl font-medium text-gray-600">Welcome back,</p>
-                                    <p class="text-3xl font-bold text-gray-900 sm:text-3xl"> {{ username }}! </p>
+                                    <p class="text-3xl font-bold text-gray-900 sm:text-3xl"> {{ $page.props.auth.user.name }}! </p>
                                 </div>
                             </div>
                             </div>
