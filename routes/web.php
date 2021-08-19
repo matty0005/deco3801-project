@@ -8,12 +8,13 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserSettingsController;
 use App\Http\Controllers\Account\BillingController;
 use App\Http\Controllers\Forums\ForumTopicController;
-use App\Http\Controllers\Forums\ForumThreadController;
 use App\Http\Controllers\PublicFacing\HomeController;
+use App\Http\Controllers\Forums\ForumThreadController;
 use App\Http\Controllers\Quizzes\EvaluationController;
 use App\Http\Controllers\Quizzes\FirstProgressionQuiz;
 use App\Http\Controllers\Account\ManageChildController;
 use App\Http\Controllers\Account\ParentAvatarController;
+use App\Http\Controllers\Kids\KidsDrawingPageController;
 use App\Http\Controllers\Account\NotificationsController;
 use App\Http\Controllers\Forums\ForumDashboardController;
 use App\Http\Controllers\Account\ChangePasswordController;
@@ -52,18 +53,18 @@ Route::post('/switch/parents', [SwitchParentsModeController:: class, 'index'])->
 
 // Settings 
 Route::get('/settings', [UserSettingsController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
-Route::get('/profile', [ParentSettingsController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('user_settings');
-Route::get('/profile/change-password', [ChangePasswordController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
-Route::get('/profile/billing', [BillingController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
-Route::get('/profile/notifications', [NotificationsController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
-Route::get('/profile/manage/child', [ManageChildController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+Route::get('/account', [ParentSettingsController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('user_settings');
+Route::get('/account/change-password', [ChangePasswordController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+Route::get('/account/billing', [BillingController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+Route::get('/account/notifications', [NotificationsController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+Route::get('/account/manage/child', [ManageChildController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
 
 
 
 
-Route::post('/profile', [ParentSettingsController:: class, 'update'])->middleware(['auth', 'verified', 'role']);
-Route::post('/profile/avatar', [ParentAvatarController:: class, 'update'])->middleware(['auth', 'verified', 'role']);
-Route::post('/profile/change-password', [ChangePasswordController:: class, 'update'])->middleware(['auth', 'verified', 'role']);
+Route::post('/account', [ParentSettingsController:: class, 'update'])->middleware(['auth', 'verified', 'role']);
+Route::post('/account/avatar', [ParentAvatarController:: class, 'update'])->middleware(['auth', 'verified', 'role']);
+Route::post('/account/change-password', [ChangePasswordController:: class, 'update'])->middleware(['auth', 'verified', 'role']);
 
 
 
@@ -90,6 +91,11 @@ Route::post('/evaluate/parent/{id}', [EvaluateParentController:: class, 'store']
 
 // Consultation
 Route::get('/consultation', [ConsultationController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+
+
+// Kids 
+Route::get('/kids/draw', [KidsDrawingPageController:: class, 'index'])->middleware(['auth', 'verified']);
+
 
 
 

@@ -15,7 +15,7 @@
             <div v-for="(message, index) in messages" :key="index"> 
                 <div class="font-bold flex flex-row">
                     
-                    <img class="rounded-lg mr-3" :src="message.avatar" />
+                    <img class="rounded-lg mr-3 h-12 w-12" :src="message.avatar" />
 
                     <div>{{message.display_name}} <span class="text-sm mb-4 text-gray-600">posted at {{time(message)}}</span></div>
                 </div>
