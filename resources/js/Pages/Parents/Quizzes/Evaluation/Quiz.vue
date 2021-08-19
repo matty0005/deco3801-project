@@ -6,13 +6,19 @@
                 {{ content.title }}
             </div>
             <div class="px-4 py-5 sm:p-6">
-                In this section you can assess blah
+                Evaluation Quiz
             </div>
         </div>
 
-        <div class="container  mx-auto mt-4 bg-white overflow-hidden shadow rounded-lg">
+        <div class="container mx-auto mt-4 bg-white overflow-hidden shadow rounded-lg">
             <div class="py-5" v-for="question in content.questions" :key="question">
                 <Select class="mx-4" :label="question.question" multiSelect :options="question.answers" @selected="userSelect"/>
+            </div>
+            <div class="py-5">
+                <Slider class="mx-4"/>
+            </div>
+            <div class="py-5">
+                <ColourSelect class="mx-4"/>
             </div>
         </div>
 
@@ -30,12 +36,16 @@
     import Layout from '@/Layouts/AppLayout'
     import List from "@/Shared/Lists"
     import Select from '@/Shared/Select.vue'
+    import Slider from '@/Shared/Slider.vue'
+    import ColourSelect from '@/Shared/ColourSelect.vue'
 
     export default {
         components: {
             Layout,
             List,
-            Select
+            Select,
+            Slider,
+            ColourSelect
         },
 
         data: () => {

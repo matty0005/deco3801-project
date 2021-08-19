@@ -6,7 +6,7 @@
                 Evaluation
             </div>
             <div class="px-4 py-5 sm:p-6">
-                In this section you can assess blah
+                Provide habits and behaviour to for feedback and provide doctor's with information.
             </div>
         </div>
         <div class="container mx-auto mt-4">
