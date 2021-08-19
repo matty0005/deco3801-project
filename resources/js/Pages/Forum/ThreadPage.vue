@@ -22,6 +22,7 @@
                 <div class="mt-2 mb-6 ml-10">
                     {{message.message}}
                 </div>
+                <LikeBar :likes="message.likes" :dislikes="message.dislikes" :status="message.liked" :isThread="false" :id="message.id" />
             </div> 
         </Thread>
     </Dashboard>
@@ -31,12 +32,14 @@
 
 import Dashboard from './Dashboard.vue'
 import Thread from './Thread.vue'
+import LikeBar from './LikeBar.vue'
 
 export default {
 
     components: {
         Dashboard,
         Thread,
+        LikeBar,
     },
 
     props: {
@@ -52,10 +55,13 @@ export default {
     },
 
     methods: {
+
         sendMsg() {
             this.$inertia.post('/forum/addthreadmessage', {
                 thread_id: this.thread.id,
                 message: this.msg,
+            }, {
+                preserveScroll: true,
             })
 
             this.msg = '';
