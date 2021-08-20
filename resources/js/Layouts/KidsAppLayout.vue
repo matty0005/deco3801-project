@@ -1,7 +1,7 @@
 <template>
-    <div>
-        <nav class="bg-white shadow">
-            <div class="container mx-auto ">
+    <div class="font-sniglet">
+        <nav class="bg-white shadow ">
+            <div class="container mx-auto  ">
             <div class="flex justify-between h-16">
             <div class="flex">
                 <div class="flex-shrink-0 flex items-center">
@@ -85,7 +85,7 @@
             </div>
         </div>
     </nav>
-    <main class="h-main bg-warmGray-100">
+    <main class="h-main bg-warmGray-100 ">
         <slot />
     </main>
 
