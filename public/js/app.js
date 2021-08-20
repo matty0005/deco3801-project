@@ -21839,11 +21839,11 @@ var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "flex-shrink-0 flex items-center"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   "class": "block lg:hidden h-8 w-auto",
-  src: "/images/logo_bare.png",
+  src: "/images/logo_name_3.svg",
   alt: "Workflow"
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   "class": "hidden lg:block h-8 w-auto",
-  src: "/images/logo_bare.png",
+  src: "/images/logo_name_3.svg",
   alt: "Workflow"
 })], -1
 /* HOISTED */
