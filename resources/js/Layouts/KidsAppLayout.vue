@@ -10,8 +10,10 @@
                 </div>
                 <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
                 <!-- Current: "border-orange-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
-                <Link href="/dashboard" :class="isOnPage('/dashboard') ? 'border-kid-500 text-gray-900':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" role="menuitem" tabindex="-1" >Dashboard</Link>
+                <Link href="/dashboard" :class="isOnPage('/dashboard') ? 'border-kid-500 text-gray-900':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" role="menuitem" tabindex="-1" >Home</Link>
+                <Link href="/kids/activities" :class="isOnPage('/kids/activities') ? 'border-kid-500 text-gray-900':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" role="menuitem" tabindex="-1" >Activities</Link>
                 <Link href="/kids/draw" v-if="week(5)" :class="isOnPage('/kids/draw') ? 'border-kid-500 text-gray-900':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" role="menuitem" tabindex="-1" >Draw</Link>
+                <Link href="/kids/profile" v-if="week(5)" :class="isOnPage('/kids/profile') ? 'border-kid-500 text-gray-900':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" role="menuitem" tabindex="-1" >Profile</Link>
 
                 </div>
             </div>
@@ -35,7 +37,6 @@
                 >
                 <div v-if="showProfileDropdown" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                     <!-- Active: "bg-gray-100", Not Active: "" -->
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Profile</a>
                     <a  @click="switchParents"  as="button" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" >Parent mode</a>
                 </div>
                 </transition>
@@ -61,7 +62,9 @@
             <div class="pt-2 pb-3 space-y-1">
             <!-- Current: "bg-indigo-50 border-orange-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" -->
             <Link href="/dashboard" :class="isOnPage('/dashboard') ? 'bg-kid-50 border-kid-500 text-kid-700':'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700'"  class=" block pl-3 pr-4 py-2 border-l-4 text-base font-medium" role="menuitem" tabindex="-1" >Dashboard</Link>
+            <Link href="/kids/activities" :class="isOnPage('/kids/activities') ? 'bg-kid-50 border-kid-500 text-kid-700':'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700'"  class=" block pl-3 pr-4 py-2 border-l-4 text-base font-medium" role="menuitem" tabindex="-1" >Activities</Link>
             <Link href="/kids/draw" :class="isOnPage('/kids/draw') ? 'bg-kid-50 border-kid-500 text-kid-700':'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700'"  class=" block pl-3 pr-4 py-2 border-l-4 text-base font-medium" role="menuitem" tabindex="-1" >Draw</Link>
+            <Link href="/kids/profile" :class="isOnPage('/kids/profile') ? 'bg-kid-50 border-kid-500 text-kid-700':'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700'"  class=" block pl-3 pr-4 py-2 border-l-4 text-base font-medium" role="menuitem" tabindex="-1" >Profile</Link>
 
             </div>
             <div class="pt-4 pb-3 border-t border-gray-200">
@@ -76,7 +79,6 @@
 
             </div>
             <div class="mt-3 space-y-1">
-                <a href="#" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100">Your Profile</a>
                 <a @click="switchParents" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100" role="menuitem" tabindex="-1" >Parent mode</a>
 
             </div>

@@ -13,6 +13,7 @@ use App\Http\Controllers\Forums\ForumThreadController;
 use App\Http\Controllers\Quizzes\EvaluationController;
 use App\Http\Controllers\Quizzes\FirstProgressionQuiz;
 use App\Http\Controllers\Account\ManageChildController;
+use App\Http\Controllers\Kids\KidsActivitiesController;
 use App\Http\Controllers\Account\ParentAvatarController;
 use App\Http\Controllers\Kids\KidsDrawingPageController;
 use App\Http\Controllers\Account\NotificationsController;
@@ -21,6 +22,7 @@ use App\Http\Controllers\Account\ChangePasswordController;
 use App\Http\Controllers\Account\ParentSettingsController;
 use App\Http\Controllers\Quizzes\EvaluateParentController;
 use App\Http\Controllers\Switchs\SwitchKidsModeController;
+use App\Http\Controllers\Kids\KidsProfileSettingsController;
 use App\Http\Controllers\Consultation\ConsultationController;
 use App\Http\Controllers\Switchs\SwitchParentsModeController;
 /*
@@ -95,6 +97,8 @@ Route::get('/consultation', [ConsultationController:: class, 'index'])->middlewa
 
 // Kids 
 Route::get('/kids/draw', [KidsDrawingPageController:: class, 'index'])->middleware(['auth', 'verified']);
+Route::get('/kids/profile', [KidsProfileSettingsController:: class, 'index'])->middleware(['auth', 'verified']);
+Route::get('/kids/activities', [KidsActivitiesController:: class, 'index'])->middleware(['auth', 'verified']);
 
 
 
