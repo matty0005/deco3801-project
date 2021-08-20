@@ -46,7 +46,7 @@
                     </div>
                 </div>
         </div>
-        <button class=" mt-16 text-2xl py-4 px-8 w-1/4 mx-auto bg-orange-600 text-orange-100 rounded-full">
+        <button @click="onSubmit" class=" mt-16 text-2xl py-4 px-8 w-1/4 mx-auto bg-orange-600 text-orange-100 rounded-full">
             Save
         </button>
         </div>
@@ -66,7 +66,8 @@
         data: () => {
             return {
                 isHappy: true,
-                newAvatar: null
+                newAvatar: null,
+                avatarfile: null
             }
         },
         methods: {
@@ -74,10 +75,28 @@
                 // Take to another page for activity
             },
             onAvatarChange(event) {
-                var file = event.target.files[0];
+                this.avatarfile = event.target.files[0];
             
-                this.newAvatar = URL.createObjectURL(file)
+                this.newAvatar = URL.createObjectURL(this.avatarfile)
             },
-        }
+            onSubmit() {
+                this.$inertia.post('/account/avatar', {
+                    avatar: this.avatarfile
+                },
+                    {forceFormData: true}
+                )
+            }
+        },
+        // setup () {
+        //     const avatarToUpload = useForm({
+        //         avatar: null,
+        //     })
+
+        //     function submit() {
+        //         avatarToUpload.post('/account/avatar')
+        //     }
+
+        //     return { avatarToUpload, submit }
+        // },
     }
 </script>
