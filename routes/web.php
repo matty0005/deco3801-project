@@ -14,6 +14,7 @@ use App\Http\Controllers\Quizzes\EvaluationController;
 use App\Http\Controllers\Quizzes\FirstProgressionQuiz;
 use App\Http\Controllers\Account\ManageChildController;
 use App\Http\Controllers\Kids\KidsActivitiesController;
+use App\Http\Controllers\Switchs\CreateChildController;
 use App\Http\Controllers\Account\ParentAvatarController;
 use App\Http\Controllers\Kids\KidsDrawingPageController;
 use App\Http\Controllers\Account\NotificationsController;
@@ -52,6 +53,11 @@ Route::get('/home', [HomeController:: class, 'index'])->name('home');
 // Switchers
 Route::post('/switch/kids', [SwitchKidsModeController:: class, 'index'])->middleware(['auth', 'verified']);
 Route::post('/switch/parents', [SwitchParentsModeController:: class, 'index'])->middleware(['auth', 'verified']);
+
+Route::get('/create/kid', [CreateChildController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('create_kid_account');
+Route::post('/create/kid', [CreateChildController:: class, 'create'])->middleware(['auth', 'verified',  'role'])->name('create_kid_account');
+
+
 
 // Settings 
 Route::get('/settings', [UserSettingsController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
@@ -97,10 +103,10 @@ Route::get('/consultation', [ConsultationController:: class, 'index'])->middlewa
 
 // Kids 
 Route::get('/kids/draw', [KidsDrawingPageController:: class, 'index'])->middleware(['auth', 'verified']);
-Route::get('/kids/profile', [KidsProfileSettingsController:: class, 'index'])->middleware(['auth', 'verified']);
+Route::get('/kids/profile', [KidsProfileSettingsController:: class, 'index'])->middleware(['auth', 'verified'])->name('kids_settings');
 Route::get('/kids/activities', [KidsActivitiesController:: class, 'index'])->middleware(['auth', 'verified']);
 
-
+Route::post('/kids/profile', [KidsProfileSettingsController:: class, 'update'])->middleware(['auth', 'verified']);
 
 
 
