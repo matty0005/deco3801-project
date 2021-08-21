@@ -47,7 +47,7 @@
 
                                 </div>
                             </label>
-                        <input  type="file" id="avtUpload" class="sr-only" @input="avatarToUpload.avatar = $event.target.files[0]" @change="onAvatarChange">
+                        <input  type="file" id="avtUpload" class="sr-only"  @change="onAvatarChange">
 
                         </form>
                     </div>
@@ -72,6 +72,7 @@
                             <img class="h-48 w-48 mx-auto pt-4 " src="/images/kids/theme_icon.png" />
 
                         </div>
+                        <Dropdown v-if="!showName && !showAvatar" :options="themeOptions" v-model="themeSelected" kidsMode/>
                     </div>
 
                 </transition>
@@ -82,7 +83,7 @@
             <button @click="back" v-if="!showAvatar" class=" mt-16 text-2xl py-4 px-8 w-1/4 mx-auto bg-orange-600 text-orange-100 rounded-full">
                 Back
             </button>
-            <button @click="onSubmit" class=" mt-16 text-2xl py-4 px-8 w-1/4 mx-auto bg-orange-600 text-orange-100 rounded-full">
+            <button  v-if="showAvatar" c @click="onSubmit" class=" mt-16 text-2xl py-4 px-8 w-1/4 mx-auto bg-orange-600 text-orange-100 rounded-full">
                 Save
             </button>
         </div>
@@ -95,12 +96,23 @@
     import Layout from '@/Layouts/KidsAppLayout'
     import CallToActionCard from "@/Shared/CallToActionCard.vue"
     import Textfield from "@/Shared/Textfield.vue"
+    import Dropdown from "@/Shared/Dropdown"
 
     export default {
         components: {
             Layout,
             CallToActionCard,
-            Textfield
+            Textfield,
+            Dropdown
+        },
+        props: {
+            displayName: String, 
+            theme: String,
+            errors:Object
+        },
+        mounted () {
+            this.themeSelected = this.theme 
+            this.childName = this.displayName
         },
         data: () => {
             return {
@@ -110,7 +122,9 @@
                 showAvatar: true,
                 showTheme: true,
                 showName: true,
-                childName: ''
+                childName: '',
+                themeOptions: ['Yellow', 'Pink', 'Blue'],
+                themeSelected: ''
             }
         },
         methods: {
@@ -123,11 +137,22 @@
                 this.newAvatar = URL.createObjectURL(this.avatarfile)
             },
             onSubmit() {
-                this.$inertia.post('/account/avatar', {
-                    avatar: this.avatarfile
-                },
-                    {forceFormData: true}
-                )
+                 let _this = this
+
+                this.$inertia.post('/kids/profile', {
+                    'display_name': this.childName,
+                    'theme': this.themeSelected
+                }, {
+                    onFinish: () => {
+                        if (_this.newAvatar != null) {
+                            _this.$inertia.post('/account/avatar', {
+                                avatar: _this.avatarfile,
+                            },
+                                {forceFormData: true}
+                            )
+                        }
+                    }
+                })
             }, 
             showNameEdit() {
                 if (!this.showAvatar && !this.showTheme && this.showName) {

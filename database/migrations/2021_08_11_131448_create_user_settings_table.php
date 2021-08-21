@@ -20,6 +20,7 @@ class CreateUserSettingsTable extends Migration
             $table->string('display_name');
             $table->smallInteger('type')->comment('1 = parent; 2 = child')->default(1);
             $table->mediumText('avatar')->nullable();
+            $table->integer('theme')->default(1);
             $table->timestamps();
         });
     }
