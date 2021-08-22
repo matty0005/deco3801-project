@@ -23,7 +23,7 @@ class KidsDrawingPageController extends Controller
         }
         
         $specificRequested = 0; // This will be used if the doctor requests a certain image
-        $id = 0;
+        $id = 1;
 
         if ($specificRequested != 0) {
             $id = $specificRequested;
@@ -31,7 +31,7 @@ class KidsDrawingPageController extends Controller
             $count = DB::table('drawing_items')
                 ->count();
 
-                $id = rand(0, $count - 1);
+                $id = rand(1, $count - 1);
 
         }
 
@@ -40,8 +40,7 @@ class KidsDrawingPageController extends Controller
                     'id'
             )
             ->where('id', $id)
-            ->first();
-        
+            ->first();        
 
         
         return Inertia::render('Kids/Drawing/Index', [
