@@ -30,18 +30,18 @@ class KidsProfileSettingsController extends Controller
             ->where('type', 2)
             ->first();
 
-        switch($settings->theme) {
-            case 3:
-                $settings->theme = 'Blkue';
-                break;
-            case 2:
-                $settings->theme = 'Pink';
-                break;
-            case 1:
-            default:
-                $settings->theme = 'Yellow';
-                break;
-        }
+        // switch($settings->theme) {
+        //     case 3:
+        //         $settings->theme = 'Blkue';
+        //         break;
+        //     case 2:
+        //         $settings->theme = 'Pink';
+        //         break;
+        //     case 1:
+        //     default:
+        //         $settings->theme = 'Yellow';
+        //         break;
+        // }
 
         
         return Inertia::render('Kids/Profile/Index', [
@@ -58,25 +58,25 @@ class KidsProfileSettingsController extends Controller
             'theme' => ['required', 'max:255'],
         ]);
 
-        switch(strtolower($data['theme'])) {
-            case 'blue':
-                $theme = 3;
-                break;
-            case 'pink':
-                $theme = 2;
-                break;
-            case 'yellow':
-            default: 
-                $theme = 1;
-                break;
-        }
+        // switch(strtolower($data['theme'])) {
+        //     case 'blue':
+        //         $theme = 3;
+        //         break;
+        //     case 'pink':
+        //         $theme = 2;
+        //         break;
+        //     case 'yellow':
+        //     default: 
+        //         $theme = 1;
+        //         break;
+        // }
 
         DB::table('user_settings')
             ->where('user_id', Auth::user()->id)
             ->where('type', 2)
             ->update([
                 'display_name' => $data['display_name'],
-                'theme' => $theme
+                'theme' => $data['theme']
             ]);
 
         return Redirect::route('kids_settings');
