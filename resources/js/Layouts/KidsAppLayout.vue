@@ -1,5 +1,5 @@
 <template>
-    <div class="font-sniglet" :class="themes[$page.props.theme]">
+    <div class="font-sniglet" :class="themes[$page.props.auth.user.theme]">
         <nav class="bg-white shadow ">
             <div class="container mx-auto  ">
             <div class="flex justify-between h-20">
