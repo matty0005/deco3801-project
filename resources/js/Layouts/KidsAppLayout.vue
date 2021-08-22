@@ -84,7 +84,7 @@
             </div>
         </div>
     </nav>
-    <main class="h-main bg-warmGray-100 ">
+    <main class="h-main ">
         <slot />
     </main>
 
