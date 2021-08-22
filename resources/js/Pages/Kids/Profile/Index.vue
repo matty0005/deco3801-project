@@ -111,7 +111,7 @@
             errors:Object
         },
         mounted () {
-            this.themeSelected = this.theme 
+            this.themeSelected = this.themeOptions[this.theme]
             this.childName = this.displayName
         },
         data: () => {
@@ -123,7 +123,7 @@
                 showTheme: true,
                 showName: true,
                 childName: '',
-                themeOptions: ['Yellow', 'Pink', 'Blue'],
+                themeOptions: ['Red', 'Orange', 'Yellow', 'Lime', 'Green', 'Blue', 'Purple', 'Pink'],
                 themeSelected: ''
             }
         },
@@ -141,7 +141,7 @@
 
                 this.$inertia.post('/kids/profile', {
                     'display_name': this.childName,
-                    'theme': this.themeSelected
+                    'theme': this.themeOptions.indexOf(this.themeSelected)
                 }, {
                     onFinish: () => {
                         if (_this.newAvatar != null) {
