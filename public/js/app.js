@@ -20204,6 +20204,10 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Layout: _Layouts_KidsAppLayout__WEBPACK_IMPORTED_MODULE_0__.default
   },
+  props: {
+    itemID: Number,
+    item: String
+  },
   data: function data() {
     return {
       drawing: false,
@@ -20297,7 +20301,13 @@ __webpack_require__.r(__webpack_exports__);
     },
     saveDrawing: function saveDrawing() {
       //canvas.toDataURL('image/jpeg', 0.5);
+      console.log("Hooot");
       var img = this.canvas.toDataURL();
+      console.log("img", img);
+      this.$inertia.post('/kids/draw', {
+        drawing: img,
+        item_id: this.itemID
+      });
     }
   }
 });
@@ -24188,16 +24198,25 @@ var _hoisted_1 = {
   "class": "container mx-auto mt-8"
 };
 var _hoisted_2 = {
-  "class": "bg-white overflow-hidden shadow rounded-lg"
+  "class": "bg-white overflow-hidden shadow rounded-lg mb-6 "
 };
 var _hoisted_3 = {
   "class": "px-4 py-5 sm:p-6"
 };
 var _hoisted_4 = {
+  "class": "text-4xl text-gray-700"
+};
+var _hoisted_5 = {
+  "class": "bg-white overflow-hidden shadow rounded-lg"
+};
+var _hoisted_6 = {
+  "class": "px-4 py-5 sm:p-6"
+};
+var _hoisted_7 = {
   "class": "flex flex-row"
 };
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
   "fill-rule": "evenodd",
   "clip-rule": "evenodd",
   d: "M12.8786 2.70705C14.0502 1.53547 15.9497 1.53548 17.1213 2.70705L22.2928 7.87862C23.4644 9.0502 23.4644 10.9497 22.2928 12.1213L14.4142 19.9999H17.9999C18.5522 19.9999 18.9999 20.4477 18.9999 20.9999C18.9999 21.5522 18.5522 21.9999 17.9999 21.9999H5.99994C5.73473 21.9999 5.48037 21.8946 5.29284 21.7071L1.70705 18.1213C0.535474 16.9497 0.535477 15.0502 1.70705 13.8786L12.8786 2.70705ZM11.5857 19.9999L14.5857 16.9999L7.99994 10.4142L3.12126 15.2928C2.73074 15.6834 2.73074 16.3165 3.12126 16.707L6.41416 19.9999H11.5857ZM9.41416 8.99994L15.9999 15.5857L20.8786 10.707C21.2691 10.3165 21.2691 9.68336 20.8786 9.29284L15.707 4.12126C15.3165 3.73074 14.6834 3.73074 14.2928 4.12126L9.41416 8.99994Z",
@@ -24206,9 +24225,9 @@ var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_6 = [_hoisted_5];
+var _hoisted_9 = [_hoisted_8];
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   "class": "h-3 w-3 mx-1",
   viewBox: "0 0 24 24",
@@ -24225,9 +24244,9 @@ var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_8 = [_hoisted_7];
+var _hoisted_11 = [_hoisted_10];
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   "class": "h-6 w-6 mx-1",
   viewBox: "0 0 24 24",
@@ -24244,9 +24263,9 @@ var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_10 = [_hoisted_9];
+var _hoisted_13 = [_hoisted_12];
 
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   "class": "h-8 w-8 mx-1",
   viewBox: "0 0 24 24",
@@ -24263,15 +24282,15 @@ var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_12 = [_hoisted_11];
+var _hoisted_15 = [_hoisted_14];
 
-var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "flex-grow"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   "class": "ml-auto flex w-8 h-8",
   fill: "currentColor",
   viewBox: "0 0 20 20",
@@ -24284,7 +24303,7 @@ var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_15 = [_hoisted_14];
+var _hoisted_18 = [_hoisted_17];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("layout");
 
@@ -24292,7 +24311,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "bg-gray-100 min-h-screen"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, "Can you draw " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.item), 1
+      /* TEXT */
+      )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         onClick: _cache[0] || (_cache[0] = function ($event) {
           return $options.changeColor('#000000');
         }),
@@ -24379,37 +24400,35 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         viewBox: "0 0 24 24",
         fill: "none",
         xmlns: "http://www.w3.org/2000/svg"
-      }, _hoisted_6, 2
+      }, _hoisted_9, 2
       /* CLASS */
       ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         onClick: _cache[12] || (_cache[12] = function ($event) {
           return $options.changeStrokeSize(5);
         }),
         "class": "flex justify-center items-center"
-      }, _hoisted_8), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+      }, _hoisted_11), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         onClick: _cache[13] || (_cache[13] = function ($event) {
           return $options.changeStrokeSize(10);
         }),
         "class": "flex justify-center items-center"
-      }, _hoisted_10), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+      }, _hoisted_13), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         onClick: _cache[14] || (_cache[14] = function ($event) {
           return $options.changeStrokeSize(20);
         }),
         "class": "flex justify-center items-center"
-      }, _hoisted_12), _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+      }, _hoisted_15), _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         "class": "",
         onClick: _cache[15] || (_cache[15] = function () {
           return $options.clear && $options.clear.apply($options, arguments);
         })
-      }, _hoisted_15), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-        onSave: _cache[16] || (_cache[16] = function () {
+      }, _hoisted_18), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        onClick: _cache[16] || (_cache[16] = function () {
           return $options.saveDrawing && $options.saveDrawing.apply($options, arguments);
         }),
         type: "button",
         "class": "inline-flex items-center px-4 ml-8 py-1 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
-      }, " Save ", 32
-      /* HYDRATE_EVENTS */
-      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("canvas", {
+      }, " Save ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("canvas", {
         "class": "my-4 border-2 bg-white boder-gray-300",
         id: "drawingCanvas",
         onMousedown: _cache[17] || (_cache[17] = function () {
