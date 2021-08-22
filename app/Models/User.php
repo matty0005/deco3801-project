@@ -46,7 +46,23 @@ class User extends Authenticatable
  
     protected $appends = [
         'avatar',
+        'theme'
     ];
+
+    public function getThemeAttribute() {
+        if (!Session::get('kidsMode')) {
+            return null;
+        }
+
+        $theme = DB::table('user_settings')
+            ->select('theme')
+            ->where('type', 2)
+            ->where('user_id', $this->id)
+            ->first();
+    
+        return $theme->theme;
+
+    }
 
     public function getAvatarAttribute()
     {
