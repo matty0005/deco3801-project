@@ -18765,7 +18765,8 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     thread: Object,
     messages: Array,
-    topics: Array
+    topics: Array,
+    errors: Object
   },
   data: function data() {
     return {
@@ -18774,13 +18775,19 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     sendMsg: function sendMsg() {
+      var _this = this;
+
       this.$inertia.post('/forum/addthreadmessage', {
         thread_id: this.thread.id,
         message: this.msg
       }, {
-        preserveScroll: true
+        preserveScroll: true,
+        onFinish: function onFinish() {
+          if (!_this.errors.message) {
+            _this.msg = '';
+          }
+        }
       });
-      this.msg = '';
     },
     time: function time(obj) {
       if (obj && obj.created_at) {
@@ -22584,12 +22591,15 @@ var _hoisted_4 = {
   "class": "mt-1"
 };
 var _hoisted_5 = {
-  "class": "font-bold flex flex-row"
+  "class": "text-xs text-red-400"
 };
 var _hoisted_6 = {
-  "class": "text-sm mb-4 text-gray-600"
+  "class": "font-bold flex flex-row"
 };
 var _hoisted_7 = {
+  "class": "text-sm mb-4 text-gray-600"
+};
+var _hoisted_8 = {
   "class": "mt-2 mb-6 ml-10"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -22616,28 +22626,30 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             }),
             name: "message",
             id: "message",
-            "class": "shadow-sm focus:ring-parent-500 focus:border-parent-500 block w-full sm:text-sm border-gray-300 rounded-md",
+            "class": ["shadow-sm focus:ring-parent-500 focus:border-parent-500 block w-full sm:text-sm border-gray-300 rounded-md", $props.errors.message ? ' border-red-400 ' : ''],
             placeholder: "message"
-          }, null, 512
+          }, null, 2
+          /* CLASS */
+          ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.msg]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, " Valid Message Required ", 512
           /* NEED_PATCH */
-          ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.msg]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+          ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $props.errors.message]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
             "class": "bg-parent-300 hover:bg-parent-400 rounded-md px-8 py-2 mt-6  text-sm mx-8",
             onClick: _cache[2] || (_cache[2] = function () {
               return $options.sendMsg && $options.sendMsg.apply($options, arguments);
             })
-          }, "Reply ")]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.messages, function (message, index) {
+          }, " Reply ")]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.messages, function (message, index) {
             return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
               key: index
-            }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+            }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
               "class": "rounded-lg mr-3 h-12 w-12",
               src: message.avatar
             }, null, 8
             /* PROPS */
             , ["src"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(message.display_name) + " ", 1
             /* TEXT */
-            ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_6, "posted at " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.time(message)), 1
+            ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_7, "posted at " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.time(message)), 1
             /* TEXT */
-            )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(message.message), 1
+            )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(message.message), 1
             /* TEXT */
             ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_LikeBar, {
               likes: message.likes,

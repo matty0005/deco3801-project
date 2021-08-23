@@ -66,10 +66,15 @@ class ForumDashboardController extends Controller
     }
 
     public function addThreadMessage(Request $request) {
+
+        $data = InertiaRequest::validate([
+            'message' => ['required', 'max:16777214'],
+        ]);
+
         $threadmessage = new ThreadMessage();
         $threadmessage->thread_id = $request->thread_id;
         $threadmessage->user_id = Auth::id();
-        $threadmessage->message = $request->message;
+        $threadmessage->message = $data['message'];
         $threadmessage->save();
 
         return redirect()->back();
