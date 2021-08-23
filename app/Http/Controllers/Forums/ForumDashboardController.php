@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Request as InertiaRequest;
 
 class ForumDashboardController extends Controller
 {
@@ -49,11 +50,16 @@ class ForumDashboardController extends Controller
     }
 
     public function newThread(Request $request) {
+        $data = InertiaRequest::validate([
+            'title' => ['required', 'max:255'],
+            'comment' => ['required', 'max:16777214'],
+        ]);
+
         $thread = new Thread();
         $thread->user_id = Auth::id();
         $thread->thread_topic_title = $request->thread_topic_title;
-        $thread->title = $request->title;
-        $thread->comment = $request->comment;
+        $thread->title = $data['title'];
+        $thread->comment = $data['comment'];
         $thread->save();
 
         return redirect()->back();

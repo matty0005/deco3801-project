@@ -8,7 +8,9 @@
                         <div class="mt-1">
                             <input type="text" name="title" id="title"  v-model="title" placeholder="title" 
                                 class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" 
+                                :class="(errors.title ? ' border-red-400 ':'')"
                             >
+                            <div class="text-xs text-red-400" v-show="errors.title"> Valid Title Required </div>
                         </div>
                     </div>
                     <div class="my-2">
@@ -16,7 +18,9 @@
                         <div class="mt-1">
                             <input type="text" name="comment" id="comment"  v-model="comment" 
                                 placeholder="comment" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" 
+                                :class="(errors.comment ? ' border-red-400 ':'')"
                             >
+                            <div class="text-xs text-red-400" v-show="errors.comment"> Valid Comment Required </div>
                         </div>
                     </div>
                 </div>
@@ -44,6 +48,7 @@ export default {
         threads: Array,
         topics: Array,
         thread_topic_title: String,
+        errors: Object,
     },
 
     data() {
@@ -55,22 +60,19 @@ export default {
 
     methods: {
         addThread() {
-            
-            if (this.title == '' || this.comment == '') {
-                return;
-            }
-            
             this.$inertia.post('/forum/newthread', {
                 title: this.title,
                 comment: this.comment,
                 thread_topic_title: this.thread_topic_title
             }, {
                 preserveScroll: true,
+                onFinish: () =>  {
+                    if (!this.errors.title && !this.errors.comment) {
+                        this.title = '';
+                        this.comment = '';
+                    }
+                },
             });
-
-            this.title = '';
-            this.comment = '';
-            
         }
     },
 }
