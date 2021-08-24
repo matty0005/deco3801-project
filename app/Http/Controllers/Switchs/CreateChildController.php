@@ -21,12 +21,14 @@ class CreateChildController extends Controller
     public function create() {
         $data = InertiaRequest::validate([
             'name' => ['required', 'max:255'],
+            'dob' => ['max:10', 'date'],
         ]);
 
         DB::table('user_settings')
             ->insert([
                 'user_id' => Auth::user()->id,
                 'display_name' => $data['name'],
+                'dob' => $data['dob'],
                 'type' => 2
             ]);
 

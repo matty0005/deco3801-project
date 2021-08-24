@@ -21,6 +21,7 @@ class CreateUserSettingsTable extends Migration
             $table->smallInteger('type')->comment('1 = parent; 2 = child')->default(1);
             $table->mediumText('avatar')->nullable();
             $table->integer('theme')->default(2);
+            $table->date('dob')->nullable();
             $table->timestamps();
         });
     }
