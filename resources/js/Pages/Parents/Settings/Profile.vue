@@ -5,8 +5,8 @@
                 <div class="shadow sm:rounded-md sm:overflow-hidden">
                     <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
                     <div>
-                        <h3 class="text-lg leading-6 font-medium text-gray-900">Personal Information</h3>
-                        <p class="mt-1 text-sm text-gray-500">Use a permanent address where you can recieve mail.</p>
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">Forum Information</h3>
+                        <p class="mt-1 text-sm text-gray-500">Here you can configure your preferences for the forum.</p>
                     </div>
 
                     <div class="grid grid-cols-6 gap-6">
@@ -66,6 +66,24 @@
                     </div>
                 </form>
 
+
+                <div class="shadow sm:rounded-md sm:overflow-hidden">
+                    <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
+                    <div>
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">Email Address</h3>
+                        <p class="mt-1 text-sm text-gray-500">Here is where you can update your email address</p>
+                    </div>
+
+                    <div class="grid grid-cols-6 gap-6">
+                        <div class="col-span-6 sm:col-span-4">
+                        <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
+                        <input type="text" name="email-address" id="email-address" autocomplete="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-parent-500 focus:border-parent-500 sm:text-sm">
+                        </div>
+                    </div>
+                    </div>
+    
+                </div>
+
                 <div class="shadow sm:rounded-md sm:overflow-hidden">
                     <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
                     <div>
@@ -84,17 +102,12 @@
                         <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-parent-500 focus:border-parent-500 sm:text-sm">
                         </div>
 
-                        <div class="col-span-6 sm:col-span-4">
-                        <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
-                        <input type="text" name="email-address" id="email-address" autocomplete="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-parent-500 focus:border-parent-500 sm:text-sm">
-                        </div>
+                        
 
                         <div class="col-span-6 sm:col-span-3">
                         <label for="country" class="block text-sm font-medium text-gray-700">Country / Region</label>
                         <select id="country" name="country" autocomplete="country" class="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-parent-500 focus:border-parent-500 sm:text-sm">
-                            <option>United States</option>
-                            <option>Canada</option>
-                            <option>Mexico</option>
+                            <option v-for="country in countries" :key="country.id">{{ country.name }}</option>
                         </select>
                         </div>
 
@@ -109,12 +122,12 @@
                         </div>
 
                         <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                        <label for="state" class="block text-sm font-medium text-gray-700">State / Province</label>
+                        <label for="state" class="block text-sm font-medium text-gray-700">State</label>
                         <input type="text" name="state" id="state" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-parent-500 focus:border-parent-500 sm:text-sm">
                         </div>
 
                         <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                        <label for="postal-code" class="block text-sm font-medium text-gray-700">ZIP / Postal</label>
+                        <label for="postal-code" class="block text-sm font-medium text-gray-700">Postcode</label>
                         <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-parent-500 focus:border-parent-500 sm:text-sm">
                         </div>
                     </div>
@@ -142,7 +155,8 @@
             Layout,
         },
         props: {
-            displayName: String
+            displayName: String,
+            countries:Array
         },
         methods: {
             onAvatarChange(event, isDrop) {
