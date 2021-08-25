@@ -24,11 +24,13 @@ class KidsProfileSettingsController extends Controller
         $settings = DB::table('user_settings')  
             ->select(
                     'display_name',
-                    'theme'
+                    'kids.theme'
                 )
             ->where('user_id', Auth::user()->id)
             ->where('type', 2)
+            ->join('kids', 'kids.user_settings_id', 'user_settings.id')
             ->first();
+
 
         // switch($settings->theme) {
         //     case 3:
@@ -74,9 +76,10 @@ class KidsProfileSettingsController extends Controller
         DB::table('user_settings')
             ->where('user_id', Auth::user()->id)
             ->where('type', 2)
+            ->join('kids', 'kids.user_settings_id', 'user_settings.id')
             ->update([
                 'display_name' => $data['display_name'],
-                'theme' => $data['theme']
+                'kids.theme' => $data['theme']
             ]);
 
         return Redirect::route('kids_settings');

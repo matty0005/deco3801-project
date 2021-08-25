@@ -12,8 +12,8 @@
                 <!-- Current: "border-orange-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
                 <Link href="/dashboard" :class="isOnPage('/dashboard') ? 'border-kid-500 text-gray-900':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-xl font-medium" role="menuitem" tabindex="-1" >Home</Link>
                 <Link href="/kids/activities" :class="isOnPage('/kids/activities') ? 'border-kid-500 text-gray-900':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-xl font-medium" role="menuitem" tabindex="-1" >Activities</Link>
-                <Link href="/kids/draw" v-if="week(5)" :class="isOnPage('/kids/draw') ? 'border-kid-500 text-gray-900':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-xl font-medium" role="menuitem" tabindex="-1" >Draw</Link>
-                <Link href="/kids/profile" v-if="week(5)" :class="isOnPage('/kids/profile') ? 'border-kid-500 text-gray-900':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-xl font-medium" role="menuitem" tabindex="-1" >Profile</Link>
+                <Link href="/kids/draw" v-if="week(6)" :class="isOnPage('/kids/draw') ? 'border-kid-500 text-gray-900':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-xl font-medium" role="menuitem" tabindex="-1" >Draw</Link>
+                <Link href="/kids/profile" v-if="week(6)" :class="isOnPage('/kids/profile') ? 'border-kid-500 text-gray-900':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-xl font-medium" role="menuitem" tabindex="-1" >Profile</Link>
                 </div>
             </div>
             <div class="hidden sm:ml-6 sm:flex sm:items-center">
