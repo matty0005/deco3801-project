@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             UserSettingsSeeder::class,
             DrawingItemsSeeder::class,
             KidsSeeder::class,
-            ParentsSeeder::class
+            ParentsSeeder::class,
+            CountrySeeder::class
         ]);
     }
 }

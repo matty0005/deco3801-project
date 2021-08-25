@@ -19418,13 +19418,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
-/* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/utils */ "./resources/js/utils.js");
+/* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.Link,
-    Layout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_1__.default
+    Layout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_2__.default
   },
   methods: {
     isOnPage: function isOnPage(url) {
@@ -19433,6 +19435,9 @@ __webpack_require__.r(__webpack_exports__);
       // console.log(`${urlMod}   ${currentUrl}`)
 
       return url === currentUrl;
+    },
+    week: function week(weekNum) {
+      return _utils__WEBPACK_IMPORTED_MODULE_1__.default.isWeek(weekNum);
     }
   }
 });
@@ -22197,7 +22202,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["class"]), $options.week(5) ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Link, {
+  , ["class"]), $options.week(6) ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Link, {
     key: 0,
     href: "/kids/draw",
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$options.isOnPage('/kids/draw') ? 'border-kid-500 text-gray-900' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700', " inline-flex items-center px-1 pt-1 border-b-2 text-xl font-medium"]),
@@ -22212,7 +22217,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["class"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $options.week(5) ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Link, {
+  , ["class"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $options.week(6) ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Link, {
     key: 1,
     href: "/kids/profile",
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$options.isOnPage('/kids/profile') ? 'border-kid-500 text-gray-900' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700', " inline-flex items-center px-1 pt-1 border-b-2 text-xl font-medium"]),
@@ -22528,7 +22533,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, 8
       /* PROPS */
       , ["class"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
-        href: "/account/change-password",
+        href: $options.week(6) ? '/account/change-password' : '#',
         "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$options.isOnPage('/account/change-password') ? 'text-parent-700 hover:text-parent-700 ' : 'text-gray-900 hover:text-gray-900', " hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-sm font-medium"])
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -22548,8 +22553,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
       }, 8
       /* PROPS */
-      , ["class"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
-        href: "/account/billing",
+      , ["href", "class"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+        href: $options.week(6) ? '/account/billing' : '#',
         "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$options.isOnPage('/account/billing') ? 'text-parent-700 hover:text-parent-700 ' : 'text-gray-900 hover:text-gray-900', " hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-sm font-medium"])
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -22569,8 +22574,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
       }, 8
       /* PROPS */
-      , ["class"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
-        href: "/account/manage/child",
+      , ["href", "class"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+        href: $options.week(6) ? '/account/manage/child' : '#',
         "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$options.isOnPage('/account/manage/child') ? 'text-parent-700 hover:text-parent-700 ' : 'text-gray-900 hover:text-gray-900', " hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-sm font-medium"])
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -22590,8 +22595,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
       }, 8
       /* PROPS */
-      , ["class"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
-        href: "/account/notifications",
+      , ["href", "class"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+        href: $options.week(6) ? '/account/notifications' : '#',
         "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$options.isOnPage('/account/notifications') ? 'text-parent-700 hover:text-parent-700 ' : 'text-gray-900 hover:text-gray-900', " hover:bg-gray-50 group rounded-md px-3 py-2 flex items-center text-sm font-medium"])
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -22609,7 +22614,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
       }, 8
       /* PROPS */
-      , ["class"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])];
+      , ["href", "class"])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])];
     }),
     _: 3
     /* FORWARDED */
@@ -25064,25 +25069,6 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 var _hoisted_3 = {
   "class": "container mx-auto mt-4"
 };
-var _hoisted_4 = {
-  "class": "container mx-auto mt-4"
-};
-var _hoisted_5 = {
-  "class": "bg-white overflow-hidden shadow rounded-lg"
-};
-
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "px-4 py-5 sm:p-6 text-2xl"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Content goes here "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Progressive quiz ")], -1
-/* HOISTED */
-);
-
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "text-gray-600 mt-2 ml-6 mb-8"
-}, " Please complete this quiz to continue. The data from this quiz will be used to help you asses your childs progression throught their expereience. ", -1
-/* HOISTED */
-);
-
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_List = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("List");
 
@@ -25097,12 +25083,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         onOnClicked: $options.handleQuizClick
       }, null, 8
       /* PROPS */
-      , ["list", "onOnClicked"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-        "class": "px-4 py-2 bg-parent-500 text-white rounded-md m-4",
-        onClick: _cache[0] || (_cache[0] = function () {
-          return $options.submitQuiz && $options.submitQuiz.apply($options, arguments);
-        })
-      }, "Submit")])])];
+      , ["list", "onOnClicked"])])];
     }),
     _: 1
     /* STABLE */
@@ -27004,12 +26985,10 @@ var isWeek = function isWeek(weekNum) {
   var todayDate = new Date();
   var todayWeek = todayDate.getWeek();
 
-  if (true) {
-    return true;
-  }
+  if (false) {}
 
-  console.log("false");
-  console.log("false" == 'false');
+  console.log("true");
+  console.log("true" == 'false');
   return todayWeek - 29 >= weekNum;
 };
 
