@@ -21819,8 +21819,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
       }), $options.week(5) ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Link, {
         key: 0,
-        href: "/switch/kids",
-        method: "post",
+        href: $options.week(6) ? '/switch/kids' : '#',
+        method: $options.week(6) ? 'post' : 'get',
         as: "button",
         "class": "block px-4 py-2 text-sm text-gray-700",
         role: "menuitem",
@@ -21832,7 +21832,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         _: 1
         /* STABLE */
 
-      })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+      }, 8
+      /* PROPS */
+      , ["href", "method"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
         href: "/logout",
         method: "post",
         as: "button",
@@ -21939,8 +21941,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }), $options.week(5) ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Link, {
     key: 0,
-    href: "/switch/kids",
-    method: "post",
+    href: $options.week(6) ? '/switch/kids' : '#',
+    method: $options.week(6) ? 'post' : 'get',
     as: "button",
     "class": "block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100",
     role: "menuitem",
@@ -21952,7 +21954,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+  }, 8
+  /* PROPS */
+  , ["href", "method"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
     href: "/logout",
     method: "post",
     as: "button",
