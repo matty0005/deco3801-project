@@ -14,6 +14,7 @@ module.exports = {
             fontFamily: {
                 // sans: ['Nunito', ...defaultTheme.fontFamily.sans],
                 sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+                sniglet: ['Sniglet']
             },
             colors: {
                 lime: colors.lime,

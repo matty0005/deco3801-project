@@ -152,10 +152,11 @@
                     <!-- Recent Hires -->
                     <section>
                         <div class="">
-                            <Datepicker class="mx-6/12" v-model="date"/>
+                            <div  v-if="!week(7)" class="h-64 w-96 rounded-lg bg-white overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px"></div>
+                            <Datepicker v-if="week(7)" class="mx-6/12" v-model="date"/>
                         </div>
                     </section>
-                    <section aria-labelledby="recent-hires-title">
+                    <section aria-labelledby="recent-hires-title" v-if="week(7)">
                         <div class="rounded-lg bg-white overflow-hidden shadow">
                         <div class="p-6">
                             <h2 class="text-base font-medium text-gray-900">MY DOCTORS</h2>
@@ -201,7 +202,8 @@
 <script>
     import Layout from '@/Layouts/AppLayout'
     import Datepicker from '@/Components/Datepicker'
-
+    import isWeek from "@/utils"
+    
     export default {
         data: () => {
             return {
@@ -217,6 +219,9 @@
             goToPage(page) {
                 this.$inertia.visit(page)
             },
+            week (weekNum) {
+                return isWeek.isWeek(weekNum)
+            }
         }
     }
 </script>

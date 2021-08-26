@@ -1,45 +1,58 @@
 <template>
     <layout class="bg-gray-100 min-h-screen">
+
         <div id="container" class="container mx-auto mt-8">
-            <div class="flex flex-row">
-                <div @click="changeColor('#000000')" :class="color == '#000000' ? 'border-4 border-gray-800':''" class="bg-black h-8 w-8 mr-1 rounded"></div>
-                <div @click="changeColor('#EF4444')" :class="color == '#EF4444' ? 'border-4 border-red-600':''" class="bg-red-500 h-8 w-8 mx-1 rounded"></div>
-                <div @click="changeColor('#F97316')" :class="color == '#F97316' ? 'border-4 border-orange-600':''" class="bg-orange-500 h-8 w-8 mx-1 rounded"></div>
-                <div @click="changeColor('#FACC15')" :class="color == '#FACC15' ? 'border-4 border-yellow-600':''" class="bg-yellow-400 h-8 w-8 mx-1 rounded"></div>
-                <div @click="changeColor('#84CC16')" :class="color == '#84CC16' ? 'border-4 border-lime-600':''" class="bg-lime-500 h-8 w-8 mx-1 rounded"></div>
-                <div @click="changeColor('#22C55E')" :class="color == '#22C55E' ? 'border-4 border-green-600':''" class="bg-green-500 h-8 w-8 mx-1 rounded"></div>
-                <div @click="changeColor('#22D3EE')" :class="color == '#22D3EE' ? 'border-4 border-cyan-600':''" class="bg-cyan-400 h-8 w-8 mx-1 rounded"></div>
-                <div @click="changeColor('#3B82F6')" :class="color == '#3B82F6' ? 'border-4 border-blue-600':''" class="bg-blue-500 h-8 w-8 mx-1 rounded"></div>
-                <div @click="changeColor('#A855F7')" :class="color == '#A855F7' ? 'border-4 border-purple-600':''" class="bg-purple-500 h-8 w-8 mx-1 rounded"></div>
-                <div @click="changeColor('#D946EF')" :class="color == '#D946EF' ? 'border-4 border-fuchsia-600':''" class="bg-fuchsia-500 h-8 w-8 mx-1 rounded"></div>
-                <div @click="changeColor('#EC4899')" :class="color == '#EC4899' ? 'border-4 border-pink-600':''" class="bg-pink-500 h-8 w-8 mx-1 rounded"></div>
 
-                <div @click="eraser" class=" h-8 w-8 mx-4 ml-16 rounded">
-                    <svg :class="erase ? '':''" class=" h-8 w-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.8786 2.70705C14.0502 1.53547 15.9497 1.53548 17.1213 2.70705L22.2928 7.87862C23.4644 9.0502 23.4644 10.9497 22.2928 12.1213L14.4142 19.9999H17.9999C18.5522 19.9999 18.9999 20.4477 18.9999 20.9999C18.9999 21.5522 18.5522 21.9999 17.9999 21.9999H5.99994C5.73473 21.9999 5.48037 21.8946 5.29284 21.7071L1.70705 18.1213C0.535474 16.9497 0.535477 15.0502 1.70705 13.8786L12.8786 2.70705ZM11.5857 19.9999L14.5857 16.9999L7.99994 10.4142L3.12126 15.2928C2.73074 15.6834 2.73074 16.3165 3.12126 16.707L6.41416 19.9999H11.5857ZM9.41416 8.99994L15.9999 15.5857L20.8786 10.707C21.2691 10.3165 21.2691 9.68336 20.8786 9.29284L15.707 4.12126C15.3165 3.73074 14.6834 3.73074 14.2928 4.12126L9.41416 8.99994Z" fill="#293644"/>
-                    </svg>
+            <div class="bg-white overflow-hidden shadow rounded-lg mb-6 ">
+                <div class="px-4 py-5 sm:p-6">
+                    <div class="text-4xl text-gray-700">Can you draw {{ item }}</div>
                 </div>
-                <div @click="changeStrokeSize(5)" class="flex justify-center items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg"  class="h-3 w-3 mx-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"></circle></svg>
-                </div>
-                <div @click="changeStrokeSize(10)" class="flex justify-center items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg"   class="h-6 w-6 mx-1"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"></circle></svg>
-                </div>
-                <div @click="changeStrokeSize(20)" class="flex justify-center items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg"  class="h-8 w-8 mx-1"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"></circle></svg>
-                </div>
-                <div class="flex-grow">
-                </div>
-                <div class="" @click="clear">
-                    <svg class="ml-auto flex w-8 h-8" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
-                </div>
-
-                <button @save="saveDrawing" type="button" class="inline-flex items-center px-4 ml-8 py-1 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-                    Save
-                </button>
-                
             </div>
-            <canvas class="my-4 border-2 bg-white boder-gray-300" id="drawingCanvas" @mousedown="beginDrawing" @mousemove="keepDrawing" @mouseup="stopDrawing" />
+
+            <div class="bg-white overflow-hidden shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                        <div class="flex flex-row">
+                            <div @click="changeColor('#000000')" :class="color == '#000000' ? 'border-4 border-gray-800':''" class="bg-black h-8 w-8 mr-1 rounded"></div>
+                            <div @click="changeColor('#EF4444')" :class="color == '#EF4444' ? 'border-4 border-red-600':''" class="bg-red-500 h-8 w-8 mx-1 rounded"></div>
+                            <div @click="changeColor('#F97316')" :class="color == '#F97316' ? 'border-4 border-orange-600':''" class="bg-orange-500 h-8 w-8 mx-1 rounded"></div>
+                            <div @click="changeColor('#FACC15')" :class="color == '#FACC15' ? 'border-4 border-yellow-600':''" class="bg-yellow-400 h-8 w-8 mx-1 rounded"></div>
+                            <div @click="changeColor('#84CC16')" :class="color == '#84CC16' ? 'border-4 border-lime-600':''" class="bg-lime-500 h-8 w-8 mx-1 rounded"></div>
+                            <div @click="changeColor('#22C55E')" :class="color == '#22C55E' ? 'border-4 border-green-600':''" class="bg-green-500 h-8 w-8 mx-1 rounded"></div>
+                            <div @click="changeColor('#22D3EE')" :class="color == '#22D3EE' ? 'border-4 border-cyan-600':''" class="bg-cyan-400 h-8 w-8 mx-1 rounded"></div>
+                            <div @click="changeColor('#3B82F6')" :class="color == '#3B82F6' ? 'border-4 border-blue-600':''" class="bg-blue-500 h-8 w-8 mx-1 rounded"></div>
+                            <div @click="changeColor('#A855F7')" :class="color == '#A855F7' ? 'border-4 border-purple-600':''" class="bg-purple-500 h-8 w-8 mx-1 rounded"></div>
+                            <div @click="changeColor('#D946EF')" :class="color == '#D946EF' ? 'border-4 border-fuchsia-600':''" class="bg-fuchsia-500 h-8 w-8 mx-1 rounded"></div>
+                            <div @click="changeColor('#EC4899')" :class="color == '#EC4899' ? 'border-4 border-pink-600':''" class="bg-pink-500 h-8 w-8 mx-1 rounded"></div>
+
+                            <div @click="eraser" class=" h-8 w-8 mx-4 ml-16 rounded">
+                                <svg :class="erase ? '':''" class=" h-8 w-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.8786 2.70705C14.0502 1.53547 15.9497 1.53548 17.1213 2.70705L22.2928 7.87862C23.4644 9.0502 23.4644 10.9497 22.2928 12.1213L14.4142 19.9999H17.9999C18.5522 19.9999 18.9999 20.4477 18.9999 20.9999C18.9999 21.5522 18.5522 21.9999 17.9999 21.9999H5.99994C5.73473 21.9999 5.48037 21.8946 5.29284 21.7071L1.70705 18.1213C0.535474 16.9497 0.535477 15.0502 1.70705 13.8786L12.8786 2.70705ZM11.5857 19.9999L14.5857 16.9999L7.99994 10.4142L3.12126 15.2928C2.73074 15.6834 2.73074 16.3165 3.12126 16.707L6.41416 19.9999H11.5857ZM9.41416 8.99994L15.9999 15.5857L20.8786 10.707C21.2691 10.3165 21.2691 9.68336 20.8786 9.29284L15.707 4.12126C15.3165 3.73074 14.6834 3.73074 14.2928 4.12126L9.41416 8.99994Z" fill="#293644"/>
+                                </svg>
+                            </div>
+                            <div @click="changeStrokeSize(5)" class="flex justify-center items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg"  class="h-3 w-3 mx-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"></circle></svg>
+                            </div>
+                            <div @click="changeStrokeSize(10)" class="flex justify-center items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg"   class="h-6 w-6 mx-1"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"></circle></svg>
+                            </div>
+                            <div @click="changeStrokeSize(20)" class="flex justify-center items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg"  class="h-8 w-8 mx-1"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"></circle></svg>
+                            </div>
+                            <div class="flex-grow">
+                            </div>
+                            <div class="" @click="clear">
+                                <svg class="ml-auto flex w-8 h-8" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                            </div>
+
+                            <button @click="saveDrawing" type="button" class="inline-flex items-center px-4 ml-8 py-1 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                                Save
+                            </button>
+                            
+                        </div>
+                        <canvas class="my-4 border-2 bg-white boder-gray-300" id="drawingCanvas" @mousedown="beginDrawing" @mousemove="keepDrawing" @mouseup="stopDrawing" />
+                    </div>
+
+            </div>
         </div>
     </layout>
 </template>
@@ -50,6 +63,10 @@
     export default {
         components: {
             Layout,
+        },
+        props: {
+            itemID: Number,
+            item: String
         },
         data: () => {
             return {
@@ -157,7 +174,13 @@
             },
             saveDrawing() {
                 //canvas.toDataURL('image/jpeg', 0.5);
+                console.log("Hooot")
                 var img = this.canvas.toDataURL()
+                console.log("img", img)
+                this.$inertia.post('/kids/draw', {
+                        drawing: img,
+                        item_id: this.itemID
+                    })
 
             }
         }
