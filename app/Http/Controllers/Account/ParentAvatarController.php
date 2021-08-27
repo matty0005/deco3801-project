@@ -27,6 +27,7 @@ class ParentAvatarController extends Controller
         // $base64 = (string) $image_resize->encode('data-url'); 
         $base64 = (string) $image_resize->encode('jpg', 50)->encode('data-url'); 
 
+
         // $base64 = 'data:image/png;base64,' . base64_encode($imagedata);
         
         DB::table('user_settings')

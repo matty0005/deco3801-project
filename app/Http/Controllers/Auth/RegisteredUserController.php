@@ -50,6 +50,7 @@ class RegisteredUserController extends Controller
         DB::table('user_settings')
             ->insert([
                 'user_id' => $user->id,
+                'name' => $request->name,
                 'display_name' => $request->name,
                 'avatar' => '/images/default_avatar.png'
             ]);

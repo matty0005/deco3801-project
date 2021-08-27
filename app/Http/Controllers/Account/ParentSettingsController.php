@@ -21,8 +21,14 @@ class ParentSettingsController extends Controller
             ->where('type', Session::get('kidsMode') ? 2:1)
             ->first();
 
+        $countries = DB::table('country')
+            ->select('name',
+                    'id')
+            ->get();
+
         return Inertia::render('Parents/Settings/Profile', [
-            'displayName' => $display_name->display_name
+            'displayName' => $display_name->display_name,
+            'countries' => $countries
         ]);
     }
 
