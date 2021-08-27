@@ -12,7 +12,6 @@
                     to select a doctor based off your own preferences, their gender, their availability or their rating. 
                 </div>
             </div>
-            
         </div>
 
         <div class="container mx-auto mt-4"> 
@@ -99,12 +98,12 @@
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
                                             <div class="flex-shrink-0 h-10 w-10">
-                                                <img v-if="doctor.gender === 'Male'" class="h-10 w-10 rounded-full" src="/images/temp-male-avatar.png"/>
-                                                <imv v-else class="h-10 w-10 rounded-full" src="/images/temp-female-avatar.png"/>
+                                                <img v-if="doctor.gender === 0" class="h-10 w-10 rounded-full" src="/images/temp-male-avatar.png"/>
+                                                <img v-else class="h-10 w-10 rounded-full" src="/images/temp-female-avatar.png"/>
                                             </div>
                                             <div class="ml-4">
                                                 <div class="text-sm font-medium text-gray-900">
-                                                    {{doctor.first_name}}
+                                                    {{doctor.first_name}}&nbsp;{{doctor.last_name}}
                                                 </div>
                                                 <div class="text-sm text-gray-500">
                                                     {{doctor.email}}
@@ -113,23 +112,20 @@
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900">{{doctor.rating}}</div>
-                                        <div class="text-sm text-gray-500">{{doctor.number_reviews}}</div>
+                                        <div class="text-sm text-gray-900">{{doctor.rating}}/5</div>
+                                        <div class="text-sm text-gray-500">{{doctor.count}} Reviews </div>
                                     </td>
                                     <td>
-                                        <div class="text-sm text-gray-500">{{doctor.gender}}</div>
+                                        <div class="text-sm text-gray-500">{{doctor.gender === 0 ? "Male" : "Female"}}</div>
                                     </td>
-                                    <td>
+                                    <!-- <td>
                                         <div class="text-sm text-gray-900">{{doctor.available_date}}</div>
-                                    </td>
+                                    </td> -->
                                 </tr>
                             </tbody>
                         </table>
-
                     </div>
                 </div>
-                
-                
             </div>
         </div>
     </Layout>

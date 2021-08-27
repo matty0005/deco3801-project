@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             QuizQuestionsSeeder::class,
             ThreadTopicSeeder::class,
             UserSettingsSeeder::class,
+            DoctorSeeder::class, 
+            DoctorRatingsSeeder::class,
         ]);
     }
 }
