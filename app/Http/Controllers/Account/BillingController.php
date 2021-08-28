@@ -33,8 +33,45 @@ class BillingController extends Controller
             ];
         }
         
+
+        $invoice_rows = [
+            [
+                'Date' => '2021-09-01',
+                'Name' => 'Consultation',
+                'Amount' => '$120',
+                'Status' => 'Paid',
+                '_download' => '#'
+            ],
+            [
+                'Date' => '2021-08-01',
+                'Name' => 'Consultation',
+                'Amount' => '$120',
+                'Status' => 'Paid',
+                '_download' => '#'
+            ],
+            [
+                'Date' => '2021-07-01',
+                'Name' => 'Consultation',
+                'Amount' => '$120',
+                'Status' => 'Paid',
+                '_download' => '#'
+            ]
+        ];
+
+        $invoice_cols = [
+            'Date',
+            'Name',
+            'Amount',
+            'Status',
+            '_download'
+        ];
+
+
+
         return Inertia::render('Parents/Settings/Billing', [
             'details' => $details,
+            'invoiceRows' => $invoice_rows,
+            'invoiceCols' => $invoice_cols,
             'intent' => $user->createSetupIntent()
         ]);
     }

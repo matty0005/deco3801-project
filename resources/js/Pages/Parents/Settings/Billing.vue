@@ -2,6 +2,19 @@
 <div>
     <Layout class="bg-blueGray-100 min-h-screen pb-8" >
         <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
+            
+                <div class="shadow sm:rounded-md sm:overflow-hidden">
+                    <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
+                    <div>
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">Invoices</h3>
+                        <p class="mt-1 text-sm text-gray-500">Here you can download your past invoices</p>
+                    </div>
+
+                        <Datatable :cols="invoiceCols" :rows="invoiceRows"/>
+
+                    </div>    
+                </div>
+                
                 <div class="shadow sm:rounded-md sm:overflow-hidden">
                     <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
                     <div>
@@ -42,6 +55,9 @@
                 </div>
 
 
+
+
+
                 <div class="flex flex-row-reverse">
                     <button v-on:click="sendStripe" type="submit" class="bg-parent-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-parent-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-parent-600">
                         Save
@@ -56,6 +72,7 @@
 
     import Layout from '@/Layouts/SettingsLayout'
     import CardDetails from "@/Components/Billing/CardDetails.vue"
+    import Datatable from "@/Shared/Datatable.vue"
 
     let stripe = Stripe(process.env.MIX_STRIPE_KEY),
     elements = stripe.elements(),
@@ -64,12 +81,15 @@
     export default {
         components: {
             Layout,
-            CardDetails
+            CardDetails,
+            Datatable
         },
         props: {
             errors: Object,
             intent: Object,
-            details: Object
+            details: Object,
+            invoiceCols: Array,
+            invoiceRows: Array
         },
 
         methods: {
