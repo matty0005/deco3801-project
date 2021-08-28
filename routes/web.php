@@ -63,9 +63,11 @@ Route::post('/create/kid', [CreateChildController:: class, 'create'])->middlewar
 Route::get('/settings', [UserSettingsController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
 Route::get('/account', [ParentSettingsController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('user_settings');
 Route::get('/account/change-password', [ChangePasswordController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
-Route::get('/account/billing', [BillingController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+Route::get('/account/billing', [BillingController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('user_billing');
 Route::get('/account/notifications', [NotificationsController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
 Route::get('/account/manage/child', [ManageChildController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+
+Route::post('/account/billing', [BillingController:: class, 'store'])->middleware(['auth', 'verified', 'role']);
 
 
 
