@@ -26,6 +26,7 @@ use App\Http\Controllers\Switchs\SwitchKidsModeController;
 use App\Http\Controllers\Kids\KidsProfileSettingsController;
 use App\Http\Controllers\Consultation\ConsultationController;
 use App\Http\Controllers\Switchs\SwitchParentsModeController;
+use App\Http\Controllers\Resources\ResourceDashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -101,6 +102,10 @@ Route::post('/evaluate/parent/{id}', [EvaluateParentController:: class, 'store']
 
 // Consultation
 Route::get('/consultation', [ConsultationController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+
+// Resources
+Route::get('/resources', [ResourceDashboardController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+
 
 
 // Kids 
