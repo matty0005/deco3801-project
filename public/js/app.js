@@ -19232,9 +19232,6 @@ __webpack_require__.r(__webpack_exports__);
     Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__.Link
   },
   methods: {
-    goToPage: function goToPage(page) {
-      this.$inertia.visit(page);
-    },
     week: function week(weekNum) {
       return _utils__WEBPACK_IMPORTED_MODULE_2__.default.isWeek(weekNum);
     }

@@ -218,9 +218,6 @@
             Link
         },
         methods: {
-            goToPage(page) {
-                this.$inertia.visit(page)
-            },
             week (weekNum) {
                 return isWeek.isWeek(weekNum)
             }
