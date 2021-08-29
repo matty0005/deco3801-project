@@ -93,6 +93,16 @@ module.exports = {
                 'kid-700': '#C52707',
                 'kid-800': '#AD1D07',
                 'kid-900': '#841003',
+            },
+            height: {
+                'kids': 'calc(100vh - 5rem)',
+                '128': '32rem',
+            },
+            minHeight: {
+                'kids': 'calc(100vh - 5rem)'
+            },
+            width: {
+                '128': '32rem',
             }
         },
     },
