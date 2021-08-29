@@ -26,6 +26,7 @@ use App\Http\Controllers\Switchs\SwitchKidsModeController;
 use App\Http\Controllers\Kids\KidsProfileSettingsController;
 use App\Http\Controllers\Consultation\ConsultationController;
 use App\Http\Controllers\Switchs\SwitchParentsModeController;
+use App\Http\Controllers\Resources\ResourceDashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,9 +64,11 @@ Route::post('/create/kid', [CreateChildController:: class, 'create'])->middlewar
 Route::get('/settings', [UserSettingsController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
 Route::get('/account', [ParentSettingsController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('user_settings');
 Route::get('/account/change-password', [ChangePasswordController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
-Route::get('/account/billing', [BillingController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+Route::get('/account/billing', [BillingController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('user_billing');
 Route::get('/account/notifications', [NotificationsController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
 Route::get('/account/manage/child', [ManageChildController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+
+Route::post('/account/billing', [BillingController:: class, 'store'])->middleware(['auth', 'verified', 'role']);
 
 
 
@@ -99,6 +102,10 @@ Route::post('/evaluate/parent/{id}', [EvaluateParentController:: class, 'store']
 
 // Consultation
 Route::get('/consultation', [ConsultationController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+
+// Resources
+Route::get('/resources', [ResourceDashboardController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+
 
 
 // Kids 
