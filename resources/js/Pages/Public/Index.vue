@@ -9,10 +9,10 @@
                 <div class="lg:py-24">
                     <h1 class="mt-4 text-4xl tracking-tight font-extrabold text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
                     <span class="block">Seedlings</span> 
-                    <span class="pb-3 block bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-yellow-400 sm:pb-5">Let your kid smile everyday</span>
+                    <span class="pb-3 block bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-yellow-400 sm:pb-5">Let your child smile everyday</span>
                     </h1>
                     <p class="text-base text-gray-300 sm:text-xl lg:text-lg xl:text-xl">
-                    Help kid at home match the right therapist.
+                    Help your child mental state improve
                     </p>
                     <div class="mt-10 sm:mt-12">
                     <div class="sm:max-w-xl sm:mx-auto lg:mx-0">
@@ -157,10 +157,10 @@
               
             </h2>
             <p class="mt-2 text-black text-3xl font-extrabold tracking-tight sm:text-4xl">
-              Give a hand
+              Want to help
             </p>
             <p class="mt-3 text-lg text-gray-800">
-              Are you interesting to provide therapy service?
+              Are you interested in providing a mental health service?
             </p>
             <div class="mt-8">
               <div class="inline-flex rounded-md shadow">

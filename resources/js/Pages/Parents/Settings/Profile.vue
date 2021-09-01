@@ -106,7 +106,7 @@
 
                         <div class="col-span-6 sm:col-span-3">
                         <label for="country" class="block text-sm font-medium text-gray-700">Country / Region</label>
-                        <select id="country" name="country" autocomplete="country" class="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-parent-500 focus:border-parent-500 sm:text-sm">
+                        <select id="country" name="country" v-model="selectedCountry" autocomplete="country" class="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-parent-500 focus:border-parent-500 sm:text-sm">
                             <option v-for="country in countries" :key="country.id">{{ country.name }}</option>
                         </select>
                         </div>
@@ -206,7 +206,8 @@
         data: () => {
             return {
                 newAvatar: null,
-                display_name: ""
+                display_name: "",
+                selectedCountry: 'Australia'
             }
         },
         mounted () {
