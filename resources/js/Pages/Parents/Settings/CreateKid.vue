@@ -7,7 +7,7 @@
                 Create your child's account
             </div>
             <div class="px-4 py-5 sm:p-6">
-                In this section you can assess blah
+                In order to enter kids mode, you must first configure a child account
             </div>
         </div>
 

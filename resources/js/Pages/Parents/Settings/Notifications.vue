@@ -9,7 +9,7 @@
                     <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
                     <div>
                         <h3 class="text-lg leading-6 font-medium text-gray-900">Notifications</h3>
-                        <p class="mt-1 text-sm text-gray-500">Provide basic informtion about the job. Be specific with the job title.</p>
+                        <p class="mt-1 text-sm text-gray-500">Configure your email notifications from here.</p>
                     </div>
 
                     <fieldset>
@@ -20,8 +20,8 @@
                             <input id="comments" name="comments" type="checkbox" class="focus:ring-parent-500 h-4 w-4 text-parent-600 border-gray-300 rounded">
                             </div>
                             <div class="ml-3 text-sm">
-                            <label for="comments" class="font-medium text-gray-700">Comments</label>
-                            <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p>
+                            <label for="comments" class="font-medium text-gray-700">Forum</label>
+                            <p class="text-gray-500">Get notified when someones posts a comment on your forum thread.</p>
                             </div>
                         </div>
                         <div>
@@ -30,8 +30,8 @@
                                 <input id="candidates" name="candidates" type="checkbox" class="focus:ring-parent-500 h-4 w-4 text-parent-600 border-gray-300 rounded">
                             </div>
                             <div class="ml-3 text-sm">
-                                <label for="candidates" class="font-medium text-gray-700">Candidates</label>
-                                <p class="text-gray-500">Get notified when a candidate applies for a job.</p>
+                                <label for="candidates" class="font-medium text-gray-700">Quizzes</label>
+                                <p class="text-gray-500">Get notified when a new quiz becomes available.</p>
                             </div>
                             </div>
                         </div>
@@ -41,34 +41,10 @@
                                 <input id="offers" name="offers" type="checkbox" class="focus:ring-parent-500 h-4 w-4 text-parent-600 border-gray-300 rounded">
                             </div>
                             <div class="ml-3 text-sm">
-                                <label for="offers" class="font-medium text-gray-700">Offers</label>
-                                <p class="text-gray-500">Get notified when a candidate accepts or rejects an offer.</p>
+                                <label for="offers" class="font-medium text-gray-700">Consultation</label>
+                                <p class="text-gray-500">Get email reminders on an upcoming consulation.</p>
                             </div>
                             </div>
-                        </div>
-                        </div>
-                    </fieldset>
-                    <fieldset class="mt-6">
-                        <legend class="text-base font-medium text-gray-900">Push Notifications</legend>
-                        <p class="text-sm text-gray-500">These are delivered via SMS to your mobile phone.</p>
-                        <div class="mt-4 space-y-4">
-                        <div class="flex items-center">
-                            <input id="push-everything" name="push-notifications" type="radio" class="focus:ring-parent-500 h-4 w-4 text-parent-600 border-gray-300">
-                            <label for="push-everything" class="ml-3">
-                            <span class="block text-sm font-medium text-gray-700">Everything</span>
-                            </label>
-                        </div>
-                        <div class="flex items-center">
-                            <input id="push-email" name="push-notifications" type="radio" class="focus:ring-parent-500 h-4 w-4 text-parent-600 border-gray-300">
-                            <label for="push-email" class="ml-3">
-                            <span class="block text-sm font-medium text-gray-700">Same as email</span>
-                            </label>
-                        </div>
-                        <div class="flex items-center">
-                            <input id="push-nothing" name="push-notifications" type="radio" class="focus:ring-parent-500 h-4 w-4 text-parent-600 border-gray-300">
-                            <label for="push-nothing" class="ml-3">
-                            <span class="block text-sm font-medium text-gray-700">No push notifications</span>
-                            </label>
                         </div>
                         </div>
                     </fieldset>

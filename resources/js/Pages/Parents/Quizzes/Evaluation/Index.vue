@@ -6,7 +6,7 @@
                 Evaluation
             </div>
             <div class="px-4 py-5 sm:p-6">
-                In this section you can assess blah
+                Take short surveys of your childs behaviour to identify possible symptopms and prodvide details to professionals 
             </div>
         </div>
         <div class="container mx-auto mt-4">
