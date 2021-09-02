@@ -16,6 +16,7 @@ class QuizQuestionsTable extends Migration
         Schema::create('quiz_questions', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('description');
             $table->string('type')->nullable();
             $table->json('questions');
 
