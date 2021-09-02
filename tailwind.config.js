@@ -14,6 +14,7 @@ module.exports = {
             fontFamily: {
                 // sans: ['Nunito', ...defaultTheme.fontFamily.sans],
                 sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+                sniglet: ['Sniglet']
             },
             colors: {
                 lime: colors.lime,
@@ -45,6 +46,16 @@ module.exports = {
                 'parent-700':'#147D64',
                 'parent-800':'#0C6B0C',
                 'parent-900':'014D40',
+                'kid-50': '#FFE8D9',
+                'kid-100': '#FFD0B5',
+                'kid-200': '#FFB088',
+                'kid-300': '#FF9466',
+                'kid-400': '#F9703E',
+                'kid-500': '#F35627',
+                'kid-600': '#DE3A11',
+                'kid-700': '#C52707',
+                'kid-800': '#AD1D07',
+                'kid-900': '#841003',
 
 
             },
@@ -72,6 +83,26 @@ module.exports = {
                 'parent-700':'#147D64',
                 'parent-800':'#0C6B0C',
                 'parent-900':'014D40',
+                'kid-50': '#FFE8D9',
+                'kid-100': '#FFD0B5',
+                'kid-200': '#FFB088',
+                'kid-300': '#FF9466',
+                'kid-400': '#F9703E',
+                'kid-500': '#F35627',
+                'kid-600': '#DE3A11',
+                'kid-700': '#C52707',
+                'kid-800': '#AD1D07',
+                'kid-900': '#841003',
+            },
+            height: {
+                'kids': 'calc(100vh - 5rem)',
+                '128': '32rem',
+            },
+            minHeight: {
+                'kids': 'calc(100vh - 5rem)'
+            },
+            width: {
+                '128': '32rem',
             }
         },
     },

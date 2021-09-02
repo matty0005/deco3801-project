@@ -64,6 +64,8 @@ export default {
                 title: this.title,
                 comment: this.comment,
                 thread_topic_title: this.thread_topic_title
+            }, {
+                preserveScroll: true,
             });
 
             this.title = '';
