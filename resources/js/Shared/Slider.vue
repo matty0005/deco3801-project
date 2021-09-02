@@ -29,7 +29,6 @@ export default {
 </script>
 
 <style>
-/* The slider itself */
 .slider {
     -webkit-appearance: none;
     width: 100%;
@@ -42,7 +41,6 @@ export default {
     -webkit-transition: .2s;
     transition: opacity .2s;
 }
-/* Mouse-over effects */
 .slider:hover {
   opacity: 1; /* Fully shown on mouse-over */
 }

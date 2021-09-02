@@ -4,32 +4,39 @@
             Text
             {{ label }}
         </div>
-        <div class="mx-3 my-3 flex w-140 items-center gap-x-3">
-            <div class="w-1/7">
-                <div class="h-12 w-12 rounded-full bg-white shadow border-2 border-parent-600"
-                @click="selected(option)"></div>
+        <div class="mx-3 my-3 flex w-1/2 items-center gap-x-3">
+            <div>
+                <div class="h-12 w-12 rounded-full border-2 cursor-pointer"
+                :class="optionSelected == 7 ? 'bg-parent-500 border-parent-200' : 'bg-white border-parent-500 hover:bg-parent-200'"
+                @click="selected(7)"></div>
             </div>
-                <div class="h-10 w-10 rounded-full bg-white shadow border-2 border-parent-600"
-                @click="selected(option)"></div>
-            <div class="w-1/7">
-                <div class="h-8 w-8 rounded-full bg-white shadow border-2 border-parent-600"
-                @click="selected(option)"></div>
+                <div class="h-10 w-10 rounded-full border-2 cursor-pointer"
+                :class="optionSelected == 6 ? 'bg-parent-500 border-parent-200' : 'bg-white border-parent-500 hover:bg-parent-200'"
+                @click="selected(6)"></div>
+            <div>
+                <div class="h-8 w-8 rounded-full border-2 cursor-pointer" 
+                :class="optionSelected == 5 ? 'bg-parent-500 border-parent-200' : 'bg-white border-parent-500 hover:bg-parent-200'"
+                @click="selected(5)"></div>
             </div>
-            <div class="w-1/7">
-                <div class="h-7 w-7 rounded-full bg-white shadow border-2 border-gray-400"
-                @click="selected(option)"></div>
+            <div>
+                <div class="h-7 w-7 rounded-full shadow border-2 cursor-pointer"
+                :class="optionSelected == 4 ? 'bg-gray-400 border-gray-200' : 'bg-white border-gray-400 hover:bg-gray-200'"
+                @click="selected(4)"></div>
             </div>
-            <div class="w-1/7">
-                <div class="h-8 w-8 rounded-full bg-white shadow border-2 border-red-800"
-                @click="selected(option)"></div>
+            <div>
+                <div class="h-8 w-8 rounded-full border-2 cursor-pointer"
+                :class="optionSelected == 3 ? 'bg-red-700 border-red-200' : 'bg-white border-red-700 hover:bg-red-200'"
+                @click="selected(3)"></div>
             </div>
-            <div class="w-1/7">
-                <div class="h-10 w-10 rounded-full bg-white shadow border-2 border-red-800"
-                @click="selected(option)"></div>
+            <div>
+                <div class="h-10 w-10 rounded-full border-2 cursor-pointer"
+                :class="optionSelected == 2 ? 'bg-red-700 border-red-200' : 'bg-white border-red-700 hover:bg-red-200'"
+                @click="selected(2)"></div>
             </div>
-            <div class="w-1/7">
-                <div class="h-12 w-12 rounded-full bg-white shadow border-2 border-red-800"
-                @click="selected(option)"></div>
+            <div>
+                <div class="h-12 w-12 rounded-full border-2 cursor-pointer"
+                :class="optionSelected == 1 ? 'bg-red-700 border-red-200' : 'bg-white border-red-700 hover:bg-red-200'"
+                @click="selected(1)"></div>
 
             </div>
         </div>
@@ -37,7 +44,7 @@
             <div class="text-left font-medium text-xs text-parent-600">
                 AGREE      
             </div>   
-            <div class="text-left font-medium text-xs text-red-800">
+            <div class="text-left font-medium text-xs text-red-700">
                 DISAGREE     
             </div>        
         </div>
@@ -53,13 +60,13 @@ export default {
 
     data: () => {
         return {
-            optionSelected: String
+            optionSelected: 0
         }
     },
 
     methods: {
         selected(id) {
-            this.optionsSelected = id
+            this.optionSelected = id
             this.$emit("selected", this.optionSelected)
         }
     }
