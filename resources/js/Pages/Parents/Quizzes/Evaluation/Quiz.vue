@@ -5,12 +5,12 @@
             <div class="text-3xl px-4 pt-5 py-3 sm:px-6">
                 {{ content.title }}
             </div>
-            <div class="px-4 py-5 sm:p-6">
-                Placeholder
+            <div class="text-3x1 px-4 pt-5 py-5 sm:p-6">
+                {{ content.description }}
             </div>
         </div>
 
-        <div class="container  mx-auto mt-4 bg-white overflow-hidden shadow rounded-lg">
+        <div class="container mx-auto mt-4 bg-white overflow-hidden shadow rounded-lg">
             <div class="py-5" v-for="question in content.questions" :key="question">
                 <div v-if="question.type.includes('select')">
                     <Select class="mx-4" :label="question.question" :multiSelect="question.type == 'multiselect'" :options="question.answers" @selected="userSelect"/>
@@ -31,6 +31,7 @@
                 Save
             </button>
         </div>
+        <div class="py-4"></div>
     </Layout>
 </template>
 
