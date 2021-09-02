@@ -1,7 +1,6 @@
 <template>
     <div>
-        <div class="mx-3 font-bold text-gray-700">
-            Question asked
+        <div class="mx-3 font-semibold text-gray-700">
             {{ label }}
         </div>
         <div class="w-1/4 mx-3 my-3">

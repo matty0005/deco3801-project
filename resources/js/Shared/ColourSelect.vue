@@ -1,7 +1,6 @@
 <template>
     <div>
-        <div class="mx-3 font-bold text-gray-700">
-            Text
+        <div class="mx-3 font-semibold text-gray-700">
             {{ label }}
         </div>
         <div class="mx-3 my-3 flex w-1/2 items-center gap-x-3">
