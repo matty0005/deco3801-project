@@ -13,7 +13,8 @@
 
         <div class="container  mx-auto mt-4 bg-white overflow-hidden shadow rounded-lg">
             <div class="m-4">
-                <Textfield class="my-8 mx-4" placeholder="name" label="Child's name" v-model="childName"/>
+                <Textfield class="my-8 mx-4" placeholder="name" label="Child's name" v-model="childName" :error="errors.name"/>
+                <Textfield class="my-8 mx-4" placeholder="yyyy-mm-dd" label="Child's date of birth (yyyy-mm-dd)" v-model="childAge" :error="errors.dob"/>
 
             </div>
         </div>
@@ -43,17 +44,22 @@
             Select,
             Textfield
         },
+        props: {
+            errors: Object
+        },
 
         data: () => {
             return {
-               childName: ""
+               childName: "",
+               childAge: ""
             }
         },
         
         methods: {
             submitQuiz() {
                 this.$inertia.post('/create/kid', {
-                    'name': this.childName
+                    'name': this.childName,
+                    'dob': this.childAge
                 })
             }
 

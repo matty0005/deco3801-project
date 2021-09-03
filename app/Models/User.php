@@ -54,10 +54,10 @@ class User extends Authenticatable
             return null;
         }
 
-        $theme = DB::table('user_settings')
+        $theme = DB::table('kids')
             ->select('theme')
-            ->where('type', 2)
             ->where('user_id', $this->id)
+            ->join('user_settings', 'user_settings.id', 'user_settings_id')
             ->first();
     
         return $theme->theme;
