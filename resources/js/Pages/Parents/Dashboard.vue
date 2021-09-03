@@ -30,36 +30,38 @@
                     <section aria-labelledby="quick-links-title">
                         <div class="rounded-lg bg-gray-200 overflow-hidden shadow divide-y divide-gray-200 sm:divide-y-0 sm:grid sm:grid-cols-2 sm:gap-px">
                         <h2 class="sr-only" id="quick-links-title">Quick links</h2>
-
-                        <div class="rounded-tl-lg rounded-tr-lg sm:rounded-tr-none relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-gray-200">
+                        
+                        <Link href="/evaluate" role="menuitem"  tabindex="-1" class="rounded-tl-lg rounded-tr-lg sm:rounded-tr-none relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-gray-200">
                             <div>
-                            <span class="rounded-lg inline-flex p-3 bg-parent-50 text-teal-700 ring-4 ring-white">
-                                <!-- Heroicon name: outline/clock -->
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path>
+                                <div>
+                                <span class="rounded-lg inline-flex p-3 bg-parent-50 text-teal-700 ring-4 ring-white">
+                                    <!-- Heroicon name: outline/clock -->
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </span>
+                                </div>
+                                <div class="mt-8">
+                                <h3 class="text-lg font-medium">
+                                    <div class="focus:outline-none">
+                                    <!-- Extend touch target to entire panel -->
+                                    <span class="absolute inset-0" aria-hidden="true"></span>
+                                    Evaluate
+                                    </div>
+                                </h3>
+                                <p class="mt-2 text-sm text-gray-500">
+                                    Unsure of whether your child's behaviour is normal? Take a short test to diagnose your child.
+                                </p>
+                                </div>
+                                <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
+                                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z" />
                                 </svg>
-                            </span>
+                                </span>
                             </div>
-                            <div class="mt-8">
-                            <h3 class="text-lg font-medium">
-                                <a href="#" class="focus:outline-none">
-                                <!-- Extend touch target to entire panel -->
-                                <span class="absolute inset-0" aria-hidden="true"></span>
-                                Evaluate
-                                </a>
-                            </h3>
-                            <p class="mt-2 text-sm text-gray-500">
-                                Unsure of whether your child's behaviour is normal? Take a short test to diagnose your child.
-                            </p>
-                            </div>
-                            <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
-                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z" />
-                            </svg>
-                            </span>
-                        </div>
+                        </Link>
 
-                        <div @click='goToPage("\\forum")' class="sm:rounded-tr-lg relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-gray-200">
+                        <Link href="/forum" class="sm:rounded-tr-lg relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-gray-200">
                             <div>
                             <span class="rounded-lg inline-flex p-3 bg-parent-50 text-teal-700 ring-4 ring-white">
                                 <!-- Heroicon name: outline/badge-check -->
@@ -71,11 +73,11 @@
                             </div>
                             <div class="mt-8">
                             <h3 class="text-lg font-medium">
-                                <a href="#" class="focus:outline-none">
+                                <div class="focus:outline-none">
                                 <!-- Extend touch target to entire panel -->
                                 <span class="absolute inset-0" aria-hidden="true"></span>
                                 Forum
-                                </a>
+                                </div>
                             </h3>
                             <p class="mt-2 text-sm text-gray-500">
                                 Engage with professionals and other parents on experiences, stories and topics related to mental health.
@@ -86,7 +88,7 @@
                                 <path d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z" />
                             </svg>
                             </span>
-                        </div>
+                        </Link>
 
                         <div class="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-gray-200">
                             <div>
@@ -116,7 +118,7 @@
                             </span>
                         </div>
 
-                        <div class="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-gray-200">
+                        <Link href="/resources" class="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-gray-200">
                             <div>
                             <span class="rounded-lg inline-flex p-3 bg-parent-50 text-teal-700 ring-4 ring-white">
                                 <!-- Heroicon name: outline/cash -->
@@ -127,11 +129,11 @@
                             </div>
                             <div class="mt-8">
                             <h3 class="text-lg font-medium">
-                                <a href="#" class="focus:outline-none">
+                                <div class="focus:outline-none">
                                 <!-- Extend touch target to entire panel -->
                                 <span class="absolute inset-0" aria-hidden="true"></span>
                                 Resources
-                                </a>
+                                </div>
                             </h3>
                             <p class="mt-2 text-sm text-gray-500">
                                 Access resources to learn more about mental health and news in the medical world.
@@ -142,7 +144,7 @@
                                 <path d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z" />
                             </svg>
                             </span>
-                        </div>
+                        </Link>
                         </div>
                     </section>
                     </div>
@@ -203,6 +205,7 @@
     import Layout from '@/Layouts/AppLayout'
     import Datepicker from '@/Components/Datepicker'
     import isWeek from "@/utils"
+    import { Link } from '@inertiajs/inertia-vue3'
     
     export default {
         data: () => {
@@ -213,12 +216,10 @@
         }, 
         components: {
             Layout,
-            Datepicker
+            Datepicker,
+            Link
         },
         methods: {
-            goToPage(page) {
-                this.$inertia.visit(page)
-            },
             week (weekNum) {
                 return isWeek.isWeek(weekNum)
             }

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="mx-3 font-bold text-gray-700">
+        <div class="mx-3 font-semibold text-gray-700">
             {{ label }}
         </div>
         <div class="grid grid-cols-4 my-2">
