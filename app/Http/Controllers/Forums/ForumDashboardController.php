@@ -20,7 +20,7 @@ class ForumDashboardController extends Controller
     public function index() {
         $authId = Auth::id();
 
-        $threads = DB::table('threads')
+        $threads_raw = DB::table('threads')
                         ->select(
                             'threads.id',
                             'threads.title',
@@ -38,14 +38,22 @@ class ForumDashboardController extends Controller
                         ->join('users', 'users.id', 'threads.user_id')
                         ->where('user_settings.type', 1)
                         ->join('user_settings','user_settings.user_id',  'users.id')
-                        ->orderBy('threads.created_at', 'DESC')
-                        ->get();
+                        ->orderBy('threads.created_at', 'DESC');
+
+        $threads = $threads_raw->get();
 
         $topics = DB::table('thread_topics')->get();
+        
+        $searched = [];
+    
+        if (isset($_GET['search'])) {
+            $searched = $threads_raw->where('threads.title', 'like', '%' . $_GET['search'] . '%')->get();
+        }
 
         return Inertia::render('Forum/Dashboard', [
             'threads' => $threads,
-            'topics' => $topics
+            'topics' => $topics,
+            'searched' => $searched,
         ]);
     }
 

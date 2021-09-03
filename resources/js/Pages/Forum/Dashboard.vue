@@ -28,6 +28,11 @@
                     <div class="mt-6" v-for="(thread, index) in threads" :key="index" :value="thread"> 
                         <Thread :thread="thread" />
                     </div>
+
+                    <div class="mt-6" v-for="(thread, index) in searched" :key="index" :value="thread"> 
+                        <div> Searched </div>
+                        <Thread :thread="thread" />
+                    </div>
                 </div>
                     
             </div>
@@ -49,7 +54,8 @@
 
         props: {
             threads: Array,
-            topics: Array
+            topics: Array,
+            searched: Array,
         },
 
         methods: {
