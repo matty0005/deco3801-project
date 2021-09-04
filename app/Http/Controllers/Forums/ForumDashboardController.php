@@ -46,7 +46,7 @@ class ForumDashboardController extends Controller
         
         $searched = [];
     
-        if (isset($_GET['search'])) {
+        if (isset($_GET['search']) && $_GET['search'] != '') {
             $searched = $threads_raw->where('threads.title', 'like', '%' . $_GET['search'] . '%')->get();
         }
 

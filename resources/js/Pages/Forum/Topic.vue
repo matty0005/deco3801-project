@@ -1,5 +1,5 @@
 <template>
-    <Dashboard :topics="topics" :threads="threads"> 
+    <Dashboard :topics="topics" :threads="threads" :searched="searched"> 
         <div class="bg-white overflow-hidden shadow rounded-lg">
             <div class="px-4 py-5 sm:p-6">
                 <div>
@@ -47,6 +47,7 @@ export default {
     props: {
         threads: Array,
         topics: Array,
+        searched: Array,
         thread_topic_title: String,
         errors: Object,
     },

@@ -1,0 +1,55 @@
+<template>
+    <div @click="visitThread" class="bg-white overflow-hidden shadow rounded-lg" 
+        :class="clickable ? ' hover:bg-gray-50 cursor-pointer ':''"
+        >
+        <div class="px-2 py-1">
+            <div class="m-3">
+
+
+                <div class="font-bold text-gray-700 text-xl mb-2 flex flex-row"> 
+                    <img class="rounded-lg mr-3 h-8 w-8" :src="thread.avatar"/>
+                    <p> {{thread.title}} </p>
+
+                    <p class="ml-auto" v-if="thread.topic_on_dashboard"> posted in {{thread.topic_on_dashboard}} </p>
+                </div>
+                
+                <div class="flex flex-row"> 
+                    <p v-if="thread.count >= 0"> {{thread.count}} total comments </p>
+
+                    <LikeBar class="ml-auto" :likes="thread.likes" :dislikes="thread.dislikes" :status="thread.liked" :id="thread.id" :isThread="true" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>
+
+<script>
+
+import LikeBar from './LikeBar.vue'
+
+export default {
+
+    components: {
+        LikeBar,
+    },
+
+    props: {
+        'thread': Object,
+        'clickable': {
+            type: Boolean,
+            default: true,
+        },
+    },
+
+    methods: {
+        visitThread() {
+            if (!this.clickable) {
+                return;
+            }
+
+            this.$inertia.visit(`/forum/topic/${this.thread.thread_topic_title}/${this.thread.id}`)
+        },
+    },
+}
+</script>
