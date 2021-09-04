@@ -18780,6 +18780,20 @@ __webpack_require__.r(__webpack_exports__);
       })[ver];
       return url === currentUrl;
     }
+  },
+  computed: {
+    searchPlaceholder: function searchPlaceholder() {
+      var ver = 2;
+      var currentUrl = window.location.pathname.split("/").filter(function (t) {
+        return t;
+      })[ver];
+
+      if (currentUrl === undefined) {
+        return 'Search Threads';
+      }
+
+      return 'Search Threads in ' + currentUrl;
+    }
   }
 });
 
@@ -23075,10 +23089,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.searchText = $event;
         }),
         "class": "rounded-md w-1/2 mx-auto px-2",
-        placeholder: "Search Threads"
-      }, null, 512
-      /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.searchText]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.searched, function (thread, index) {
+        placeholder: $options.searchPlaceholder
+      }, null, 8
+      /* PROPS */
+      , ["placeholder"]), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.searchText]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.searched, function (thread, index) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
           "class": "mt-1",
           key: index,

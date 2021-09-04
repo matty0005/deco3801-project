@@ -5,7 +5,7 @@
                 <div class="overflow-hidden shadow-sm sm:rounded-lg">
 
                     <div class="mb-4 flex flex-col">
-                        <input v-model="searchText" class="rounded-md w-1/2 mx-auto px-2" placeholder="Search Threads" />
+                        <input v-model="searchText" class="rounded-md w-1/2 mx-auto px-2" :placeholder="searchPlaceholder" />
 
                         <div class="w-1/2 mx-auto bg-gray-300 rounded-md rounded-t-none">
                             <div class="mt-1" v-for="(thread, index) in searched" :key="index" :value="thread"> 
@@ -101,5 +101,18 @@
                 return url === currentUrl
             },
         },
+
+        computed: {
+            searchPlaceholder() {
+                var ver = 2
+                var currentUrl = window.location.pathname.split("/").filter(t => t)[ver]
+
+                if (currentUrl === undefined) {
+                    return 'Search Threads';
+                }
+
+                return 'Search Threads in ' + currentUrl;
+            }
+        }
     }
 </script>
