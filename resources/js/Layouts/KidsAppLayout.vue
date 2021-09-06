@@ -88,7 +88,7 @@
         <slot />
     </main>
 
-    <ModalContainer v-model="verifyParent" @onConfirm="verifyMe" type="warning"  confirmText="Verify" title="Change back to parents mode?" @keyup.enter="verifyMe">
+    <ModalContainer v-model="verifyParent" @onConfirm="verifyMe" @onClose="verifyParent = false" type="warning"  confirmText="Verify" title="Change back to parents mode?" @keyup.enter="verifyMe">
         <div>
             <div>
                 Are you sure you want to exit kids mode and go back to parents mode? Please put in your password to continue

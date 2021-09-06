@@ -22907,6 +22907,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return _ctx.verifyParent = $event;
     }),
     onOnConfirm: $options.verifyMe,
+    onOnClose: _cache[6] || (_cache[6] = function ($event) {
+      return _ctx.verifyParent = false;
+    }),
     type: "warning",
     confirmText: "Verify",
     title: "Change back to parents mode?",
