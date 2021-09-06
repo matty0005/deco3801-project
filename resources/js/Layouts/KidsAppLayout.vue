@@ -84,7 +84,7 @@
             </div>
         </div>
     </nav>
-    <main class="h-main ">
+    <main class="h-main mx-2">
         <slot />
     </main>
 

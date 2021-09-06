@@ -22214,7 +22214,7 @@ var _hoisted_42 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 var _hoisted_43 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Sign out");
 
 var _hoisted_44 = {
-  "class": "h-main"
+  "class": "h-main mx-2"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
@@ -22691,7 +22691,7 @@ var _hoisted_35 = {
   "class": "mt-3 space-y-1"
 };
 var _hoisted_36 = {
-  "class": "h-main "
+  "class": "h-main mx-2"
 };
 
 var _hoisted_37 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, " Are you sure you want to exit kids mode and go back to parents mode? Please put in your password to continue ", -1
@@ -25019,16 +25019,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "min-h-kids relative flex flex-col justify-center"
+  "class": "lg:min-h-kids min-h-screen relative flex flex-col justify-center"
 };
 var _hoisted_2 = {
   "class": "relative container m-auto flex flex-col h-full"
 };
 var _hoisted_3 = {
-  "class": "h-96 mb-8"
+  "class": "lg:h-96 mt-4 lg:mt-0 mb-2 lg:mb-8"
 };
 var _hoisted_4 = {
-  "class": "flex flex-row mb-8 "
+  "class": "flex flex-col mb-8 lg:mb-8 lg:flex-row "
 };
 var _hoisted_5 = {
   "class": "text-5xl font-bold mb-4 text-center"
@@ -25045,24 +25045,24 @@ var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 
 var _hoisted_7 = {
   key: 0,
-  "class": "mx-auto cursor-pointer"
+  "class": "mb-8 lg:mb-0 mx-auto cursor-pointer"
 };
 var _hoisted_8 = {
   "for": "avtUpload"
 };
 
 var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": " text-6xl font-bold mb-4 text-center"
+  "class": "text-5xl lg:text-6xl font-bold mb-4 text-center"
 }, " Avatar ", -1
 /* HOISTED */
 );
 
 var _hoisted_10 = {
-  "class": "rounded-full h-96 w-96 mx-auto cursor-pointer"
+  "class": "rounded-full h-64 w-64 lg:h-96 lg:w-96 mx-auto cursor-pointer"
 };
 var _hoisted_11 = {
   key: 0,
-  "class": "h-96 w-96 mx-auto rounded-full",
+  "class": "h-64 w-64 lg:h-96 lg:w-96 mx-auto rounded-full",
   src: "/images/kids/avatar_icon.png"
 };
 var _hoisted_12 = ["src"];
@@ -25083,7 +25083,7 @@ var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_15 = {
-  "class": "flex flex-row mt-12"
+  "class": "flex flex-row -mt-16 lg:mt-12 mb-4"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Textfield = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Textfield");
@@ -25107,7 +25107,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [_ctx.showName ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
             key: 0,
-            "class": "self-end mx-auto cursor-pointer",
+            "class": "mb-8 lg:mb-0 self-end mx-auto cursor-pointer",
             onClick: _cache[1] || (_cache[1] = function () {
               return $options.showNameEdit && $options.showNameEdit.apply($options, arguments);
             })
@@ -25138,7 +25138,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [_ctx.showAvatar ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_ctx.newAvatar == null ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", _hoisted_11)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
             key: 1,
-            "class": "h-96 w-96 mx-auto rounded-full",
+            "class": "h-64 w-64 lg:h-96 lg:w-96 mx-auto rounded-full",
             src: _ctx.newAvatar
           }, null, 8
           /* PROPS */
@@ -25170,7 +25170,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             onClick: _cache[4] || (_cache[4] = function () {
               return $options.showThemeEdit && $options.showThemeEdit.apply($options, arguments);
             }),
-            "class": "mx-auto self-end cursor-pointer"
+            "class": "mb-8 lg:mb-0 mx-auto self-end cursor-pointer"
           }, [_hoisted_13, _hoisted_14, !_ctx.showName && !_ctx.showAvatar ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Dropdown, {
             key: 0,
             options: _ctx.themeOptions,
@@ -25191,14 +25191,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         onClick: _cache[5] || (_cache[5] = function () {
           return $options.back && $options.back.apply($options, arguments);
         }),
-        "class": " mt-16 text-2xl py-4 px-8 w-1/4 mx-auto bg-orange-600 text-orange-100 rounded-full"
+        "class": " mt-16 text-2xl py-4 px-8  w-48 lg:w-1/4 mx-auto bg-orange-600 text-orange-100 rounded-full"
       }, " Back ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.showAvatar ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
         key: 1,
-        c: "",
         onClick: _cache[6] || (_cache[6] = function () {
           return $options.onSubmit && $options.onSubmit.apply($options, arguments);
         }),
-        "class": " mt-16 text-2xl py-4 px-8 w-1/4 mx-auto bg-orange-600 text-orange-100 rounded-full"
+        "class": " mt-16 text-2xl py-4 px-8 w-48 lg:w-1/4 mx-auto bg-orange-600 text-orange-100 rounded-full"
       }, " Save ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])];
     }),
     _: 1
