@@ -20346,7 +20346,7 @@ __webpack_require__.r(__webpack_exports__);
     var container = document.getElementById('container');
     console.log("container.heigh", container.height);
     this.canvas.style.width = '100%';
-    this.canvas.style.height = '80vh'; // set the internal size to match
+    this.canvas.style.height = '58vh'; // set the internal size to match
 
     this.canvas.width = this.canvas.offsetWidth;
     this.canvas.height = this.canvas.offsetHeight;
@@ -24748,10 +24748,10 @@ __webpack_require__.r(__webpack_exports__);
 
 var _hoisted_1 = {
   id: "container",
-  "class": "container mx-auto mt-8"
+  "class": "container mx-auto mt-2 lg:mt-8"
 };
 var _hoisted_2 = {
-  "class": "bg-white overflow-hidden shadow rounded-lg mb-6 "
+  "class": "bg-white overflow-hidden shadow rounded-lg mb-2 lg:mb-6 "
 };
 var _hoisted_3 = {
   "class": "px-4 py-5 sm:p-6"
@@ -24763,13 +24763,19 @@ var _hoisted_5 = {
   "class": "bg-white overflow-hidden shadow rounded-lg"
 };
 var _hoisted_6 = {
-  "class": "px-4 py-5 sm:p-6"
+  "class": "px-4 py-3 lg:py-5 lg:p-6"
 };
 var _hoisted_7 = {
+  "class": "flex flex-col lg:flex-row"
+};
+var _hoisted_8 = {
+  "class": "flex flex-row mb-4 lg:mb-0"
+};
+var _hoisted_9 = {
   "class": "flex flex-row"
 };
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
   "fill-rule": "evenodd",
   "clip-rule": "evenodd",
   d: "M12.8786 2.70705C14.0502 1.53547 15.9497 1.53548 17.1213 2.70705L22.2928 7.87862C23.4644 9.0502 23.4644 10.9497 22.2928 12.1213L14.4142 19.9999H17.9999C18.5522 19.9999 18.9999 20.4477 18.9999 20.9999C18.9999 21.5522 18.5522 21.9999 17.9999 21.9999H5.99994C5.73473 21.9999 5.48037 21.8946 5.29284 21.7071L1.70705 18.1213C0.535474 16.9497 0.535477 15.0502 1.70705 13.8786L12.8786 2.70705ZM11.5857 19.9999L14.5857 16.9999L7.99994 10.4142L3.12126 15.2928C2.73074 15.6834 2.73074 16.3165 3.12126 16.707L6.41416 19.9999H11.5857ZM9.41416 8.99994L15.9999 15.5857L20.8786 10.707C21.2691 10.3165 21.2691 9.68336 20.8786 9.29284L15.707 4.12126C15.3165 3.73074 14.6834 3.73074 14.2928 4.12126L9.41416 8.99994Z",
@@ -24778,30 +24784,11 @@ var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_9 = [_hoisted_8];
-
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  "class": "h-3 w-3 mx-1",
-  viewBox: "0 0 24 24",
-  fill: "none",
-  stroke: "currentColor",
-  "stroke-width": "2",
-  "stroke-linecap": "round",
-  "stroke-linejoin": "round"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("circle", {
-  cx: "12",
-  cy: "12",
-  r: "10"
-})], -1
-/* HOISTED */
-);
-
 var _hoisted_11 = [_hoisted_10];
 
 var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
-  "class": "h-6 w-6 mx-1",
+  "class": "h-3 w-3 mx-1",
   viewBox: "0 0 24 24",
   fill: "none",
   stroke: "currentColor",
@@ -24820,7 +24807,7 @@ var _hoisted_13 = [_hoisted_12];
 
 var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
-  "class": "h-8 w-8 mx-1",
+  "class": "h-6 w-6 mx-1",
   viewBox: "0 0 24 24",
   fill: "none",
   stroke: "currentColor",
@@ -24837,13 +24824,32 @@ var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_15 = [_hoisted_14];
 
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  "class": "h-8 w-8 mx-1",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  "stroke-width": "2",
+  "stroke-linecap": "round",
+  "stroke-linejoin": "round"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("circle", {
+  cx: "12",
+  cy: "12",
+  r: "10"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_17 = [_hoisted_16];
+
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "flex-grow"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   "class": "ml-auto flex w-8 h-8",
   fill: "currentColor",
   viewBox: "0 0 20 20",
@@ -24856,7 +24862,7 @@ var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_18 = [_hoisted_17];
+var _hoisted_20 = [_hoisted_19];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("layout");
 
@@ -24866,131 +24872,140 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, "Can you draw " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.item), 1
       /* TEXT */
-      )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+      )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         onClick: _cache[0] || (_cache[0] = function ($event) {
           return $options.changeColor('#000000');
         }),
-        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.color == '#000000' ? 'border-4 border-gray-800' : '', "bg-black h-8 w-8 mr-1 rounded"])
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.color == '#000000' ? 'border-4 border-gray-800' : '', "bg-black h-6 w-6 lg:h-8 lg:w-8 mr-1 rounded"])
       }, null, 2
       /* CLASS */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         onClick: _cache[1] || (_cache[1] = function ($event) {
           return $options.changeColor('#EF4444');
         }),
-        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.color == '#EF4444' ? 'border-4 border-red-600' : '', "bg-red-500 h-8 w-8 mx-1 rounded"])
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.color == '#EF4444' ? 'border-4 border-red-600' : '', "bg-red-500 h-6 w-6 lg:h-8 lg:w-8 mx-1 rounded"])
       }, null, 2
       /* CLASS */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         onClick: _cache[2] || (_cache[2] = function ($event) {
           return $options.changeColor('#F97316');
         }),
-        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.color == '#F97316' ? 'border-4 border-orange-600' : '', "bg-orange-500 h-8 w-8 mx-1 rounded"])
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.color == '#F97316' ? 'border-4 border-orange-600' : '', "bg-orange-500 h-6 w-6 lg:h-8 lg:w-8 mx-1 rounded"])
       }, null, 2
       /* CLASS */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         onClick: _cache[3] || (_cache[3] = function ($event) {
           return $options.changeColor('#FACC15');
         }),
-        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.color == '#FACC15' ? 'border-4 border-yellow-600' : '', "bg-yellow-400 h-8 w-8 mx-1 rounded"])
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.color == '#FACC15' ? 'border-4 border-yellow-600' : '', "bg-yellow-400 h-6 w-6 lg:h-8 lg:w-8 mx-1 rounded"])
       }, null, 2
       /* CLASS */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         onClick: _cache[4] || (_cache[4] = function ($event) {
           return $options.changeColor('#84CC16');
         }),
-        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.color == '#84CC16' ? 'border-4 border-lime-600' : '', "bg-lime-500 h-8 w-8 mx-1 rounded"])
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.color == '#84CC16' ? 'border-4 border-lime-600' : '', "bg-lime-500 h-6 w-6 lg:h-8 lg:w-8 mx-1 rounded"])
       }, null, 2
       /* CLASS */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         onClick: _cache[5] || (_cache[5] = function ($event) {
           return $options.changeColor('#22C55E');
         }),
-        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.color == '#22C55E' ? 'border-4 border-green-600' : '', "bg-green-500 h-8 w-8 mx-1 rounded"])
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.color == '#22C55E' ? 'border-4 border-green-600' : '', "bg-green-500 h-6 w-6 lg:h-8 lg:w-8 mx-1 rounded"])
       }, null, 2
       /* CLASS */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         onClick: _cache[6] || (_cache[6] = function ($event) {
           return $options.changeColor('#22D3EE');
         }),
-        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.color == '#22D3EE' ? 'border-4 border-cyan-600' : '', "bg-cyan-400 h-8 w-8 mx-1 rounded"])
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.color == '#22D3EE' ? 'border-4 border-cyan-600' : '', "bg-cyan-400 h-6 w-6 lg:h-8 lg:w-8 mx-1 rounded"])
       }, null, 2
       /* CLASS */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         onClick: _cache[7] || (_cache[7] = function ($event) {
           return $options.changeColor('#3B82F6');
         }),
-        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.color == '#3B82F6' ? 'border-4 border-blue-600' : '', "bg-blue-500 h-8 w-8 mx-1 rounded"])
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.color == '#3B82F6' ? 'border-4 border-blue-600' : '', "bg-blue-500 h-6 w-6 lg:h-8 lg:w-8 mx-1 rounded"])
       }, null, 2
       /* CLASS */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         onClick: _cache[8] || (_cache[8] = function ($event) {
           return $options.changeColor('#A855F7');
         }),
-        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.color == '#A855F7' ? 'border-4 border-purple-600' : '', "bg-purple-500 h-8 w-8 mx-1 rounded"])
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.color == '#A855F7' ? 'border-4 border-purple-600' : '', "bg-purple-500 h-6 w-6 lg:h-8 lg:w-8 mx-1 rounded"])
       }, null, 2
       /* CLASS */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         onClick: _cache[9] || (_cache[9] = function ($event) {
           return $options.changeColor('#D946EF');
         }),
-        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.color == '#D946EF' ? 'border-4 border-fuchsia-600' : '', "bg-fuchsia-500 h-8 w-8 mx-1 rounded"])
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.color == '#D946EF' ? 'border-4 border-fuchsia-600' : '', "bg-fuchsia-500 h-6 w-6 lg:h-8 lg:w-8 mx-1 rounded"])
       }, null, 2
       /* CLASS */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         onClick: _cache[10] || (_cache[10] = function ($event) {
           return $options.changeColor('#EC4899');
         }),
-        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.color == '#EC4899' ? 'border-4 border-pink-600' : '', "bg-pink-500 h-8 w-8 mx-1 rounded"])
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.color == '#EC4899' ? 'border-4 border-pink-600' : '', "bg-pink-500 h-6 w-6 lg:h-8 lg:w-8 mx-1 rounded"])
       }, null, 2
       /* CLASS */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         onClick: _cache[11] || (_cache[11] = function () {
           return $options.eraser && $options.eraser.apply($options, arguments);
         }),
-        "class": " h-8 w-8 mx-4 ml-16 rounded"
+        "class": " h-8 w-8 mx-4  ml-2 mlg:ml-16 rounded"
       }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", {
         "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.erase ? '' : '', " h-8 w-8"]),
         viewBox: "0 0 24 24",
         fill: "none",
         xmlns: "http://www.w3.org/2000/svg"
-      }, _hoisted_9, 2
+      }, _hoisted_11, 2
       /* CLASS */
       ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         onClick: _cache[12] || (_cache[12] = function ($event) {
           return $options.changeStrokeSize(5);
         }),
         "class": "flex justify-center items-center"
-      }, _hoisted_11), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+      }, _hoisted_13), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         onClick: _cache[13] || (_cache[13] = function ($event) {
           return $options.changeStrokeSize(10);
         }),
         "class": "flex justify-center items-center"
-      }, _hoisted_13), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+      }, _hoisted_15), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         onClick: _cache[14] || (_cache[14] = function ($event) {
           return $options.changeStrokeSize(20);
         }),
         "class": "flex justify-center items-center"
-      }, _hoisted_15), _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+      }, _hoisted_17), _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         "class": "",
         onClick: _cache[15] || (_cache[15] = function () {
           return $options.clear && $options.clear.apply($options, arguments);
         })
-      }, _hoisted_18), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      }, _hoisted_20), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
         onClick: _cache[16] || (_cache[16] = function () {
           return $options.saveDrawing && $options.saveDrawing.apply($options, arguments);
         }),
         type: "button",
         "class": "inline-flex items-center px-4 ml-8 py-1 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
-      }, " Save ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("canvas", {
+      }, " Save ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("canvas", {
         "class": "my-4 border-2 bg-white boder-gray-300",
         id: "drawingCanvas",
-        onMousedown: _cache[17] || (_cache[17] = function () {
+        onTouchstart: _cache[17] || (_cache[17] = function () {
           return $options.beginDrawing && $options.beginDrawing.apply($options, arguments);
         }),
-        onMousemove: _cache[18] || (_cache[18] = function () {
+        onTouchmove: _cache[18] || (_cache[18] = function () {
           return $options.keepDrawing && $options.keepDrawing.apply($options, arguments);
         }),
-        onMouseup: _cache[19] || (_cache[19] = function () {
+        onTouchend: _cache[19] || (_cache[19] = function () {
+          return $options.stopDrawing && $options.stopDrawing.apply($options, arguments);
+        }),
+        onMousedown: _cache[20] || (_cache[20] = function () {
+          return $options.beginDrawing && $options.beginDrawing.apply($options, arguments);
+        }),
+        onMousemove: _cache[21] || (_cache[21] = function () {
+          return $options.keepDrawing && $options.keepDrawing.apply($options, arguments);
+        }),
+        onMouseup: _cache[22] || (_cache[22] = function () {
           return $options.stopDrawing && $options.stopDrawing.apply($options, arguments);
         })
       }, null, 32
