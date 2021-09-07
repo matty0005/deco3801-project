@@ -46,6 +46,8 @@ class ParentSettingsController extends Controller
             'perosnal_info' => ['json'],
             'email_address' => ['required', 'email']
         ]);
+
+        // dd($data);
         
         DB::table('user_settings')
             ->where('user_id', Auth::user()->id)
