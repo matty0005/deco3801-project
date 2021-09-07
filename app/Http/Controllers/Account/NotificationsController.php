@@ -28,13 +28,15 @@ class NotificationsController extends Controller
         if ($notifcation_settings->notifications != null) {
             $data = json_decode($notifcation_settings->notifications);
 
-            $settings = $data;
+            $settings['forum'] = $data->forum;
+            $settings['quiz'] = $data->quiz;
+            $settings['consultation'] = $data->consultation;
         }
 
         return Inertia::render('Parents/Settings/Notifications', [
-            'forumStatus' => $settings->forum,
-            'quizStatus' => $settings->quiz,
-            'consultationStatus' => $settings->consultation
+            'forumStatus' => $settings['forum'],
+            'quizStatus' => $settings['quiz'],
+            'consultationStatus' => $settings['consultation']
         ]);
     }
 
