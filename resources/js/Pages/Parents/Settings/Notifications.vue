@@ -17,7 +17,7 @@
                         <div class="mt-4 space-y-4">
                         <div class="flex items-start">
                             <div class="h-5 flex items-center">
-                            <input id="comments" name="comments" type="checkbox" class="focus:ring-parent-500 h-4 w-4 text-parent-600 border-gray-300 rounded">
+                            <input v-model="forum" id="comments" name="comments" type="checkbox" class="focus:ring-parent-500 h-4 w-4 text-parent-600 border-gray-300 rounded">
                             </div>
                             <div class="ml-3 text-sm">
                             <label for="comments" class="font-medium text-gray-700">Forum</label>
@@ -27,7 +27,7 @@
                         <div>
                             <div class="flex items-start">
                             <div class="h-5 flex items-center">
-                                <input id="candidates" name="candidates" type="checkbox" class="focus:ring-parent-500 h-4 w-4 text-parent-600 border-gray-300 rounded">
+                                <input v-model="quiz" id="candidates" name="candidates" type="checkbox" class="focus:ring-parent-500 h-4 w-4 text-parent-600 border-gray-300 rounded">
                             </div>
                             <div class="ml-3 text-sm">
                                 <label for="candidates" class="font-medium text-gray-700">Quizzes</label>
@@ -38,7 +38,7 @@
                         <div>
                             <div class="flex items-start">
                             <div class="h-5 flex items-center">
-                                <input id="offers" name="offers" type="checkbox" class="focus:ring-parent-500 h-4 w-4 text-parent-600 border-gray-300 rounded">
+                                <input v-model="consultation" id="offers" name="offers" type="checkbox" class="focus:ring-parent-500 h-4 w-4 text-parent-600 border-gray-300 rounded">
                             </div>
                             <div class="ml-3 text-sm">
                                 <label for="offers" class="font-medium text-gray-700">Consultation</label>
@@ -67,12 +67,31 @@
         components: {
             Layout,
         },
+        props: {
+            forumStatus: Boolean,
+            quizStatus: Boolean,
+            consultationStatus: Boolean
+        },
 
-        methods: {},
+        methods: {
+            submitData () {
+                this.$inertia.post('/account/notifications', {
+                    forum: this.forum,
+                    quiz: this.quiz,
+                    consultation: this.consultation
+                })
+            }
+        },
+        mounted () {
+            this.forum = this.forumStatus
+            this.quiz = this.quizStatus
+            this.consultation = this.consultationStatus
+        },
         data: () => {
             return {
-                newAvatar: null,
-                display_name: ""
+               forum: false,
+               quiz: false,
+               consultation: false
             }
         },
     }
