@@ -8,10 +8,11 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Cashier\Billable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, Billable;
 
     /**
      * The attributes that are mass assignable.
@@ -46,8 +47,34 @@ class User extends Authenticatable
  
     protected $appends = [
         'avatar',
-        'theme'
+        'theme',
+        'display_name',
+        'name'
     ];
+
+
+    public function getDisplayNameAttribute() {
+        $display_name = DB::table('user_settings')
+            ->select('display_name')
+            ->where('user_id', $this->id)
+            ->where('type', Session::get('kidsMode') ? 2:1)
+            ->first();
+    
+        return $display_name->display_name;
+
+    }
+
+    public function getNameAttribute() {
+        $display_name = DB::table('user_settings')
+            ->select('name')
+            ->where('user_id', $this->id)
+            ->where('type', Session::get('kidsMode') ? 2:1)
+            ->first();
+    
+        return $display_name->name;
+
+    }
+
 
     public function getThemeAttribute() {
         if (!Session::get('kidsMode')) {

@@ -41,10 +41,11 @@ class Authenticate extends Middleware
             return parent::handle($request, $next, ...$guards);
         }
 
-        $hasDoneFirstQuiz = DB::table('parent_progress_quiz')
-            ->join('users', 'users.id', 'user_id')
-            ->count() > 0; 
+        // $hasDoneFirstQuiz = DB::table('parent_progress_quiz')
+        //     ->join('users', 'users.id', 'user_id')
+        //     ->count() > 0; 
         
+        $hasDoneFirstQuiz = true;
 
         if (!$hasDoneFirstQuiz && $request->route()->getName() != 'parent_signup_quiz' && $request->route()->getName() != 'logout') {
             return Redirect::route('parent_signup_quiz');

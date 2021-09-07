@@ -5,7 +5,7 @@
             <span class="ml-1 text-sm text-red-400" id="email-optional" v-if="required">*</span>
         </div>
         <div class="mt-1 relative rounded-md shadow-sm">
-            <input :type="password ? 'password' :'text'" v-model="inputVal" :disabled="disabled" :class="''.concat(disabled ?'bg-gray-200':'').concat(error ? 'border-red-400 border-2 focus:border-red-600':'')" class="form-input rounded-md border-gray-200 focus:ring-gray-100 focus:border-none block w-full sm:text-sm sm:leading-5" :placeholder="placeholder">
+            <input :type="password ? 'password' :'text'" v-model="inputVal" :disabled="disabled" :class="''.concat(disabled ?'bg-gray-200':'').concat(error ? 'border-red-400 border-2 focus:border-red-600':'')" class="form-input rounded-md border-gray-200 focus:ring-gray-100 focus:border-none block w-full sm:text-sm sm:leading-5  focus:outline-none focus:ring-parent-500 focus:border-parent-500" :placeholder="placeholder">
         </div>
         <div class="m-1 text-red-400 text-sm" v-if="error">{{ error }}</div>
 

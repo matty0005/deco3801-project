@@ -7,7 +7,7 @@
                 Create your child's account
             </div>
             <div class="px-4 py-5 sm:p-6">
-                In this section you can assess blah
+                In order to enter kids mode, you must first configure a child account
             </div>
         </div>
 
@@ -22,7 +22,7 @@
         <div class="container mx-auto mt-4">
         </div>
 
-        <div class="container  mx-auto mt-4 overflow-hidden rounded-lg flex flex-row-reverse">
+        <div class="container  mx-auto mt-4 overflow-hidden rounded-lg flex flex-row-reverse ">
             <button v-on:click="submitQuiz" type="submit" class="bg-parent-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-parent-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-parent-600">
                 Save
             </button>

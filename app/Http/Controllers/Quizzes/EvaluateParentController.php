@@ -13,7 +13,8 @@ class EvaluateParentController extends Controller
 {
     public function index($id) {
         $quiz = DB::table('quiz_questions')
-            ->select('name as title',
+            ->select('name as title', 
+                    'description',
                     'questions')
             ->where('type', 'parent')
             ->where('id', $id)

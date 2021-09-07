@@ -11,8 +11,7 @@
 
                     <div class="grid grid-cols-6 gap-6">
                         <div class="col-span-6 sm:col-span-3">
-                        <label for="display_name" class="block text-sm font-medium text-gray-700">Display name</label>
-                        <input v-model="display_name" type="text" name="display_name" id="display_name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-parent-500 focus:border-parent-500 sm:text-sm">
+                            <Textfield label="Display name" v-model="display_name" :error="errors.display_name"/>
                         </div>
                     </div>
                     </div>
@@ -76,8 +75,8 @@
 
                     <div class="grid grid-cols-6 gap-6">
                         <div class="col-span-6 sm:col-span-4">
-                        <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
-                        <input type="text" name="email-address" id="email-address" autocomplete="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-parent-500 focus:border-parent-500 sm:text-sm">
+                            <Textfield label="Email Address" v-model="email_address" :error="errors.email_address"/>
+                        
                         </div>
                     </div>
                     </div>
@@ -93,42 +92,36 @@
 
                     <div class="grid grid-cols-6 gap-6">
                         <div class="col-span-6 sm:col-span-3">
-                        <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
-                        <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-parent-500 focus:border-parent-500 sm:text-sm">
+                            <Textfield label="First name" v-model="address.first_name" :error="errors.address"/>
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
-                        <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
-                        <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-parent-500 focus:border-parent-500 sm:text-sm">
+                            <Textfield label="Last name" v-model="address.last_name" />
                         </div>
 
-                        
-
-                        <div class="col-span-6 sm:col-span-3">
-                        <label for="country" class="block text-sm font-medium text-gray-700">Country / Region</label>
-                        <select id="country" name="country" autocomplete="country" class="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-parent-500 focus:border-parent-500 sm:text-sm">
-                            <option v-for="country in countries" :key="country.id">{{ country.name }}</option>
-                        </select>
-                        </div>
 
                         <div class="col-span-6">
-                        <label for="street-address" class="block text-sm font-medium text-gray-700">Street address</label>
-                        <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-parent-500 focus:border-parent-500 sm:text-sm">
+                            <Textfield label="Street Address" v-model="address.street_address" />
+
                         </div>
 
                         <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                        <label for="city" class="block text-sm font-medium text-gray-700">City</label>
-                        <input type="text" name="city" id="city" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-parent-500 focus:border-parent-500 sm:text-sm">
+                            <Textfield label="City" v-model="address.city" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                        <label for="state" class="block text-sm font-medium text-gray-700">State</label>
-                        <input type="text" name="state" id="state" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-parent-500 focus:border-parent-500 sm:text-sm">
+                            <Textfield label="State" v-model="address.state" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                        <label for="postal-code" class="block text-sm font-medium text-gray-700">Postcode</label>
-                        <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-parent-500 focus:border-parent-500 sm:text-sm">
+                            <Textfield label="Postcode" v-model="address.postcode" />
+                        </div>
+
+                        <div class="col-span-6 sm:col-span-3">
+                        <label for="country" class="block text-sm font-medium text-gray-700">Country / Region</label>
+                        <select id="country" name="country" v-model="address.country" autocomplete="country" class="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-parent-500 focus:border-parent-500 sm:text-sm">
+                            <option v-for="country in countries" :key="country.id">{{ country.name }}</option>
+                        </select>
                         </div>
                     </div>
                     </div>
@@ -136,7 +129,7 @@
                 </div>
 
                
-                <div class="flex flex-row-reverse">
+                <div class="flex flex-row-reverse mx-4 lg:mx-0">
                     <button v-on:click="submitData" type="submit" class="bg-parent-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-parent-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-parent-600">
                         Save
                     </button>
@@ -149,14 +142,19 @@
 <script>
     import Layout from '@/Layouts/SettingsLayout'
     import { useForm } from '@inertiajs/inertia-vue3'
+    import Textfield from "@/Shared/Textfield.vue"
 
     export default {
         components: {
             Layout,
+            Textfield
         },
         props: {
             displayName: String,
-            countries:Array
+            countries:Array,
+            addressInformation: Object,
+            emailAddress: String,
+            errors: Object
         },
         methods: {
             onAvatarChange(event, isDrop) {
@@ -198,19 +196,67 @@
                 ev.preventDefault();
             },
             submitData() {
+                console.log("ADDR", this.address)
                 this.$inertia.post('/account',{
-                    'display_name': this.display_name
+                    'display_name': this.display_name,
+                    'perosnal_info': JSON.stringify(this.address),
+                    'email_address': this.email_address
                 })
             },
         },
         data: () => {
             return {
                 newAvatar: null,
-                display_name: ""
+                display_name: "",
+                address: {
+                    country: 'Australia',
+                    first_name: '',
+                    last_name: '',
+                    street_address: '',
+                    city: '',
+                    state: '',
+                    postcode: ''
+                },
+                email_address: ''
             }
         },
         mounted () {
             this.display_name = this.displayName
+            this.email_address = this.emailAddress
+
+            if (this.addressInformation == null) {
+                return
+            }
+
+            var addr = JSON.parse(this.addressInformation)
+            
+            if (addr == null) {
+                return
+            }
+
+            if (addr.country != null) {
+                this.address.country = addr.country
+            }
+            if (addr.first_name != null) {
+                this.address.first_name = addr.first_name
+            }
+            if (addr.last_name != null) {
+                this.address.last_name = addr.last_name
+            }
+            if (addr.street_address != null) {
+                this.address.street_address = addr.street_address
+            }
+            if (addr.city != null) {
+                this.address.city = addr.city
+            }
+            if (addr.state != null) {
+                this.address.state = addr.state
+            }
+            if (addr.postcode != null) {
+                this.address.postcode = addr.postcode
+            }
+
+
         },
         setup () {
             const avatarToUpload = useForm({
