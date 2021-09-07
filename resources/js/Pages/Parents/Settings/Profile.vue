@@ -196,6 +196,7 @@
                 ev.preventDefault();
             },
             submitData() {
+                console.log("ADDR", this.address)
                 this.$inertia.post('/account',{
                     'display_name': this.display_name,
                     'perosnal_info': JSON.stringify(this.address),
@@ -221,8 +222,41 @@
         },
         mounted () {
             this.display_name = this.displayName
-            this.address = JSON.parse(this.addressInformation)
             this.email_address = this.emailAddress
+
+            if (this.addressInformation == null) {
+                return
+            }
+
+            var addr = JSON.parse(this.addressInformation)
+            
+            if (addr == null) {
+                return
+            }
+
+            if (addr.country != null) {
+                this.address.country = addr.country
+            }
+            if (addr.first_name != null) {
+                this.address.first_name = addr.first_name
+            }
+            if (addr.last_name != null) {
+                this.address.last_name = addr.last_name
+            }
+            if (addr.street_address != null) {
+                this.address.street_address = addr.street_address
+            }
+            if (addr.city != null) {
+                this.address.city = addr.city
+            }
+            if (addr.state != null) {
+                this.address.state = addr.state
+            }
+            if (addr.postcode != null) {
+                this.address.postcode = addr.postcode
+            }
+
+
         },
         setup () {
             const avatarToUpload = useForm({
