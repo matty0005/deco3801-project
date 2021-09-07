@@ -50,7 +50,7 @@
                     </fieldset>
                     </div>
                 </div>
-                <div class="flex flex-row-reverse">
+                <div class="flex flex-row-reverse  mx-4 lg:mx-0">
                     <button v-on:click="submitData" type="submit" class="bg-parent-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-parent-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-parent-600">
                         Save
                     </button>
