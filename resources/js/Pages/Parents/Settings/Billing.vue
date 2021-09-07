@@ -34,13 +34,13 @@
                         <div class="mb-2 text-lg text-gray-700 ">
                             Current card details
                         </div>
-                        <CardDetails class="ml-4" :details="details"/>
+                        <CardDetails class="mx-auto lg:mx-0 lg:ml-4" :details="details"/>
                         <div class="mt-16 mb-0 text-lg text-gray-700 ">
                             Update card details
                         </div>
                     </div>
 
-                    <div class="m-4 w-96 flex flex-col">
+                    <div class="m-4 w-72 lg:w-96 flex flex-col">
                         <div class="">
                             <div class="">
                                 <label for="cardHolder" class="block text-sm font-medium text-gray-700">Card holders name</label>
@@ -58,7 +58,7 @@
 
 
 
-                <div class="flex flex-row-reverse">
+                <div class="flex flex-row-reverse  mx-4 lg:mx-0">
                     <button v-on:click="sendStripe" type="submit" class="bg-parent-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-parent-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-parent-600">
                         Save
                     </button>
