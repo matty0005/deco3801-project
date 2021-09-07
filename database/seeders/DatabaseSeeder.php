@@ -18,8 +18,13 @@ class DatabaseSeeder extends Seeder
             QuizQuestionsSeeder::class,
             ThreadTopicSeeder::class,
             UserSettingsSeeder::class,
+            DrawingItemsSeeder::class,
+            KidsSeeder::class,
+            ParentsSeeder::class,
+            CountrySeeder::class,
             DoctorSeeder::class, 
-            DoctorRatingsSeeder::class,
+            DoctorRatingsSeeder::class, 
+            DoctorAvailabilitiesSeeder::class, 
         ]);
     }
 }

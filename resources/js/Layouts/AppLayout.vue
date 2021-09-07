@@ -5,8 +5,8 @@
       <div class="flex justify-between h-16">
         <div class="flex">
           <div class="flex-shrink-0 flex items-center">
-            <img class="block lg:hidden h-8 w-auto" src="/images/logo_bare.png" alt="Workflow">
-            <img class="hidden lg:block h-8 w-auto" src="/images/logo_bare.png" alt="Workflow">
+            <img class="block lg:hidden h-8 w-auto" src="/images/logo_name_3.svg" alt="Workflow">
+            <img class="hidden lg:block h-8 w-auto" src="/images/logo_name_3.svg" alt="Workflow">
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
             <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
@@ -40,7 +40,7 @@
             <div v-if="showProfileDropdown" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
               <!-- Active: "bg-gray-100", Not Active: "" -->
               <Link href="/account" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" >Settings</Link>
-              <Link href="/switch/kids" method="post"  as="button" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" >Kids mode</Link>
+              <Link v-if="week(5)" :href="week(6) ? '/switch/kids':'#'" :method="week(6) ?'post':'get'"  as="button" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" >Kids mode</Link>
               <Link href="/logout" method="post"  as="button" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" >Sign out</Link>
             </div>
             </transition>
@@ -84,7 +84,7 @@
         <div class="mt-3 space-y-1">
             <Link href="/account"  class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100" role="menuitem" tabindex="-1" >Settings</Link>
 
-            <Link href="/switch/kids" method="post"  as="button" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100" role="menuitem" tabindex="-1" >Kids mode</Link>
+            <Link v-if="week(5)" :href="week(6) ? '/switch/kids':'#'" :method="week(6) ?'post':'get'"  as="button" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100" role="menuitem" tabindex="-1" >Kids mode</Link>
 
             <Link href="/logout" method="post"  as="button" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100" role="menuitem" tabindex="-1" >Sign out</Link>
         </div>
@@ -98,7 +98,7 @@
 </template>
 
 <script>
-
+import isWeek from "@/utils"
 import { Link } from '@inertiajs/inertia-vue3'
 export default {
     data: () => {
@@ -110,6 +110,9 @@ export default {
         Link
     },
     methods: {
+        week (weekNum) {
+            return isWeek.isWeek(weekNum)
+        },
         onClickOutside () {
             this.showProfileDropDown = false
         },

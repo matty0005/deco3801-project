@@ -118,9 +118,9 @@
                                     <td>
                                         <div class="text-sm text-gray-500">{{doctor.gender === 0 ? "Male" : "Female"}}</div>
                                     </td>
-                                    <!-- <td>
-                                        <div class="text-sm text-gray-900">{{doctor.available_date}}</div>
-                                    </td> -->
+                                    <td>
+                                        <div class="text-sm text-gray-900">{{doctor.time}}</div>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

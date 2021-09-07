@@ -18,9 +18,11 @@ class CreateUserSettingsTable extends Migration
             $table->id();
             $table->bigInteger('user_id');
             $table->string('display_name');
+            $table->string('name');
             $table->smallInteger('type')->comment('1 = parent; 2 = child')->default(1);
             $table->mediumText('avatar')->nullable();
             $table->timestamps();
+            
         });
     }
 

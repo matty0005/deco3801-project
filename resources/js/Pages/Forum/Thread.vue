@@ -25,6 +25,8 @@
                 
                 <p v-if="thread.count >= 0"> {{thread.count}} total comments </p>
 
+                <LikeBar :likes="thread.likes" :dislikes="thread.dislikes" :status="thread.liked" :id="thread.id" :isThread="true" />
+
                 <slot/>
 
             </div>
@@ -35,9 +37,14 @@
 
 <script>
 
-import axios from 'axios'
+import LikeBar from './LikeBar.vue'
 
 export default {
+
+    components: {
+        LikeBar,
+    },
+
     props: {
         'thread': Object,
         'clickable': {
