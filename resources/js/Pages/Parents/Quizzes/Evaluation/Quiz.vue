@@ -5,14 +5,22 @@
             <div class="text-3xl px-4 pt-5 py-3 sm:px-6">
                 {{ content.title }}
             </div>
-            <div class="px-4 py-5 sm:p-6">
-                In this section you can assess blah
+            <div class="text-3x1 px-4 pt-5 py-5 sm:p-6">
+                {{ content.description }}
             </div>
         </div>
 
-        <div class="container  mx-auto mt-4 bg-white overflow-hidden shadow rounded-lg">
+        <div class="container mx-auto mt-4 bg-white overflow-hidden shadow rounded-lg">
             <div class="py-5" v-for="question in content.questions" :key="question">
-                <Select class="mx-4" :label="question.question" multiSelect :options="question.answers" @selected="userSelect"/>
+                <div v-if="question.type.includes('select')">
+                    <Select class="mx-4" :label="question.question" :multiSelect="question.type == 'multiselect'" :options="question.answers" @selected="userSelect"/>
+                </div>
+                <div v-else-if="question.type.includes('slider')">
+                    <Slider class="mx-4" :label="question.question"/>
+                </div>
+                <div v-else-if="question.type.includes('colour')">
+                    <ColourSelect class="mx-4" :label="question.question" @selected="userSelect"/>
+                </div>
             </div>
         </div>
 
@@ -23,6 +31,7 @@
                 Save
             </button>
         </div>
+        <div class="py-4"></div>
     </Layout>
 </template>
 
@@ -30,34 +39,20 @@
     import Layout from '@/Layouts/AppLayout'
     import List from "@/Shared/Lists"
     import Select from '@/Shared/Select.vue'
+    import ColourSelect from '@/Shared/ColourSelect.vue'
+    import Slider from '@/Shared/Slider.vue'
 
     export default {
         components: {
             Layout,
             List,
-            Select
+            Select,
+            ColourSelect,
+            Slider
         },
 
         data: () => {
             return {
-                options: [
-                    {
-                        id: 1,
-                        text: "Lonely"},
-                    {
-                        id: 2,
-                        text: "Depressed"},
-                    {
-                        id: 3,
-                        text: "String3"},
-                    {
-                        id: 4,
-                        text: "String4"},
-                    {
-                        id: 5,
-                        text: "String5"}
-                ],
-
                 response: {
                 }
             }
@@ -77,10 +72,8 @@
 
             userSelect (id) {
                 console.log(id)
-                this.response["Question 1"] = id 
+                this.response["Question #"] = id 
             }
-
-
         }
     }
 </script>
