@@ -21,7 +21,10 @@ class DatabaseSeeder extends Seeder
             DrawingItemsSeeder::class,
             KidsSeeder::class,
             ParentsSeeder::class,
-            CountrySeeder::class
+            CountrySeeder::class,
+            DoctorSeeder::class, 
+            DoctorRatingsSeeder::class, 
+            DoctorAvailabilitiesSeeder::class, 
         ]);
     }
 }
