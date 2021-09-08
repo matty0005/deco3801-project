@@ -17,8 +17,8 @@
                     <div class="mt-10 mb-5 sm:mt-12">
                     <div class="sm:max-w-xl sm:mx-auto lg:mx-0">
                         <div class="sm:flex-1">
-                         <div class="mt-3 sm:mt-0 sm:ml-3">
-                            <Link :href="route('register')" class="flex block w-1/2 py-3 px-4 mt-3 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900">
+                         <div class="mt-3 sm:mt-0 sm:ml-3  w-full lg:w-2/3 ">
+                            <Link :href="route('register')" class="flex block w-full py-3 px-4 mt-3 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900">
                               <div class="mx-auto">
                                 Sign up
                               </div>
