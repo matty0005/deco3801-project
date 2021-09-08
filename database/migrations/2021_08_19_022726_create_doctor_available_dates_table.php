@@ -14,8 +14,8 @@ class CreateDoctorAvailableDatesTable extends Migration
     public function up()
     {
         Schema::create('doctor_available_dates', function (Blueprint $table) {
-            $table->smallInteger('doctor_id'); 
-            $table->dateTime('time');
+            $table->integer('doctor_id'); 
+            $table->datetime('time');
             $table->index(['doctor_id', 'time']);
         });
     }

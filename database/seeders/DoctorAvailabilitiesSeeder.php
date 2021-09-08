@@ -16,7 +16,7 @@ class DoctorAvailabilitiesSeeder extends Seeder
     {
         DB::table('doctor_available_dates')->insert([
             'doctor_id' => 1, 
-            'time' => "2021-08-27T15:00:00+10:00",
+            'time' => "2021-07-31 04:14:24",
         ]);
     }
 }
