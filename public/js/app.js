@@ -23059,10 +23059,10 @@ var _hoisted_3 = {
   "class": "overflow-hidden shadow-sm sm:rounded-lg"
 };
 var _hoisted_4 = {
-  "class": "mb-4 flex flex-col"
+  "class": "mb-4 flex flex-col relative"
 };
 var _hoisted_5 = {
-  "class": "w-1/2 mx-auto bg-gray-300 rounded-md rounded-t-none"
+  "class": "shadow-xl absolute z-90 top-6 left-1/2 transform -translate-x-1/2 w-1/2 mx-auto bg-gray-300 rounded-md rounded-t-none"
 };
 var _hoisted_6 = {
   "class": "bg-white overflow-hidden shadow rounded-lg"
@@ -27103,10 +27103,12 @@ var isWeek = function isWeek(weekNum) {
   var todayDate = new Date();
   var todayWeek = todayDate.getWeek();
 
-  if (false) {}
+  if (true) {
+    return true;
+  }
 
-  console.log("true");
-  console.log("true" == 'false');
+  console.log("false");
+  console.log("false" == 'false');
   return todayWeek - 29 >= weekNum;
 };
 

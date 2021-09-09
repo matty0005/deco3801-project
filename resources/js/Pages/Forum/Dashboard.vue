@@ -4,10 +4,10 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="overflow-hidden shadow-sm sm:rounded-lg">
 
-                    <div class="mb-4 flex flex-col">
+                    <div class="mb-4 flex flex-col relative">
                         <input v-model="searchText" class="rounded-md w-1/2 mx-auto px-2" :placeholder="searchPlaceholder" />
 
-                        <div class="w-1/2 mx-auto bg-gray-300 rounded-md rounded-t-none">
+                        <div class="shadow-xl absolute z-90 top-6 left-1/2 transform -translate-x-1/2 w-1/2 mx-auto bg-gray-300 rounded-md rounded-t-none">
                             <div class="mt-1" v-for="(thread, index) in searched" :key="index" :value="thread"> 
                                 <ThreadSearched :thread="thread" />
                             </div>
