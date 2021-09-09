@@ -6,7 +6,7 @@
             <div class="m-3">
 
 
-                <div class="font-bold text-gray-700 text-xl mb-2 flex flex-row"> 
+                <div class="mb-2 flex flex-row"> 
                     <img class="rounded-lg mr-3 h-8 w-8" :src="thread.avatar"/>
                     <p> {{thread.title}} </p>
 
@@ -14,9 +14,13 @@
                 </div>
                 
                 <div class="flex flex-row"> 
-                    <p v-if="thread.count >= 0"> {{thread.count}} total comments </p>
+                    <p class="text-gray-500" v-if="thread.count >= 0"> {{thread.count}} total comments </p>
 
-                    <LikeBar class="ml-auto" :likes="thread.likes" :dislikes="thread.dislikes" :status="thread.liked" :id="thread.id" :isThread="true" />
+                    <LikeBar class="ml-auto text-gray-500" 
+                        :likes="thread.likes" :dislikes="thread.dislikes" 
+                        :status="thread.liked" :id="thread.id" 
+                        :isThread="true" :disabled="true" 
+                        @disabled="visitThread"/>
                 </div>
             </div>
         </div>

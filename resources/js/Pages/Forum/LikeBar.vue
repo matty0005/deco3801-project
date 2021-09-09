@@ -14,10 +14,26 @@
 
 <script>
 export default {
-    props: ['likes', 'dislikes', 'status', 'isThread', 'id'],
-
+    props: {
+        likes: Number,
+        dislikes: Number,
+        status: Number,
+        isThread: Boolean,
+        id: Number,
+        disabled: {
+            type: Boolean,
+            default: false,
+        }
+    }, 
+    
     methods: {
         like(likeStatus) {
+            
+            if (this.disabled) {
+                this.$emit('disabled');
+                return;
+            }
+
             var update = likeStatus;
             if (likeStatus == this.status) {
                 update = 0;

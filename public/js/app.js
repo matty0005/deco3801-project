@@ -18811,9 +18811,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['likes', 'dislikes', 'status', 'isThread', 'id'],
+  props: {
+    likes: Number,
+    dislikes: Number,
+    status: Number,
+    isThread: Boolean,
+    id: Number,
+    disabled: {
+      type: Boolean,
+      "default": false
+    }
+  },
   methods: {
     like: function like(likeStatus) {
+      if (this.disabled) {
+        this.$emit('disabled');
+        return;
+      }
+
       var update = likeStatus;
 
       if (likeStatus == this.status) {
@@ -23439,7 +23454,7 @@ var _hoisted_2 = {
   "class": "m-3"
 };
 var _hoisted_3 = {
-  "class": "font-bold text-gray-700 text-xl mb-2 flex flex-row"
+  "class": "mb-2 flex flex-row"
 };
 var _hoisted_4 = {
   key: 0,
@@ -23449,7 +23464,8 @@ var _hoisted_5 = {
   "class": "flex flex-row"
 };
 var _hoisted_6 = {
-  key: 0
+  key: 0,
+  "class": "text-gray-500"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_LikeBar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("LikeBar");
@@ -23471,15 +23487,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [$props.thread.count >= 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.thread.count) + " total comments ", 1
   /* TEXT */
   )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_LikeBar, {
-    "class": "ml-auto",
+    "class": "ml-auto text-gray-500",
     likes: $props.thread.likes,
     dislikes: $props.thread.dislikes,
     status: $props.thread.liked,
     id: $props.thread.id,
-    isThread: true
+    isThread: true,
+    disabled: true,
+    onDisabled: $options.visitThread
   }, null, 8
   /* PROPS */
-  , ["likes", "dislikes", "status", "id"])])])])], 2
+  , ["likes", "dislikes", "status", "id", "onDisabled"])])])])], 2
   /* CLASS */
   );
 }
