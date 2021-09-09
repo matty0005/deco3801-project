@@ -21,12 +21,15 @@ class QuizQuestionsSeeder extends Seeder
             array(
                 "id" => 1,
                 "name" => "Your child's mental health",
-                "description" => "This quick survey will provide feedback regarding possible needs for your child and actions you can take to best assist them.",
+                "description" => "This questionairre can be used as a precursor to identify possible behavioural and emotional difficulities your child is experiencing.",
                 "type" => "parent",
-                "questions" => "[{\"type\": \"multiselect\", \"answers\": [\"Worries\", \"Feels sad\", \"Feels hopeless\", \"Is down\", \"Gets disracted\", \"Is stressed\", \"Teases others\", \"Left out\", \"Refuses to share\", \"Fights with others\"], \"question\": \"Select all of the following behaviour that your child exhibits:\", \"required\": false},
-                {\"type\": \"select\", \"answers\": [\"Never\", \"Ocasionally\", \"Sometimes\", \"Often\"], \"question\": \"How often do your child display feelings of sadness?\", \"required\": true},
-                {\"type\": \"slider\", \"answers\": [], \"question\": \"Slider:\", \"required\": true}, 
-                {\"type\": \"colour\", \"answers\": [], \"question\": \"Regularly\", \"required\": true}]",
+                "questions" => "[
+                {\"type\": \"multiselect\", \"answers\": [\"Is disobedient\", \"Has trouble concentrating\", \"Struggles socially\", \"Daydreams too much\"], \"question\": \"Select all of the following issues that concern you about your child:\", \"required\": true},
+                {\"type\": \"multiselect\", \"answers\": [\"Fights with others\", \"Teases others\", \"Refuses to share\", \"Acts impulsively\", \"Blames others for their troubles\", \"Takes things that aren't theirs\", \"Does not follow rules\"], \"question\": \"Select all of the following behaviours that your child exhibits:\", \"required\": false},
+                {\"type\": \"colour\", \"answers\": [], \"question\": \"Your child is frequently sad or unhappy\", \"required\": true},
+                {\"type\": \"colour\", \"answers\": [], \"question\": \"Your child often worries\", \"required\": true},
+                {\"type\": \"colour\", \"answers\": [], \"question\": \"Placeholder\", \"required\": true},
+                {\"type\": \"colour\", \"answers\": [], \"question\": \"Placeh0lder\", \"required\": true}]",
                           
             ),
             array(
