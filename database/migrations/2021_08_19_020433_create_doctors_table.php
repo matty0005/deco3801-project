@@ -16,9 +16,10 @@ class CreateDoctorsTable extends Migration
         Schema::create('doctors', function (Blueprint $table) {
             $table->id();
             $table->smallInteger('gender'); 
-            $table->tinyText('first_name'); 
-            $table->tinyText('last_name'); 
-            $table->tinyText('email');
+            $table->string('first_name'); 
+            $table->string('last_name'); 
+            $table->string('email');
+            $table->string('specialisation');
         });
     }
 

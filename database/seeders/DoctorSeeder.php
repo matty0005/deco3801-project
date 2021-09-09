@@ -17,7 +17,8 @@ class DoctorSeeder extends Seeder {
             'gender' => 0, 
             'first_name' => "Oskar", 
             "last_name" => "Gregurek",
-            "email" => "opgregurek@gmail.com"
+            "email" => "opgregurek@gmail.com",
+            "specialisation" => "loser"
         ]); 
 
         DB::table('doctors')->insert([
@@ -25,7 +26,8 @@ class DoctorSeeder extends Seeder {
             'gender' => 0, 
             'first_name' => "George", 
             "last_name" => "Mihnea",
-            "email" => "george@gmail.com"
+            "email" => "george@gmail.com",
+            "specialisation" => "loser"
         ]); 
 
         DB::table('doctors')->insert([
@@ -33,7 +35,8 @@ class DoctorSeeder extends Seeder {
             'gender' => 0, 
             'first_name' => "Matt", 
             "last_name" => "Gilpin",
-            "email" => "matt@gmail.com"
+            "email" => "matt@gmail.com",
+            "specialisation" => "loser"
         ]); 
 
         DB::table('doctors')->insert([
@@ -41,7 +44,8 @@ class DoctorSeeder extends Seeder {
             'gender' => 0, 
             'first_name' => "Josh", 
             "last_name" => "Wallace",
-            "email" => "josh@gmail.com"
+            "email" => "josh@gmail.com",
+            "specialisation" => "loser"
         ]); 
 
         DB::table('doctors')->insert([
@@ -49,7 +53,8 @@ class DoctorSeeder extends Seeder {
             'gender' => 1, 
             'first_name' => "Yilin", 
             "last_name" => "Su",
-            "email" => "yilin@gmail.com"
+            "email" => "yilin@gmail.com",
+            "specialisation" => "loser"
         ]);
 
         DB::table('doctors')->insert([
@@ -57,7 +62,8 @@ class DoctorSeeder extends Seeder {
             'gender' => 1, 
             'first_name' => "Samantha", 
             "last_name" => "Tran",
-            "email" => "samantha@gmail.com"
+            "email" => "samantha@gmail.com",
+            "specialisation" => "ADHD specialist"
         ]);
 
     }
