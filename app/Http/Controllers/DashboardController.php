@@ -43,10 +43,14 @@ class DashboardController extends Controller
             return Inertia::render('Kids/Dashboard');
         }
 
-        DB::table('doctors')
-            ->select('first_name', 'last_name', 'specialisation')
+        $doctors = DB::table('doctors')
+            ->select('users.name', 'specialisation', 'avatar')
+            ->join('users','users.id','doctors.user_id')
+            ->join('user_settings', 'user_settings.user_id', 'users.id')
             ->get();
 
-        return Inertia::render('Parents/Dashboard');
+        return Inertia::render('Parents/Dashboard', [
+            'doctors' => $doctors
+        ]);
     }
 }
