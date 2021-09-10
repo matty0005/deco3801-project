@@ -12,53 +12,47 @@ class DoctorSeeder extends Seeder {
      * @return void
      */
     public function run() {
-        DB::table('doctors')->insert([
-            'id' => 1, 
-            'gender' => 0, 
-            'first_name' => "Oskar", 
-            "last_name" => "Gregurek",
-            "email" => "opgregurek@gmail.com"
-        ]); 
 
-        DB::table('doctors')->insert([
-            'id' => 2,
-            'gender' => 0, 
-            'first_name' => "George", 
-            "last_name" => "Mihnea",
-            "email" => "george@gmail.com"
-        ]); 
+        $doctors = array(
+            array(
+                "id" => 1,
+                "user_id" => 15,
+                "gender" => 1,
+                "specialisation" => "ADHD",
+            ),
+            array(
+                "id" => 2,
+                "user_id" => 9,
+                "gender" => 0,
+                "specialisation" => "Depression",
+            ),
+            array(
+                "id" => 3,
+                "user_id" => 5,
+                "gender" => 1,
+                "specialisation" => "Learning Disabilities",
+            ),
+            array(
+                "id" => 4,
+                "user_id" => 6,
+                "gender" => 0,
+                "specialisation" => "Autism",
+            ),
+            array(
+                "id" => 5,
+                "user_id" => 13,
+                "gender" => 0,
+                "specialisation" => "Depression",
+            ),
+            array(
+                "id" => 6,
+                "user_id" => 14,
+                "gender" => 0,
+                "specialisation" => "Autism",
+            ),
+        );
 
-        DB::table('doctors')->insert([
-            'id' => 3,
-            'gender' => 0, 
-            'first_name' => "Matt", 
-            "last_name" => "Gilpin",
-            "email" => "matt@gmail.com"
-        ]); 
-
-        DB::table('doctors')->insert([
-            'id' => 4,
-            'gender' => 0, 
-            'first_name' => "Josh", 
-            "last_name" => "Wallace",
-            "email" => "josh@gmail.com"
-        ]); 
-
-        DB::table('doctors')->insert([
-            'id' => 5,
-            'gender' => 1, 
-            'first_name' => "Yilin", 
-            "last_name" => "Su",
-            "email" => "yilin@gmail.com"
-        ]);
-
-        DB::table('doctors')->insert([
-            'id' => 6,
-            'gender' => 1, 
-            'first_name' => "Samantha", 
-            "last_name" => "Tran",
-            "email" => "samantha@gmail.com"
-        ]);
-
+        \DB::table('doctors')->delete();
+        \DB::table('doctors')->insert($doctors);  
     }
 }
