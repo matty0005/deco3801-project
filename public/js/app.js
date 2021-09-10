@@ -20585,17 +20585,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Layouts_KidsAppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/KidsAppLayout */ "./resources/js/Layouts/KidsAppLayout.vue");
 /* harmony import */ var _Shared_CallToActionCard_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Shared/CallToActionCard.vue */ "./resources/js/Shared/CallToActionCard.vue");
+/* harmony import */ var _Shared_SpeechBubble__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Shared/SpeechBubble */ "./resources/js/Shared/SpeechBubble.vue");
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     Layout: _Layouts_KidsAppLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
-    CallToActionCard: _Shared_CallToActionCard_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    CallToActionCard: _Shared_CallToActionCard_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    SpeechBubble: _Shared_SpeechBubble__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
-      isHappy: true
+      textInSpeechBubble: ""
     };
+  },
+  mounted: function mounted() {
+    this.textInSpeechBubble = "Hello ".concat(this.$page.props.auth.user.display_name, ", how are you today?");
   },
   methods: {
     startActivity: function startActivity() {// Take to another page for activity
@@ -21907,6 +21913,25 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {},
   methods: {
     adjust: function adjust() {}
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/SpeechBubble.vue?vue&type=script&lang=js":
+/*!**************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/SpeechBubble.vue?vue&type=script&lang=js ***!
+  \**************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    text: String
   }
 });
 
@@ -25089,21 +25114,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_1 = {
   "class": "container mx-auto"
-}, " HELLO ", -1
+};
+var _hoisted_2 = {
+  "class": " bg-white overflow-hidden shadow rounded-lg mt-2 lg:mt-8"
+};
+var _hoisted_3 = {
+  "class": "px-4 py-5 sm:p-6"
+};
+
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "lg:ml-72 h-96 w-96",
+  src: "/images/kids/mascot.png"
+}, null, -1
 /* HOISTED */
 );
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_SpeechBubble = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("SpeechBubble");
+
   var _component_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("layout");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_layout, {
     "class": "bg-gray-100 min-h-screen"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_1];
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SpeechBubble, {
+        text: _ctx.textInSpeechBubble
+      }, null, 8
+      /* PROPS */
+      , ["text"]), _hoisted_4])])])];
     }),
     _: 1
     /* STABLE */
@@ -28530,6 +28571,39 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/SpeechBubble.vue?vue&type=template&id=0f31ef2c&scoped=true":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/SpeechBubble.vue?vue&type=template&id=0f31ef2c&scoped=true ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+(0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-0f31ef2c");
+
+var _hoisted_1 = {
+  "class": "bg-gray-100 m-4 inline-block relative w-96 h-auto tri-right border rounded-xl btm-right-in"
+};
+var _hoisted_2 = {
+  "class": "m-4"
+};
+
+(0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.text), 1
+  /* TEXT */
+  )])]);
+}
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/Textfield.vue?vue&type=template&id=138345c1":
 /*!***************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/Textfield.vue?vue&type=template&id=138345c1 ***!
@@ -28845,6 +28919,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, ".slider {\n  -webkit-appearance: none;\n  width: 100%;\n  height: 0.75rem;\n  border-radius: 9999px;\n  --tw-border-opacity: 1;\n  background-color: rgba(229, 231, 235, var(--tw-border-opacity));\n  outline: none;\n  opacity: 0.7;\n  transition: opacity .2s;\n}\n.slider:hover {\n  opacity: 1; /* Fully shown on mouse-over */\n}\n.slider::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  appearance: none;\n  width: 1.25rem;\n  height: 1.25rem;\n  border-radius: 9999px;\n  border-width: 1px ;\n  --tw-border-opacity: 1;\n  border-color: rgba(209, 213, 219, var(--tw-border-opacity));\n  /* border-color: #d8d4dc; */\n  background: white;\n  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);\n  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);\n  cursor: pointer;\n}\n.slider::-moz-range-thumb {\n  width: 1.25rem;\n  height: 1.25rem;\n  border-radius: 9999px;\n  border-width: 1px ;\n  --tw-border-opacity: 1;\n  border-color: rgba(209, 213, 219, var(--tw-border-opacity));\n  /* border-color: #d8d4dc; */\n  background: white;\n  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);\n  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);\n  cursor: pointer;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/SpeechBubble.vue?vue&type=style&index=0&id=0f31ef2c&scoped=true&lang=css":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/SpeechBubble.vue?vue&type=style&index=0&id=0f31ef2c&scoped=true&lang=css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".border[data-v-0f31ef2c]{\n  border: 8px solid #666;\n}\n\n/* Right triangle, left side slightly down */\n.tri-right.border.left-in[data-v-0f31ef2c]:before {\n  content: ' ';\n  position: absolute;\n  width: 0;\n  height: 0;\n  left: -40px;\n  right: auto;\n  top: 30px;\n  bottom: auto;\n  border: 20px solid;\n  border-color: #666 #666 transparent transparent;\n}\n.tri-right.left-in[data-v-0f31ef2c]:after{\n  content: ' ';\n  position: absolute;\n  width: 0;\n  height: 0;\n  left: -20px;\n  right: auto;\n  top: 38px;\n  bottom: auto;\n  border: 12px solid;\n  border-color: #f3f4f6 #f3f4f6 transparent transparent;\n}\n\n/*Right triangle, placed bottom left side slightly in*/\n.tri-right.border.btm-left[data-v-0f31ef2c]:before {\n  content: ' ';\n  position: absolute;\n  width: 0;\n  height: 0;\n  left: -8px;\n  right: auto;\n  top: auto;\n  bottom: -40px;\n  border: 32px solid;\n  border-color: transparent transparent transparent #666;\n}\n.tri-right.btm-left[data-v-0f31ef2c]:after{\n  content: ' ';\n  position: absolute;\n  width: 0;\n  height: 0;\n  left: 0px;\n  right: auto;\n  top: auto;\n  bottom: -20px;\n  border: 22px solid;\n  border-color: transparent transparent transparent #f3f4f6;\n}\n\n/*Right triangle, placed bottom right side slightly in*/\n.tri-right.border.btm-right-in[data-v-0f31ef2c]:before {\n  content: ' ';\n  position: absolute;\n  width: 0;\n  height: 0;\n  left: auto;\n  right: 30px;\n  bottom: -40px;\n  border: 20px solid;\n  border-color: #666 #666 transparent transparent;\n}\n.tri-right.btm-right-in[data-v-0f31ef2c]:after{\n  content: ' ';\n  position: absolute;\n  width: 0;\n  height: 0;\n  left: auto;\n  right: 38px;\n  bottom: -20px;\n  border: 12px solid;\n  border-color: #f3f4f6 #f3f4f6 transparent transparent;\n}\n\n/*\n\tleft: -8px;\n  right: auto;\n  top: auto;\n\tbottom: -40px;\n\tborder: 32px solid;\n\tborder-color: transparent transparent transparent #666;\n\tleft: 0px;\n  right: auto;\n  top: auto;\n\tbottom: -20px;\n\tborder: 22px solid;\n\tborder-color: transparent transparent transparent lightyellow;\n\n/*Right triangle, placed bottom right side slightly in*/\n.tri-right.border.btm-right[data-v-0f31ef2c]:before {\n  content: ' ';\n  position: absolute;\n  width: 0;\n  height: 0;\n  left: auto;\n  right: -8px;\n  bottom: -40px;\n  border: 20px solid;\n  border-color: #666 #666 transparent transparent;\n}\n.tri-right.btm-right[data-v-0f31ef2c]:after{\n  content: ' ';\n  position: absolute;\n  width: 0;\n  height: 0;\n  left: auto;\n  right: 0px;\n  bottom: -20px;\n  border: 12px solid;\n  border-color: #f3f4f6 #f3f4f6 transparent transparent;\n}\n\n/* Right triangle, right side slightly down*/\n.tri-right.border.right-in[data-v-0f31ef2c]:before {\n  content: ' ';\n  position: absolute;\n  width: 0;\n  height: 0;\n  left: auto;\n  right: -40px;\n  top: 30px;\n  bottom: auto;\n  border: 20px solid;\n  border-color: #666 transparent transparent #666;\n}\n.tri-right.right-in[data-v-0f31ef2c]:after{\n  content: ' ';\n  position: absolute;\n  width: 0;\n  height: 0;\n  left: auto;\n  right: -20px;\n  top: 38px;\n  bottom: auto;\n  border: 12px solid;\n  border-color: #f3f4f6 transparent transparent #f3f4f6;\n}\n\n/* Right triangle placed top right flush. */\n.tri-right.border.right-top[data-v-0f31ef2c]:before {\n  content: ' ';\n  position: absolute;\n  width: 0;\n  height: 0;\n  left: auto;\n  right: -40px;\n  top: -8px;\n  bottom: auto;\n  border: 32px solid;\n  border-color: #666 transparent transparent transparent;\n}\n.tri-right.right-top[data-v-0f31ef2c]:after{\n  content: ' ';\n  position: absolute;\n  width: 0;\n  height: 0;\n  left: auto;\n  right: -20px;\n  top: 0px;\n  bottom: auto;\n  border: 20px solid;\n  border-color: #f3f4f6 transparent transparent transparent;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -53467,6 +53565,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/SpeechBubble.vue?vue&type=style&index=0&id=0f31ef2c&scoped=true&lang=css":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/SpeechBubble.vue?vue&type=style&index=0&id=0f31ef2c&scoped=true&lang=css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_SpeechBubble_vue_vue_type_style_index_0_id_0f31ef2c_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./SpeechBubble.vue?vue&type=style&index=0&id=0f31ef2c&scoped=true&lang=css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/SpeechBubble.vue?vue&type=style&index=0&id=0f31ef2c&scoped=true&lang=css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_SpeechBubble_vue_vue_type_style_index_0_id_0f31ef2c_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_SpeechBubble_vue_vue_type_style_index_0_id_0f31ef2c_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
 /*!****************************************************************************!*\
   !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
@@ -55210,6 +55338,36 @@ _Slider_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"].__fi
 
 /***/ }),
 
+/***/ "./resources/js/Shared/SpeechBubble.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/Shared/SpeechBubble.vue ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _SpeechBubble_vue_vue_type_template_id_0f31ef2c_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SpeechBubble.vue?vue&type=template&id=0f31ef2c&scoped=true */ "./resources/js/Shared/SpeechBubble.vue?vue&type=template&id=0f31ef2c&scoped=true");
+/* harmony import */ var _SpeechBubble_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SpeechBubble.vue?vue&type=script&lang=js */ "./resources/js/Shared/SpeechBubble.vue?vue&type=script&lang=js");
+/* harmony import */ var _SpeechBubble_vue_vue_type_style_index_0_id_0f31ef2c_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SpeechBubble.vue?vue&type=style&index=0&id=0f31ef2c&scoped=true&lang=css */ "./resources/js/Shared/SpeechBubble.vue?vue&type=style&index=0&id=0f31ef2c&scoped=true&lang=css");
+
+
+
+
+;
+_SpeechBubble_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"].render = _SpeechBubble_vue_vue_type_template_id_0f31ef2c_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render
+_SpeechBubble_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"].__scopeId = "data-v-0f31ef2c"
+/* hot reload */
+if (false) {}
+
+_SpeechBubble_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"].__file = "resources/js/Shared/SpeechBubble.vue"
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_SpeechBubble_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
+/***/ }),
+
 /***/ "./resources/js/Shared/Textfield.vue":
 /*!*******************************************!*\
   !*** ./resources/js/Shared/Textfield.vue ***!
@@ -56112,6 +56270,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Slider_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Slider_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Slider.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/Slider.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/Shared/SpeechBubble.vue?vue&type=script&lang=js":
+/*!**********************************************************************!*\
+  !*** ./resources/js/Shared/SpeechBubble.vue?vue&type=script&lang=js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_SpeechBubble_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_SpeechBubble_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./SpeechBubble.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/SpeechBubble.vue?vue&type=script&lang=js");
  
 
 /***/ }),
@@ -57028,6 +57202,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Shared/SpeechBubble.vue?vue&type=template&id=0f31ef2c&scoped=true":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/Shared/SpeechBubble.vue?vue&type=template&id=0f31ef2c&scoped=true ***!
+  \****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_SpeechBubble_vue_vue_type_template_id_0f31ef2c_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_SpeechBubble_vue_vue_type_template_id_0f31ef2c_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./SpeechBubble.vue?vue&type=template&id=0f31ef2c&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/SpeechBubble.vue?vue&type=template&id=0f31ef2c&scoped=true");
+
+
+/***/ }),
+
 /***/ "./resources/js/Shared/Textfield.vue?vue&type=template&id=138345c1":
 /*!*************************************************************************!*\
   !*** ./resources/js/Shared/Textfield.vue?vue&type=template&id=138345c1 ***!
@@ -57079,6 +57269,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Slider_vue_vue_type_style_index_0_id_ccf66a86_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Slider.vue?vue&type=style&index=0&id=ccf66a86&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/Slider.vue?vue&type=style&index=0&id=ccf66a86&lang=css");
+
+
+/***/ }),
+
+/***/ "./resources/js/Shared/SpeechBubble.vue?vue&type=style&index=0&id=0f31ef2c&scoped=true&lang=css":
+/*!******************************************************************************************************!*\
+  !*** ./resources/js/Shared/SpeechBubble.vue?vue&type=style&index=0&id=0f31ef2c&scoped=true&lang=css ***!
+  \******************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_SpeechBubble_vue_vue_type_style_index_0_id_0f31ef2c_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./SpeechBubble.vue?vue&type=style&index=0&id=0f31ef2c&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/SpeechBubble.vue?vue&type=style&index=0&id=0f31ef2c&scoped=true&lang=css");
 
 
 /***/ }),
