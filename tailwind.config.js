@@ -31,7 +31,7 @@ module.exports = {
                 warmGray: colors.warmGray,
                 blueGray: colors.blueGray,
                 // parentPrimay: '#06B6D4',
-                // parentPrimayHover: '#0891B2',
+                // parentPrimaryHover: '#0891B2',
                 // kidsPrimary: '#F59E0B',
                 // kidsPrimaryHover: '#D97706',
                 // kidsSecondary: '#FACC15',
@@ -103,6 +103,9 @@ module.exports = {
             },
             width: {
                 '128': '32rem',
+            },
+            borderWidth: {
+                '3': '3px',
             }
         },
     },
