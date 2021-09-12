@@ -13,13 +13,13 @@ class ConsultationController extends Controller
 
         $doctors = DB::table('doctors')
                 ->select(
-                    'doctors.first_name', 
-                    'doctors.last_name', 
+                    'users.name', 
+                    'users.email',
                     'doctors.gender', 
-                    'doctors.email'
                 )
                 ->selectRaw('(SELECT COUNT(*) FROM ratings WHERE ratings.doctor_id = doctors.id) count, (SELECT ROUND(AVG(rating), 1) FROM ratings WHERE ratings.doctor_id = doctors.id) rating, 
                 (SELECT time FROM doctor_available_dates d WHERE d.doctor_id = doctors.id) time')
+                ->join('users', 'users.id', 'doctors.user_id')
                 ->get();
         return Inertia::render('Parents/Consultation/Index',[
             'doctors' => $doctors
