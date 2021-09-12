@@ -18,6 +18,8 @@ class CreateKidsTable extends Migration
             $table->unsignedBigInteger('user_settings_id');
             $table->integer('theme')->default(2);
             $table->date('dob')->nullable();
+            $table->integer('activity_level')->default(1);
+
             $table->timestamps();
 
             $table->foreign('user_settings_id')->references('id')->on('user_settings')->onDelete('cascade');

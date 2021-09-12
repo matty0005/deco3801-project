@@ -19730,15 +19730,23 @@ __webpack_require__.r(__webpack_exports__);
     multiSelect: {
       type: Boolean,
       "default": false
-    }
+    },
+    modelValue: Number
   },
   data: function data() {
     return {
       optionsSelected: []
     };
   },
+  watch: {
+    modelValue: function modelValue(a, b) {
+      if (a == null) {
+        this.optionsSelected = [];
+      }
+    }
+  },
   methods: {
-    selected: function selected(id) {
+    selected: function selected(id, index) {
       if (this.multiSelect) {
         var index = this.optionsSelected.indexOf(id);
 
@@ -19750,6 +19758,7 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         this.optionsSelected = [];
         this.optionsSelected[0] = id;
+        this.$emit('update:modelValue', index);
       }
 
       this.$emit("selected", this.optionsSelected);
@@ -20685,34 +20694,62 @@ __webpack_require__.r(__webpack_exports__);
     Button: _Components_Kids_Button_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     Select: _Components_Kids_Select_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
+  props: {
+    level: String,
+    questions: Array
+  },
   data: function data() {
     return {
       textInSpeechBubble: "",
       questionsToAsk: [],
-      responses: {}
+      responses: {},
+      index: 0,
+      selectNumber: null,
+      notEnd: true
     };
   },
   mounted: function mounted() {
-    this.textInSpeechBubble = "Hello ".concat(this.$page.props.auth.user.display_name, ", how are you today?");
-    this.questionsToAsk = [{
-      title: 'Good'
-    }, {
-      title: 'Ok'
-    }, {
-      title: 'Bad'
-    }];
+    this.getQuestionAtIndex();
   },
   methods: {
+    getQuestionAtIndex: function getQuestionAtIndex() {
+      this.textInSpeechBubble = this.questions[this.index]['chatbox'];
+
+      if (this.questions[this.index]['end']) {
+        this.notEnd = false;
+        return;
+      }
+
+      this.questionsToAsk = this.getSelectArray(this.questions[this.index]['answers']);
+    },
+    getSelectArray: function getSelectArray(bare) {
+      var tmp = [];
+
+      for (var i = 0; i < bare.length; i++) {
+        tmp.push({
+          title: bare[i]
+        });
+      }
+
+      return tmp;
+    },
     startActivity: function startActivity() {// Take to another page for activity
     },
     nextStage: function nextStage() {
       // this.responses['stage1'] = 
-      this.textInSpeechBubble = "".concat(this.$page.props.auth.user.display_name, ", I'm feeling a bit sleepy, are you able to help me with something?");
-      this.questionsToAsk = [{
-        title: 'Sure'
-      }, {
-        title: 'Not right now'
-      }];
+      console.log(this.questions[this.index].offset);
+      console.log(this.questions[this.index].offset + this.selectNumber + 1);
+      console.log(this.questions[this.index]);
+      console.log(this.questions[this.index]['end']);
+
+      if (this.questions[this.index]['end']) {
+        this.notEnd = false;
+        return;
+      }
+
+      this.index = this.index + this.questions[this.index].offset + this.selectNumber + 1;
+      this.getQuestionAtIndex();
+      this.selectNumber = null;
     }
   }
 });
@@ -22600,13 +22637,13 @@ var _hoisted_2 = {
   "class": "text-center mx-auto"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.options, function (option) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.options, function (option, index) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       key: option.title
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
       type: "button",
       onClick: function onClick($event) {
-        return $options.selected(option.title);
+        return $options.selected(option.title, index);
       },
       "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.optionsSelected.includes(option.title) ? 'bg-lime-300 hover:bg-lime-400' : 'hover:bg-gray-50 ', "my-2 w-72 h-16 inline-flex items-center px-4 py-2 border-4 border-gray-300 shadow-sm text-base font-medium rounded-full text-gray-700 bg-white  focus:outline-none focus:ring-none"])
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(option.title), 1
@@ -25341,18 +25378,24 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         text: _ctx.textInSpeechBubble
       }, null, 8
       /* PROPS */
-      , ["text"])]), _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Select, {
+      , ["text"])]), _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_ctx.notEnd ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Select, {
+        key: 0,
         "class": "mt-24 w-72 ",
+        modelValue: _ctx.selectNumber,
+        "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+          return _ctx.selectNumber = $event;
+        }),
         options: _ctx.questionsToAsk
       }, null, 8
       /* PROPS */
-      , ["options"])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Button, {
+      , ["modelValue", "options"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_ctx.notEnd ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Button, {
+        key: 0,
         "class": "w-full mx-auto h-16",
         text: "Continue",
         onOnClick: $options.nextStage
       }, null, 8
       /* PROPS */
-      , ["onOnClick"])])])])])];
+      , ["onOnClick"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])])];
     }),
     _: 1
     /* STABLE */
