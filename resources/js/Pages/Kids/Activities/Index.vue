@@ -2,15 +2,28 @@
     <layout class="bg-gray-100 min-h-screen">
         <div class="container mx-auto">
             <div class=" bg-white overflow-hidden shadow rounded-lg mt-2 lg:mt-8">
-                <div class="px-4 py-5 sm:p-6">                    
-                    <SpeechBubble class="ml-32" :text="textInSpeechBubble" />
-                    <div class="flex flex-row -mt-16">
-                        <div class="flex flex-col">
-                            <Select class="mt-24 w-72 h-16" :options="questionsToAsk"/>
+                <div class="px-4 py-5 sm:p-6 ">    
+                    
+                    <div class="flex flex-row-reverse relative">
+                        <div class="absolute right-48">
+                            <SpeechBubble class="" :text="textInSpeechBubble" />
                         </div>
-                        <img class="lg:ml-32 h-96 w-96" src="/images/kids/mascot.png"/>
+
+                        <img class="mt-20 h-96 w-96" src="/images/kids/mascot.png"/>
+                        
+                        
+                        <div class="mt-20 flex flex-row ml-12 flex-grow">
+                            <div class="flex flex-col">
+                                <Select v-if="notEnd" class="mt-24 w-72 " v-model="selectNumber" :options="questionsToAsk"/>
+                            </div>
+                        </div>
+
                     </div>
-                    <Button class="mt-3 w-96 mx-auto h-16" text="Continue" @onClick="nextStage" />
+
+                   
+                    <div class="w-96 mx-auto ">
+                        <Button v-if="notEnd" class="w-full mx-auto h-16" text="Continue" @onClick="nextStage" />
+                    </div>
 
                 </div>
             </div>
@@ -34,25 +47,64 @@
             Button,
             Select
         },
+        props: {
+            level: String,
+            questions: Array
+        },
         data: () => {
             return {
                 textInSpeechBubble: "",
                 questionsToAsk: [],
-                responses: {}
+                responses: {},
+                index: 0,
+                selectNumber: null,
+                notEnd: true
             }
         },
         mounted () {
-            this.textInSpeechBubble = `Hello ${this.$page.props.auth.user.display_name}, how are you today?`
-            this.questionsToAsk = [{title:'Good'}, {title:'Ok'}, {title:'Bad'}]
+            this.getQuestionAtIndex()
         },
         methods: {
+            getQuestionAtIndex() {
+
+                
+                
+                this.textInSpeechBubble = this.questions[this.index]['chatbox']
+                if (this.questions[this.index]['end']) {
+                    this.notEnd = false
+                    return 
+                }
+                this.questionsToAsk = this.getSelectArray(this.questions[this.index]['answers'])
+            },
+            getSelectArray(bare){
+                var tmp = []
+
+                for (var i = 0; i < bare.length; i++) {
+                    tmp.push({title: bare[i]})
+                }
+
+                return tmp
+            },
+
             startActivity() {
                 // Take to another page for activity
             },
             nextStage() {
                 // this.responses['stage1'] = 
-                this.textInSpeechBubble = `${this.$page.props.auth.user.display_name}, I'm feeling a bit sleepy, are you able to help me with something?`
-                this.questionsToAsk = [{title:'Sure'}, {title:'Not right now'}]
+                console.log(this.questions[this.index].offset)
+                console.log(this.questions[this.index].offset + this.selectNumber + 1)
+
+                console.log(this.questions[this.index])
+                console.log(this.questions[this.index]['end'])
+
+                if (this.questions[this.index]['end']) {
+                    this.notEnd = false
+                    return 
+                }
+
+                this.index = this.index + this.questions[this.index].offset + this.selectNumber + 1
+                this.getQuestionAtIndex()
+                this.selectNumber = null
 
             }
         }
