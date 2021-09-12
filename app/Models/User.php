@@ -59,8 +59,8 @@ class User extends Authenticatable
             ->where('user_id', $this->id)
             ->where('type', Session::get('kidsMode') ? 2:1)
             ->first();
-            
-        if ($display_name == null || $display_name->name == null) {
+
+        if ($display_name == null || $display_name->display_name == null) {
             return null;
         }
 
