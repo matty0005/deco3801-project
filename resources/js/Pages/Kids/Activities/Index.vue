@@ -2,15 +2,28 @@
     <layout class="bg-gray-100 min-h-screen">
         <div class="container mx-auto">
             <div class=" bg-white overflow-hidden shadow rounded-lg mt-2 lg:mt-8">
-                <div class="px-4 py-5 sm:p-6">                    
-                    <SpeechBubble class="ml-32" :text="textInSpeechBubble" />
-                    <div class="flex flex-row -mt-16">
-                        <div class="flex flex-col">
-                            <Select class="mt-24 w-72 h-16" :options="questionsToAsk"/>
+                <div class="px-4 py-5 sm:p-6 ">    
+                    
+                    <div class="flex flex-row-reverse relative">
+                        <div class="absolute right-48">
+                            <SpeechBubble class="" :text="textInSpeechBubble" />
                         </div>
-                        <img class="lg:ml-32 h-96 w-96" src="/images/kids/mascot.png"/>
+
+                        <img class="mt-20 h-96 w-96" src="/images/kids/mascot.png"/>
+                        
+                        
+                        <div class="mt-20 flex flex-row ml-12 flex-grow">
+                            <div class="flex flex-col">
+                                <Select class="mt-24 w-72 " :options="questionsToAsk"/>
+                            </div>
+                        </div>
+
                     </div>
-                    <Button class="mt-3 w-96 mx-auto h-16" text="Continue" @onClick="nextStage" />
+
+                   
+                    <div class="w-96 mx-auto ">
+                        <Button class="w-full mx-auto h-16" text="Continue" @onClick="nextStage" />
+                    </div>
 
                 </div>
             </div>
