@@ -27,7 +27,7 @@ class ParentSettingsController extends Controller
             ->get();
 
         $user_details = DB::table('users')
-            ->select('address_infromation',
+            ->select('address_information',
                     'email')
             ->where('id', Auth::user()->id)
             ->first();
