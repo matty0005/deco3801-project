@@ -35,7 +35,7 @@ class ParentSettingsController extends Controller
         return Inertia::render('Parents/Settings/Profile', [
             'displayName' => $display_name->display_name,
             'countries' => $countries,
-            'addressInformation' => $user_details->address_infromation,
+            'addressInformation' => $user_details->address_information,
             'emailAddress' => $user_details->email
         ]);
     }
