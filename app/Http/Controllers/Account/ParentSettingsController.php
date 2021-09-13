@@ -61,7 +61,7 @@ class ParentSettingsController extends Controller
             DB::table('users')
                 ->where('id', Auth::user()->id)
                 ->update([
-                    'address_infromation' => $data['perosnal_info'],
+                    'address_information' => $data['perosnal_info'],
                     'email' => $data['email_address']
                 ]);
         }
