@@ -8,6 +8,7 @@ use App\Models\ThreadLike;
 use App\Models\ThreadTopic;
 use Illuminate\Http\Request;
 use App\Models\ThreadMessage;
+use App\Http\Traits\ForumTrait;
 use App\Models\ThreadMessageLike;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -17,44 +18,18 @@ use Illuminate\Support\Facades\Request as InertiaRequest;
 
 class ForumDashboardController extends Controller
 {
-    public function index() {
-        $authId = Auth::id();
-
-        $threads_raw = DB::table('threads')
-                        ->select(
-                            'threads.id',
-                            'threads.title',
-                            'threads.comment',
-                            'threads.created_at',
-                            'threads.thread_topic_title AS topic_on_dashboard',
-                            'threads.thread_topic_title',
-                            'threads.anonymous',
-                            'user_settings.display_name',
-                            'user_settings.avatar'
-                        )
-                        ->selectRaw('(SELECT COUNT(*) FROM thread_messages tm JOIN threads t ON t.id = tm.thread_id WHERE tm.thread_id = threads.id) count')
-                        ->selectRaw('(SELECT COUNT(*) FROM thread_likes tl JOIN threads t ON t.id = tl.thread_id WHERE tl.liked = 1 AND tl.thread_id = threads.id) likes')
-                        ->selectRaw('(SELECT COUNT(*) FROM thread_likes tl JOIN threads t ON t.id = tl.thread_id WHERE tl.liked = 2 AND tl.thread_id = threads.id) dislikes')
-                        ->selectRaw('(SELECT liked FROM thread_likes tl JOIN threads t ON t.id = tl.thread_id WHERE tl.thread_id = threads.id AND tl.user_id = ' . $authId . ') liked')
-                        ->join('users', 'users.id', 'threads.user_id')
-                        ->where('user_settings.type', 1)
-                        ->join('user_settings','user_settings.user_id',  'users.id')
-                        ->orderBy('threads.created_at', 'DESC');
-
-        $threads = $threads_raw->get();
-
-        $topics = DB::table('thread_topics')->get();
-        
-        $searched = [];
+    use ForumTrait;
     
-        if (isset($_GET['search']) && $_GET['search'] != '') {
-            $searched = $threads_raw->where('threads.title', 'like', '%' . $_GET['search'] . '%')->get();
-        }
-
+    public function index() {
         return Inertia::render('Forum/Dashboard', [
-            'threads' => $threads,
-            'topics' => $topics,
-            'searched' => $searched,
+            'threads' => $this->getThreads(array(
+                'anonymous' => true,
+                'topic_on_dashboard' => true,
+            )),
+            'topics' => $this->getTopics(),
+            'searched' => $this->getSearched(array(
+                'topic_on_dashboard' => true
+            )),
         ]);
     }
 

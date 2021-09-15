@@ -1,5 +1,5 @@
 <template>
-    <Dashboard :topics="topics">
+    <Dashboard :topics="topics" :searched="searched">
         <Thread v-if="thread" :thread="thread" :clickable="false">
             <div v-if="!thread.doctors_only || this.$page.props.auth.user.is_doctor" class="flex flex-row my-4 ">
                 <div class="flex-grow">
@@ -57,6 +57,7 @@ export default {
         messages: Array,
         topics: Array,
         errors: Object,
+        searched: Array,
     },
 
     data() {

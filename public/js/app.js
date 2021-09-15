@@ -19027,7 +19027,8 @@ __webpack_require__.r(__webpack_exports__);
     thread: Object,
     messages: Array,
     topics: Array,
-    errors: Object
+    errors: Object,
+    searched: Array
   },
   data: function data() {
     return {
@@ -23745,7 +23746,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Dashboard = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Dashboard");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Dashboard, {
-    topics: $props.topics
+    topics: $props.topics,
+    searched: $props.searched
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [$props.thread ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Thread, {
@@ -23811,7 +23813,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["topics"]);
+  , ["topics", "searched"]);
 }
 
 /***/ }),
