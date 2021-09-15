@@ -28,6 +28,7 @@ class ForumDashboardController extends Controller
                             'threads.created_at',
                             'threads.thread_topic_title AS topic_on_dashboard',
                             'threads.thread_topic_title',
+                            'threads.anonymous',
                             'user_settings.display_name',
                             'user_settings.avatar'
                         )
@@ -68,6 +69,8 @@ class ForumDashboardController extends Controller
         $thread->thread_topic_title = $request->thread_topic_title;
         $thread->title = $data['title'];
         $thread->comment = $data['comment'];
+        $thread->doctors_only = $request->doctors_only;
+        $thread->anonymous = $request->anonymous;
         $thread->save();
 
         return redirect()->back();

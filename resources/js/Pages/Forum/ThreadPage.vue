@@ -1,7 +1,7 @@
 <template>
     <Dashboard :topics="topics">
         <Thread v-if="thread" :thread="thread" :clickable="false">
-            <div class="flex flex-row my-4 ">
+            <div v-if="!thread.doctors_only || this.$page.props.auth.user.is_doctor" class="flex flex-row my-4 ">
                 <div class="flex-grow">
                     <label for="message" class="block text-sm font-medium text-gray-700">Reply</label>
                     <div class="mt-1">
@@ -17,6 +17,9 @@
                     @click="sendMsg"
                     > Reply 
                 </button>
+            </div>
+            <div v-else class="my-4">
+
             </div>
             
             <div v-for="(message, index) in messages" :key="index"> 

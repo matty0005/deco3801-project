@@ -26,19 +26,21 @@
                     <div class="flex flex-row">
                         <div class="relative flex items-start">
                             <div class="flex items-center h-5">
-                                <input id="comments" name="comments" type="checkbox" class="focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300 rounded" />
+                                <input v-model="doctors_only" id="comments" name="comments" type="checkbox" class="focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300 rounded" />
                             </div>
                             <div class="ml-3 text-sm">
-                                <label for="comments" class="font-medium text-gray-700">Doctor Only Comments</label>
+                                <label for="comments" aria-describedby="comments-description" class="font-medium text-gray-700">Doctor Only Comments</label>
+                                <p id="comments-description" class="text-gray-500">Only allow doctors to comment on your thread.</p>
                             </div>
                         </div>
 
-                        <div class="relative flex items-start ml-auto">
+                        <div class="relative flex items-start ml-10">
                             <div class="flex items-center h-5">
-                                <input id="anonymous" name="anonymous" type="checkbox" class="focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300 rounded" />
+                                <input v-model="anonymous" id="anonymous" name="anonymous" type="checkbox" class="focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300 rounded" />
                             </div>
                             <div class="ml-3 text-sm">
-                                <label for="anonymous" class="font-medium text-gray-700">Anonymous</label>
+                                <label for="anonymous" aria-describedby="anonymous-description" class="font-medium text-gray-700">Anonymous</label>
+                                <p id="anonymous-description" class="text-gray-500">Remain Anonymous, nobody can see that you posted.</p>
                             </div>
                         </div>
                     </div>
@@ -75,6 +77,8 @@ export default {
         return {
             title: '',
             comment: '',
+            doctors_only: false,
+            anonymous: false,
         }
     },
 
@@ -83,7 +87,9 @@ export default {
             this.$inertia.post('/forum/newthread', {
                 title: this.title,
                 comment: this.comment,
-                thread_topic_title: this.thread_topic_title
+                thread_topic_title: this.thread_topic_title,
+                doctors_only: this.doctors_only,
+                anonymous: this.anonymous,
             }, {
                 preserveScroll: true,
                 onFinish: () =>  {

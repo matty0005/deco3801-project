@@ -49,9 +49,21 @@ class User extends Authenticatable
         'avatar',
         'theme',
         'display_name',
-        'name'
+        'name',
+        'is_doctor'
     ];
 
+    public function getIsDoctorAttribute() {
+        $doctor = DB::table('doctors')
+                    ->where('user_id', $this->id)
+                    ->first();
+        
+        if ($doctor != null) {
+            return true;
+        }
+
+        return false;
+    }
 
     public function getDisplayNameAttribute() {
         $display_name = DB::table('user_settings')

@@ -12,11 +12,16 @@
                     <p class="ml-auto" v-if="thread.topic_on_dashboard"> posted in {{thread.topic_on_dashboard}} </p>
                 </div>
                 <div class="border-2 border-parent-300 rounded-md p-4 mb-6">
-                    <div class="font-bold text-parent-600 flex flex-row">
+                    <div v-if="!thread.anonymous" class="font-bold text-parent-600 flex flex-row">
 
                         <img class="rounded-lg mr-3 h-16 w-16" :src="thread.avatar"/>
 
-                        <div> {{thread.display_name}} <span class="text-sm mb-4 ">posted at {{time}}</span></div>
+                        <div>{{thread.display_name}} <span class="text-sm mb-4 ">posted at {{time}}</span></div>
+                    </div>
+                    <div v-else>
+                        <img class="rounded-lg mr-3 h-16 w-16" src="/images/default_avatar.png"/>
+
+                        <div> Anonymous <span class="text-sm mb-4 ">posted at {{time}}</span></div>
                     </div>
                      <div class="mt-2 mb-2 ml-4">
                         {{thread.comment}}

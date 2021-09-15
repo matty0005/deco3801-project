@@ -26,6 +26,8 @@ class ForumThreadController extends Controller
                         'threads.title',
                         'threads.comment',
                         'threads.created_at',
+                        'threads.doctors_only',
+                        'threads.anonymous',
                         'threads.thread_topic_title',
                         'user_settings.display_name',
                         'user_settings.avatar',
