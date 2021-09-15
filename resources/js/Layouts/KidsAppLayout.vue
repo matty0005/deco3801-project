@@ -11,8 +11,9 @@
                             <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
                         </svg>
                     </a>
+                    <img class="h-16 mx-2 w-16 rounded-full inline" :src="$page.props.auth.user.avatar" alt="">
                 </div>
-                <Link href="/dashboard">
+                <Link href="/dashboard" :class="isOnPage('/dashboard') ? 'hidden' : 'inline'">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
                     </svg>
@@ -75,7 +76,13 @@ export default {
         },
         week (weekNum) {
             return isWeek.isWeek(weekNum)
-        }
+        },
+        isOnPage (url) {
+            var ver = 0
+            // var urlMod = url.split("/").filter(l => l)[ver]
+            var currentUrl = window.location.pathname//.split("/").filter(t => t)[ver]
+            return url === currentUrl
+        },
     },
     mounted() {
         document.addEventListener("click", this.onClickOutside, true);
