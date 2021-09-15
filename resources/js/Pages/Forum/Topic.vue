@@ -1,5 +1,5 @@
 <template>
-    <Dashboard :topics="topics" :threads="threads"> 
+    <Dashboard :topics="topics" :threads="threads" :searched="searched"> 
         <div class="bg-white overflow-hidden shadow rounded-lg">
             <div class="px-4 py-5 sm:p-6">
                 <div>
@@ -8,7 +8,9 @@
                         <div class="mt-1">
                             <input type="text" name="title" id="title"  v-model="title" placeholder="title" 
                                 class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" 
+                                :class="(errors.title ? ' border-red-400 ':'')"
                             >
+                            <div class="text-xs text-red-400" v-show="errors.title"> Valid Title Required </div>
                         </div>
                     </div>
                     <div class="my-2">
@@ -16,7 +18,30 @@
                         <div class="mt-1">
                             <input type="text" name="comment" id="comment"  v-model="comment" 
                                 placeholder="comment" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" 
+                                :class="(errors.comment ? ' border-red-400 ':'')"
                             >
+                            <div class="text-xs text-red-400" v-show="errors.comment"> Valid Comment Required </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-row">
+                        <div class="relative flex items-start">
+                            <div class="flex items-center h-5">
+                                <input v-model="doctors_only" id="comments" name="comments" type="checkbox" class="focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300 rounded" />
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="comments" aria-describedby="comments-description" class="font-medium text-gray-700">Doctor Only Comments</label>
+                                <p id="comments-description" class="text-gray-500">Only allow doctors to comment on your thread.</p>
+                            </div>
+                        </div>
+
+                        <div class="relative flex items-start ml-10">
+                            <div class="flex items-center h-5">
+                                <input v-model="anonymous" id="anonymous" name="anonymous" type="checkbox" class="focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300 rounded" />
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="anonymous" aria-describedby="anonymous-description" class="font-medium text-gray-700">Anonymous</label>
+                                <p id="anonymous-description" class="text-gray-500">Remain Anonymous, nobody can see that you posted.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -43,34 +68,37 @@ export default {
     props: {
         threads: Array,
         topics: Array,
+        searched: Array,
         thread_topic_title: String,
+        errors: Object,
     },
 
     data() {
         return {
             title: '',
             comment: '',
+            doctors_only: false,
+            anonymous: false,
         }
     },
 
     methods: {
         addThread() {
-            
-            if (this.title == '' || this.comment == '') {
-                return;
-            }
-            
             this.$inertia.post('/forum/newthread', {
                 title: this.title,
                 comment: this.comment,
-                thread_topic_title: this.thread_topic_title
+                thread_topic_title: this.thread_topic_title,
+                doctors_only: this.doctors_only,
+                anonymous: this.anonymous,
             }, {
                 preserveScroll: true,
+                onFinish: () =>  {
+                    if (!this.errors.title && !this.errors.comment) {
+                        this.title = '';
+                        this.comment = '';
+                    }
+                },
             });
-
-            this.title = '';
-            this.comment = '';
-            
         }
     },
 }
