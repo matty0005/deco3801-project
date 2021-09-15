@@ -15,7 +15,7 @@
                     />
                     </div>
                 </Link>
-                <h3 class="py-2 my-6 w-64 mb-24 bg-white bg-opacity-90 ring-3 ring-gray-300 border rounded-3xl text-center text-4xl md:mb-6">Activities</h3>
+                <h3 class="py-2 my-6 w-64 mb-24 bg-white bg-opacity-90 ring-3 ring-gray-300 border rounded-full text-center text-4xl md:mb-6">Activities</h3>
             </div>
             <div>
                 <Link href="/kids/draw">
@@ -26,7 +26,7 @@
                     />
                     </div>
                 </Link>
-                <h3 class="py-2 my-6 w-64 mb-24 bg-white bg-opacity-90 ring-3 ring-gray-300 border rounded-3xl text-center text-4xl md:mb-6">Draw</h3>
+                <h3 class="py-2 my-6 w-64 mb-24 bg-white bg-opacity-90 ring-3 ring-gray-300 border rounded-full text-center text-4xl md:mb-6">Draw</h3>
             </div>
             <div class="mx-auto">
                 <Link href="/kids/profile">
@@ -37,7 +37,7 @@
                     />
                     </div>
                 </Link>
-                <h3 class="py-2 my-6 w-64 mb-24 bg-white bg-opacity-90 ring-3 ring-gray-300 border rounded-3xl text-center text-4xl md:mb-6">Profile</h3>
+                <h3 class="py-2 my-6 w-64 mb-24 bg-white bg-opacity-90 ring-3 ring-gray-300 border rounded-full text-center text-4xl md:mb-6">Profile</h3>
             </div>
       </div>
     </div>
