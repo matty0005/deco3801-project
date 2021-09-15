@@ -18,7 +18,7 @@
 
                         <div>{{thread.display_name}} <span class="text-sm mb-4 ">posted at {{time}}</span></div>
                     </div>
-                    <div v-else>
+                    <div v-else class="font-bold text-parent-600 flex flex-row">
                         <img class="rounded-lg mr-3 h-16 w-16" src="/images/default_avatar.png"/>
 
                         <div> Anonymous <span class="text-sm mb-4 ">posted at {{time}}</span></div>
@@ -74,13 +74,8 @@ export default {
 
                 var raw = new Date(this.thread.created_at);
 
-                var rawHours = raw.getHours();
-                var hours = rawHours < 10 ? "0" + rawHours : rawHours;
-
-                var rawMinutes = raw.getMinutes();
-                var minutes = rawMinutes < 10 ? "0" + rawMinutes : rawMinutes;
-
-                return hours + ":" + minutes + " " + raw.toDateString();
+                return raw.toLocaleTimeString().split(":")[0] + ":" + 
+                    raw.toLocaleTimeString().split(":")[1] + " " + raw.toDateString();
             }
             return "";
         },

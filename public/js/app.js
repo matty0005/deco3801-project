@@ -18986,11 +18986,7 @@ __webpack_require__.r(__webpack_exports__);
     time: function time() {
       if (this.thread && this.thread.created_at) {
         var raw = new Date(this.thread.created_at);
-        var rawHours = raw.getHours();
-        var hours = rawHours < 10 ? "0" + rawHours : rawHours;
-        var rawMinutes = raw.getMinutes();
-        var minutes = rawMinutes < 10 ? "0" + rawMinutes : rawMinutes;
-        return hours + ":" + minutes + " " + raw.toDateString();
+        return raw.toLocaleTimeString().split(":")[0] + ":" + raw.toLocaleTimeString().split(":")[1] + " " + raw.toDateString();
       }
 
       return "";
@@ -23626,7 +23622,8 @@ var _hoisted_7 = {
   "class": "text-sm mb-4 "
 };
 var _hoisted_8 = {
-  key: 1
+  key: 1,
+  "class": "font-bold text-parent-600 flex flex-row"
 };
 
 var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
