@@ -1,42 +1,69 @@
 <template>
-    <layout class="bg-gray-100 min-h-screen">
-        <div class="container mx-auto">
-            <div class="py-12 ">
-                <div class="mx-auto ">
-                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div class="p-6 text-green-800 border-b border-gray-200 bg-green-300 rounded-md">
-                            You're in Kids Mode
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class=" bg-white overflow-hidden shadow rounded-lg">
-                <div class="px-4 py-5 sm:p-6">
-                    <CallToActionCard topTitle="You have a game to play" bottomTitle="Play the game now!" buttonText="Play" @onClicked="startActivity" kidsMode/>
-                </div>
-            </div>
+  <layout class="bg-gray-100 min-h-screen">
+    <div class="container m-auto">
+        <div class="mt-10 mb-20">
+            <h1 class="text-center text-9xl">Seedlings</h1>
+            <h2 class="text-center text-5xl">for kids</h2>
         </div>
-    </layout>
+        <div class="flex flex-col md:flex-row">
+            <div class="mx-auto">
+                <Link href="/kids/activities">
+                    <div class="bg-white bg-opacity-90 rounded-full h-64 w-64 mx-auto">
+                    <img
+                        class="h-48 w-48 mx-auto pt-4"
+                        src="/images/kids/name_icon.png"
+                    />
+                    </div>
+                </Link>
+                <h3 class="py-2 my-6 bg-white bg-opacity-90 ring-3 ring-gray-300 border rounded-3xl text-center text-4xl">Activities</h3>
+            </div>
+            <div>
+                <Link href="/kids/draw">
+                    <div class="bg-white bg-opacity-90 rounded-full h-64 w-64 mx-auto">
+                    <img
+                        class="h-48 w-48 mx-auto pt-4"
+                        src="/images/kids/name_icon.png"
+                    />
+                    </div>
+                </Link>
+                <h3 class="py-2 my-6 bg-white bg-opacity-90 ring-3 ring-gray-300 border rounded-3xl text-center text-4xl">Draw</h3>
+            </div>
+            <div class="mx-auto">
+                <Link href="/kids/profile">
+                    <div class="bg-white bg-opacity-90 rounded-full h-64 w-64 mx-auto">
+                    <img
+                        class="h-48 w-48 mx-auto pt-4"
+                        src="/images/kids/name_icon.png"
+                    />
+                    </div>
+                </Link>
+                <h3 class="py-2 my-6 bg-white bg-opacity-90 ring-3 ring-gray-300 border rounded-3xl text-center text-4xl">Profile</h3>
+            </div>
+      </div>
+    </div>
+  </layout>
 </template>
 
 <script>
-    import Layout from '@/Layouts/KidsAppLayout'
-    import CallToActionCard from "@/Shared/CallToActionCard.vue"
+import Layout from "@/Layouts/KidsAppLayout";
+import CallToActionCard from "@/Shared/CallToActionCard.vue";
+import { Link } from '@inertiajs/inertia-vue3';
 
-    export default {
-        components: {
-            Layout,
-            CallToActionCard
-        },
-        data: () => {
-            return {
-                isHappy: true
-            }
-        },
-        methods: {
-            startActivity() {
-                // Take to another page for activity
-            }
-        }
-    }
+export default {
+  components: {
+    Layout,
+    CallToActionCard,
+    Link,
+  },
+  data: () => {
+    return {
+      isHappy: true,
+    };
+  },
+  methods: {
+    startActivity() {
+      // Take to another page for activity
+    },
+  },
+};
 </script>
