@@ -23,7 +23,6 @@ class ForumDashboardController extends Controller
     public function index() {
         return Inertia::render('Forum/Dashboard', [
             'threads' => $this->getThreads(array(
-                'anonymous' => true,
                 'topic_on_dashboard' => true,
             )),
             'topics' => $this->getTopics(),

@@ -25,7 +25,6 @@ class ForumTopicController extends Controller
 
         return Inertia::render('Forum/Topic', [
             'threads' => $this->getThreads(array(
-                'anonymous' => true,
                 'thread_topic_title' => $topic->title,
             )),
             'topics' => $this->getTopics(),

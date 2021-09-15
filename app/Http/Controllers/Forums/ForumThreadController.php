@@ -24,7 +24,6 @@ class ForumThreadController extends Controller
 
         $thread = $this->getThreads(array(
             'doctors_only' => true,
-            'anonymous' => true,
             'thread_id' => $thread_id,
         ));
 

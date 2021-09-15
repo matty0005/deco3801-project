@@ -16,6 +16,7 @@ trait ForumTrait {
                             'threads.comment',
                             'threads.created_at',
                             'threads.thread_topic_title',
+                            'threads.anonymous',
                             'user_settings.display_name',
                             'user_settings.avatar'
                         )
@@ -30,10 +31,6 @@ trait ForumTrait {
 
         if (isset($optional['topic_on_dashboard'])) {
             $threads = $threads->addSelect('threads.thread_topic_title AS topic_on_dashboard');
-        }
-
-        if (isset($optional['anonymous'])) {
-            $threads = $threads->addSelect('threads.anonymous');
         }
 
         if (isset($optional['doctors_only'])) {
@@ -62,6 +59,7 @@ trait ForumTrait {
                                 'threads.title',
                                 'user_settings.avatar',
                                 'threads.thread_topic_title',
+                                'threads.anonymous',
                             )
                             ->selectRaw('(SELECT COUNT(*) FROM thread_messages tm JOIN threads t ON t.id = tm.thread_id WHERE tm.thread_id = threads.id) count')
                             ->selectRaw('(SELECT COUNT(*) FROM thread_likes tl JOIN threads t ON t.id = tl.thread_id WHERE tl.liked = 1 AND tl.thread_id = threads.id) likes')
