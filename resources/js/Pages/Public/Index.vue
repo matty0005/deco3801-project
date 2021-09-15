@@ -3,7 +3,7 @@
     <div class="relative overflow-hidden">
         <main>
         <div class="pt-10 bg-green-800 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden">
-            <div class="mx-auto max-w-7xl lg:px-8">
+            <div class="mx-auto max-w-7xl lg:px-8 pb-10">
             <div class="lg:grid lg:grid-cols-2 lg:gap-8">
                 <div class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:px-0 lg:text-left lg:flex lg:items-center">
                 <div class="lg:py-24">
@@ -14,16 +14,21 @@
                     <p class="text-base text-gray-300 sm:text-xl lg:text-lg xl:text-xl">
                     Help your child mental state improve
                     </p>
-                    <div class="mt-10 sm:mt-12">
+                    <div class="mt-10 mb-5 sm:mt-12">
                     <div class="sm:max-w-xl sm:mx-auto lg:mx-0">
                         <div class="sm:flex-1">
-                         <div class="mt-3 sm:mt-0 sm:ml-3">
-                            <Link :href="route('register')" class="flex block w-full py-3 px-4 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900">
+                         <div class="mt-3 sm:mt-0 sm:ml-3  w-full lg:w-2/3 ">
+                            <Link :href="route('register')" class="flex block w-full py-3 px-4 mt-3 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900">
                               <div class="mx-auto">
                                 Sign up
                               </div>
                             </Link>
-                            <p class="mt-3 text-sm text-gray-300 sm:mt-4">Already have an account? <Link :href="route('login')" class="font-medium text-white">Log in here</Link>.</p>
+                            <p class="text-base text-gray-100 sm:text-lg lg:text-base xl:text-lg py-3 mb-5">
+                              Already have an account? 
+                              <a :href="route('login')" class="inline-flex items-center px-2 py-2 border border-transparent text-base font-medium rounded-md text-white" >
+                                Log in here!
+                              </a>
+                            </p>  
                         </div>
                         </div>
                     </div>

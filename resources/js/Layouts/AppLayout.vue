@@ -4,7 +4,7 @@
     <div class="container mx-auto ">
       <div class="flex justify-between h-16">
         <div class="flex">
-          <div class="flex-shrink-0 flex items-center">
+          <div class="flex-shrink-0 flex items-center ml-2">
             <img class="block lg:hidden h-8 w-auto" src="/images/logo_name_3.svg" alt="Workflow">
             <img class="hidden lg:block h-8 w-auto" src="/images/logo_name_3.svg" alt="Workflow">
           </div>
@@ -47,14 +47,15 @@
             </transition>
           </div>
         </div>
-        <div class="-mr-2 flex items-center sm:hidden">
+        <div class="flex items-center sm:hidden">
           <!-- Mobile menu button -->
-          <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-parent-500" aria-controls="mobile-menu" aria-expanded="false">
+          
+          <button @click="showProfileDropdown = !showProfileDropdown" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-parent-500" aria-controls="mobile-menu" aria-expanded="false">
             <span class="sr-only">Open main menu</span>
-            <svg v-if="showProfileDropdown" :class="showProfileDropdown ? 'hidden':'block'" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <svg :class="showProfileDropdown ? 'hidden':'block'" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
-            <svg v-if="!showProfileDropdown" :class="!showProfileDropdown ? 'hidden':'block'" class=" h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <svg :class="!showProfileDropdown ? 'hidden':'block'" class=" h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -69,7 +70,7 @@
         <Link href="/dashboard"   class=" border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium" role="menuitem" tabindex="-1" >Dashboard</Link>
         <Link href="/forum"   class=" border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium" role="menuitem" tabindex="-1" >Forum</Link>
         <Link href="/evaluate"   class=" border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium" role="menuitem" tabindex="-1" >Evaluate</Link>
-        <Link href="/consulation"   class=" border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium" role="menuitem" tabindex="-1" >Consultation</Link>
+        <Link href="/consultation"   class=" border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium" role="menuitem" tabindex="-1" >Consultation</Link>
         <Link href="/resources"   class=" border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium" role="menuitem" tabindex="-1" >Resources</Link>
        
       </div>
@@ -79,8 +80,8 @@
             <img class="h-10 w-10 rounded-full" :src="$page.props.auth.user.avatar" alt="">
           </div>
           <div class="ml-3">
-            <div class="text-base font-medium text-gray-800">Tom Cook</div>
-            <div class="text-sm font-medium text-gray-500">tom@example.com</div>
+            <div class="text-base font-medium text-gray-800">{{$page.props.auth.user.display_name}}</div>
+            <div v-if="$page.props.auth.user.display_name != $page.props.auth.user.name" class="text-sm font-medium text-gray-500">{{$page.props.auth.user.name}}</div>
           </div>
         </div>
         <div class="mt-3 space-y-1">
@@ -93,7 +94,7 @@
       </div>
     </div>
   </nav>
-    <main class="h-main">
+    <main class="h-main mx-2">
         <slot />
     </main>
   </div>
