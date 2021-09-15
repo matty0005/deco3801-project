@@ -19,6 +19,8 @@ class CreateThreadsTable extends Migration
             $table->string('thread_topic_title');
             $table->mediumText('title');
             $table->mediumText('comment');
+            $table->boolean('anonymous');
+            $table->boolean('doctors_only');
             $table->timestamps();
         });
     }

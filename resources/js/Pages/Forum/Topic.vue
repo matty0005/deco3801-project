@@ -23,6 +23,25 @@
                             <div class="text-xs text-red-400" v-show="errors.comment"> Valid Comment Required </div>
                         </div>
                     </div>
+                    <div class="flex flex-row">
+                        <div class="relative flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="comments" name="comments" type="checkbox" class="focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300 rounded" />
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="comments" class="font-medium text-gray-700">Doctor Only Comments</label>
+                            </div>
+                        </div>
+
+                        <div class="relative flex items-start ml-auto">
+                            <div class="flex items-center h-5">
+                                <input id="anonymous" name="anonymous" type="checkbox" class="focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300 rounded" />
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="anonymous" class="font-medium text-gray-700">Anonymous</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="flex flex-row-reverse">
                     <button class="bg-parent-200 text   -parent-800 py-2 px-4 rounded-md my-4" @click="addThread"> Add Thread </button>
