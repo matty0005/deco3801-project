@@ -1,14 +1,20 @@
 <template>
   <layout class="bg-gray-100 min-h-screen">
-    <div class="container m-auto">
+    <div class="container m-auto text-gray-800">
         <div class="mb-20">
-            <h1 class="text-center text-9xl">Seedlings</h1>
-            <h2 class="text-center text-5xl">for kids</h2>
+          <div class="bg-white overflow-hidden w-1/2 mx-auto shadow-2xl rounded-3xl">
+            <div class="px-4 py-5 sm:p-6">
+              <h1 class="text-center text-9xl">Seedlings</h1>
+              <h2 class="text-center text-5xl">for kids</h2>
+             </div>
+           </div>
+            <!-- <h1 class="text-center text-9xl">Seedlings</h1>
+            <h2 class="text-center text-5xl">for kids</h2> -->
         </div>
         <div class="flex flex-col items-center md:flex-row">
             <div class="mx-auto">
                 <Link href="/kids/activities">
-                    <div class="bg-white bg-opacity-90 rounded-full h-64 w-64 mx-auto">
+                    <div class="bg-white rounded-full h-64 w-64 mx-auto">
                     <img
                         class="h-48 w-48 mx-auto pt-4"
                         src="/images/kids/name_icon.png"
@@ -21,7 +27,7 @@
             </div>
             <div>
                 <Link href="/kids/draw">
-                    <div class="bg-white bg-opacity-90 rounded-full h-64 w-64 mx-auto">
+                    <div class="bg-white rounded-full h-64 w-64 mx-auto">
                     <img
                         class="h-48 w-48 mx-auto pt-4"
                         src="/images/kids/name_icon.png"
@@ -34,7 +40,7 @@
             </div>
             <div class="mx-auto">
                 <Link href="/kids/profile">
-                    <div class="bg-white bg-opacity-90 rounded-full h-64 w-64 mx-auto">
+                    <div class="bg-white rounded-full h-64 w-64 mx-auto">
                     <img
                         class="h-48 w-48 mx-auto pt-4"
                         src="/images/kids/name_icon.png"
