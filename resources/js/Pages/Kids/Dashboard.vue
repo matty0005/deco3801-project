@@ -72,10 +72,16 @@ export default {
       isHappy: true,
     };
   },
+  mounted() {
+    var audio = new Audio('/audio/welcome_to_kids_mode.mp3'); // path to file
+    audio.play();
+  },
   methods: {
     startActivity() {
       // Take to another page for activity
+      // 
     },
+
   },
 };
 </script>
