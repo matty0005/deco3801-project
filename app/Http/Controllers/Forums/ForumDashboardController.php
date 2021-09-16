@@ -8,62 +8,58 @@ use App\Models\ThreadLike;
 use App\Models\ThreadTopic;
 use Illuminate\Http\Request;
 use App\Models\ThreadMessage;
+use App\Http\Traits\ForumTrait;
 use App\Models\ThreadMessageLike;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Request as InertiaRequest;
 
 class ForumDashboardController extends Controller
 {
+    use ForumTrait;
+    
     public function index() {
-        $authId = Auth::id();
-
-        $threads = DB::table('threads')
-                        ->select(
-                            'threads.id',
-                            'threads.title',
-                            'threads.comment',
-                            'threads.created_at',
-                            'threads.thread_topic_title AS topic_on_dashboard',
-                            'threads.thread_topic_title',
-                            'user_settings.display_name',
-                            'user_settings.avatar'
-                        )
-                        ->selectRaw('(SELECT COUNT(*) FROM thread_messages tm JOIN threads t ON t.id = tm.thread_id WHERE tm.thread_id = threads.id) count')
-                        ->selectRaw('(SELECT COUNT(*) FROM thread_likes tl JOIN threads t ON t.id = tl.thread_id WHERE tl.liked = 1 AND tl.thread_id = threads.id) likes')
-                        ->selectRaw('(SELECT COUNT(*) FROM thread_likes tl JOIN threads t ON t.id = tl.thread_id WHERE tl.liked = 2 AND tl.thread_id = threads.id) dislikes')
-                        ->selectRaw('(SELECT liked FROM thread_likes tl JOIN threads t ON t.id = tl.thread_id WHERE tl.thread_id = threads.id AND tl.user_id = ' . $authId . ') liked')
-                        ->join('users', 'users.id', 'threads.user_id')
-                        ->where('user_settings.type', 1)
-                        ->join('user_settings','user_settings.user_id',  'users.id')
-                        ->orderBy('threads.created_at', 'DESC')
-                        ->get();
-
-        $topics = DB::table('thread_topics')->get();
-
         return Inertia::render('Forum/Dashboard', [
-            'threads' => $threads,
-            'topics' => $topics
+            'threads' => $this->getThreads(array(
+                'topic_on_dashboard' => true,
+            )),
+            'topics' => $this->getTopics(),
+            'searched' => $this->getSearched(array(
+                'topic_on_dashboard' => true
+            )),
         ]);
     }
 
     public function newThread(Request $request) {
+        $data = InertiaRequest::validate([
+            'title' => ['required', 'max:255'],
+            'comment' => ['required', 'max:16777214'],
+        ]);
+
         $thread = new Thread();
         $thread->user_id = Auth::id();
         $thread->thread_topic_title = $request->thread_topic_title;
-        $thread->title = $request->title;
-        $thread->comment = $request->comment;
+        $thread->title = $data['title'];
+        $thread->comment = $data['comment'];
+        $thread->doctors_only = $request->doctors_only;
+        $thread->anonymous = $request->anonymous;
         $thread->save();
 
         return redirect()->back();
     }
 
     public function addThreadMessage(Request $request) {
+
+        $data = InertiaRequest::validate([
+            'message' => ['required', 'max:16777214'],
+        ]);
+
         $threadmessage = new ThreadMessage();
         $threadmessage->thread_id = $request->thread_id;
         $threadmessage->user_id = Auth::id();
-        $threadmessage->message = $request->message;
+        $threadmessage->message = $data['message'];
         $threadmessage->save();
 
         return redirect()->back();
