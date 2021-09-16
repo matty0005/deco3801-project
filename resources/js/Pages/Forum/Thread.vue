@@ -9,7 +9,7 @@
                 <div class="font-bold text-gray-700 text-xl mb-2 flex flex-row"> 
                     <p> {{thread.title}} </p>
 
-                    <p class="ml-auto" v-if="thread.topic_on_dashboard"> posted in {{thread.topic_on_dashboard}} </p>
+                    <p class="ml-auto text-base text-gray-400" v-if="thread.topic_on_dashboard"> posted in {{thread.topic_on_dashboard}} </p>
                 </div>
                 <div class="border-2 border-parent-300 rounded-md p-4 mb-6">
                     <div v-if="!thread.anonymous" class="font-bold text-parent-600 flex flex-row">
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 
-                <p v-if="thread.count >= 0"> {{thread.count}} total comments </p>
+                <p class="text-gray-700" v-if="thread.count >= 0"> {{thread.count}} total comments </p>
 
                 <LikeBar :likes="thread.likes" :dislikes="thread.dislikes" :status="thread.liked" :id="thread.id" :isThread="true" />
 
