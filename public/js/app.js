@@ -24786,7 +24786,7 @@ var _hoisted_4 = {
 };
 var _hoisted_5 = ["placeholder"];
 var _hoisted_6 = {
-  "class": "shadow-xl absolute z-90 top-6 left-1/2 transform -translate-x-1/2 w-1/2 mx-auto bg-gray-300 rounded-md rounded-t-none"
+  "class": "shadow-xl absolute z-90 top-12 left-1/2 transform -translate-x-1/2 w-1/2 mx-auto  rounded-md rounded-t-none"
 };
 var _hoisted_7 = ["value"];
 var _hoisted_8 = {
@@ -24815,7 +24815,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
           return $data.searchText = $event;
         }),
-        "class": "rounded-md w-1/2 mx-auto px-2",
+        "class": "rounded-md py-2 w-1/2 mx-auto px-2 mb-2 outline-none focus:ring-2 mt-1 focus:ring-parent-600",
         placeholder: $options.searchPlaceholder
       }, null, 8
       /* PROPS */
