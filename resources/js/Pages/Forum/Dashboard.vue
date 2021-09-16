@@ -2,12 +2,12 @@
     <Layout class="bg-gray-100 min-h-screen">
         <div v-if="topics" class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="overflow-hidden shadow-sm sm:rounded-lg">
+                <div class=" ">
 
                     <div class="mb-4 flex flex-col relative">
-                        <input v-model="searchText" class="rounded-md py-2 w-1/2 mx-auto px-2 mb-2 outline-none focus:ring-2 mt-1 focus:ring-parent-600" :placeholder="searchPlaceholder" />
+                        <input v-model="searchText" class="shadow rounded-md py-2 w-full lg:w-1/2 mx-0 lg:mx-auto px-2 mb-2 outline-none focus:ring-2 mt-1 focus:ring-parent-600" :placeholder="searchPlaceholder" />
 
-                        <div class="shadow-xl absolute z-90 top-12 left-1/2 transform -translate-x-1/2 w-1/2 mx-auto  rounded-md rounded-t-none">
+                        <div class="shadow-xl absolute z-90 top-12 left-1/2 transform  lg:w-1/2 -translate-x-1/2 w-full mx-auto  rounded-md rounded-t-none">
                             <div class="mt-1" v-for="(thread, index) in searched" :key="index" :value="thread"> 
                                 <ThreadSearched :thread="thread" />
                             </div>

@@ -24779,14 +24779,14 @@ var _hoisted_2 = {
   "class": "max-w-7xl mx-auto sm:px-6 lg:px-8"
 };
 var _hoisted_3 = {
-  "class": "overflow-hidden shadow-sm sm:rounded-lg"
+  "class": " "
 };
 var _hoisted_4 = {
   "class": "mb-4 flex flex-col relative"
 };
 var _hoisted_5 = ["placeholder"];
 var _hoisted_6 = {
-  "class": "shadow-xl absolute z-90 top-12 left-1/2 transform -translate-x-1/2 w-1/2 mx-auto  rounded-md rounded-t-none"
+  "class": "shadow-xl absolute z-90 top-12 left-1/2 transform  lg:w-1/2 -translate-x-1/2 w-full mx-auto  rounded-md rounded-t-none"
 };
 var _hoisted_7 = ["value"];
 var _hoisted_8 = {
@@ -24815,7 +24815,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
           return $data.searchText = $event;
         }),
-        "class": "rounded-md py-2 w-1/2 mx-auto px-2 mb-2 outline-none focus:ring-2 mt-1 focus:ring-parent-600",
+        "class": "shadow rounded-md py-2 w-full lg:w-1/2 mx-0 lg:mx-auto px-2 mb-2 outline-none focus:ring-2 mt-1 focus:ring-parent-600",
         placeholder: $options.searchPlaceholder
       }, null, 8
       /* PROPS */
@@ -24891,7 +24891,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "flex flex-row"
+  "class": "flex flex-row text-gray-700"
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
@@ -24919,7 +24919,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.likes) + " ", 1
   /* TEXT */
   ), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", {
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$props.status == 1 ? ' text-blue-500 ' : '', "w-6 h-6"]),
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$props.status == 1 ? ' text-blue-500 ' : '', "w-6 h-6 text-gray-600"]),
     onClick: _cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
       return $options.like(1);
     }, ["stop"])),
@@ -24932,7 +24932,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.dislikes) + " ", 1
   /* TEXT */
   ), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", {
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$props.status == 2 ? ' text-red-500 ' : '', "w-6 h-6"]),
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([$props.status == 2 ? ' text-red-500 ' : '', "w-6 h-6 text-gray-600"]),
     onClick: _cache[1] || (_cache[1] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
       return $options.like(2);
     }, ["stop"])),
@@ -24971,7 +24971,7 @@ var _hoisted_3 = {
 };
 var _hoisted_4 = {
   key: 0,
-  "class": "ml-auto"
+  "class": "ml-auto text-base text-gray-400"
 };
 var _hoisted_5 = {
   "class": "border-2 border-parent-300 rounded-md p-4 mb-6"
@@ -25005,7 +25005,8 @@ var _hoisted_13 = {
   "class": "mt-2 mb-2 ml-4"
 };
 var _hoisted_14 = {
-  key: 0
+  key: 0,
+  "class": "text-gray-700"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_LikeBar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("LikeBar");
@@ -25319,7 +25320,7 @@ var _hoisted_6 = {
   "class": "text-xs text-red-400"
 };
 var _hoisted_7 = {
-  "class": "my-2"
+  "class": "my-4"
 };
 
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
@@ -25336,7 +25337,7 @@ var _hoisted_10 = {
   "class": "text-xs text-red-400"
 };
 var _hoisted_11 = {
-  "class": "flex flex-row"
+  "class": "flex flex-row my-4"
 };
 var _hoisted_12 = {
   "class": "relative flex items-start"
@@ -25403,7 +25404,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.title]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, " Valid Title Required ", 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $props.errors.title]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $props.errors.title]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
         type: "text",
         name: "comment",
         id: "comment",
@@ -25411,7 +25412,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.comment = $event;
         }),
         placeholder: "comment",
-        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md", $props.errors.comment ? ' border-red-400 ' : ''])
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["h-64 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md", $props.errors.comment ? ' border-red-400 ' : ''])
       }, null, 2
       /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.comment]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, " Valid Comment Required ", 512
