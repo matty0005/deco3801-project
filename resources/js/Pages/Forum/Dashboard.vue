@@ -78,6 +78,11 @@
                 if ('URLSearchParams' in window) {
                     var searchParams = new URLSearchParams(window.location.search);
                     searchParams.set("search", this.searchText);
+                    
+                    if (this.searchText == '' ||  this.searchText == null) {
+                        searchParams.delete('search')
+                    } 
+
                     var newRelativePathQuery = window.location.pathname + '?' + searchParams.toString();
                     history.pushState(null, '', newRelativePathQuery);
                     this.$inertia.reload({ only: ['searched'] })

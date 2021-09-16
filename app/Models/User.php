@@ -54,15 +54,9 @@ class User extends Authenticatable
     ];
 
     public function getIsDoctorAttribute() {
-        $doctor = DB::table('doctors')
+        return DB::table('doctors')
                     ->where('user_id', $this->id)
-                    ->first();
-        
-        if ($doctor != null) {
-            return true;
-        }
-
-        return false;
+                    ->first() != null;
     }
 
     public function getDisplayNameAttribute() {
