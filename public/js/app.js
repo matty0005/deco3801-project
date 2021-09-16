@@ -24799,7 +24799,10 @@ var _hoisted_10 = {
   "class": "flex flex-row"
 };
 var _hoisted_11 = ["onClick", "value"];
-var _hoisted_12 = ["value"];
+var _hoisted_12 = {
+  "class": "text-parent-800"
+};
+var _hoisted_13 = ["value"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_ThreadSearched = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ThreadSearched");
 
@@ -24846,7 +24849,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           },
           "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["mx-2 my-2 py-2 px-8 rounded-md", $options.isOnPage(topic.title) ? 'bg-parent-300' : 'bg-parent-100']),
           value: topic
-        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(topic.title), 1
+        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(topic.title), 1
         /* TEXT */
         )], 10
         /* CLASS, PROPS */
@@ -24864,7 +24867,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         /* PROPS */
         , ["thread"])], 8
         /* PROPS */
-        , _hoisted_12);
+        , _hoisted_13);
       }), 128
       /* KEYED_FRAGMENT */
       ))])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
@@ -24891,7 +24894,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "flex flex-row text-gray-700"
+  "class": "flex flex-row text-gray-700 mt-3"
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
@@ -25088,14 +25091,21 @@ var _hoisted_6 = {
   key: 1,
   "class": "my-4"
 };
-var _hoisted_7 = {
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", {
+  "class": "my-8"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_8 = {
   "class": "font-bold flex flex-row"
 };
-var _hoisted_8 = ["src"];
-var _hoisted_9 = {
+var _hoisted_9 = ["src"];
+var _hoisted_10 = {
   "class": "text-sm mb-4 text-gray-600"
 };
-var _hoisted_10 = {
+var _hoisted_11 = {
   "class": "mt-2 mb-6 ml-10"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -25118,37 +25128,37 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         clickable: false
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [!$props.thread.doctors_only || _this.$page.props.auth.user.is_doctor ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+          return [!$props.thread.doctors_only || _this.$page.props.auth.user.is_doctor ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
             type: "text",
             "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
               return $data.msg = $event;
             }),
             name: "message",
             id: "message",
-            "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["shadow-sm focus:ring-parent-500 focus:border-parent-500 block w-full sm:text-sm border-gray-300 rounded-md", $props.errors.message ? ' border-red-400 ' : '']),
+            "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["shadow-sm h-36 focus:ring-parent-500 focus:border-parent-500 block w-full sm:text-sm border-gray-300 rounded-md", $props.errors.message ? ' border-red-400 ' : '']),
             placeholder: "message"
           }, null, 2
           /* CLASS */
           ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.msg]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, " Valid Message Required ", 512
           /* NEED_PATCH */
           ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $props.errors.message]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-            "class": "bg-parent-300 hover:bg-parent-400 rounded-md px-8 py-2 mt-6  text-sm mx-8",
+            "class": "bg-parent-300 hover:bg-parent-400 text-parent-800 rounded-md h-10 px-8 py-2 mt-6  text-sm mx-8",
             onClick: _cache[1] || (_cache[1] = function () {
               return $options.sendMsg && $options.sendMsg.apply($options, arguments);
             })
-          }, " Reply ")])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_6)), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.messages, function (message, index) {
+          }, " Reply ")])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_6)), _hoisted_7, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.messages, function (message, index) {
             return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
               key: index
-            }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+            }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
               "class": "rounded-lg mr-3 h-12 w-12",
               src: message.avatar
             }, null, 8
             /* PROPS */
-            , _hoisted_8), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(message.display_name) + " ", 1
+            , _hoisted_9), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(message.display_name) + " ", 1
             /* TEXT */
-            ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_9, "posted at " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.time(message)), 1
+            ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_10, "posted at " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.time(message)), 1
             /* TEXT */
-            )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(message.message), 1
+            )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(message.message), 1
             /* TEXT */
             ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_LikeBar, {
               likes: message.likes,
@@ -25438,7 +25448,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, null, 512
       /* NEED_PATCH */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $data.anonymous]])]), _hoisted_17])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-        "class": "bg-parent-200 text   -parent-800 py-2 px-4 rounded-md my-4",
+        "class": "bg-parent-200 text-parent-800 py-2 px-4 rounded-md my-4",
         onClick: _cache[4] || (_cache[4] = function () {
           return $options.addThread && $options.addThread.apply($options, arguments);
         })

@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="flex flex-row-reverse">
-                    <button class="bg-parent-200 text   -parent-800 py-2 px-4 rounded-md my-4" @click="addThread"> Add Thread </button>
+                    <button class="bg-parent-200 text-parent-800 py-2 px-4 rounded-md my-4" @click="addThread"> Add Thread </button>
                 </div>
             </div>
         </div>

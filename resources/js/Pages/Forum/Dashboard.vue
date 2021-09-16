@@ -29,7 +29,7 @@
                                     :value="topic"
                                     >
 
-                                    <button> {{topic.title}} </button>
+                                    <button class="text-parent-800"> {{topic.title}} </button>
                                 </div>
                             </div>
                         </div>
