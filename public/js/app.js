@@ -21644,28 +21644,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Layouts_SettingsLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/SettingsLayout */ "./resources/js/Layouts/SettingsLayout.vue");
+/* harmony import */ var _Shared_DatePicker__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Shared/DatePicker */ "./resources/js/Shared/DatePicker.vue");
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    Layout: _Layouts_SettingsLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
+    Layout: _Layouts_SettingsLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
+    DatePicker: _Shared_DatePicker__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   props: {
-    displayName: String
+    displayName: String,
+    dob: String
   },
-  mounted: function mounted() {
+  beforeMount: function beforeMount() {
     this.display_name = this.displayName;
+    this.childAge = this.dob;
   },
   methods: {
     submitData: function submitData() {
       this.$inertia.post('/account/manage/child', {
-        name: this.display_name
+        name: this.display_name,
+        dob: this.childAge
       });
     }
   },
   data: function data() {
     return {
       newAvatar: null,
-      display_name: ""
+      display_name: "",
+      childAge: ''
     };
   }
 });
@@ -22065,9 +22072,14 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     this.months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-    for (var year = 1970; year <= 2021; year++) {
+    for (var year = 2021; year >= 2000; year--) {
       this.years.push(year);
     }
+
+    var split = this.modelValue.split('-');
+    this.selectedDay = split[2];
+    this.selectedMonth = this.months[split[1] - 1];
+    this.selectedYear = split[0];
   },
   computed: {
     getDays: function getDays() {
@@ -27678,6 +27690,8 @@ var _hoisted_9 = {
   "class": "flex flex-row-reverse  mx-4 lg:mx-0"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_DatePicker = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("DatePicker");
+
   var _component_Layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Layout");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Layout, {
@@ -27694,8 +27708,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": "mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-parent-500 focus:border-parent-500 sm:text-sm"
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.display_name]])])])])]), _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-        onClick: _cache[1] || (_cache[1] = function () {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.display_name]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_DatePicker, {
+        modelValue: _ctx.childAge,
+        "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+          return _ctx.childAge = $event;
+        })
+      }, null, 8
+      /* PROPS */
+      , ["modelValue"])])]), _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        onClick: _cache[2] || (_cache[2] = function () {
           return $options.submitData && $options.submitData.apply($options, arguments);
         }),
         type: "submit",

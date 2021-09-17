@@ -15,7 +15,14 @@
                         <input v-model="display_name" type="text" name="display_name" id="display_name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-parent-500 focus:border-parent-500 sm:text-sm">
                         </div>
                     </div>
+
+                    <DatePicker v-model="childAge"/>
+
+
+
                     </div>
+
+
     
                 </div>
 
@@ -77,28 +84,34 @@
 
 <script>
     import Layout from '@/Layouts/SettingsLayout'
+    import DatePicker from "@/Shared/DatePicker"
 
     export default {
         components: {
             Layout,
+            DatePicker
         },
         props: {
-            displayName: String
+            displayName: String,
+            dob: String,
         },
-        mounted () {
+        beforeMount () {
             this.display_name = this.displayName
+            this.childAge = this.dob
         },
         methods: {
             submitData() {
                 this.$inertia.post('/account/manage/child', {
-                    name: this.display_name
+                    name: this.display_name,
+                    dob: this.childAge
                 })
             },
         },
         data: () => {
             return {
                 newAvatar: null,
-                display_name: ""
+                display_name: "",
+                childAge: ''
             }
         },
     }

@@ -43,9 +43,15 @@ export default {
     mounted() {
         this.months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
-        for (var year = 1970; year <= 2021; year++) {
+        for (var year = 2021; year >= 2000; year--) {
             this.years.push(year)
         }
+
+        var split = this.modelValue.split('-')
+        this.selectedDay = split[2]
+        this.selectedMonth = this.months[split[1] - 1]
+        this.selectedYear = split[0]
+
     },
     computed: {
         getDays() {
