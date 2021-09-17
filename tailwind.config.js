@@ -98,6 +98,9 @@ module.exports = {
                 'kids': 'calc(100vh - 5rem)',
                 '128': '32rem',
             },
+            maxWidth: {
+                '8xl': '92rem'
+            },
             minHeight: {
                 'kids': 'calc(100vh - 5rem)'
             },
