@@ -1,5 +1,6 @@
 <template>
-    <div class="font-sniglet" :class="themes[$page.props.auth.user.theme]">
+<!-- :class="themes[$page.props.auth.user.theme]" -->
+    <div class="font-sniglet kigsBG" >
         <div class="container mx-auto">
             <div class="flex flex-row-reverse justify-between p-4">
                 <div>
@@ -93,6 +94,17 @@ export default {
 </script>
 
 <style>
+
+
+
+.kigsBG {
+    background-image: url("/images/login_background.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    
+}
+
+
 
 .kidsBgRed {
     background-color: #CF1134;
