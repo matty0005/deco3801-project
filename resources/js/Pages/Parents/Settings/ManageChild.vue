@@ -82,8 +82,19 @@
         components: {
             Layout,
         },
-
-        methods: {},
+        props: {
+            displayName: String
+        },
+        mounted () {
+            this.display_name = this.displayName
+        },
+        methods: {
+            submitData() {
+                this.$inertia.post('/account/manage/child', {
+                    name: this.display_name
+                })
+            },
+        },
         data: () => {
             return {
                 newAvatar: null,

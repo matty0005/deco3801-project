@@ -21646,7 +21646,19 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Layout: _Layouts_SettingsLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  methods: {},
+  props: {
+    displayName: String
+  },
+  mounted: function mounted() {
+    this.display_name = this.displayName;
+  },
+  methods: {
+    submitData: function submitData() {
+      this.$inertia.post('/account/manage/child', {
+        name: this.display_name
+      });
+    }
+  },
   data: function data() {
     return {
       newAvatar: null,
@@ -27606,7 +27618,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* NEED_PATCH */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, _ctx.display_name]])])])])]), _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
         onClick: _cache[1] || (_cache[1] = function () {
-          return _ctx.submitData && _ctx.submitData.apply(_ctx, arguments);
+          return $options.submitData && $options.submitData.apply($options, arguments);
         }),
         type: "submit",
         "class": "bg-parent-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-parent-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-parent-600"

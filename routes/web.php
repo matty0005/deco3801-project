@@ -70,6 +70,7 @@ Route::get('/account/manage/child', [ManageChildController:: class, 'index'])->m
 
 Route::post('/account/billing', [BillingController:: class, 'store'])->middleware(['auth', 'verified', 'role']);
 Route::post('/account/notifications', [NotificationsController:: class, 'update'])->middleware(['auth', 'verified', 'role']);
+Route::post('/account/manage/child', [ManageChildController:: class, 'update'])->middleware(['auth', 'verified', 'role'])->name('parent_kids_edit');
 
 
 
