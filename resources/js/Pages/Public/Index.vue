@@ -2,8 +2,8 @@
     <div class="bg-white">
     <div class="relative overflow-hidden">
         <main>
-        <div class="pt-10 bg-green-800 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden">
-            <div class="mx-auto max-w-7xl lg:px-8 pb-10">
+        <div class="pt-10 bg-green-800 sm:pt-16 lg:pt-8 lg:pb-0 lg:overflow-hidden">
+            <div class="mx-auto max-w-8xl lg:px-8">
             <div class="lg:grid lg:grid-cols-2 lg:gap-8">
                 <div class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:px-0 lg:text-left lg:flex lg:items-center">
                 <div class="lg:py-24">
@@ -35,9 +35,10 @@
                     </div>
                 </div>
                 </div>
-                <div class="mt-12 -mb-16 sm:-mb-48 lg:m-0 lg:relative">
+                <div class="mt-16 -mb-16 sm:-mb-48 lg:m-0 lg:relative">
                 <div class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0">
                     <!-- Add image -->
+                    <img class="mt-20 shadow-lg" src="/images/kids_dashboard.png"/>
                 </div>
                 </div>
             </div>
