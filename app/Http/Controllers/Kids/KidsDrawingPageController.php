@@ -50,6 +50,18 @@ class KidsDrawingPageController extends Controller
     }
 
     public function store() {
+        $this->saveImg();
+
+        return Redirect::route('dashboard');
+    }
+
+    public function update() {
+        $this->saveImg();
+        
+        return Redirect::route('kids_drawing');
+    }
+
+    private function saveImg() {
         $data = InertiaRequest::validate([
             'drawing' => ['required'],
             'item_id' => ['required']
@@ -63,8 +75,6 @@ class KidsDrawingPageController extends Controller
                 'created_at' => now(),
                 'updated_at' => now()
             ]);
-        
-        return Redirect::route('dashboard');
     }
     
 }

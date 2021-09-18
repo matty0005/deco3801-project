@@ -38,13 +38,6 @@
                                     </div>
                                     <div class="flex-grow">
                                     </div>
-                                    <div class="" @click="clear">
-                                        <svg class="ml-auto flex w-8 h-8" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
-                                    </div>
-
-                                    <button @click="saveDrawing" type="button" class="inline-flex items-center px-4 ml-8 py-1 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-                                        Save
-                                    </button>
                                     
                                 </div>
                             </div>
@@ -54,8 +47,20 @@
                 </div>
                 
                 <div class="self-end ml-8">
-                    <div class="flex flex-col">
-                        <SpeachBubble text="Hello can you please draw a cat" class="mb-24 "/>
+                <div class="flex flex-col">
+                        <input class="rounded-lg border-2 border-gray-300" v-if="askName" type="text" v-model="drawName"/>
+
+                        <transition
+                            enter-active-class="transition ease-out duration-200"
+                            enter-from-class="transform opacity-0 scale-95"
+                            enter-to-class="transform opacity-100 scale-100"
+                            leave-active-class="transition ease-in duration-75"
+                            leave-from-class="transform opacity-100 scale-100"
+                            leave-to-class="transform opacity-0 scale-95">
+                            <Select v-if="showSelect"  class="w-72 mx-auto " @onClick="handleKidInput" :options="questionsList"/>
+                        </transition>
+
+                        <SpeechBubble :text="speechBubbleText" class="mb-24 "/>
                         <Mascot />
                     </div>
                 </div>
@@ -67,14 +72,16 @@
 
 <script>
     import Layout from '@/Layouts/KidsAppLayout'
-    import SpeachBubble from "@/Shared/SpeechBubble"
+    import SpeechBubble from "@/Shared/SpeechBubble"
     import Mascot from "@/Shared/Mascot"
+    import Select from "@/Components/Kids/Select.vue"
 
     export default {
         components: {
             Layout,
-            SpeachBubble,
-            Mascot
+            SpeechBubble,
+            Mascot,
+            Select
         },
         props: {
             itemID: Number,
@@ -91,6 +98,16 @@
                 erase: false,
                 color: 'black',
                 size: 5,
+                freestyleMode: true,
+                speechBubbleText: "",
+                questionsList: [],
+                selectNumber: null,
+                showSelect: false,
+                questionsId: null,
+                isDrawing: false,
+                positiveResponses: ['Wow! That is looking great', "You're an amazing artist", "You should be an artist", "Fantastic work! It's really good"],
+                drawName: "",
+                soundOn: true
             }
         },
         mounted() {
@@ -113,11 +130,160 @@
 
                 window.addEventListener('resize', this.updateCanvasSize);
 
+                // Randomly pick if in freestyle mode or not.
+                this.freestyleMode = Math.random() < 0.5
 
-                
+                if (this.freestyleMode) {
+                    this.freestyleModeStart()
+                } else {
+                    this.setModeStart()
+                }
+                this.showSelect = true
+
+                setInterval(() => {
+                    let _t = this
+                    if (this.isDrawing) {
+                        _t.speechBubbleText = _t.positiveResponses[_t.randomNumber(0, _t.positiveResponses.length)]
+                    }
+                }, 60000);
 
             },
         methods: {
+            handleKidInput(index) {
+                console.log("index", index)
+                console.log("questionsId", this.questionsId)
+                this.showSelect = false
+                let _t = this
+
+
+                if (this.questionsId == 0 && index == 1) {
+                    this.speechBubbleText = `Hmmm... Okay, draw me a ${this.item}, let me know when you finish!`
+                    this.questionsList = [{title: "I'm done, what do you think"}, {title: 'Can you please clear the screen'}]
+                    this.questionsId = 10
+                    setTimeout(() => {
+                        _t.showSelect = true
+                    }, 750); 
+
+                    return
+                }
+
+
+                if (this.questionsId == 1 && index == 1) {
+                    this.freestyleMode = true
+                }
+
+                if (this.questionsId == 1 || this.questionsId == 0 && index == 0) {
+                    this.freestyleMode = true
+                    this.speechBubbleText = `Okay, Let me know when you're finished then.`
+                    this.questionsList = [{title: "I'm done, what do you think"}, {title: 'Can you please clear the screen'}]
+                    this.questionsId = 11
+
+                    this.playAudio('/audio/kids_drawing_waiting_for_finish.mp3')
+
+                    
+                    setTimeout(() => {
+                        _t.showSelect = true
+                    }, 1000);
+                    return 
+                }
+
+                if (this.questionsId == 10 || this.questionsId == 11) {
+                    if (index == 1) {
+                        this.clear()
+
+                        setTimeout(() => {
+                            _t.showSelect = true
+                        }, 750); 
+                        return
+                    }
+
+                    if (this.freestyleMode && this.drawName == '') {
+                        this.askName = true
+                        this.speechBubbleText = `So, what are you going to call this?`
+                        this.questionsList = [{title: "Ok"}]
+                        this.showSelect = true
+                        this.playAudio('/audio/kids_drawing_ask_name.mp3')
+
+
+                      
+                        return
+                    }
+
+                    this.askName = false
+
+                    // Must be done
+                    this.speechBubbleText = `That looks absoultely fantastic! Well Done! What do you want to do now? `
+                    this.playAudio('/audio/kids_drawing_complete.mp3')
+
+                    this.questionsList = [{title: "Go to home page"}, {title: 'Draw something else'}]
+                    setTimeout(() => {
+                        _t.showSelect = true
+                    }, 750); 
+                    this.questionsId = 21
+
+                    return 
+                    
+                }
+
+                if (this.questionsId == 21) {
+                    if (index == 0) {
+                        this.saveDrawing()
+                    } else {
+                        this.saveDrawingRedraw()
+                    }
+                }
+                
+                console.log(" this.speechBubbleText", this.speechBubbleText)
+                console.log(" this.questionsList", this.questionsList)
+
+
+
+
+            
+
+
+            },
+
+            playAudio(file) { 
+                if (this.soundOn) {
+                    var audio = new Audio(file); // path to file
+                    audio.play();
+                }
+            },
+            randomNumber(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            },
+            freestyleModeStart() {
+                // Maybe have this slow move out
+                this.speechBubbleText = `Hey there, I don't have any current requests from any of my friends. Let's see what you can draw - draw anything you like.`
+                this.questionsList = [{title: 'Okay!'}, {title: "Hmmm I'm unsure, can you help me out."}]
+                this.questionsId = 0
+                this.playAudio('/audio/no_request_kids_draw.mp3')
+
+            },
+            setModeStart () {
+                var options = [
+                    {
+                        speechBubble: "Hi there! I've been asked by a friend of mine to ask you to see if you could draw me something. Would you be able to help me out?",
+                        response: [{title:'Sure!'}, {title:'I want to draw on my own'}],
+                        audio: '/audio/request_2_kids_draw.mp3'
+
+                    },
+                    {
+                        speechBubble: "Hey, I've heard that you are an amazing artist? Can I ask for you to draw me something so I can see how good of an artist you are?",
+                        response: [{title:'Sure! What do you want me to draw'}, {title:'Okay, but I want to choose what I draw'}],
+                        audio: '/audio/request_1_kids_draw.mp3'
+                    }
+                    
+                ]
+
+                var randNum = this.randomNumber(0,2)
+                this.speechBubbleText = options[randNum].speechBubble
+                this.questionsList = options[randNum].response
+                this.questionsId = 1
+                this.playAudio(options[randNum].audio)
+
+            },
             drawLine(x1, y1, x2, y2) {
                 let ctx = this.ctx;
 
@@ -196,6 +362,14 @@
                         item_id: this.itemID
                     })
 
+            },
+            saveDrawingRedraw () {
+               var img = this.canvas.toDataURL()
+                console.log("img", img)
+                this.$inertia.post('/kids/draw/redraw', {
+                        drawing: img,
+                        item_id: this.itemID
+                    }) 
             }
         }
     }
