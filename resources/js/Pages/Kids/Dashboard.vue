@@ -50,8 +50,7 @@
           </Link>
         </div>
       </div>
-      <img v-if="showFirst" class="h-96 object-contain" src="/images/kids/mascot_1.png"/> 
-      <img v-if="showSecond" class="h-96 object-contain" src="/images/kids/mascot_2.png"/> 
+      <Mascot />
     </div>
   </layout>
 </template>
@@ -60,30 +59,24 @@
 import Layout from "@/Layouts/KidsAppLayout";
 import CallToActionCard from "@/Shared/CallToActionCard.vue";
 import { Link } from '@inertiajs/inertia-vue3';
+import Mascot from "@/Shared/Mascot"
 
 export default {
   components: {
     Layout,
     CallToActionCard,
     Link,
+    Mascot
   },
   data: () => {
     return {
       isHappy: true,
-      showFirst: true,
-      showSecond: false
     };
   },
   mounted() {
     var audio = new Audio('/audio/welcome_to_kids_mode.mp3'); // path to file
     audio.play();
 
-    let _t = this
-    setInterval(() => {
-      _t.showFirst = !_t.showFirst
-      _t.showSecond = !_t.showSecond
-
-    }, 350);
   },
   methods: {
     startActivity() {

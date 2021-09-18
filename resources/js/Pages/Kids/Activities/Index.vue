@@ -9,7 +9,7 @@
                             <SpeechBubble class="" :text="textInSpeechBubble" />
                         </div>
 
-                        <img class="mt-20 h-96 w-96" src="/images/kids/mascot.png"/>
+                        <Mascot class="mt-36 h-96 w-96"/>
                         
                         
                         <div class="mt-20 flex flex-row ml-12 flex-grow">
@@ -37,7 +37,7 @@
     import SpeechBubble from "@/Shared/SpeechBubble"
     import Button from "@/Components/Kids/Button.vue"
     import Select from "@/Components/Kids/Select.vue"
-
+    import Mascot from "@/Shared/Mascot"
 
     export default {
         components: {
@@ -45,7 +45,8 @@
             CallToActionCard,
             SpeechBubble,
             Button,
-            Select
+            Select,
+            Mascot
         },
         props: {
             level: String,
