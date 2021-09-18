@@ -55,7 +55,8 @@ class DashboardController extends Controller
                 'title',
                 'user_settings.display_name',
                 'user_settings.avatar',
-                'threads.created_at as time'
+                'threads.created_at as time',
+                'threads.id'
             )
             ->selectRaw('(SELECT COUNT(*) FROM thread_likes tl JOIN threads t ON t.id = tl.thread_id WHERE tl.liked = 1 AND tl.thread_id = threads.id) likes')
             ->selectRaw('(SELECT COUNT(*) FROM thread_messages tm JOIN threads t ON t.id = tm.thread_id WHERE tm.thread_id = threads.id) comments')

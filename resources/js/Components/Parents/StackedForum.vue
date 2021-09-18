@@ -1,6 +1,6 @@
 <template>
   <div class="">
-      <div class="font-bold text-gray-700 text-xl  flex flex-row border border-l-0 border-r-0 border-b-0 border-gray-300 px-4" v-for="thread in $page.props.trendingForumPosts" :key="thread"> 
+      <Link :href="`/forum/topic/${thread.topic_on_dashboard}/${thread.id}`" class="font-bold text-gray-700 text-xl  flex flex-row border border-l-0 border-r-0 border-b-0 border-gray-300 px-4" v-for="thread in $page.props.trendingForumPosts" :key="thread"> 
                     <!-- <p> {{thread.title}} </p> -->
                 
                     <!-- <p class="ml-auto text-base text-gray-400" v-if="thread.topic_on_dashboard"> posted in {{thread.topic_on_dashboard}} </p> -->
@@ -38,17 +38,19 @@
                     </svg>
                 </div>
                 
-        </div>
+        </Link>
 
   </div>
 </template>
 
 <script>
 import LikeBar from '@/Pages/Forum/LikeBar'
+import { Link } from '@inertiajs/inertia-vue3'
 
 export default {
     components: {
-        LikeBar
+        LikeBar,
+        Link
     },
     data: () => {
         return {
