@@ -1,31 +1,32 @@
 <template>
     <layout class="bg-gray-100 min-h-screen">
         <div class="container mx-auto">
-            <div class=" bg-white overflow-hidden shadow rounded-lg mt-2 lg:mt-8">
+            <div class="w-128 bg-white overflow-hidden shadow rounded-lg mt-2 lg:mt-36">
                 <div class="px-4 py-5 sm:p-6 ">    
                     
-                    <div class="flex flex-row-reverse relative">
-                        <div class="absolute right-48">
-                            <SpeechBubble class="" :text="textInSpeechBubble" />
-                        </div>
-
-                        <Mascot class="mt-36 h-96 w-96"/>
                         
-                        
-                        <div class="mt-20 flex flex-row ml-12 flex-grow">
-                            <div class="flex flex-col">
-                                <Select v-if="notEnd" class="mt-24 w-72 " v-model="selectNumber" :options="questionsToAsk"/>
-                            </div>
+                    <div class="mt-0 flex flex-row mx-auto flex-grow">
+                        <div class="flex flex-col mx-auto ">
+                            <Select v-if="notEnd" class="w-72 mx-auto " v-model="selectNumber" :options="questionsToAsk"/>
                         </div>
-
                     </div>
 
-                   
+
                     <div class="w-96 mx-auto ">
                         <Button v-if="notEnd" class="w-full mx-auto h-16" text="Continue" @onClick="nextStage" />
                     </div>
 
                 </div>
+            </div>
+
+
+
+            <div class="absolute right-64 -mt-36 ">
+                <div class="absolute right-64">
+                    <SpeechBubble class="" :text="textInSpeechBubble" />
+                </div>
+
+                <Mascot class="absolute right-32 top-16 mt-16 h-96 w-96"/>
             </div>
         </div>
     </layout>

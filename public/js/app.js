@@ -25825,34 +25825,34 @@ var _hoisted_1 = {
   "class": "container mx-auto"
 };
 var _hoisted_2 = {
-  "class": " bg-white overflow-hidden shadow rounded-lg mt-2 lg:mt-8"
+  "class": "w-128 bg-white overflow-hidden shadow rounded-lg mt-2 lg:mt-36"
 };
 var _hoisted_3 = {
   "class": "px-4 py-5 sm:p-6 "
 };
 var _hoisted_4 = {
-  "class": "flex flex-row-reverse relative"
+  "class": "mt-0 flex flex-row mx-auto flex-grow"
 };
 var _hoisted_5 = {
-  "class": "absolute right-48"
+  "class": "flex flex-col mx-auto "
 };
 var _hoisted_6 = {
-  "class": "mt-20 flex flex-row ml-12 flex-grow"
-};
-var _hoisted_7 = {
-  "class": "flex flex-col"
-};
-var _hoisted_8 = {
   "class": "w-96 mx-auto "
 };
+var _hoisted_7 = {
+  "class": "absolute right-64 -mt-36 "
+};
+var _hoisted_8 = {
+  "class": "absolute right-64"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _component_SpeechBubble = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("SpeechBubble");
-
-  var _component_Mascot = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Mascot");
-
   var _component_Select = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Select");
 
   var _component_Button = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Button");
+
+  var _component_SpeechBubble = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("SpeechBubble");
+
+  var _component_Mascot = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Mascot");
 
   var _component_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("layout");
 
@@ -25860,16 +25860,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "bg-gray-100 min-h-screen"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SpeechBubble, {
-        "class": "",
-        text: _ctx.textInSpeechBubble
-      }, null, 8
-      /* PROPS */
-      , ["text"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Mascot, {
-        "class": "mt-36 h-96 w-96"
-      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_ctx.notEnd ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Select, {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_ctx.notEnd ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Select, {
         key: 0,
-        "class": "mt-24 w-72 ",
+        "class": "w-72 mx-auto ",
         modelValue: _ctx.selectNumber,
         "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
           return _ctx.selectNumber = $event;
@@ -25877,14 +25870,21 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         options: _ctx.questionsToAsk
       }, null, 8
       /* PROPS */
-      , ["modelValue", "options"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_ctx.notEnd ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Button, {
+      , ["modelValue", "options"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_ctx.notEnd ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Button, {
         key: 0,
         "class": "w-full mx-auto h-16",
         text: "Continue",
         onOnClick: $options.nextStage
       }, null, 8
       /* PROPS */
-      , ["onOnClick"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])])];
+      , ["onOnClick"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SpeechBubble, {
+        "class": "",
+        text: _ctx.textInSpeechBubble
+      }, null, 8
+      /* PROPS */
+      , ["text"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Mascot, {
+        "class": "absolute right-32 top-16 mt-16 h-96 w-96"
+      })])])];
     }),
     _: 1
     /* STABLE */
