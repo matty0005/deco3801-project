@@ -20,7 +20,7 @@
           </div>
         </div>
         <div class="hidden sm:ml-6 sm:flex sm:items-center">
-          <Link href="/switch/kids" method="post"  as="button" class="bg-parent-500 text-white rounded-md py-1 px-4 mx-2" role="menuitem" tabindex="-1" >Kids mode</Link>
+          <Link href="/switch/kids" method="post"  as="button" class="bg-parent-500 text-white rounded-md py-1 px-4 mx-2" role="menuitem" tabindex="-1" >Kid's Mode</Link>
 
           <!-- Profile dropdown -->
           <div class="ml-3 relative">
@@ -88,7 +88,7 @@
         <div class="mt-3 space-y-1">
             <Link href="/account"  class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100" role="menuitem" tabindex="-1" >Settings</Link>
 
-            <Link v-if="week(5)" :href="week(6) ? '/switch/kids':'#'" :method="week(6) ?'post':'get'"  as="button" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100" role="menuitem" tabindex="-1" >Kids mode</Link>
+            <!-- <Link v-if="week(5)" :href="week(6) ? '/switch/kids':'#'" :method="week(6) ?'post':'get'"  as="button" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100" role="menuitem" tabindex="-1" >Kid's Mode</Link> -->
 
             <Link href="/logout" method="post"  as="button" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100" role="menuitem" tabindex="-1" >Sign out</Link>
         </div>

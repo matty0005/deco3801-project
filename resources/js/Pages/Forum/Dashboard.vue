@@ -18,7 +18,7 @@
                     <div class="bg-white overflow-hidden shadow rounded-lg">
                         <div class="px-4 py-5 sm:p-6">
                              <div class="p-6 text-3xl" @click="goToDashboard">
-                                Forums
+                                Community
                             </div>
                             
                             <div class="flex flex-row">
