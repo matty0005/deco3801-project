@@ -24,6 +24,7 @@ use App\Http\Controllers\Account\ParentSettingsController;
 use App\Http\Controllers\Quizzes\EvaluateParentController;
 use App\Http\Controllers\Switchs\SwitchKidsModeController;
 use App\Http\Controllers\Kids\KidsProfileSettingsController;
+use App\Http\Controllers\PublicFacing\AttributionController;
 use App\Http\Controllers\Consultation\ConsultationController;
 use App\Http\Controllers\Switchs\SwitchParentsModeController;
 use App\Http\Controllers\Resources\ResourceDashboardController;
@@ -49,6 +50,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [DashboardController:: class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/home', [HomeController:: class, 'index'])->name('home');
+Route::get('/attributions', [AttributionController:: class, 'index'])->name('attributions');
 
 
 // Switchers
