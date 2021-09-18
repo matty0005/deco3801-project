@@ -54,7 +54,7 @@
         data: () => {
             return {
                childName: "",
-               childAge: ""
+               childAge: "2021-01-01"
             }
         },
         

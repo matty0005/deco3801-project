@@ -27,7 +27,7 @@
                     
     
                 </div>
-                <div class=" flex flex-col text-sm font-normal mx-8 justify-center items-center">
+                <div class="flex-shrink-0 flex flex-col text-sm font-normal mx-8 justify-center items-center">
                     <div >Likes: {{ thread.likes }}</div>
                     <div>Comments: {{ thread.comments }}</div>
                 </div>
