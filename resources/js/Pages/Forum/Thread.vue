@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 
-                <p class="text-gray-700" v-if="thread.count >= 0"> {{thread.count}} total comments </p>
+                <p class="text-gray-700" v-if="thread.count >= 0"> {{thread.count}} comments </p>
 
                 <LikeBar :likes="thread.likes" :dislikes="thread.dislikes" :status="thread.liked" :id="thread.id" :isThread="true" />
 
