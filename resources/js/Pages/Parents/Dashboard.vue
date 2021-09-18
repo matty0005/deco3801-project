@@ -75,20 +75,20 @@
                     <section aria-labelledby="recent-hires-title" v-if="week(7)">
                         <div class="rounded-lg bg-white overflow-hidden shadow -mt-4">
                         <div class="p-6">
-                            <h2 class="text-base font-medium text-gray-900">MY DOCTORS</h2>
+                            <h2 class="text-base font-medium text-gray-900">MY SPECIALISTS</h2>
                             <div class="flow-root mt-6">
                             <ul class="-my-5 divide-y divide-gray-200">
-                                <li v-for="doctor in doctors" :key="doctor.name" class="py-4">
+                                <li v-for="index in 5" :key="index" class="py-4">
                                     <div class="flex items-center space-x-4">
                                         <div class="flex-shrink-0">
-                                        <img class="h-8 w-8 rounded-full" :src="doctor.avatar" alt="">
+                                        <img class="h-8 w-8 rounded-full" :src="doctors[index].avatar" alt="">
                                         </div>
                                         <div class="flex-1 min-w-0">
                                         <p class="text-sm font-medium text-gray-900 truncate">
-                                            {{ doctor.name }}
+                                            {{ doctors[index].name }}
                                         </p>
                                         <p class="text-sm text-gray-500 truncate">
-                                            {{ doctor.specialisation }}
+                                            {{ doctors[index].specialisation }} Specialist
                                         </p>
                                         </div>
                                         <div>
@@ -157,11 +157,11 @@
                                 <a href="#" class="focus:outline-none">
                                 <!-- Extend touch target to entire panel -->
                                 <span class="absolute inset-0" aria-hidden="true"></span>
-                                Search for doctors
+                                Search for specialists
                                 </a>
                             </h3>
                             <p class="mt-2 text-sm text-gray-500">
-                                Find doctors that meet your needs and requirements. We have a range doctors specialising in children's mental health.
+                                Find specialists that meet your needs and requirements. We have a range doctors specialising in children's mental health.
                             </p>
                             </div>
                             <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
