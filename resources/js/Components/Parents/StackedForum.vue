@@ -1,18 +1,18 @@
 <template>
   <div class="">
-      <div class="font-bold text-gray-700 text-xl  flex flex-row border border-l-0 border-r-0 border-b-0 border-gray-300 px-4" v-for="thread in threads" :key="thread"> 
+      <div class="font-bold text-gray-700 text-xl  flex flex-row border border-l-0 border-r-0 border-b-0 border-gray-300 px-4" v-for="thread in $page.props.trendingForumPosts" :key="thread"> 
                     <!-- <p> {{thread.title}} </p> -->
                 
                     <!-- <p class="ml-auto text-base text-gray-400" v-if="thread.topic_on_dashboard"> posted in {{thread.topic_on_dashboard}} </p> -->
                 <div class="justify-center items-center rounded-md  flex-grow my-4">
                     <div v-if="!thread.anonymous" class="font-bold text-gray-800 flex flex-row">
     
-                        <img class="rounded-lg mr-3 h-16 w-16" :src="thread.avatar"/>
+                        <img class="rounded-lg mr-3 h-12 w-12" :src="thread.avatar"/>
                         <div class="flex flex-col">
                             <div class="text-xl"> {{thread.title}} </div>
 
                             <div class="text-sm flex-grow font-normal">posted in {{thread.topic_on_dashboard}} - <span class="text-xs">by {{thread.display_name}} </span></div>
-                            <p class="font-normal text-sm text-gray-700" v-if="thread.count >= 0"> {{thread.count}} comments </p>
+                            <p class="font-normal text-sm text-gray-700" v-if="thread.count >= 0"> {{thread.comments}} comments </p>
                         </div>
 
                         
@@ -29,7 +29,7 @@
                 </div>
                 <div class=" flex flex-col text-sm font-normal mx-8 justify-center items-center">
                     <div >Likes: {{ thread.likes }}</div>
-                    <div>Comments: {{ thread.count }}</div>
+                    <div>Comments: {{ thread.comments }}</div>
                 </div>
                 <div class=" flex flex-col justify-center items-center">
                     <!-- Heroicon name: solid/chevron-right -->
@@ -59,10 +59,8 @@ export default {
                     avatar: '/images/default_avatar.png',
                     display_name: 'George Mihnea',
                     time: '12:21',
-                    count: 4,
+                    comments: 4,
                     likes: 2,
-                    dislikes: 0,
-                    liked: false,
                     id: 1
 
                 },
@@ -72,10 +70,8 @@ export default {
                     avatar: '/images/default_avatar.png',
                     display_name: 'Kevin Huynh',
                     time: '12:21',
-                    count: 1,
+                    comments: 1,
                     likes: 0,
-                    dislikes: 0,
-                    liked: false,
                     id: 2
 
                 },

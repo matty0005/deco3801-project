@@ -19841,10 +19841,8 @@ __webpack_require__.r(__webpack_exports__);
         avatar: '/images/default_avatar.png',
         display_name: 'George Mihnea',
         time: '12:21',
-        count: 4,
+        comments: 4,
         likes: 2,
-        dislikes: 0,
-        liked: false,
         id: 1
       }, {
         title: 'Is my child autistic',
@@ -19852,10 +19850,8 @@ __webpack_require__.r(__webpack_exports__);
         avatar: '/images/default_avatar.png',
         display_name: 'Kevin Huynh',
         time: '12:21',
-        count: 1,
+        comments: 1,
         likes: 0,
-        dislikes: 0,
-        liked: false,
         id: 2
       }]
     };
@@ -23350,12 +23346,12 @@ var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.threads, function (thread) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.$page.props.trendingForumPosts, function (thread) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       "class": "font-bold text-gray-700 text-xl  flex flex-row border border-l-0 border-r-0 border-b-0 border-gray-300 px-4",
       key: thread
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p> {{thread.title}} </p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <p class=\"ml-auto text-base text-gray-400\" v-if=\"thread.topic_on_dashboard\"> posted in {{thread.topic_on_dashboard}} </p> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [!thread.anonymous ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-      "class": "rounded-lg mr-3 h-16 w-16",
+      "class": "rounded-lg mr-3 h-12 w-12",
       src: thread.avatar
     }, null, 8
     /* PROPS */
@@ -23365,13 +23361,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* TEXT */
     ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_8, "by " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(thread.display_name), 1
     /* TEXT */
-    )]), thread.count >= 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(thread.count) + " comments ", 1
+    )]), thread.count >= 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(thread.comments) + " comments ", 1
     /* TEXT */
     )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_13, "posted at " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(thread.time), 1
     /* TEXT */
     )])]))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, "Likes: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(thread.likes), 1
     /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, "Comments: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(thread.count), 1
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, "Comments: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(thread.comments), 1
     /* TEXT */
     )]), _hoisted_15]);
   }), 128
