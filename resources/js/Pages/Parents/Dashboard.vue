@@ -78,7 +78,7 @@
                             <h2 class="text-base font-medium text-gray-900">MY SPECIALISTS</h2>
                             <div class="flow-root mt-6">
                             <ul class="-my-5 divide-y divide-gray-200">
-                                <li v-for="index in 5" :key="index" class="py-4">
+                                <li v-for="index in doctorLength" :key="index" class="py-4">
                                     <div class="flex items-center space-x-4">
                                         <div class="flex-shrink-0">
                                         <img class="h-8 w-8 rounded-full" :src="doctors[index].avatar" alt="">
@@ -219,7 +219,8 @@
         data: () => {
             return {
                 username: "John Smith",
-                date: new Date()
+                date: new Date(),
+                doctorLength: 5,
             }
         },
         props: {
@@ -233,9 +234,14 @@
             StackedForum
         },
         methods: {
-            week (weekNum) {
+            week(weekNum) {
                 return isWeek.isWeek(weekNum)
+            },
+        },
+        mounted() {
+            if (this.doctors.length < 5) {
+                this.doctorLength = this.doctors.length;
             }
-        }
+        },
     }
 </script>

@@ -98,7 +98,7 @@ export default {
 
 
 .kigsBG {
-    background-image: url("/images/login_background.jpg");
+    background-image: url("/images/kids_background.png");
     background-attachment: fixed;
     background-size: cover;
     
