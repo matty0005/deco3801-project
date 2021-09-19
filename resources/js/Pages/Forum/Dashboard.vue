@@ -16,12 +16,12 @@
                     </div>
 
                     <div class="bg-white overflow-hidden shadow rounded-lg">
-                        <div class="px-4 py-5 sm:p-6">
-                             <div class="p-6 text-3xl" @click="goToDashboard">
+                        <div class="px-4 py-5 sm:p-6 flex flex-col">
+                            <div class="p-6 text-3xl" @click="goToDashboard">
                                 Forums
                             </div>
                             
-                            <div class="flex flex-row">
+                            <div class="hidden lg:flex lg:flex-row lg:flex-wrap ">
                                 <div v-for="(topic, index) in topics" :key="index" 
                                     @click="changeTopic(topic.title)" 
                                     class="mx-2 my-2 py-2 px-8 rounded-md" 
@@ -32,6 +32,27 @@
                                     <button> {{topic.title}} </button>
                                 </div>
                             </div>
+
+                            <div class="ml-auto relative inline-block text-left lg:hidden">
+                                <div>
+                                    <button @click="dropdown = !dropdown" type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-parent-500" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                                    <div v-if="currentTopic" >{{currentTopic}}</div>
+                                    <div v-else>Topics</div>
+                                    
+                                    <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                    </button>
+                                </div>
+
+                                <div v-if="dropdown" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                                    <div class="py-1" role="none">
+                                    <a @click="changeTopic(topic.title)" v-for="(topic, index) in topics" :key="index" href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" :id="'menu-item-' + index">{{topic.title}}</a>
+                                    </div>
+                                </div>
+                                </div>
+
+                            
                         </div>
 
                         <slot />
@@ -70,6 +91,7 @@
         data() {
             return {
                 searchText: '',
+                dropdown: false,
             }
         },
 
@@ -82,7 +104,7 @@
                     history.pushState(null, '', newRelativePathQuery);
                     this.$inertia.reload({ only: ['searched'] })
                 }
-            }
+            },
         },
 
         methods: {
@@ -103,15 +125,19 @@
         },
 
         computed: {
-            searchPlaceholder() {
+            currentTopic() {
                 var ver = 2
                 var currentUrl = window.location.pathname.split("/").filter(t => t)[ver]
+                return currentUrl;
+            },
 
-                if (currentUrl === undefined) {
+            searchPlaceholder() {
+            
+                if (this.currentTopic === undefined) {
                     return 'Search Threads';
                 }
 
-                return 'Search Threads in ' + currentUrl;
+                return 'Search Threads in ' + this.currentTopic;
             }
         }
     }
