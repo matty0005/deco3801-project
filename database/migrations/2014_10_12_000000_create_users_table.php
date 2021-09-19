@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->json('address_information')->nullable();
             $table->json('notifications')->nullable();
+            $table->tinyInteger('kids_audio')->default(1)->comment("1 for on, 0 for off"); 
 
             $table->timestamps();
         });
