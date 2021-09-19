@@ -111,43 +111,45 @@
             }
         },
         mounted() {
-                console.log("hoo")
-                this.canvas = document.getElementById('drawingCanvas')
-                this.ctx = this.canvas.getContext('2d')
-                this.ctx.strokeStyle = 'black';
+            this.soundOn = this.$page.props.auth.user.kids_audio == 1;
 
-                var container = document.getElementById('container')
+            console.log("hoo")
+            this.canvas = document.getElementById('drawingCanvas')
+            this.ctx = this.canvas.getContext('2d')
+            this.ctx.strokeStyle = 'black';
 
-                console.log("container.heigh", container.height)
+            var container = document.getElementById('container')
 
-                this.canvas.style.width ='100%';
-                this.canvas.style.height='58vh';
-                // set the internal size to match
-                this.canvas.width  = this.canvas.offsetWidth;
-                this.canvas.height = this.canvas.offsetHeight;
+            console.log("container.heigh", container.height)
 
-                this.ctx.lineWidth = 5;
+            this.canvas.style.width ='100%';
+            this.canvas.style.height='58vh';
+            // set the internal size to match
+            this.canvas.width  = this.canvas.offsetWidth;
+            this.canvas.height = this.canvas.offsetHeight;
 
-                window.addEventListener('resize', this.updateCanvasSize);
+            this.ctx.lineWidth = 5;
 
-                // Randomly pick if in freestyle mode or not.
-                this.freestyleMode = Math.random() < 0.5
+            window.addEventListener('resize', this.updateCanvasSize);
 
-                if (this.freestyleMode) {
-                    this.freestyleModeStart()
-                } else {
-                    this.setModeStart()
+            // Randomly pick if in freestyle mode or not.
+            this.freestyleMode = Math.random() < 0.5
+
+            if (this.freestyleMode) {
+                this.freestyleModeStart()
+            } else {
+                this.setModeStart()
+            }
+            this.showSelect = true
+
+            setInterval(() => {
+                let _t = this
+                if (this.isDrawing) {
+                    _t.speechBubbleText = _t.positiveResponses[_t.randomNumber(0, _t.positiveResponses.length)]
                 }
-                this.showSelect = true
+            }, 60000);
 
-                setInterval(() => {
-                    let _t = this
-                    if (this.isDrawing) {
-                        _t.speechBubbleText = _t.positiveResponses[_t.randomNumber(0, _t.positiveResponses.length)]
-                    }
-                }, 60000);
-
-            },
+        },
         methods: {
             handleKidInput(index) {
                 console.log("index", index)
