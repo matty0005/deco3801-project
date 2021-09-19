@@ -2,12 +2,12 @@
     <Layout class="bg-gray-100 min-h-screen">
         <div v-if="topics" class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="overflow-hidden shadow-sm sm:rounded-lg">
+                <div class=" ">
 
                     <div class="mb-4 flex flex-col relative">
-                        <input v-model="searchText" class="rounded-md w-1/2 mx-auto px-2" :placeholder="searchPlaceholder" />
+                        <input v-model="searchText" class="shadow rounded-md py-2 w-full lg:w-1/2 mx-0 lg:mx-auto px-2 mb-2 outline-none focus:ring-2 mt-1 focus:ring-parent-600" :placeholder="searchPlaceholder" />
 
-                        <div class="shadow-xl absolute z-90 top-6 left-1/2 transform -translate-x-1/2 w-1/2 mx-auto bg-gray-300 rounded-md rounded-t-none">
+                        <div class="shadow-xl absolute z-90 top-12 left-1/2 transform  lg:w-1/2 -translate-x-1/2 w-full mx-auto  rounded-md rounded-t-none">
                             <div class="mt-1" v-for="(thread, index) in searched" :key="index" :value="thread"> 
                                 <ThreadSearched :thread="thread" />
                             </div>
@@ -17,8 +17,8 @@
 
                     <div class="bg-white overflow-hidden shadow rounded-lg">
                         <div class="px-4 py-5 sm:p-6 flex flex-col">
-                            <div class="p-6 text-3xl" @click="goToDashboard">
-                                Forums
+                             <div class="p-6 text-3xl" @click="goToDashboard">
+                                Community
                             </div>
                             
                             <div class="hidden lg:flex lg:flex-row lg:flex-wrap ">
@@ -29,7 +29,7 @@
                                     :value="topic"
                                     >
 
-                                    <button> {{topic.title}} </button>
+                                    <button class="text-parent-800"> {{topic.title}} </button>
                                 </div>
                             </div>
 
@@ -100,6 +100,11 @@
                 if ('URLSearchParams' in window) {
                     var searchParams = new URLSearchParams(window.location.search);
                     searchParams.set("search", this.searchText);
+
+                    if (this.searchText == '' ||  this.searchText == null) {
+                        searchParams.delete('search')
+                    } 
+
                     var newRelativePathQuery = window.location.pathname + '?' + searchParams.toString();
                     history.pushState(null, '', newRelativePathQuery);
                     this.$inertia.reload({ only: ['searched'] })

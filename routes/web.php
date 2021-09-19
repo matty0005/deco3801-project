@@ -24,6 +24,7 @@ use App\Http\Controllers\Account\ParentSettingsController;
 use App\Http\Controllers\Quizzes\EvaluateParentController;
 use App\Http\Controllers\Switchs\SwitchKidsModeController;
 use App\Http\Controllers\Kids\KidsProfileSettingsController;
+use App\Http\Controllers\PublicFacing\AttributionController;
 use App\Http\Controllers\Consultation\ConsultationController;
 use App\Http\Controllers\Switchs\SwitchParentsModeController;
 use App\Http\Controllers\Resources\ResourceDashboardController;
@@ -49,6 +50,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [DashboardController:: class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/home', [HomeController:: class, 'index'])->name('home');
+Route::get('/attributions', [AttributionController:: class, 'index'])->name('attributions');
 
 
 // Switchers
@@ -70,6 +72,7 @@ Route::get('/account/manage/child', [ManageChildController:: class, 'index'])->m
 
 Route::post('/account/billing', [BillingController:: class, 'store'])->middleware(['auth', 'verified', 'role']);
 Route::post('/account/notifications', [NotificationsController:: class, 'update'])->middleware(['auth', 'verified', 'role']);
+Route::post('/account/manage/child', [ManageChildController:: class, 'update'])->middleware(['auth', 'verified', 'role'])->name('parent_kids_edit');
 
 
 
@@ -110,10 +113,13 @@ Route::get('/resources', [ResourceDashboardController:: class, 'index'])->middle
 
 // Kids 
 Route::get('/kids/draw', [KidsDrawingPageController:: class, 'index'])->middleware(['auth', 'verified'])->name('kids_drawing');
+
 Route::get('/kids/profile', [KidsProfileSettingsController:: class, 'index'])->middleware(['auth', 'verified'])->name('kids_settings');
 Route::get('/kids/activities', [KidsActivitiesController:: class, 'index'])->middleware(['auth', 'verified']);
 
 Route::post('/kids/draw', [KidsDrawingPageController:: class, 'store'])->middleware(['auth', 'verified']);
+Route::post('/kids/draw/redraw', [KidsDrawingPageController:: class, 'update'])->middleware(['auth', 'verified']);
+
 Route::post('/kids/profile', [KidsProfileSettingsController:: class, 'update'])->middleware(['auth', 'verified']);
 
 

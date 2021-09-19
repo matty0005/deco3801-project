@@ -55,6 +55,7 @@ export default {
                 this.$emit('update:modelValue', index)
             }
             this.$emit("selected", this.optionsSelected)
+            this.$emit('onClick', index)
         }
     }
 

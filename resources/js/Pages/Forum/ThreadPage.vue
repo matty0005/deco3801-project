@@ -5,15 +5,15 @@
                 <div class="flex-grow">
                     <label for="message" class="block text-sm font-medium text-gray-700">Reply</label>
                     <div class="mt-1">
-                        <input type="text" v-model="msg" name="message" id="message" 
-                            class="shadow-sm focus:ring-parent-500 focus:border-parent-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="message"
+                        <textarea type="text" v-model="msg" name="message" id="message" 
+                            class="shadow-sm h-36 focus:ring-parent-500 focus:border-parent-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="message"
                             :class="(errors.message ? ' border-red-400 ':'')"
-                        >
+                        ></textarea>
                         <div v-show="errors.message" class="text-xs text-red-400"> Valid Message Required </div>
                     </div>
                 </div>
 
-                <button class="bg-parent-300 hover:bg-parent-400 rounded-md px-8 py-2 mt-6  text-sm mx-8" 
+                <button class="bg-parent-300 hover:bg-parent-400 text-parent-800 rounded-md h-10 px-8 py-2 mt-6  text-sm mx-8" 
                     @click="sendMsg"
                     > Reply 
                 </button>
@@ -21,7 +21,7 @@
             <div v-else class="my-4">
 
             </div>
-            
+            <hr class="my-8"/>
             <div v-for="(message, index) in messages" :key="index"> 
                 <div class="font-bold flex flex-row">
                     
