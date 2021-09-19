@@ -47,6 +47,7 @@ class DashboardController extends Controller
             ->select('users.name', 'specialisation', 'avatar')
             ->join('users','users.id','doctors.user_id')
             ->join('user_settings', 'user_settings.user_id', 'users.id')
+            ->limit(5)
             ->get();
 
         $trending_forum_posts = DB::table('threads')
