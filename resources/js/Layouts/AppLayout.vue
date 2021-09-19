@@ -98,12 +98,14 @@
     <main class="h-main mx-2">
         <slot />
     </main>
+    <Footer />
   </div>
 </template>
 
 <script>
 import isWeek from "@/utils"
 import { Link } from '@inertiajs/inertia-vue3'
+import Footer from '@/Components/Footer'
 export default {
     data: () => {
         return {
@@ -111,7 +113,8 @@ export default {
         }
     },
     components: {
-        Link
+        Link,
+        Footer
     },
     methods: {
         week (weekNum) {

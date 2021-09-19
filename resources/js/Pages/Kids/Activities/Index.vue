@@ -60,11 +60,13 @@
                 responses: {},
                 index: 0,
                 selectNumber: null,
-                notEnd: true
+                notEnd: true,
+                soundOn: true
             }
         },
         mounted () {
             this.getQuestionAtIndex()
+            this.soundOn = this.$page.props.auth.user.kids_audio == 1
         },
         methods: {
             getQuestionAtIndex() {

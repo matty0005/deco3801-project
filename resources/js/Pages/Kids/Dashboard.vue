@@ -33,7 +33,7 @@
                     </div>
                 </Link>
                 <Link href="/kids/draw">
-                  <h3 class="py-2 my-6 w-64 mb-24 bg-white bg-opacity-90 ring-3 ring-gray-300 border rounded-full text-center text-4xl md:mb-6">Draw</h3>
+                  <h3 class="py-2 my-6 w-64 mb-24 bg-white ring-3 ring-gray-300 border rounded-full text-center text-4xl md:mb-6">Draw</h3>
                 </Link>
             </div>
       </div> -->
@@ -42,13 +42,13 @@
           <Link href="/kids/activities">
             <div class="flex flex-row">
               <div class="arrowLeft my-6"></div>
-              <h3 class="py-2 my-6 w-64 mb-24 bg-white bg-opacity-90 text-center text-4xl md:mb-6">Activities</h3>
+              <h3 class="py-2 my-6 w-64 mb-24 bg-white text-center text-4xl md:mb-6">Activities</h3>
             </div>
           </Link>
           <div class="w-4 h-96 bg-gray-50 border-2 border-gray-300 rounded-t-xl"></div>
-          <Link href="/kids/draw">
+          <Link href="/kids/draw" class="mt-16">
             <div class="flex flex-row">
-              <h3 class="py-2 my-6 w-64 mb-24 bg-white bg-opacity-90 text-center text-4xl md:mb-6">Draw</h3>
+              <h3 class="py-2 my-6 w-64 mb-24 bg-white text-center text-4xl md:mb-6">Draw</h3>
               <div class="arrowRight my-6"></div>
             </div>
           </Link>
@@ -78,8 +78,12 @@ export default {
     };
   },
   mounted() {
-    var audio = new Audio('/audio/welcome_to_kids_mode.mp3'); // path to file
-    audio.play();
+    this.soundOn = this.$page.props.auth.user.kids_audio == 1;
+    if (this.soundOn) {
+      console.log("here we go again!");
+      var audio = new Audio('/audio/welcome_to_kids_mode.mp3'); // path to file
+      audio.play();
+    }
   },
   methods: {
     startActivity() {
@@ -98,7 +102,6 @@ export default {
   border-top: 30px solid transparent;
   border-bottom: 30px solid transparent;
   border-right: 30px solid white;
-  opacity: 0.9;
 }
 
 .arrowRight {
@@ -107,7 +110,6 @@ export default {
   border-top: 30px solid transparent;
   border-bottom: 30px solid transparent;
   border-left: 30px solid white;
-  opacity: 0.9;
 }
 
 .cloud {
