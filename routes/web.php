@@ -28,7 +28,6 @@ use App\Http\Controllers\PublicFacing\AttributionController;
 use App\Http\Controllers\Consultation\ConsultationController;
 use App\Http\Controllers\Switchs\SwitchParentsModeController;
 use App\Http\Controllers\Resources\ResourceDashboardController;
-use App\Http\Controllers\Consultation\BookConsultationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -106,9 +105,6 @@ Route::post('/evaluate/parent/{id}', [EvaluateParentController:: class, 'store']
 
 // Consultation
 Route::get('/consultation', [ConsultationController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
-Route::get('/consultation/book/{doctor_id}', [BookConsultationController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('book_doctor');
-Route::post('/consultation/create', [BookConsultationController::class, 'addConsultation']);
-
 
 // Resources
 Route::get('/resources', [ResourceDashboardController:: class, 'index'])->middleware(['auth', 'verified', 'role']);

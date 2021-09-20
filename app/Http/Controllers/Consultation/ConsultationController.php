@@ -13,7 +13,6 @@ class ConsultationController extends Controller
 
         $doctors = DB::table('doctors')
                 ->select(
-                    'doctors.user_id',
                     'users.name', 
                     'users.email',
                     'doctors.gender', 
