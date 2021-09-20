@@ -1,4 +1,6 @@
+
 <template>
+    
     <Layout class="bg-blueGray-100 min-h-screen">
         <div class="bg-green-200 h-48"></div>
         <div class="container mx-auto -mt-24">
@@ -36,6 +38,7 @@
                                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">Rating</th>
                                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">Gender</th>
                                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">Next Available Date</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" scope="col">Book</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
@@ -121,6 +124,15 @@
                                     <td>
                                         <div class="text-sm text-gray-900">{{doctor.time}}</div>
                                     </td>
+                                    <td>
+                                        <div>
+
+                                            <a :href="`/consultation/book/${doctor.user_id}`" class="w-full flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                                                Book Doctor!
+                                            </a>
+                                        
+                                        </div>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -134,13 +146,15 @@
 
 <script>
     import Layout from '@/Layouts/AppLayout'
+import Button from '@/Components/Button.vue'
 
     export default {
         components: {
             Layout,
-        },
+            },
         props: {
             doctors: Array,
-        }
+        },
     }
 </script>
+
