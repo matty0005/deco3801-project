@@ -1,5 +1,5 @@
 <template>
-    <Layout class="bg-gray-100 min-h-screen">
+    <Layout class="bg-gradient-to-b from-parent-300 to-blueGray min-h-screen">
         <div v-if="topics" class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class=" ">
