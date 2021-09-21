@@ -12,6 +12,7 @@ use App\Http\Controllers\PublicFacing\HomeController;
 use App\Http\Controllers\Forums\ForumThreadController;
 use App\Http\Controllers\Quizzes\EvaluationController;
 use App\Http\Controllers\Quizzes\FirstProgressionQuiz;
+use App\Http\Controllers\Resources\ResourceController;
 use App\Http\Controllers\Account\ManageChildController;
 use App\Http\Controllers\Kids\KidsActivitiesController;
 use App\Http\Controllers\Switchs\CreateChildController;
@@ -108,7 +109,7 @@ Route::get('/consultation', [ConsultationController:: class, 'index'])->middlewa
 
 // Resources
 Route::get('/resources', [ResourceDashboardController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
-
+Route::get('/resources/{resource_id}', [ResourceController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
 
 
 // Kids 
