@@ -110,6 +110,7 @@ Route::get('/consultation', [ConsultationController:: class, 'index'])->middlewa
 // Resources
 Route::get('/resources', [ResourceDashboardController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
 Route::get('/resources/{resource_id}', [ResourceController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+Route::post('/resources/like', [ResourceController:: class, 'likeResource'])->middleware(['auth', 'verified', 'role']);
 
 
 // Kids 

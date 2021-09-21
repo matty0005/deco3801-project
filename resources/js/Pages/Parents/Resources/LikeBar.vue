@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-row text-gray-700 mt-3">
+    <div class="flex flex-row text-gray-700">
         
         {{likes}}
 

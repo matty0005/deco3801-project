@@ -21772,10 +21772,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
+/* harmony import */ var _LikeBar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LikeBar */ "./resources/js/Pages/Parents/Resources/LikeBar.vue");
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    Layout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
+    Layout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
+    LikeBar: _LikeBar__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  mounted: function mounted() {
+    console.log(this.resource);
   },
   props: {
     resource: Object
@@ -28101,7 +28107,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "flex flex-row text-gray-700 mt-3"
+  "class": "flex flex-row text-gray-700"
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
@@ -28149,8 +28155,11 @@ __webpack_require__.r(__webpack_exports__);
 var _hoisted_1 = {
   "class": "container mx-auto mt-12 bg-white rounded-xl shadow p-6"
 };
+var _hoisted_2 = {
+  "class": "flex flex-row"
+};
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   "class": "w-6 h-6 text-gray-600",
   fill: "none",
   stroke: "currentColor",
@@ -28165,21 +28174,23 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "text-sm font-medium text-gray-600 self-center"
 }, " Resources ", -1
 /* HOISTED */
 );
 
-var _hoisted_4 = [_hoisted_2, _hoisted_3];
-var _hoisted_5 = {
+var _hoisted_5 = [_hoisted_3, _hoisted_4];
+var _hoisted_6 = {
   "class": "text-3xl font-bold text-gray-900 sm:text-3xl text-center"
 };
-var _hoisted_6 = {
+var _hoisted_7 = {
   "class": "text-xl font-medium text-gray-600 text-justify mt-4"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _this = this;
+
+  var _component_LikeBar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("LikeBar");
 
   var _component_Layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Layout");
 
@@ -28187,14 +28198,21 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "bg-gradient-to-b from-parent-300 to-blueGray min-h-screen "
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         "class": "flex flex-row cursor-pointer",
         onClick: _cache[0] || (_cache[0] = function ($event) {
           return _this.$inertia.visit('/resources');
         })
-      }, _hoisted_4), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.resource.title), 1
+      }, _hoisted_5), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_LikeBar, {
+        "class": "ml-auto",
+        id: $props.resource.id,
+        likes: $props.resource.likes,
+        status: $props.resource.liked
+      }, null, 8
+      /* PROPS */
+      , ["id", "likes", "status"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.resource.title), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.resource.content), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.resource.content), 1
       /* TEXT */
       )])];
     }),
