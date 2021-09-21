@@ -33,7 +33,8 @@
                                     Most useful resources
                                 </div>
                                 <hr class=" mx-4 "/>
-                                <!-- <StackedConsultations /> -->
+
+                                <ResourceContainer v-for="(resource, index) in top_resources" :key="index" :resource="resource" />
                             </div>
                         </div>
 
@@ -44,7 +45,8 @@
                                     Search for resources
                                 </div>
                                 <hr class=" mx-4 "/>
-                                <!-- <StackedForum /> -->
+
+                                <ResourceContainer v-for="(resource, index) in searched" :key="index" :resource="resource" />
                                 <div class="py-80">
 
                                 </div>
@@ -75,11 +77,18 @@
 </template>
 
 <script>
-    import Layout from '@/Layouts/AppLayout'
+import Layout from '@/Layouts/AppLayout'
+import ResourceContainer from './ResourceContainer'
 
-    export default {
-        components: {
-            Layout,
-        },
+export default {
+    components: {
+        Layout,
+        ResourceContainer,
+    },
+
+    props: {
+        top_resources: Array,
+        searched: Array,
     }
+}
 </script>

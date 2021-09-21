@@ -15,7 +15,6 @@
             <p class="text-3xl font-bold text-gray-900 sm:text-3xl text-center">{{resource.title}}</p>
             <p class="text-xl font-medium text-gray-600 text-justify mt-4"> {{resource.content}} </p>
         </div>
-        
     </Layout>
 </template>
 
@@ -27,10 +26,6 @@ export default {
     components: {
         Layout,
         LikeBar,
-    },
-
-    mounted() {
-        console.log(this.resource);
     },
 
     props: {
