@@ -11,15 +11,15 @@
         </div>
 
         <div class="container mx-auto mt-4 bg-white overflow-hidden shadow rounded-lg">
-            <div class="py-4" v-for="question in content.questions" :key="question">
+            <div class="py-4" v-for="(question,index) in content.questions" :key="question">
                 <div v-if="question.type.includes('select')">
-                    <Select class="mx-4" :label="question.question" :multiSelect="question.type == 'multiselect'" :options="question.answers" @selected="userSelect"/>
+                    <Select class="mx-4" :label="question.question" :multiSelect="question.type == 'multiselect'" :options="question.answers" @selected="userSelect(index, $event)"/>
                 </div>
                 <div v-else-if="question.type.includes('slider')">
                     <Slider class="mx-4" :label="question.question"/>
                 </div>
                 <div v-else-if="question.type.includes('colour')">
-                    <ColourSelect class="mx-4" :label="question.question" @selected="userSelect"/>
+                    <ColourSelect class="mx-4" :label="question.question" @selected="userSelect(index, $event)"/>
                 </div>
                 <div v-else>
                     <Break class="mx-4" :label="question.question"/>
@@ -30,11 +30,11 @@
             </div>
         </div>
 
-        <div class="container mx-auto mt-4">
+        <div class="container mx-auto mt-6">
         </div>
-        <div class="flex container flex-row-reverse">
+        <div class="flex px-8 mx-auto container flex-row-reverse">
             <button v-on:click="submitQuiz" type="submit" class="bg-parent-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-parent-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-parent-600">
-                Save
+                Save &#38; Submit 
             </button>
         </div>
         <div class="py-4"></div>
@@ -60,7 +60,7 @@
         },
 
         data: () => {
-            return {
+            return { 
                 response: {
                 }
             }
@@ -73,14 +73,15 @@
                 this.$inertia.post(window.location.pathname, {
                     'response': this.response
                 })
+                this.$inertia.visit(`/evaluate`)
             },
             handleQuizClick (id) {
                 this.$inertia.visit(`/evaluate/parent/${id}`)
             },
 
-            userSelect (id) {
-                console.log(id)
-                this.response["Question #"] = id 
+            userSelect (index, id) {
+                this.response[index] = id 
+                console.log(this.response)
             }
         }
     }

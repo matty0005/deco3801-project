@@ -1,6 +1,6 @@
 <template>
     <Layout class="bg-blueGray-100 min-h-screen">
-        <div class="bg-green-200 h-48"></div>
+        <div class="bg-parent-200 h-48"></div>
         <div class="container mx-auto -mt-24">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
                 <!-- Main 3 column grid -->
