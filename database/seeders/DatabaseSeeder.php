@@ -28,7 +28,8 @@ class DatabaseSeeder extends Seeder
             KidsActivitiesSeeder::class,
             ThreadsSeeder::class,
             ThreadLikesSeeder::class,
-            ThreadMessagesSeeder::class
+            ThreadMessagesSeeder::class,
+            ResourceSeeder::class,
         ]);
     }
 }
