@@ -61,7 +61,7 @@
                         </transition>
 
                         <SpeechBubble :text="speechBubbleText" class="mb-24 "/>
-                        <Mascot />
+                        <Mascot emotion="excited"/>
                     </div>
                 </div>
             </div>
