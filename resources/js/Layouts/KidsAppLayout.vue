@@ -1,89 +1,40 @@
 <template>
-    <div class="font-sniglet" :class="themes[$page.props.auth.user.theme]">
-        <nav class="bg-white shadow  ">
-            <div class="container mx-auto  ">
-            <div class="flex justify-between h-20">
-            <div class="flex">
-                <div class="flex-shrink-0 flex items-center ml-2">
-                    <img class="block lg:hidden h-10 w-auto" src="/images/logo_name_3.svg" alt="Workflow">
-                    <img class="hidden lg:block h-10 w-auto" src="/images/logo_name_3.svg" alt="Workflow">
-                </div>
-                <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-                <!-- Current: "border-orange-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
-                <Link href="/dashboard" :class="isOnPage('/dashboard') ? 'border-kid-500 text-gray-900':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-xl font-medium" role="menuitem" tabindex="-1" >Home</Link>
-                <Link href="/kids/activities" :class="isOnPage('/kids/activities') ? 'border-kid-500 text-gray-900':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-xl font-medium" role="menuitem" tabindex="-1" >Activities</Link>
-                <Link href="/kids/draw" v-if="week(6)" :class="isOnPage('/kids/draw') ? 'border-kid-500 text-gray-900':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-xl font-medium" role="menuitem" tabindex="-1" >Draw</Link>
-                <Link href="/kids/profile" v-if="week(6)" :class="isOnPage('/kids/profile') ? 'border-kid-500 text-gray-900':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-xl font-medium" role="menuitem" tabindex="-1" >Profile</Link>
-                </div>
-            </div>
-            <div class="hidden sm:ml-6 sm:flex sm:items-center">
-                <!-- Profile dropdown -->
-                <div class="ml-3 relative">
-                <div>
-                    <button type="button" @click="showProfileDropdown = !showProfileDropdown" class="bg-white rounded-full flex text-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                    <span class="sr-only">Open user menu</span>
-                    <img class="h-12 w-12 rounded-full" :src="$page.props.auth.user.avatar" alt="">
-                    </button>
-                </div>
-
-                <transition
-                    enter-active-class="transition ease-out duration-100"
-                    enter-from-class="transform opacity-0 scale-95"
-                    enter-to-class="transform opacity-100 scale-100"
-                    leave-active-class="transition ease-in duration-75"
-                    leave-class=" transform opacity-100 scale-100"
-                    leave-to-class="transform opacity-0 scale-95"
-                >
-                <div v-if="showProfileDropdown" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-                    <!-- Active: "bg-gray-100", Not Active: "" -->
-                    <a  @click="switchParents"  as="button" class="block px-4 py-2 text-xl text-gray-700" role="menuitem" tabindex="-1" >Parent mode</a>
-                </div>
-                </transition>
-                </div>
-            </div>
-            <div class=" flex items-center sm:hidden">
-                <!-- Mobile menu button -->
-                <button @click="showProfileDropdown = !showProfileDropdown" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500" aria-controls="mobile-menu" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
-                    <svg :class="showProfileDropdown ? 'hidden':'block'" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+<!-- :class="themes[$page.props.auth.user.theme]" -->
+    <div class="font-sniglet kigsBG" >
+        <div class="container mx-auto">
+            <div class="flex flex-row justify-between p-4">
+                <Link href="/dashboard" v-if="!isOnPage('/dashboard')">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
                     </svg>
-                    <svg :class="!showProfileDropdown ? 'hidden':'block'" class=" h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
+                </Link>
+                <div v-else></div>
+                <div class="flex flex-row">
+                    <div>
+                        <div @click="toggleSound">
+                            <svg xmlns="http://www.w3.org/2000/svg" :class="soundOn ? 'inline' : 'hidden'" class="h-20 text-gray-800 w-20" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM12.293 7.293a1 1 0 011.414 0L15 8.586l1.293-1.293a1 1 0 111.414 1.414L16.414 10l1.293 1.293a1 1 0 01-1.414 1.414L15 11.414l-1.293 1.293a1 1 0 01-1.414-1.414L13.586 10l-1.293-1.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" :class="soundOn ? 'hidden' : 'inline'" class="h-20 text-gray-800 w-20" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <!-- <img class="h-16 mx-2 w-16 rounded-full inline" :src="$page.props.auth.user.avatar" alt=""> -->
+                    </div>
+                    <div>
+                        <a @click="switchParents" as="button" class="group">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-20 text-gray-800 w-20 hidden group-hover:inline" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 2a5 5 0 00-5 5v2a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2v-5a2 2 0 00-2-2H7V7a3 3 0 015.905-.75 1 1 0 001.937-.5A5.002 5.002 0 0010 2z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-20 text-gray-800 w-20 inline group-hover:hidden" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <!-- <img class="h-16 mx-2 w-16 rounded-full inline" :src="$page.props.auth.user.avatar" alt=""> -->
+                    </div>
+                </div>
             </div>
         </div>
-
-        <!-- Mobile menu, show/hide based on menu state. -->
-        <div v-if="showProfileDropdown" class="sm:hidden" id="mobile-menu">
-            <div class="pt-2 pb-3 space-y-1">
-            <!-- Current: "bg-indigo-50 border-orange-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" -->
-            <Link href="/dashboard" :class="isOnPage('/dashboard') ? 'bg-kid-50 border-kid-500 text-kid-700':'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700'"  class=" block pl-3 pr-4 py-2 border-l-4 text-base font-medium" role="menuitem" tabindex="-1" >Dashboard</Link>
-            <Link href="/kids/activities" :class="isOnPage('/kids/activities') ? 'bg-kid-50 border-kid-500 text-kid-700':'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700'"  class=" block pl-3 pr-4 py-2 border-l-4 text-base font-medium" role="menuitem" tabindex="-1" >Activities</Link>
-            <Link href="/kids/draw" :class="isOnPage('/kids/draw') ? 'bg-kid-50 border-kid-500 text-kid-700':'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700'"  class=" block pl-3 pr-4 py-2 border-l-4 text-base font-medium" role="menuitem" tabindex="-1" >Draw</Link>
-            <Link href="/kids/profile" :class="isOnPage('/kids/profile') ? 'bg-kid-50 border-kid-500 text-kid-700':'border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700'"  class=" block pl-3 pr-4 py-2 border-l-4 text-base font-medium" role="menuitem" tabindex="-1" >Profile</Link>
-
-            </div>
-            <div class="pt-4 pb-3 border-t border-gray-200">
-            <div class="flex items-center px-4">
-                <div class="flex-shrink-0">
-                <img class="h-10 w-10 rounded-full" :src="$page.props.auth.user.avatar" alt="">
-                </div>
-                <div class="ml-3">
-                    <div class="text-base font-medium text-gray-800">{{$page.props.auth.user.display_name}}</div>
-                    <div v-if="$page.props.auth.user.display_name != $page.props.auth.user.name" class="text-sm font-medium text-gray-500">{{$page.props.auth.user.name}}</div>
-                </div>
-
-            </div>
-            <div class="mt-3 space-y-1">
-                <a @click="switchParents" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100" role="menuitem" tabindex="-1" >Parent mode</a>
-
-            </div>
-            </div>
-        </div>
-    </nav>
     <main class="h-main mx-2">
         <slot />
     </main>
@@ -106,6 +57,7 @@
 import { Link } from '@inertiajs/inertia-vue3'
 import ModalContainer from "@/Shared/ModalContainer"
 import Textfield from "@/Shared/Textfield"
+import axios from 'axios'
 
 
 import isWeek from "@/utils"
@@ -116,7 +68,8 @@ export default {
             showProfileDropdown: false,
             verifyParent: false,
             parentPassword: "",
-            themes: ['kidsBgRed', 'kidsBgOrange', 'kidsBgYellow', 'kidsBgLime', 'kidsBgGreen', 'kidsBgBlue', 'kidsBgPurple', 'kidsBgPink']
+            themes: ['kidsBgRed', 'kidsBgOrange', 'kidsBgYellow', 'kidsBgLime', 'kidsBgGreen', 'kidsBgBlue', 'kidsBgPurple', 'kidsBgPink'],
+            soundOn: true,
         }
     },
     props: {
@@ -128,12 +81,15 @@ export default {
         Textfield
     },
     methods: {
-        onClickOutside () {
-            this.showProfileDropDown = false
-        },
         switchParents() {
             this.verifyParent = true
             // /switch/parents
+        },
+        toggleSound() {
+            this.soundOn = this.soundOn ? false : true
+            axios.post('/kids/audio', {
+                soundOn : this.soundOn
+            })
         },
         verifyMe () {
             this.$inertia.post('/switch/parents', {
@@ -141,18 +97,20 @@ export default {
             })
             
         },
+        week (weekNum) {
+            return isWeek.isWeek(weekNum)
+        },
         isOnPage (url) {
             var ver = 0
             // var urlMod = url.split("/").filter(l => l)[ver]
             var currentUrl = window.location.pathname//.split("/").filter(t => t)[ver]
             return url === currentUrl
         },
-        week (weekNum) {
-            return isWeek.isWeek(weekNum)
-        }
     },
     mounted() {
         document.addEventListener("click", this.onClickOutside, true);
+        this.soundOn = this.$page.props.auth.user.kids_audio == 0;
+        console.log(this.$page.props.auth.user.kids_audio == 0);
     }
 
 
@@ -160,6 +118,17 @@ export default {
 </script>
 
 <style>
+
+
+
+.kigsBG {
+    background-image: url("/images/kids_background.png");
+    background-attachment: fixed;
+    background-size: cover;
+    
+}
+
+
 
 .kidsBgRed {
     background-color: #CF1134;

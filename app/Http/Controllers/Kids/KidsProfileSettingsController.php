@@ -30,7 +30,7 @@ class KidsProfileSettingsController extends Controller
             ->where('type', 2)
             ->join('kids', 'kids.user_settings_id', 'user_settings.id')
             ->first();
-
+        
 
         // switch($settings->theme) {
         //     case 3:
@@ -54,34 +54,17 @@ class KidsProfileSettingsController extends Controller
         
     }
 
-    public function update() {
-        $data = InertiaRequest::validate([
-            'display_name' => ['required', 'max:255'],
-            'theme' => ['required', 'max:255'],
-        ]);
-
-        // switch(strtolower($data['theme'])) {
-        //     case 'blue':
-        //         $theme = 3;
-        //         break;
-        //     case 'pink':
-        //         $theme = 2;
-        //         break;
-        //     case 'yellow':
-        //     default: 
-        //         $theme = 1;
-        //         break;
-        // }
-
-        DB::table('user_settings')
-            ->where('user_id', Auth::user()->id)
-            ->where('type', 2)
-            ->join('kids', 'kids.user_settings_id', 'user_settings.id')
+    public function update(Request $request) {
+        // $data = InertiaRequest::validate([
+        //     'soundOn' => ['required'],
+        // ]);
+        
+        DB::table('users')
+            ->where('id', Auth::user()->id)
             ->update([
-                'display_name' => $data['display_name'],
-                'kids.theme' => $data['theme']
+                'kids_audio' => $request->soundOn ? 0 : 1
             ]);
-
-        return Redirect::route('kids_settings');
+        dd($request->soundOn);
+        return response()->json("");
     }
 }

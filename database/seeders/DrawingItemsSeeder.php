@@ -18,36 +18,32 @@ class DrawingItemsSeeder extends Seeder
         \DB::table('drawing_items')->insert(array(
             array(
                 "id" => 1,
-                "item" => "a Cat",
+                "item" => "cat",
             ),
             array(
                 "id" => 2,
-                "item" => "a Face",
+                "item" => "face",
             ),
             array(
                 "id" => 3,
-                "item" => "a Car",
+                "item" => "car",
             ),
             array(
                 "id" => 4,
-                "item" => "a Forrest",
+                "item" => "forrest",
             ),
             array(
                 "id" => 5,
-                "item" => "a Tree",
+                "item" => "tree",
             ),
             array(
                 "id" => 6,
-                "item" => "the Beach",
+                "item" => "beach",
             ),
             array(
                 "id" => 7,
-                "item" => "Yourself",
-            ),
-            array(
-                "id" => 8,
-                "item" => "your Parents",
-            ),
+                "item" => "yourself",
+            )
 
 
         

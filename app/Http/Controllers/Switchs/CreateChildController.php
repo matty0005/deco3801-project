@@ -24,6 +24,7 @@ class CreateChildController extends Controller
             'dob' => ['max:10', 'date'],
         ]);
 
+
         $user_setting_id = DB::table('user_settings')
             ->insertGetId([
                 'user_id' => Auth::user()->id,

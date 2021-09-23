@@ -98,6 +98,9 @@ module.exports = {
                 'kids': 'calc(100vh - 5rem)',
                 '128': '32rem',
             },
+            maxWidth: {
+                '8xl': '92rem'
+            },
             minHeight: {
                 'kids': 'calc(100vh - 5rem)'
             },
@@ -113,8 +116,12 @@ module.exports = {
     variants: {
         extend: {
             opacity: ['disabled'],
+            display: ["group-hover"],
         },
     },
 
-    plugins: [require('@tailwindcss/forms')],
+    plugins: [
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/aspect-ratio'),
+    ],
 };

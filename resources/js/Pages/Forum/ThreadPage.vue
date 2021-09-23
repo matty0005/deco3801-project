@@ -1,28 +1,43 @@
 <template>
-    <Dashboard :topics="topics">
+    <Dashboard :topics="topics" :searched="searched">
         <Thread v-if="thread" :thread="thread" :clickable="false">
-            <div class="flex flex-row my-4 ">
+            <div v-if="!thread.doctors_only || this.$page.props.auth.user.is_doctor" class="flex flex-row my-4 ">
                 <div class="flex-grow">
                     <label for="message" class="block text-sm font-medium text-gray-700">Reply</label>
                     <div class="mt-1">
-                        <input type="text" v-model="msg" name="message" id="message" class="shadow-sm focus:ring-parent-500 focus:border-parent-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="message">
+                        <textarea type="text" v-model="msg" name="message" id="message" 
+                            class="shadow-sm h-36 focus:ring-parent-500 focus:border-parent-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="message"
+                            :class="(errors.message ? ' border-red-400 ':'')"
+                        ></textarea>
+                        <div v-show="errors.message" class="text-xs text-red-400"> Valid Message Required </div>
                     </div>
                 </div>
 
-                <button class="bg-parent-300 hover:bg-parent-400 rounded-md px-8 py-2 mt-6  text-sm mx-8" @click="sendMsg">Reply </button>
+                <button class="bg-parent-300 hover:bg-parent-400 text-parent-800 rounded-md h-10 px-8 py-2 mt-6  text-sm mx-8" 
+                    @click="sendMsg"
+                    > Reply 
+                </button>
             </div>
-            
-            <div v-for="(message, index) in messages" :key="index"> 
-                <div class="font-bold flex flex-row">
-                    
-                    <img class="rounded-lg mr-3 h-12 w-12" :src="message.avatar" />
+            <div v-else class="my-4">
 
-                    <div>{{message.display_name}} <span class="text-sm mb-4 text-gray-600">posted at {{time(message)}}</span></div>
+            </div>
+            <hr class="my-8"/>
+            <div v-for="(message, index) in messages" :key="index"> 
+                <div class="font-bold flex flex-row mb-2">
+                    
+                    <div>
+                        <img class="rounded-lg mr-3 h-12 w-12" :src="message.avatar" />
+                        <LikeBar :likes="message.likes" :dislikes="message.dislikes" :status="message.liked" :isThread="false" :id="message.id" />
+                    </div>
+
+                    <div>
+                        <div>{{message.display_name}} <span class="text-sm mb-4 text-gray-600">posted at {{time(message)}}</span></div>
+                        <div class="mt-2 mb-6 ml-10 font-normal">
+                            {{message.message}}
+                        </div>
+                    </div>
                 </div>
-                <div class="mt-2 mb-6 ml-10">
-                    {{message.message}}
-                </div>
-                <LikeBar :likes="message.likes" :dislikes="message.dislikes" :status="message.liked" :isThread="false" :id="message.id" />
+                
             </div> 
         </Thread>
     </Dashboard>
@@ -46,6 +61,8 @@ export default {
         thread: Object,
         messages: Array,
         topics: Array,
+        errors: Object,
+        searched: Array,
     },
 
     data() {
@@ -62,9 +79,12 @@ export default {
                 message: this.msg,
             }, {
                 preserveScroll: true,
+                onFinish: () => {
+                    if (!this.errors.message) {
+                        this.msg = '';
+                    }
+                },
             })
-
-            this.msg = '';
         },
 
         time(obj) {
