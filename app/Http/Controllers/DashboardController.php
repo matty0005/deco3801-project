@@ -47,7 +47,23 @@ class DashboardController extends Controller
             ->select('users.name', 'specialisation', 'avatar')
             ->join('users','users.id','doctors.user_id')
             ->join('user_settings', 'user_settings.user_id', 'users.id')
+            ->limit(5)
             ->get();
+
+        $bookings = DB::table('doctor_consultations')
+            ->select(
+                'doctor_consultations.doctor_id',
+                'doctor_consultations.user_id',
+                'users.name as who', 
+                'doctor_consultations.time as when', 
+                'users.email as contact', 
+                'doctors.specialisation as type'
+            )
+            ->join('doctors', 'doctors.user_id', 'doctor_consultations.doctor_id')
+            ->join('users', 'users.id', 'doctor_consultations.doctor_id')
+            ->where('doctor_consultations.user_id', Auth::id())
+            ->limit(5)
+            ->get(); 
 
         $trending_forum_posts = DB::table('threads')
             ->select(
@@ -67,7 +83,8 @@ class DashboardController extends Controller
 
         return Inertia::render('Parents/Dashboard', [
             'doctors' => $doctors,
-            'trendingForumPosts' => $trending_forum_posts
+            'trendingForumPosts' => $trending_forum_posts,
+            'bookings' => $bookings
         ]);
     }
 }

@@ -28,6 +28,9 @@ use App\Http\Controllers\PublicFacing\AttributionController;
 use App\Http\Controllers\Consultation\ConsultationController;
 use App\Http\Controllers\Switchs\SwitchParentsModeController;
 use App\Http\Controllers\Resources\ResourceDashboardController;
+use App\Http\Controllers\Consultation\BookConsultationController;
+use App\Http\Controllers\Consultation\DoctorsConsultationController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -98,13 +101,17 @@ Route::post('/forum/likethreadmessage', [ForumDashboardController::class, 'likeT
 Route::get('/quiz/parent/progressive', [FirstProgressionQuiz:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('parent_signup_quiz');
 Route::post('/quiz/parent/progressive', [FirstProgressionQuiz:: class, 'create'])->middleware(['auth', 'verified', 'role'])->name('parent_signup_quiz');
 
-Route::get('/evaluate', [EvaluationController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
-Route::get('/evaluate/parent/{id}', [EvaluateParentController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+Route::get('/evaluate', [EvaluationController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('evaluate');
+Route::get('/evaluate/parent/{id}', [EvaluateParentController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('evaluate/parent');
 Route::post('/evaluate/parent/{id}', [EvaluateParentController:: class, 'store'])->middleware(['auth', 'verified', 'role']);
 
 
 // Consultation
 Route::get('/consultation', [ConsultationController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+Route::get('/consultation/book', [DoctorsConsultationController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+Route::get('/consultation/book/{doctor_id}', [BookConsultationController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('book_doctor');
+Route::post('/consultation/create', [BookConsultationController::class, 'addConsultation']);
+
 
 // Resources
 Route::get('/resources', [ResourceDashboardController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
@@ -120,8 +127,9 @@ Route::get('/kids/activities', [KidsActivitiesController:: class, 'index'])->mid
 Route::post('/kids/draw', [KidsDrawingPageController:: class, 'store'])->middleware(['auth', 'verified']);
 Route::post('/kids/draw/redraw', [KidsDrawingPageController:: class, 'update'])->middleware(['auth', 'verified']);
 
-Route::post('/kids/profile', [KidsProfileSettingsController:: class, 'update'])->middleware(['auth', 'verified']);
+//Route::post('/kids/profile', [KidsProfileSettingsController:: class, 'update'])->middleware(['auth', 'verified']);
 
+Route::post('/kids/audio', [KidsProfileSettingsController:: class, 'update'])->middleware(['auth', 'verified']);
 
 
 

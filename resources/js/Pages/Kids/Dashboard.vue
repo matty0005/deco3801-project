@@ -1,16 +1,14 @@
 <template>
   <layout class="bg-gray-100 min-h-screen">
     <div class="container m-auto text-gray-800">
-        <div class="mb-20">
-          <div class="bg-white overflow-hidden w-1/2 mx-auto shadow-2xl rounded-3xl">
-            <div class="px-4 py-5 sm:p-6">
-              <h1 class="text-center text-9xl">Seedlings</h1>
-              <h2 class="text-center text-5xl">for kids</h2>
-             </div>
-           </div>
+      <div class="cloud w-5/6 h-3/4 mx-auto">
+        <div class="pt-36 pb-2">
+          <h1 class="text-center text-8xl">Seedlings</h1>
+          <h2 class="text-center text-5xl">for kids</h2>
+        </div>
+      </div>
             <!-- <h1 class="text-center text-9xl">Seedlings</h1>
             <h2 class="text-center text-5xl">for kids</h2> -->
-        </div>
         <!-- <div class="flex flex-col items-center md:flex-row">
             <div class="mx-auto">
                 <Link href="/kids/activities">
@@ -35,18 +33,24 @@
                     </div>
                 </Link>
                 <Link href="/kids/draw">
-                  <h3 class="py-2 my-6 w-64 mb-24 bg-white bg-opacity-90 ring-3 ring-gray-300 border rounded-full text-center text-4xl md:mb-6">Draw</h3>
+                  <h3 class="py-2 my-6 w-64 mb-24 bg-white ring-3 ring-gray-300 border rounded-full text-center text-4xl md:mb-6">Draw</h3>
                 </Link>
             </div>
       </div> -->
       <div class="flex flex-row-reverse mt-64 -mb-32">
-        <div class=" h-64 flex flex-row ">
+        <div class=" h-64 flex flex-row">
           <Link href="/kids/activities">
-            <h3 class="py-2 my-6 w-64 mb-24 bg-white bg-opacity-90 ring-3 ring-gray-300 border rounded-full text-center text-4xl md:mb-6">Activities</h3>
+            <div class="flex flex-row">
+              <div class="arrowLeft my-6"></div>
+              <h3 class="py-2 my-6 w-64 mb-24 bg-white text-center text-4xl md:mb-6">Activities</h3>
+            </div>
           </Link>
           <div class="w-4 h-96 bg-gray-50 border-2 border-gray-300 rounded-t-xl"></div>
-          <Link href="/kids/draw">
-            <h3 class="py-2 my-6 w-64 mb-24 bg-white bg-opacity-90 ring-3 ring-gray-300 border rounded-full text-center text-4xl md:mb-6">Draw</h3>
+          <Link href="/kids/draw" class="mt-16">
+            <div class="flex flex-row">
+              <h3 class="py-2 my-6 w-64 mb-24 bg-white text-center text-4xl md:mb-6">Draw</h3>
+              <div class="arrowRight my-6"></div>
+            </div>
           </Link>
         </div>
       </div>
@@ -74,9 +78,12 @@ export default {
     };
   },
   mounted() {
-    var audio = new Audio('/audio/welcome_to_kids_mode.mp3'); // path to file
-    audio.play();
-
+    this.soundOn = this.$page.props.auth.user.kids_audio == 1;
+    if (this.soundOn) {
+      console.log("here we go again!");
+      var audio = new Audio('/audio/welcome_to_kids_mode.mp3'); // path to file
+      audio.play();
+    }
   },
   methods: {
     startActivity() {
@@ -87,3 +94,28 @@ export default {
   },
 };
 </script>
+
+<style>
+.arrowLeft {
+  width: 0;
+  height: 0;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-right: 30px solid white;
+}
+
+.arrowRight {
+  width: 0;
+  height: 0;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-left: 30px solid white;
+}
+
+.cloud {
+  background-image: url("/images/cloud.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+</style>
