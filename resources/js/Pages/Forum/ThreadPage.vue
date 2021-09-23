@@ -23,16 +23,21 @@
             </div>
             <hr class="my-8"/>
             <div v-for="(message, index) in messages" :key="index"> 
-                <div class="font-bold flex flex-row">
+                <div class="font-bold flex flex-row mb-2">
                     
-                    <img class="rounded-lg mr-3 h-12 w-12" :src="message.avatar" />
+                    <div>
+                        <img class="rounded-lg mr-3 h-12 w-12" :src="message.avatar" />
+                        <LikeBar :likes="message.likes" :dislikes="message.dislikes" :status="message.liked" :isThread="false" :id="message.id" />
+                    </div>
 
-                    <div>{{message.display_name}} <span class="text-sm mb-4 text-gray-600">posted at {{time(message)}}</span></div>
+                    <div>
+                        <div>{{message.display_name}} <span class="text-sm mb-4 text-gray-600">posted at {{time(message)}}</span></div>
+                        <div class="mt-2 mb-6 ml-10 font-normal">
+                            {{message.message}}
+                        </div>
+                    </div>
                 </div>
-                <div class="mt-2 mb-6 ml-10">
-                    {{message.message}}
-                </div>
-                <LikeBar :likes="message.likes" :dislikes="message.dislikes" :status="message.liked" :isThread="false" :id="message.id" />
+                
             </div> 
         </Thread>
     </Dashboard>

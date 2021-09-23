@@ -7,7 +7,7 @@
                         <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
                         <div class="mt-1">
                             <input type="text" name="title" id="title"  v-model="title" placeholder="title" 
-                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" 
+                                class="shadow-sm focus:ring-parent-500 focus:border-parent-500 block w-full sm:text-sm border-gray-300 rounded-md" 
                                 :class="(errors.title ? ' border-red-400 ':'')"
                             >
                             <div class="text-xs text-red-400" v-show="errors.title"> Valid Title Required </div>
@@ -17,7 +17,7 @@
                         <label for="comment" class="block text-sm font-medium text-gray-700">Comment</label>
                         <div class="mt-1">
                             <textarea type="text" name="comment" id="comment"  v-model="comment" 
-                                placeholder="comment" class="h-64 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" 
+                                placeholder="comment" class="h-64 shadow-sm focus:ring-parent-500 focus:border-parent-500 block w-full sm:text-sm border-gray-300 rounded-md" 
                                 :class="(errors.comment ? ' border-red-400 ':'')"
                             ></textarea>
                             <div class="text-xs text-red-400" v-show="errors.comment"> Valid Comment Required </div>
@@ -30,7 +30,7 @@
                             </div>
                             <div class="ml-3 text-sm">
                                 <label for="comments" aria-describedby="comments-description" class="font-medium text-gray-700">Doctor Only Comments</label>
-                                <p id="comments-description" class="text-gray-500">Only allow doctors to comment on your thread.</p>
+                                <p id="comments-description" class="text-gray-500 hidden lg:block">Only allow doctors to comment on your thread.</p>
                             </div>
                         </div>
 
@@ -40,7 +40,7 @@
                             </div>
                             <div class="ml-3 text-sm">
                                 <label for="anonymous" aria-describedby="anonymous-description" class="font-medium text-gray-700">Anonymous</label>
-                                <p id="anonymous-description" class="text-gray-500">Remain Anonymous, nobody can see that you posted.</p>
+                                <p id="anonymous-description" class="text-gray-500 hidden lg:block">Remain Anonymous, nobody can see that you posted.</p>
                             </div>
                         </div>
                     </div>
