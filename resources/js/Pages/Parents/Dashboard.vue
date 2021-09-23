@@ -33,7 +33,7 @@
                                 My Consultations
                             </div>
                             <hr class=" mx-4 "/>
-                            <StackedConsultations />
+                            <StackedConsultations :bookings="bookings"/>
                         </div>
                     </div>
 
@@ -223,7 +223,8 @@
             }
         },
         props: {
-            doctors: Array
+            doctors: Array,
+            bookings: Array,
         },
         components: {
             Layout,
