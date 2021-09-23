@@ -46,6 +46,8 @@
                                 </div>
                                 <hr class=" mx-4 "/>
 
+                                <input v-model="searchText" placeholder="Search for resources" class="shadow rounded-md py-2 w-11/12 mx-0 lg:mx-3 px-2 mb-2 outline-none focus:ring-2 mt-1 focus:ring-parent-600" />
+
                                 <ResourceContainer v-for="(resource, index) in searched" :key="index" :resource="resource" />
                                 <div class="py-80">
 
@@ -89,6 +91,29 @@ export default {
     props: {
         top_resources: Array,
         searched: Array,
-    }
+    },
+
+    data() {
+        return {
+            searchText: '',
+        }
+    },
+    
+    watch: {
+        searchText() {
+            if ('URLSearchParams' in window) {
+                var searchParams = new URLSearchParams(window.location.search);
+                searchParams.set("search", this.searchText);
+
+                if (this.searchText == '' ||  this.searchText == null) {
+                    searchParams.delete('search')
+                } 
+
+                var newRelativePathQuery = window.location.pathname + '?' + searchParams.toString();
+                history.pushState(null, '', newRelativePathQuery);
+                this.$inertia.reload({ only: ['searched'] })
+            }
+        },
+    },
 }
 </script>
