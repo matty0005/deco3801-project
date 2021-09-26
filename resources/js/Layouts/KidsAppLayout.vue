@@ -122,7 +122,7 @@ export default {
 
 
 .kigsBG {
-    background-image: url("/images/kids_background.png");
+    background-image: url("/images/kids_background_rev.png");
     background-attachment: fixed;
     background-size: cover;
     

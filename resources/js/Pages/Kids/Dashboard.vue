@@ -37,12 +37,12 @@
                 </Link>
             </div>
       </div> -->
-      <div class="flex flex-row-reverse absolute bottom-1/4 right-0 transform -translate-x-1/3">
+      <div class="flex flex-row-reverse absolute bottom-1/8 right-0 transform -translate-x-1/3">
           <Link href="/kids/draw" class="">
             <img class="h-25v" src="/images/kids/easel.png"/> 
           </Link>
       </div>
-      <Mascot class="absolute bottom-1/8 left-1/6"/>
+      <Mascot class="absolute bottom-1/4 left-1/6"/>
     </div>
   </layout>
 </template>
