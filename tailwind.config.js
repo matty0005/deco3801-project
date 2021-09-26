@@ -95,17 +95,18 @@ module.exports = {
                 'kid-900': '#841003',
             },
             height: {
-                'kids': 'calc(100vh - 5rem)',
+                'kids': 'calc(100vh - 24rem)',
                 '128': '32rem',
             },
             maxWidth: {
                 '8xl': '92rem'
             },
             minHeight: {
-                'kids': 'calc(100vh - 5rem)'
+                'kids': 'calc(100vh - 24rem)'
             },
             width: {
                 '128': '32rem',
+                '148': '42rem',
             },
             borderWidth: {
                 '3': '3px',
