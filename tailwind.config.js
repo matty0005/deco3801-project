@@ -95,18 +95,35 @@ module.exports = {
                 'kid-900': '#841003',
             },
             height: {
-                'kids': 'calc(100vh - 24rem)',
+                'kids': 'calc(100vh - 10%)',
+                '90v': '90vh',
+                '85v': '85vh',
+                '80v': '80vh',
+                '30v': '30vh',
+                '25v': '25vh',
+                '20v': '20vh',
                 '128': '32rem',
             },
             maxWidth: {
                 '8xl': '92rem'
             },
             minHeight: {
-                'kids': 'calc(100vh - 24rem)'
+                '90v': '90vh',
+                '85v': '85vh',
+                '80v': '80vh',
+                'kids': 'calc(100vh - 10%)'
             },
             width: {
                 '128': '32rem',
                 '148': '42rem',
+                '90v': '90vw',
+                '85v': '85vw',
+                '80v': '80vw',
+                '30v': '30vw',
+                '25v': '25vw',
+                '20v': '20vw',
+                '15v': '15vw',
+                '10v': '10vw',
             },
             borderWidth: {
                 '3': '3px',
