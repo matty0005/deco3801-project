@@ -1,10 +1,10 @@
 <template>
-  <layout class="bg-gray-100 min-h-screen">
-    <div class="relative container m-auto text-gray-800 min-h-kids">
-      <div class="cloud w-148 h-96 mx-auto absolute top-0 left-1/2 transform -translate-x-1/2">
-        <div class="pt-48 pb-2 pr-12">
-          <h1 class="text-center text-8xl">Seedlings</h1>
-          <h2 class="text-center text-5xl">for kids</h2>
+  <layout class="bg-gray-100 min-h-screen ">
+    <div class="relative m-auto text-gray-800 min-h-80v">
+      <div class="cloud w-128 h-64 mx-auto absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/4">
+        <div class="pt-28 pb-2 pr-12">
+          <h1 class="text-center text-6xl">Seedlings</h1>
+          <h2 class="text-center text-3xl">for kids</h2>
         </div>
       </div>
             <!-- <h1 class="text-center text-9xl">Seedlings</h1>
@@ -37,21 +37,21 @@
                 </Link>
             </div>
       </div> -->
-      <div class="flex flex-row-reverse absolute bottom-48 right-0">
-        <div class=" h-64 flex flex-row">
+      <div class="flex flex-row-reverse absolute bottom-1/3 right-0 transform -translate-x-1/3">
+        <div class="flex flex-row">
           <Link href="/kids/activities">
             <div class="flex flex-row">
               <div class="arrowLeft my-6"></div>
-              <h3 class="py-2 my-6 w-64 mb-24 bg-white text-center text-4xl md:mb-6">Activities</h3>
+              <h3 class="py-2 my-6 w-10v mb-24 bg-white text-center text-2xl md:mb-6">Activities</h3>
             </div>
           </Link>
-          <div class="w-4 h-96 bg-gray-50 border-2 border-gray-300 rounded-t-xl"></div>
-            <Link href="/kids/draw" class="mt-16">
-              <div class="flex flex-row">
-                <h3 class="py-2 my-6 w-64 mb-24 bg-white text-center text-4xl md:mb-6">Draw</h3>
-                <div class="arrowRight my-6"></div>
-              </div>
-            </Link>
+          <div class="w-4 h-30v bg-gray-50 border-2 border-gray-300 rounded-t-xl"></div>
+          <Link href="/kids/draw" class="mt-16">
+            <div class="flex flex-row">
+              <h3 class="py-2 my-6 w-10v mb-24 bg-white text-center text-2xl md:mb-6">Draw</h3>
+              <div class="arrowRight my-6"></div>
+            </div>
+          </Link>
         </div>
       </div>
       <Mascot class="absolute bottom-0 left-0"/>
