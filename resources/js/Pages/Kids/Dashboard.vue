@@ -37,24 +37,12 @@
                 </Link>
             </div>
       </div> -->
-      <div class="flex flex-row-reverse absolute bottom-1/3 right-0 transform -translate-x-1/3">
-        <div class="flex flex-row">
-          <Link href="/kids/activities">
-            <div class="flex flex-row">
-              <div class="arrowLeft my-6"></div>
-              <h3 class="py-2 my-6 w-10v mb-24 bg-white text-center text-2xl md:mb-6">Activities</h3>
-            </div>
+      <div class="flex flex-row-reverse absolute bottom-1/4 right-0 transform -translate-x-1/3">
+          <Link href="/kids/draw" class="">
+            <img class="h-25v" src="/images/kids/easel.png"/> 
           </Link>
-          <div class="w-4 h-30v bg-gray-50 border-2 border-gray-300 rounded-t-xl"></div>
-          <Link href="/kids/draw" class="mt-16">
-            <div class="flex flex-row">
-              <h3 class="py-2 my-6 w-10v mb-24 bg-white text-center text-2xl md:mb-6">Draw</h3>
-              <div class="arrowRight my-6"></div>
-            </div>
-          </Link>
-        </div>
       </div>
-      <Mascot class="absolute bottom-0 left-0"/>
+      <Mascot class="absolute bottom-1/8 left-1/6"/>
     </div>
   </layout>
 </template>
