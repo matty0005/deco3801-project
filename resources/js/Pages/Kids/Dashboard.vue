@@ -1,8 +1,8 @@
 <template>
   <layout class="bg-gray-100 min-h-screen">
-    <div class="container m-auto text-gray-800">
-      <div class="cloud w-5/6 h-3/4 mx-auto">
-        <div class="pt-36 pb-2">
+    <div class="relative container m-auto text-gray-800 min-h-kids">
+      <div class="cloud w-148 h-96 mx-auto absolute top-0 left-1/2 transform -translate-x-1/2">
+        <div class="pt-48 pb-2 pr-12">
           <h1 class="text-center text-8xl">Seedlings</h1>
           <h2 class="text-center text-5xl">for kids</h2>
         </div>
@@ -37,7 +37,7 @@
                 </Link>
             </div>
       </div> -->
-      <div class="flex flex-row-reverse mt-64 -mb-32">
+      <div class="flex flex-row-reverse absolute bottom-48 right-0">
         <div class=" h-64 flex flex-row">
           <Link href="/kids/activities">
             <div class="flex flex-row">
@@ -46,15 +46,15 @@
             </div>
           </Link>
           <div class="w-4 h-96 bg-gray-50 border-2 border-gray-300 rounded-t-xl"></div>
-          <Link href="/kids/draw" class="mt-16">
-            <div class="flex flex-row">
-              <h3 class="py-2 my-6 w-64 mb-24 bg-white text-center text-4xl md:mb-6">Draw</h3>
-              <div class="arrowRight my-6"></div>
-            </div>
-          </Link>
+            <Link href="/kids/draw" class="mt-16">
+              <div class="flex flex-row">
+                <h3 class="py-2 my-6 w-64 mb-24 bg-white text-center text-4xl md:mb-6">Draw</h3>
+                <div class="arrowRight my-6"></div>
+              </div>
+            </Link>
         </div>
       </div>
-      <Mascot />
+      <Mascot class="absolute bottom-0 left-0"/>
     </div>
   </layout>
 </template>
