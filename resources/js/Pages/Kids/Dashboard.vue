@@ -37,12 +37,20 @@
                 </Link>
             </div>
       </div> -->
+
       <div class="flex flex-row-reverse absolute bottom-1/8 right-0 transform -translate-x-1/3">
-          <Link href="/kids/draw" class="">
+        <div class="flex flex-col">
+          <SpeechBubble class="mb-4" side="right" :text="iWannaDraw" />
+          <Link href="/kids/draw" class="mx-auto">
             <img class="h-25v" src="/images/kids/easel.png"/> 
           </Link>
+        </div>
       </div>
-      <Mascot class="absolute bottom-1/4 left-1/6"/>
+      <Select class="absolute top-1/2 left-1/2 transform -translate-x-1/2 w-72 mx-auto "  :options="questionsToAsk"/>
+
+      <SpeechBubble side="right" class="absolute bottom-3/4 left-1/6" :text="textInSpeechBubble" />
+      <Mascot emotion="excited" class="absolute bottom-1/4 left-1/6"/>
+     
     </div>
   </layout>
 </template>
@@ -52,17 +60,25 @@ import Layout from "@/Layouts/KidsAppLayout";
 import CallToActionCard from "@/Shared/CallToActionCard.vue";
 import { Link } from '@inertiajs/inertia-vue3';
 import Mascot from "@/Shared/Mascot"
+import SpeechBubble from "@/Shared/SpeechBubble"
+import Select from "@/Components/Kids/Select.vue"
 
 export default {
   components: {
     Layout,
     CallToActionCard,
     Link,
-    Mascot
+    Mascot,
+    SpeechBubble,
+    Select
   },
   data: () => {
     return {
       isHappy: true,
+      iWannaDraw: "I want to draw",
+      textInSpeechBubble: "Hey How are you today!",
+      questionsToAsk: [{title:'ok'}, {title:'yes'}],
+
     };
   },
   mounted() {

@@ -1,15 +1,26 @@
 <template>
-  <div class="bg-gray-100 m-4 inline-block relative w-96 h-auto tri-right border rounded-xl btm-right-in">
-        <div class="m-4">
-            <p>{{ text }}</p>
-        </div>
-    </div>
+	<div>
+		<div v-if="side == 'right'" class="bg-gray-100 m-4 inline-block relative w-full h-auto tri-right border rounded-xl btm-right-in">
+			<div class="m-4">
+				<p>{{ text }}</p>
+			</div>
+		</div>
+		<div v-if="side == 'left'" class="bg-gray-100 m-4 inline-block relative w-full h-auto tri-right border rounded-xl btm-right-in">
+			<div class="m-4">
+				<p>{{ text }}</p>
+			</div>
+		</div>
+	</div>
 </template>
 
 <script>
 export default {
     props: {
-        text: String
+        text: String,
+		side: {
+			type: String,
+			default: 'left'
+		}
     }
 }
 </script>
