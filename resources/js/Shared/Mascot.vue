@@ -1,10 +1,10 @@
 <template>
     <div>
-        <img v-if="showFirst && emotion == 'happy'" :class="height" class=" object-contain" src="/images/kids/mascot_1.png"/> 
-        <img v-if="showSecond && emotion == 'happy'" :class="height" class=" object-contain" src="/images/kids/mascot_2.png"/> 
-        <img v-if="showFirst && emotion == 'excited'" :class="height" class=" object-contain" src="/images/kids/Sprout_happy_1.svg"/> 
+        <img v-if="showFirst && emotion == 'happy'" :class="height" class=" object-contain transform" src="/images/kids/mascot_1.png"/> 
+        <img v-if="showSecond && emotion == 'happy'" :class="height" class=" object-contain transform" src="/images/kids/mascot_2.png"/> 
+        <img v-if="showFirst && emotion == 'excited'" :class="height" class=" object-contain transform" src="/images/kids/Sprout_happy_1.svg"/> 
         <img v-if="showSecond && emotion == 'excited'" :class="height" class=" object-contain transform translate-y-6" src="/images/kids/Sprout_happy_2.svg"/> 
-        <img v-if="showFirst && emotion == 'sad'" :class="height" class=" object-contain" src="/images/kids/Sprout_sad_1.svg"/> 
+        <img v-if="showFirst && emotion == 'sad'" :class="height" class=" object-contain transform" src="/images/kids/Sprout_sad_1.svg"/> 
         <img v-if="showSecond && emotion == 'sad'" :class="height" class=" object-contain transform translate-y-6" src="/images/kids/Sprout_sad_2.svg"/> 
         
     </div>
