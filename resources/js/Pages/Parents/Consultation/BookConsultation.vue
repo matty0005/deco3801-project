@@ -37,13 +37,13 @@
                 </div>
                     <div class="mt-3 ml-2">
                         <p class="text-xl text-gray-700 sm:text-xl mb-3">When would you like to book your consult with Dr. {{doctor.name}}? </p>
-                        <div class="flex flex-direction-row content-center justify-start "> 
-                            <DateTimePicker class="self-center" format="YYYY-MM-DD h:i:s, DD-MM-YYYY h:i:s, MM-DD-YYYY h:i:s" width="300px" v-model="this.consultationDate"/>
+                        <div class="flex flex-direction-row content-center justify-start ">
+                            <DatePickerText v-model="this.consultationDate" flex="true"/>
+                            <VueTimepicker v-model="this.yourStringTimeValue" format="HH:mm" @input="inputHandler"/>
                             <button v-on:click="submitConsultation" type="submit" class="ml-5 bg-parent-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-parent-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-parent-600">
-                                Save
+                                  Save
                             </button>
                         </div>
-                    
                     </div>
                 </div>
 
@@ -61,13 +61,18 @@
     import { Link } from '@inertiajs/inertia-vue3'
     import DateTimePicker from '@/Components/DateTimePicker.vue'
     import DatePicker from "@/Shared/DatePicker.vue"
+    import DatePickerText from "@/Shared/DatePickerText.vue"
+    import TimePicker from "@/Shared/TimePicker.vue"
+    import VueTimepicker from "@/Shared/TimePicker";
     export default {
         components: {
+          VueTimepicker,
             Layout,
             Link,
             Dropdown,
             DatePicker,
-            DateTimePicker
+            DateTimePicker,
+            DatePickerText
             },
         props: {
             doctor: Object,
@@ -76,18 +81,32 @@
 
         data: () => {
             return {
-                consultationDate: "2021-09-29 09:10:00",
+                consultationDate: "2021-09-29",
+                example: "2021-09-29 09:10:00",
+                yourStringTimeValue: '10:05',
+                month_names: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
             }
         },
 
         methods: {
             submitConsultation() {
+                var dateSplit = this.consultationDate.split(" ");
+                var month = this.month_names.indexOf(dateSplit[1]) + 1;
+                this.consultationDate = dateSplit[3] + "-" + month + "-" + dateSplit[2] + " " + this.yourStringTimeValue;
                 console.log(this.consultationDate);
                 this.$inertia.post('/consultation/create', {
                     doctor_id: this.doctor.id, 
                     consultation: this.consultationDate
                 })
+            },
+            inputHandler (eventData) {
+              console.log(this.consultationDate.split(" "));
+              this.yourStringTimeValue = eventData["HH"] + ":" + eventData["mm"];
             }
+
+        },
+        computed: {
+
         }
     }
 </script>
