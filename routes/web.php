@@ -108,7 +108,7 @@ Route::post('/evaluate/parent/{id}', [EvaluateParentController:: class, 'store']
 
 
 // Consultation
-Route::get('/consultation', [ConsultationController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
+Route::get('/consultation', [ConsultationController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('consult_home');
 Route::get('/consultation/book', [DoctorsConsultationController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
 Route::get('/consultation/book/{doctor_id}', [BookConsultationController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('book_doctor');
 Route::post('/consultation/create', [BookConsultationController::class, 'addConsultation']);

@@ -45,7 +45,7 @@
                                 </label>
                                 <DatePickerText v-model="this.consultationDate" flex="true" class="mt-1" />
                             </div>
-                            <Dropdown v-model="timeBooking" :options="timeOptions" label="Time" class="mx-2"/>
+                            <Dropdown v-model="timeBooking" :options="timeOptions" label="Time" class="mx-2 w-36"/>
 
                             <button v-on:click="submitConsultation" type="submit" class="ml-5 h-10 bg-parent-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-parent-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-parent-600">
                                   Save
@@ -93,16 +93,21 @@
                 timeOptions: ['9:00', '9:30', '10:00','10:30', '11:00','11:30', '12:00','12:30', '13:00','13:30', '14:00','14:30', '15:00','15:30', '16:00','16:30', '17:00','17:30 ', '18:00']
             }
         },
+        beforeMount(){
+            var tmp = new Date()
+            this.consultationDate = `${tmp.getFullYear()}-${tmp.getMonth() + 1}-${tmp.getDate()}`
+        },
 
         methods: {
             submitConsultation() {
                 var dateSplit = this.consultationDate.split(" ");
                 var month = this.month_names.indexOf(dateSplit[1]) + 1;
-                this.consultationDate = dateSplit[3] + "-" + month + "-" + dateSplit[2] + " " + this.yourStringTimeValue;
-                console.log(this.consultationDate);
+                var tmpConsultationDate = `${dateSplit[3]}-${month}-${ dateSplit[2]} ${this.timeBooking}`
+                
+                console.log(tmpConsultationDate);
                 this.$inertia.post('/consultation/create', {
                     doctor_id: this.doctor.id, 
-                    consultation: this.consultationDate
+                    consultation: tmpConsultationDate
                 })
             },
             inputHandler (eventData) {
