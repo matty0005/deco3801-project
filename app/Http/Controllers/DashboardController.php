@@ -78,6 +78,7 @@ class DashboardController extends Controller
             ->selectRaw('(SELECT COUNT(*) FROM thread_messages tm JOIN threads t ON t.id = tm.thread_id WHERE tm.thread_id = threads.id) comments')
             ->join('user_settings', 'user_settings.user_id', 'threads.user_id')
             ->where('threads.approved', 1)
+            ->where('user_settings.type', 1)
             ->orderBy('likes', 'desc')
             ->limit(3)
             ->get();
