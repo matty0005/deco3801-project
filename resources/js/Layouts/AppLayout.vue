@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="bg-white shadow">
+    <nav class="bg-white shadow ">
     <div class="container mx-auto ">
       <div class="flex justify-between h-16">
         <div class="flex">
@@ -95,7 +95,7 @@
       </div>
     </div>
   </nav>
-    <main class="h-main mx-2">
+    <main class="h-main mx-2 ">
         <slot />
     </main>
     <Footer />
@@ -138,5 +138,13 @@ export default {
 </script>
 
 <style>
+/* Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
 
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
 </style>
