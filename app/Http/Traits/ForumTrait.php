@@ -72,6 +72,7 @@ trait ForumTrait {
                             ->selectRaw('(SELECT liked FROM thread_likes tl JOIN threads t ON t.id = tl.thread_id WHERE tl.thread_id = threads.id AND tl.user_id = ' . $authId . ') liked')
                             ->join('users', 'users.id', 'threads.user_id')
                             ->where('user_settings.type', 1)
+                            ->where('threads.approved', 1)
                             ->join('user_settings','user_settings.user_id',  'users.id')
                             ->orderBy('threads.created_at', 'DESC');
         
