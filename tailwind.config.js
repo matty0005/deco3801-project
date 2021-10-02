@@ -95,17 +95,44 @@ module.exports = {
                 'kid-900': '#841003',
             },
             height: {
-                'kids': 'calc(100vh - 5rem)',
+                'kids': 'calc(100vh - 10%)',
+                '90v': '90vh',
+                '85v': '85vh',
+                '80v': '80vh',
+                '30v': '30vh',
+                '25v': '25vh',
+                '20v': '20vh',
                 '128': '32rem',
             },
+            maxWidth: {
+                '8xl': '92rem'
+            },
             minHeight: {
-                'kids': 'calc(100vh - 5rem)'
+                '90v': '90vh',
+                '85v': '85vh',
+                '80v': '80vh',
+                'kids': 'calc(100vh - 10%)'
             },
             width: {
                 '128': '32rem',
+                '148': '42rem',
+                '90v': '90vw',
+                '85v': '85vw',
+                '80v': '80vw',
+                '30v': '30vw',
+                '25v': '25vw',
+                '20v': '20vw',
+                '15v': '15vw',
+                '10v': '10vw',
             },
             borderWidth: {
                 '3': '3px',
+            },
+            inset: {
+                '1/5': '20%',
+                '1/6': '16.7%',
+                '1/8': '12.5%',
+                '1/10': '10%',
             }
         },
     },
@@ -113,8 +140,12 @@ module.exports = {
     variants: {
         extend: {
             opacity: ['disabled'],
+            display: ["group-hover"],
         },
     },
 
-    plugins: [require('@tailwindcss/forms')],
+    plugins: [
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/aspect-ratio'),
+    ],
 };

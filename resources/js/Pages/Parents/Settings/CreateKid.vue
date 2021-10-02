@@ -14,7 +14,8 @@
         <div class="container  mx-auto mt-4 bg-white overflow-hidden shadow rounded-lg">
             <div class="m-4">
                 <Textfield class="my-8 mx-4" placeholder="name" label="Child's name" v-model="childName" :error="errors.name"/>
-                <Textfield class="my-8 mx-4" placeholder="yyyy-mm-dd" label="Child's date of birth (yyyy-mm-dd)" v-model="childAge" :error="errors.dob"/>
+                <!-- <Textfield class="my-8 mx-4" placeholder="yyyy-mm-dd" label="Child's date of birth (yyyy-mm-dd)" v-model="childAge" :error="errors.dob"/> -->
+                <DatePicker v-model="childAge"/>
 
             </div>
         </div>
@@ -36,13 +37,15 @@
     import List from "@/Shared/Lists"
     import Select from '@/Shared/Select.vue'
     import Textfield from "@/Shared/Textfield.vue"
+    import DatePicker from "@/Shared/DatePicker.vue"
 
     export default {
         components: {
             Layout,
             List,
             Select,
-            Textfield
+            Textfield,
+            DatePicker
         },
         props: {
             errors: Object
@@ -51,7 +54,7 @@
         data: () => {
             return {
                childName: "",
-               childAge: ""
+               childAge: "2021-01-01"
             }
         },
         

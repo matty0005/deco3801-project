@@ -1,195 +1,305 @@
 <template>
+  <layout>
     <div class="bg-white">
-    <div class="relative overflow-hidden">
-        <main>
-        <div class="pt-10 bg-green-800 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden">
-            <div class="mx-auto max-w-7xl lg:px-8 pb-10">
-            <div class="lg:grid lg:grid-cols-2 lg:gap-8">
-                <div class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:px-0 lg:text-left lg:flex lg:items-center">
-                <div class="lg:py-24">
-                    <h1 class="mt-4 text-4xl tracking-tight font-extrabold text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
-                    <span class="block">Seedlings</span> 
-                    <span class="pb-3 block bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-yellow-400 sm:pb-5">Let your child smile everyday</span>
-                    </h1>
-                    <p class="text-base text-gray-300 sm:text-xl lg:text-lg xl:text-xl">
-                    Help your child mental state improve
-                    </p>
-                    <div class="mt-10 mb-5 sm:mt-12">
-                    <div class="sm:max-w-xl sm:mx-auto lg:mx-0">
-                        <div class="sm:flex-1">
-                         <div class="mt-3 sm:mt-0 sm:ml-3  w-full lg:w-2/3 ">
-                            <Link :href="route('register')" class="flex block w-full py-3 px-4 mt-3 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900">
-                              <div class="mx-auto">
-                                Sign up
-                              </div>
-                            </Link>
-                            <p class="text-base text-gray-100 sm:text-lg lg:text-base xl:text-lg py-3 mb-5">
-                              Already have an account? 
-                              <a :href="route('login')" class="inline-flex items-center px-2 py-2 border border-transparent text-base font-medium rounded-md text-white" >
-                                Log in here!
-                              </a>
-                            </p>  
+      <div class="relative overflow-hidden">
+          <main>
+          <div class="pt-5 bg-green-800 sm:pt-8 lg:pt-4 lg:pb-0 lg:overflow-hidden">
+              <div class="mx-auto max-w-7xl lg:px-8">
+              <div class="lg:grid lg:grid-cols-2 lg:gap-8">
+                  <div class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:px-0 lg:text-left lg:flex lg:items-center">
+                    <div class="lg:py-12">
+                        <h1 class="mt-4 text-4xl tracking-tight font-extrabold text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
+                        <span class="block">Seedlings</span> 
+                        <span class="pb-3 block bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-yellow-400 sm:pb-5">Let your child smile everyday</span>
+                        </h1>
+                        <p class="text-base text-gray-300 sm:text-xl lg:text-lg xl:text-xl">
+                        Help your child mental state improve
+                        </p>
+                        <div class="mt-10 mb-5 sm:mt-12">
+                        <div class="sm:max-w-xl sm:mx-auto lg:mx-0">
+                            <div class="sm:flex-1">
+                            <div class="mt-3 sm:mt-0 sm:ml-3  w-full lg:w-2/3 ">
+                                <Link :href="route('register')" class="flex block w-full py-3 px-4 mt-3 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900">
+                                  <div class="mx-auto">
+                                    Sign up
+                                  </div>
+                                </Link>
+                                <p class="text-base text-gray-100 sm:text-lg lg:text-base xl:text-lg py-3 mb-5">
+                                  Already have an account? 
+                                  <a :href="route('login')" class="inline-flex items-center px-2 py-2 border border-transparent text-base font-medium rounded-md text-white" >
+                                    Log in here!
+                                  </a>
+                                </p>  
+                            </div>
+                            </div>
                         </div>
                         </div>
                     </div>
+                  </div>
+                  <div class="mt-16 -mb-16 sm:-mb-48 lg:m-0 lg:relative flex">
+                    <div class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0 self-end">
+                        <!-- Add image -->
+                        <img class="mt-20 shadow-lg" src="/images/kids_dashboard.png"/>
                     </div>
-                </div>
-                </div>
-                <div class="mt-12 -mb-16 sm:-mb-48 lg:m-0 lg:relative">
-                <div class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0">
-                    <!-- Add image -->
-                </div>
-                </div>
-            </div>
-            </div>
-        </div>
+                  </div>
+              </div>
+              </div>
+          </div>
 
-      <!-- Testimonial section -->
-     <!-- <div class="pb-16 bg-gradient-to-r from-teal-500 to-cyan-600 lg:pb-0 lg:z-10 lg:relative">
-        <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-3 lg:gap-8">
-          <div class="relative lg:-my-8">
-            <div aria-hidden="true" class="absolute inset-x-0 top-0 h-1/2 bg-white lg:hidden"></div>
-            <div class="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:p-0 lg:h-full">
-              <div class="aspect-w-10 aspect-h-6 rounded-xl shadow-xl overflow-hidden sm:aspect-w-16 sm:aspect-h-7 lg:aspect-none lg:h-full">
-                <img class="object-cover lg:h-full lg:w-full" src="https://images.unsplash.com/photo-1520333789090-1afc82db536a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80" alt="">
+           <!-- Feature section with screenshot -->
+          <div class="relative bg-gray-50 pt-16 sm:pt-24 lg:pt-32">
+            <div class="mx-auto max-w-md px-4 text-center sm:px-6 sm:max-w-3xl lg:px-8 lg:max-w-7xl">
+              <div>
+                <h2 class="text-base font-semibold tracking-wider text-cyan-600 uppercase">Centralised</h2>
+                <p class="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
+                  Assist your child's mental health needs.
+                </p>
+                <p class="mt-5 max-w-prose mx-auto text-xl text-gray-500">
+                  With capability to book comprehensive consultations while accessing a leading community forum for parents in the same boat. 
+                </p>
+              </div>
+              <div class="mt-12 -mb-10 sm:-mb-24 lg:-mb-80">
+                <!-- <img class="rounded-lg shadow-xl ring-1 ring-black ring-opacity-5" src="https://tailwindui.com/img/component-images/green-project-app-screenshot.jpg" alt=""> -->
+                <img class="rounded-lg shadow-xl ring-1 ring-black ring-opacity-5" src="/images/parents_dashboard.png" alt="">
+
               </div>
             </div>
           </div>
-          <div class="mt-12 lg:m-0 lg:col-span-2 lg:pl-8">
-            <div class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:px-0 lg:py-20 lg:max-w-none">
-              <blockquote>
-                <div>
-                  <svg class="h-12 w-12 text-white opacity-25" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
-                    <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
-                  </svg>
-                  <p class="mt-6 text-2xl font-medium text-white">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed urna nulla vitae laoreet augue. Amet feugiat est integer dolor auctor adipiscing nunc urna, sit.
-                  </p>
+
+
+
+       
+    <!-- Gradient Feature Section -->
+          <div class="bg-gradient-to-r from-parent-700 to-parent-500 relative bg-gray-50 py-16 sm:py-24 lg:py-32">
+            <div class="max-w-4xl mx-auto px-4 py-16 sm:px-6 sm:pt-20 sm:pb-24 lg:max-w-7xl lg:pt-24 lg:px-8">
+              <h2 class="text-3xl font-extrabold text-white tracking-tight">
+                Built with people like you in mind.
+              </h2>
+              <p class="mt-4 max-w-3xl text-lg text-purple-200">
+                Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis. Blandit aliquam sit nisl euismod mattis in.
+              </p>
+              <div class="mt-12 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-16">
+
+
+
+                <div v-for="feature in features" :key="feature">
+                  <div>
+                    <span class="flex items-center justify-center h-12 w-12 rounded-md bg-white bg-opacity-10">
+                      <!-- Heroicon name: outline/inbox -->
+                      <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" stroke="none" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="feature.icon" />
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="mt-6">
+                    <h3 class="text-lg font-medium text-white">{{ feature.title }}</h3>
+                    <p class="mt-2 text-base text-purple-200">
+                      {{ feature.summary }}
+                    </p>
+                  </div>
                 </div>
-                <footer class="mt-6">
-                  <p class="text-base font-medium text-white">Judith Black</p>
-                  <p class="text-base font-medium text-cyan-100">CEO at PureInsights</p>
-                </footer>
-              </blockquote>
+
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+        <!-- Testimonial section -->
+      <!-- <div class="pb-16 bg-gradient-to-r from-teal-500 to-cyan-600 lg:pb-0 lg:z-10 lg:relative">
+          <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-3 lg:gap-8">
+            <div class="relative lg:-my-8">
+              <div aria-hidden="true" class="absolute inset-x-0 top-0 h-1/2 bg-white lg:hidden"></div>
+              <div class="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:p-0 lg:h-full">
+                <div class="aspect-w-10 aspect-h-6 rounded-xl shadow-xl overflow-hidden sm:aspect-w-16 sm:aspect-h-7 lg:aspect-none lg:h-full">
+                  <img class="object-cover lg:h-full lg:w-full" src="https://images.unsplash.com/photo-1520333789090-1afc82db536a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="mt-12 lg:m-0 lg:col-span-2 lg:pl-8">
+              <div class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:px-0 lg:py-20 lg:max-w-none">
+                <blockquote>
+                  <div>
+                    <svg class="h-12 w-12 text-white opacity-25" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+                      <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+                    </svg>
+                    <p class="mt-6 text-2xl font-medium text-white">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed urna nulla vitae laoreet augue. Amet feugiat est integer dolor auctor adipiscing nunc urna, sit.
+                    </p>
+                  </div>
+                  <footer class="mt-6">
+                    <p class="text-base font-medium text-white">Judith Black</p>
+                    <p class="text-base font-medium text-cyan-100">CEO at PureInsights</p>
+                  </footer>
+                </blockquote>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      -->
+        -->
 
-      <!-- Blog section -->
-      <div class="relative bg-gray-50 py-16 sm:py-24 lg:py-32">
-        <div class="relative">
-          <div class="text-center mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
-            <p class="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
-              What we can do
-            </p>
-            <p class="mt-5 mx-auto max-w-prose text-xl text-gray-500">
-              Kid, Parents, Therapist
-            </p>
-          </div>
-          <div class="mt-12 mx-auto max-w-md px-4 grid gap-8 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-3 lg:max-w-7xl">
+        <!-- Blog section -->
+        <div class="relative bg-gray-50 py-16 sm:py-24 lg:py-32">
+          <div class="relative">
+            <div class="text-center mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
+              <p class="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
+                What we can do
+              </p>
+              <p class="mt-5 mx-auto max-w-prose text-xl text-gray-500">
+                Kid, Parents, Therapist
+              </p>
+            </div>
+            <div class="mt-12 mx-auto max-w-md px-4 grid gap-8 sm:max-w-lg sm:px-6 lg:px-8 lg:grid-cols-3 lg:max-w-7xl">
+              <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+                <div class="flex-shrink-0">
+                  <img class="h-48 w-full object-cover" src="/images/login_background.jpg" alt="">
+                </div>
+                <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+                  <div class="flex-1">
+                    <a href="#" class="block mt-2">
+                      <p class="text-xl font-semibold text-gray-900">
+                        Quiz
+                      </p>
+                      <p class="mt-3 text-base text-gray-500">
+                        balalala
+                      </p>
+                    </a>
+                  </div>
+
+                </div>
+              </div>
+
             <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
-              <div class="flex-shrink-0">
-                <img class="h-48 w-full object-cover" src="/images/login_background.jpg" alt="">
-              </div>
-              <div class="flex-1 bg-white p-6 flex flex-col justify-between">
-                <div class="flex-1">
-                  <a href="#" class="block mt-2">
-                    <p class="text-xl font-semibold text-gray-900">
-                      Quiz
-                    </p>
-                    <p class="mt-3 text-base text-gray-500">
-                      balalala
-                    </p>
-                  </a>
+                <div class="flex-shrink-0">
+                  <img class="h-48 w-full object-cover" src="/images/login_background.jpg" alt="">
                 </div>
+                <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+                  <div class="flex-1">
+                    <a href="#" class="block mt-2">
+                      <p class="text-xl font-semibold text-gray-900">
+                        Feedback
+                      </p>
+                      <p class="mt-3 text-base text-gray-500">
+                        balalala
+                      </p>
+                    </a>
+                  </div>
 
-              </div>
-            </div>
-
-           <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
-              <div class="flex-shrink-0">
-                <img class="h-48 w-full object-cover" src="/images/login_background.jpg" alt="">
-              </div>
-              <div class="flex-1 bg-white p-6 flex flex-col justify-between">
-                <div class="flex-1">
-                  <a href="#" class="block mt-2">
-                    <p class="text-xl font-semibold text-gray-900">
-                      Feedback
-                    </p>
-                    <p class="mt-3 text-base text-gray-500">
-                      balalala
-                    </p>
-                  </a>
                 </div>
-
               </div>
-            </div>
 
-            <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
-              <div class="flex-shrink-0">
-                <img class="h-48 w-full object-cover" src="/images/login_background.jpg" alt="">
-              </div>
-              <div class="flex-1 bg-white p-6 flex flex-col justify-between">
-                <div class="flex-1">
-                  <a href="#" class="block mt-2">
-                    <p class="text-xl font-semibold text-gray-900">
-                      Game
-                    </p>
-                    <p class="mt-3 text-base text-gray-500">
-                      balalala
-                    </p>
-                  </a>
+              <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+                <div class="flex-shrink-0">
+                  <img class="h-48 w-full object-cover" src="/images/login_background.jpg" alt="">
                 </div>
+                <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+                  <div class="flex-1">
+                    <a href="#" class="block mt-2">
+                      <p class="text-xl font-semibold text-gray-900">
+                        Game
+                      </p>
+                      <p class="mt-3 text-base text-gray-500">
+                        balalala
+                      </p>
+                    </a>
+                  </div>
 
+                </div>
               </div>
-            </div>
 
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- CTA Section -->
-      <div class="relative bg-green-100">
-        <div class="relative h-56 bg-green-200 sm:h-72 md:absolute md:left-0 md:h-full md:w-1/2">
-          <img class="w-full h-full object-cover" src="/images/home_sample_1.png" alt="">
-          <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-r from-teal-500 to-cyan-600 mix-blend-multiply"></div>
-        </div>
-        <div class="relative mx-auto max-w-md px-4 py-12 sm:max-w-7xl sm:px-6 sm:py-20 md:py-28 lg:px-8 lg:py-32">
-          <div class="md:ml-auto md:w-1/2 md:pl-10">
-            <h2 class="text-base font-semibold uppercase tracking-wider text-gray-300">
-              
-            </h2>
-            <p class="mt-2 text-black text-3xl font-extrabold tracking-tight sm:text-4xl">
-              Want to help
-            </p>
-            <p class="mt-3 text-lg text-gray-800">
-              Are you interested in providing a mental health service?
-            </p>
-            <div class="mt-8">
-              <div class="inline-flex rounded-md shadow">
-                <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-50">
-                  Join us
-                </a>
+        <!-- CTA Section -->
+        <div class="relative bg-green-100">
+          <div class="relative h-56 bg-green-200 sm:h-72 md:absolute md:left-0 md:h-full md:w-1/2">
+            <img class="w-full h-full object-cover" src="/images/home_sample_1.png" alt="">
+            <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-r from-teal-500 to-cyan-600 mix-blend-multiply"></div>
+          </div>
+          <div class="relative mx-auto max-w-md px-4 py-12 sm:max-w-7xl sm:px-6 sm:py-20 md:py-28 lg:px-8 lg:py-32">
+            <div class="md:ml-auto md:w-1/2 md:pl-10">
+              <h2 class="text-base font-semibold uppercase tracking-wider text-gray-300">
+                
+              </h2>
+              <p class="mt-2 text-black text-3xl font-extrabold tracking-tight sm:text-4xl">
+                Want to help
+              </p>
+              <p class="mt-3 text-lg text-gray-800">
+                Are you interested in providing a mental health service?
+              </p>
+              <div class="mt-8">
+                <div class="inline-flex rounded-md shadow">
+                  <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-50">
+                    Join us
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </main>
-    
+      </main>
+      
+    </div>
   </div>
-</div>
-
+  </layout>
 </template>
 
 <script>
 import { Link } from '@inertiajs/inertia-vue3'
-
+import Layout from "@/Layouts/PublicAppLayout"
 export default {
   components: {
-    Link
+    Link,
+    Layout
+  },
+  data: () => {
+    return {
+      features: [
+        {
+          'icon': "M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z",
+          'title': 'Book consulations',
+          'summary': 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.'
+        },
+        {
+          'icon': "M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z",
+          'title': 'Community forum',
+          'summary': 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.'
+        },
+        {
+          'icon': "M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z",
+          'title': 'Indepth Resouces',
+          'summary': 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.'
+        },
+        {
+          'icon': "M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z",
+          'title': 'Covert Kids Mode',
+          'summary': 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.'
+        },
+        {
+          'icon': "M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z",
+          'title': 'Pre-consult questionnaire',
+          'summary': 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.'
+        },
+        {
+          'icon': "M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z",
+          'title': 'Post-consult checkup',
+          'summary': 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.'
+        },
+        {
+          'icon': "M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z",
+          'title': 'Keep track of your kid',
+          'summary': 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.'
+        }
+        ,{
+          'icon': "M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4",
+          'title': 'Effective',
+          'summary': 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.'
+        }
+      ]
+    }
   }
 }
 </script>

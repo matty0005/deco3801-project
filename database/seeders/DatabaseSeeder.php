@@ -25,7 +25,11 @@ class DatabaseSeeder extends Seeder
             DoctorSeeder::class, 
             DoctorRatingsSeeder::class, 
             DoctorAvailabilitiesSeeder::class, 
-            KidsActivitiesSeeder::class
+            KidsActivitiesSeeder::class,
+            ThreadsSeeder::class,
+            ThreadLikesSeeder::class,
+            ThreadMessagesSeeder::class,
+            ResourceSeeder::class,
         ]);
     }
 }
