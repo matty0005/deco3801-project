@@ -24,6 +24,7 @@ class ForumDashboardController extends Controller
         return Inertia::render('Forum/Dashboard', [
             'threads' => $this->getThreads(array(
                 'topic_on_dashboard' => true,
+                'thread_approved' => true
             )),
             'topics' => $this->getTopics(),
             'searched' => $this->getSearched(array(
@@ -47,7 +48,8 @@ class ForumDashboardController extends Controller
         $thread->anonymous = $request->anonymous;
         $thread->save();
 
-        return redirect()->back();
+        return Inertia::location('/forum/topic/' . $thread->thread_topic_title . '/' . $thread->id);
+
     }
 
     public function addThreadMessage(Request $request) {

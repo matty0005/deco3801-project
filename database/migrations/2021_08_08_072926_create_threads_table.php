@@ -21,6 +21,7 @@ class CreateThreadsTable extends Migration
             $table->mediumText('comment');
             $table->boolean('anonymous');
             $table->boolean('doctors_only');
+            $table->boolean('approved')->default(0);
             $table->timestamps();
         });
     }

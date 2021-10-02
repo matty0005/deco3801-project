@@ -61,7 +61,7 @@ class BookConsultationController extends Controller
                 'time' => $data['consultation'],
             ]); 
 
-        return redirect()->route('evaluate/parent', ['id' => 1]);;
+        return redirect()->route('evaluate/parent', ['id' => 1]);
 
         
     }
