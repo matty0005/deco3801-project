@@ -2,7 +2,8 @@
 <template>
     
     <Layout class="bg-gradient-to-b from-parent-300 to-blueGray min-h-screen">
-        <div class="container max-w-4xl mx-auto mt-20">
+        <div class="container  mx-auto mt-12">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
             <div class="bg-white overflow-hidden shadow rounded-lg">
 
                 <section aria-labelledby="profile-overview-title">
@@ -25,7 +26,7 @@
             </div>
         </div>
 
-        <div class="container max-w-4xl mx-auto mt-4 mb-4"> 
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 my-4"> 
             
             <div class="bg-white overflow-hidden shadow rounded-lg">
                 <div class="grid grid-flow-col space-around ">
@@ -107,9 +108,9 @@
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div>
 
-                                            <a :href="`/consultation/book/${doctor.user_id}`" class="w-full flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                                            <Link :href="`/consultation/book/${doctor.user_id}`" class="w-full flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
                                                 Book Doctor!
-                                            </a>
+                                            </Link>
                                         
                                         </div>
                                     </td>
@@ -120,6 +121,7 @@
                 </div>
             </div>
         </div>
+        </div>
     </Layout>
 </template>
 
@@ -128,6 +130,7 @@
     import Layout from '@/Layouts/AppLayout'
     import Button from '@/Components/Button.vue'
     import StackedConsultations from "@/Components/Parents/StackedConsultations"
+    import { Link } from '@inertiajs/inertia-vue3'
 
     export default {
         data: () => {
@@ -139,7 +142,8 @@
         },
         components: {
             Layout,
-            StackedConsultations
+            StackedConsultations,
+            Link
             },
         
         props: {
