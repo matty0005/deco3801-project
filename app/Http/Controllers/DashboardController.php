@@ -49,9 +49,11 @@ class DashboardController extends Controller
 
             $number_of_questions = DB::table('kids_activities')->count();
 
+            $question = rand(1, $number_of_questions);
+
             $questions = DB::table('kids_activities')
                 ->select('level_name', 'data')
-                ->where('id', rand(1, $number_of_questions))
+                ->where('id', $question)
                 ->first();
             
             $questions->data = json_decode(str_replace("{user_name}", $kid_info->display_name, $questions->data));
