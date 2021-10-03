@@ -27721,13 +27721,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         options: _ctx.questionsToAsk
       }, null, 8
       /* PROPS */
-      , ["onSelected", "modelValue", "options"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SpeechBubble, {
+      , ["onSelected", "modelValue", "options"]), _ctx.textInSpeechBubble != '' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_SpeechBubble, {
+        key: 0,
         side: "right",
         "class": "absolute bottom-3/4 left-1/6",
         text: _ctx.textInSpeechBubble
       }, null, 8
       /* PROPS */
-      , ["text"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Mascot, {
+      , ["text"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Mascot, {
         emotion: "excited",
         "class": "absolute bottom-1/4 left-1/6"
       })])];

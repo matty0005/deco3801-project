@@ -48,7 +48,7 @@
       </div>
       <Select @selected="nextStage" v-model="selectNumber" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 w-72 mx-auto "  :options="questionsToAsk"/>
 
-      <SpeechBubble side="right" class="absolute bottom-3/4 left-1/6" :text="textInSpeechBubble" />
+      <SpeechBubble v-if="textInSpeechBubble != ''" side="right" class="absolute bottom-3/4 left-1/6" :text="textInSpeechBubble" />
       <Mascot emotion="excited" class="absolute bottom-1/4 left-1/6"/>
      
     </div>
