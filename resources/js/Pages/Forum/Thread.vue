@@ -4,7 +4,8 @@
         >
         <div class="px-4 py-5 sm:p-6">
             <div class="m-3">
-
+                
+                <InlineAlert class="mb-4 -mt-8" v-if="thread.approved == 0" title="Awaiting Approval" body="To uphold the community standards of this forum, this post will be first moderated before becoming visible to the broader community"/>
 
                 <div class="font-bold text-gray-700 text-xl mb-2 flex flex-row"> 
                     <p> {{thread.title}} </p>
@@ -43,11 +44,13 @@
 <script>
 
 import LikeBar from './LikeBar.vue'
+import InlineAlert from "@/Shared/InlineAlert"
 
 export default {
 
     components: {
         LikeBar,
+        InlineAlert
     },
 
     props: {

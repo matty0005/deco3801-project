@@ -1,8 +1,7 @@
-
 <template>
-    
     <Layout class="bg-gradient-to-b from-parent-300 to-blueGray min-h-screen">
-        <div class="container max-w-3xl mx-auto mt-20">
+        <div class="container  mx-auto mt-12">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
             <div class="bg-white overflow-hidden shadow rounded-lg">
 
                 <section aria-labelledby="profile-overview-title">
@@ -25,7 +24,7 @@
             </div>
         </div>
 
-        <div class="container max-w-3xl mx-auto mt-4 mb-4"> 
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 my-4"> 
             <div class="bg-white overflow-hidden shadow rounded-lg mb-4">
                 <div class="">
                     <div class="px-4 py-5 sm:p-6 sm:pb-4 text-xl font-bold text-gray-700">
@@ -47,9 +46,9 @@
                             Need some advice on your child? 
                         </div>
                         <div class="">
-                            <a href="consultation/book" class="inline-flex items-center shadow-sm px-5 py-3 border border-gray-300 leading-5 rounded-full text-gray-700 bg-parent-100 hover:bg-parent-300">
+                            <Link href="/consultation/book" class="inline-flex items-center shadow-sm px-5 py-3 border border-gray-300 leading-5 rounded-full text-gray-700 bg-parent-100 hover:bg-parent-300">
                                 Book a Consultation!
-                            </a>
+                            </Link>
                         </div>
                         
                     </div>
@@ -57,6 +56,7 @@
                 </div>
 
             </div>
+        </div>
         </div>
     </Layout>
 </template>
@@ -66,12 +66,14 @@
     import Layout from '@/Layouts/AppLayout'
     import Button from '@/Components/Button.vue'
     import StackedConsultations from "@/Components/Parents/StackedConsultations"
+    import { Link } from '@inertiajs/inertia-vue3'
 
     export default {
         
         components: {
             Layout,
-            StackedConsultations
+            StackedConsultations,
+            Link
             },
         props: {
             doctors: Array,
