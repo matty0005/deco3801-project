@@ -7,9 +7,10 @@
                     <div class="mt-1">
                         <textarea type="text" v-model="msg" name="message" id="message" 
                             class="shadow-sm h-36 focus:ring-parent-500 focus:border-parent-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="message"
-                            :class="(errors.message ? ' border-red-400 ':'')"
+                            :class="((errors.message || foul_language) ? ' border-red-400 ':'')"
                         ></textarea>
                         <div v-show="errors.message" class="text-xs text-red-400"> Valid Message Required </div>
+                        <div v-show="foul_language" class="text-xs text-red-400"> Foul Language Detected </div>
                     </div>
                 </div>
 
@@ -68,23 +69,36 @@ export default {
     data() {
         return {
             msg: '',
+            foul_language: false,
         }
     },
 
     methods: {
 
         sendMsg() {
-            this.$inertia.post('/forum/addthreadmessage', {
-                thread_id: this.thread.id,
-                message: this.msg,
-            }, {
-                preserveScroll: true,
-                onFinish: () => {
-                    if (!this.errors.message) {
-                        this.msg = '';
-                    }
-                },
-            })
+
+            var Filter = require('bad-words'),
+                filter = new Filter();
+
+            if (filter.clean(this.msg) === this.msg) {
+                
+                this.foul_language = false;
+
+                this.$inertia.post('/forum/addthreadmessage', {
+                    thread_id: this.thread.id,
+                    message: this.msg,
+                }, {
+                    preserveScroll: true,
+                    onFinish: () => {
+                        if (!this.errors.message) {
+                            this.msg = '';
+                        }
+                    },
+                })
+            } else {
+                this.foul_language = true;
+            }
+            
         },
 
         time(obj) {
