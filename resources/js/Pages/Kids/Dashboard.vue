@@ -1,10 +1,10 @@
 <template>
-  <layout class="bg-gray-100 min-h-screen">
-    <div class="container m-auto text-gray-800">
-      <div class="cloud w-5/6 h-3/4 mx-auto">
-        <div class="pt-36 pb-2">
-          <h1 class="text-center text-8xl">Seedlings</h1>
-          <h2 class="text-center text-5xl">for kids</h2>
+  <layout class="bg-gray-100 min-h-screen ">
+    <div class="relative m-auto text-gray-800 min-h-80v">
+      <div class="cloud w-128 h-64 mx-auto absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/4">
+        <div class="pt-28 pb-2 pr-12">
+          <h1 class="text-center text-6xl">Seedlings</h1>
+          <h2 class="text-center text-3xl">for kids</h2>
         </div>
       </div>
             <!-- <h1 class="text-center text-9xl">Seedlings</h1>
@@ -37,24 +37,20 @@
                 </Link>
             </div>
       </div> -->
-      <div class="flex flex-row-reverse mt-64 -mb-32">
-        <div class=" h-64 flex flex-row">
-          <Link href="/kids/activities">
-            <div class="flex flex-row">
-              <div class="arrowLeft my-6"></div>
-              <h3 class="py-2 my-6 w-64 mb-24 bg-white text-center text-4xl md:mb-6">Activities</h3>
-            </div>
-          </Link>
-          <div class="w-4 h-96 bg-gray-50 border-2 border-gray-300 rounded-t-xl"></div>
-          <Link href="/kids/draw" class="mt-16">
-            <div class="flex flex-row">
-              <h3 class="py-2 my-6 w-64 mb-24 bg-white text-center text-4xl md:mb-6">Draw</h3>
-              <div class="arrowRight my-6"></div>
-            </div>
+
+      <div class="flex flex-row-reverse absolute bottom-1/8 right-0 transform -translate-x-1/3">
+        <div class="flex flex-col">
+          <SpeechBubble class="mb-4" side="right" :text="iWannaDraw" />
+          <Link href="/kids/draw" class="mx-auto">
+            <img class="h-25v" src="/images/kids/easel.png"/> 
           </Link>
         </div>
       </div>
-      <Mascot />
+      <Select class="absolute top-1/2 left-1/2 transform -translate-x-1/2 w-72 mx-auto "  :options="questionsToAsk"/>
+
+      <SpeechBubble side="right" class="absolute bottom-3/4 left-1/6" :text="textInSpeechBubble" />
+      <Mascot emotion="excited" class="absolute bottom-1/4 left-1/6"/>
+     
     </div>
   </layout>
 </template>
@@ -64,17 +60,25 @@ import Layout from "@/Layouts/KidsAppLayout";
 import CallToActionCard from "@/Shared/CallToActionCard.vue";
 import { Link } from '@inertiajs/inertia-vue3';
 import Mascot from "@/Shared/Mascot"
+import SpeechBubble from "@/Shared/SpeechBubble"
+import Select from "@/Components/Kids/Select.vue"
 
 export default {
   components: {
     Layout,
     CallToActionCard,
     Link,
-    Mascot
+    Mascot,
+    SpeechBubble,
+    Select
   },
   data: () => {
     return {
       isHappy: true,
+      iWannaDraw: "I want to draw",
+      textInSpeechBubble: "Hey How are you today!",
+      questionsToAsk: [{title:'ok'}, {title:'yes'}],
+
     };
   },
   mounted() {
