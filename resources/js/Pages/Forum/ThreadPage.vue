@@ -80,7 +80,7 @@ export default {
             var Filter = require('bad-words'),
                 filter = new Filter();
 
-            if (filter.clean(this.msg) === this.msg) {
+            if (!filter.isProfane(this.msg)) {
                 
                 this.foul_language = false;
 

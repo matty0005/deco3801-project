@@ -21075,7 +21075,7 @@ __webpack_require__.r(__webpack_exports__);
       var Filter = __webpack_require__(/*! bad-words */ "./node_modules/bad-words/lib/badwords.js"),
           filter = new Filter();
 
-      if (filter.clean(this.msg) === this.msg) {
+      if (!filter.isProfane(this.msg)) {
         this.foul_language = false;
         this.$inertia.post('/forum/addthreadmessage', {
           thread_id: this.thread.id,
@@ -21224,28 +21224,47 @@ __webpack_require__.r(__webpack_exports__);
       title: '',
       comment: '',
       doctors_only: false,
-      anonymous: false
+      anonymous: false,
+      foul_title: false,
+      foul_comment: false
     };
   },
   methods: {
     addThread: function addThread() {
       var _this = this;
 
-      this.$inertia.post('/forum/newthread', {
-        title: this.title,
-        comment: this.comment,
-        thread_topic_title: this.thread_topic_title,
-        doctors_only: this.doctors_only,
-        anonymous: this.anonymous
-      }, {
-        preserveScroll: true,
-        onFinish: function onFinish() {
-          if (!_this.errors.title && !_this.errors.comment) {
-            _this.title = '';
-            _this.comment = '';
+      var Filter = __webpack_require__(/*! bad-words */ "./node_modules/bad-words/lib/badwords.js"),
+          filter = new Filter();
+
+      if (filter.isProfane(this.title)) {
+        this.foul_title = true;
+      } else {
+        this.foul_title = false;
+      }
+
+      if (filter.isProfane(this.comment)) {
+        this.foul_comment = true;
+      } else {
+        this.foul_comment = false;
+      }
+
+      if (!(this.foul_comment || this.foul_title)) {
+        this.$inertia.post('/forum/newthread', {
+          title: this.title,
+          comment: this.comment,
+          thread_topic_title: this.thread_topic_title,
+          doctors_only: this.doctors_only,
+          anonymous: this.anonymous
+        }, {
+          preserveScroll: true,
+          onFinish: function onFinish() {
+            if (!_this.errors.title && !_this.errors.comment) {
+              _this.title = '';
+              _this.comment = '';
+            }
           }
-        }
-      });
+        });
+      }
     }
   }
 });
@@ -27344,33 +27363,39 @@ var _hoisted_6 = {
   "class": "text-xs text-red-400"
 };
 var _hoisted_7 = {
+  "class": "text-xs text-red-400"
+};
+var _hoisted_8 = {
   "class": "my-4"
 };
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "comment",
   "class": "block text-sm font-medium text-gray-700"
 }, "Comment", -1
 /* HOISTED */
 );
 
-var _hoisted_9 = {
+var _hoisted_10 = {
   "class": "mt-1"
 };
-var _hoisted_10 = {
+var _hoisted_11 = {
   "class": "text-xs text-red-400"
 };
-var _hoisted_11 = {
-  "class": "flex flex-row my-4"
-};
 var _hoisted_12 = {
-  "class": "relative flex items-start"
+  "class": "text-xs text-red-400"
 };
 var _hoisted_13 = {
+  "class": "flex flex-row my-4"
+};
+var _hoisted_14 = {
+  "class": "relative flex items-start"
+};
+var _hoisted_15 = {
   "class": "flex items-center h-5"
 };
 
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "ml-3 text-sm"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "comments",
@@ -27383,14 +27408,14 @@ var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_15 = {
+var _hoisted_17 = {
   "class": "relative flex items-start ml-10"
 };
-var _hoisted_16 = {
+var _hoisted_18 = {
   "class": "flex items-center h-5"
 };
 
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "ml-3 text-sm"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "anonymous",
@@ -27403,7 +27428,7 @@ var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_18 = {
+var _hoisted_20 = {
   "class": "flex flex-row-reverse"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -27423,12 +27448,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.title = $event;
         }),
         placeholder: "title",
-        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["shadow-sm focus:ring-parent-500 focus:border-parent-500 block w-full sm:text-sm border-gray-300 rounded-md", $props.errors.title ? ' border-red-400 ' : ''])
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["shadow-sm focus:ring-parent-500 focus:border-parent-500 block w-full sm:text-sm border-gray-300 rounded-md", $props.errors.title || $data.foul_title ? ' border-red-400 ' : ''])
       }, null, 2
       /* CLASS */
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.title]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, " Valid Title Required ", 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $props.errors.title]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $props.errors.title]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, " Foul Language Detected ", 512
+      /* NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.foul_title]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
         type: "text",
         name: "comment",
         id: "comment",
@@ -27436,12 +27463,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $data.comment = $event;
         }),
         placeholder: "comment",
-        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["h-64 shadow-sm focus:ring-parent-500 focus:border-parent-500 block w-full sm:text-sm border-gray-300 rounded-md", $props.errors.comment ? ' border-red-400 ' : ''])
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["h-64 shadow-sm focus:ring-parent-500 focus:border-parent-500 block w-full sm:text-sm border-gray-300 rounded-md", $props.errors.comment || $data.foul_comment ? ' border-red-400 ' : ''])
       }, null, 2
       /* CLASS */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.comment]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, " Valid Comment Required ", 512
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.comment]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, " Valid Comment Required ", 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $props.errors.comment]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $props.errors.comment]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, " Foul Language Detected ", 512
+      /* NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.foul_comment]])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
           return $data.doctors_only = $event;
         }),
@@ -27451,7 +27480,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": "focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300 rounded"
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $data.doctors_only]])]), _hoisted_14]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $data.doctors_only]])]), _hoisted_16]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
           return $data.anonymous = $event;
         }),
@@ -27461,7 +27490,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": "focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300 rounded"
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $data.anonymous]])]), _hoisted_17])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $data.anonymous]])]), _hoisted_19])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
         "class": "bg-parent-200 text-parent-800 py-2 px-4 rounded-md my-4",
         onClick: _cache[4] || (_cache[4] = function () {
           return $options.addThread && $options.addThread.apply($options, arguments);
