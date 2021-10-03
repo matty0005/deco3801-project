@@ -40,7 +40,27 @@ class DashboardController extends Controller
         $kidsMode = Session::get('kidsMode');
 
         if ($kidsMode) {
-            return Inertia::render('Kids/Dashboard');
+
+            $kid_info = DB::table('kids')
+            ->select('activity_level', 'display_name')
+            ->where('user_id', Auth::user()->id)
+            ->join('user_settings', 'user_settings.id', 'kids.user_settings_id')
+            ->first();
+
+            $number_of_questions = DB::table('kids_activities')->count();
+
+            $question = rand(1, $number_of_questions);
+
+            $questions = DB::table('kids_activities')
+                ->select('level_name', 'data')
+                ->where('id', $question)
+                ->first();
+            
+            $questions->data = json_decode(str_replace("{user_name}", $kid_info->display_name, $questions->data));
+
+            return Inertia::render('Kids/Dashboard', [
+                'questions' => $questions->data,
+            ]);
         }
 
         $doctors = DB::table('doctors')
