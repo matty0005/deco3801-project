@@ -46,7 +46,7 @@
           </Link>
         </div>
       </div>
-      <Select class="absolute top-1/2 left-1/2 transform -translate-x-1/2 w-72 mx-auto "  :options="questionsToAsk"/>
+      <Select @selected="nextStage" v-model="selectNumber" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 w-72 mx-auto "  :options="questionsToAsk"/>
 
       <SpeechBubble side="right" class="absolute bottom-3/4 left-1/6" :text="textInSpeechBubble" />
       <Mascot emotion="excited" class="absolute bottom-1/4 left-1/6"/>
@@ -72,16 +72,21 @@ export default {
     SpeechBubble,
     Select
   },
+  props: {
+      questions: Array
+  },
   data: () => {
     return {
       isHappy: true,
       iWannaDraw: "I want to draw",
-      textInSpeechBubble: "Hey How are you today!",
-      questionsToAsk: [{title:'ok'}, {title:'yes'}],
-
+      textInSpeechBubble: "",
+      questionsToAsk: [],
+      index: 0,
+      selectNumber: null,
     };
   },
   mounted() {
+     this.getQuestionAtIndex();
     this.soundOn = this.$page.props.auth.user.kids_audio == 1;
     if (this.soundOn) {
       console.log("here we go again!");
@@ -94,7 +99,44 @@ export default {
       // Take to another page for activity
       // 
     },
+    getQuestionAtIndex() {
+        this.textInSpeechBubble = this.questions[this.index]['chatbox']
+        this.questionsToAsk = this.getSelectArray(this.questions[this.index]['answers'])
 
+        if (this.questions[this.index]['end']) {
+            this.ended();
+            return 
+        }
+    },
+    getSelectArray(bare){
+        var tmp = []
+
+        for (var i = 0; i < bare.length; i++) {
+            tmp.push({title: bare[i]})
+        }
+
+        return tmp
+    },
+    nextStage() {
+        this.index = this.index + this.questions[this.index].offset + this.selectNumber + 1
+        this.getQuestionAtIndex()
+        this.selectNumber = null
+    },
+    ended() {
+      var _this = this;
+      setTimeout(function() { 
+        _this.textInSpeechBubble = "";
+        setTimeout(function() {
+          _this.$inertia.reload({
+            only: ['questions'], 
+            onFinish: () => {
+                        _this.index = 0;
+                        _this.getQuestionAtIndex();
+                      },
+            });
+        }, 3000);
+      }, 5000);
+    },
   },
 };
 </script>

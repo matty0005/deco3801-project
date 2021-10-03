@@ -21399,19 +21399,21 @@ __webpack_require__.r(__webpack_exports__);
     SpeechBubble: _Shared_SpeechBubble__WEBPACK_IMPORTED_MODULE_4__["default"],
     Select: _Components_Kids_Select_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
+  props: {
+    questions: Array
+  },
   data: function data() {
     return {
       isHappy: true,
       iWannaDraw: "I want to draw",
-      textInSpeechBubble: "Hey How are you today!",
-      questionsToAsk: [{
-        title: 'ok'
-      }, {
-        title: 'yes'
-      }]
+      textInSpeechBubble: "",
+      questionsToAsk: [],
+      index: 0,
+      selectNumber: null
     };
   },
   mounted: function mounted() {
+    this.getQuestionAtIndex();
     this.soundOn = this.$page.props.auth.user.kids_audio == 1;
 
     if (this.soundOn) {
@@ -21424,6 +21426,48 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     startActivity: function startActivity() {// Take to another page for activity
       // 
+    },
+    getQuestionAtIndex: function getQuestionAtIndex() {
+      this.textInSpeechBubble = this.questions[this.index]['chatbox'];
+      this.questionsToAsk = this.getSelectArray(this.questions[this.index]['answers']);
+
+      if (this.questions[this.index]['end']) {
+        this.ended();
+        return;
+      }
+    },
+    getSelectArray: function getSelectArray(bare) {
+      var tmp = [];
+
+      for (var i = 0; i < bare.length; i++) {
+        tmp.push({
+          title: bare[i]
+        });
+      }
+
+      return tmp;
+    },
+    nextStage: function nextStage() {
+      this.index = this.index + this.questions[this.index].offset + this.selectNumber + 1;
+      this.getQuestionAtIndex();
+      this.selectNumber = null;
+    },
+    ended: function ended() {
+      var _this = this;
+
+      setTimeout(function () {
+        _this.textInSpeechBubble = "";
+        setTimeout(function () {
+          _this.$inertia.reload({
+            only: ['questions'],
+            onFinish: function onFinish() {
+              _this.index = 0;
+
+              _this.getQuestionAtIndex();
+            }
+          });
+        }, 3000);
+      }, 5000);
     }
   }
 });
@@ -24380,12 +24424,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.options, function (option, index) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       key: option.title
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Note: I added && false because clicking for activities automatically selects answer :) "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
       type: "button",
       onClick: function onClick($event) {
         return $options.selected(option.title, index);
       },
-      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.optionsSelected.includes(option.title) ? 'bg-lime-300 hover:bg-lime-400' : 'hover:bg-gray-50 ', "my-2 w-72 h-16 inline-flex items-center px-4 py-2 border-4 border-gray-300 shadow-sm text-base font-medium rounded-full text-gray-700 bg-white focus:outline-none focus:ring-none"])
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)([_ctx.optionsSelected.includes(option.title) && false ? 'bg-lime-300 hover:bg-lime-400' : 'hover:bg-gray-50 ', "my-2 w-72 h-16 inline-flex items-center px-4 py-2 border-4 border-gray-300 shadow-sm text-base font-medium rounded-full text-gray-700 bg-white focus:outline-none focus:ring-none"])
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(option.title), 1
     /* TEXT */
     )], 10
@@ -27668,11 +27712,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         /* STABLE */
 
       })])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Select, {
+        onSelected: $options.nextStage,
+        modelValue: _ctx.selectNumber,
+        "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+          return _ctx.selectNumber = $event;
+        }),
         "class": "absolute top-1/2 left-1/2 transform -translate-x-1/2 w-72 mx-auto",
         options: _ctx.questionsToAsk
       }, null, 8
       /* PROPS */
-      , ["options"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SpeechBubble, {
+      , ["onSelected", "modelValue", "options"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SpeechBubble, {
         side: "right",
         "class": "absolute bottom-3/4 left-1/6",
         text: _ctx.textInSpeechBubble
