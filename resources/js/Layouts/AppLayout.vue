@@ -1,5 +1,5 @@
 <template>
-  <div>
+<div class="min-h-screen flex flex-col">
     <nav class="bg-white shadow ">
     <div class="container mx-auto ">
       <div class="flex justify-between h-16">
@@ -95,11 +95,11 @@
       </div>
     </div>
   </nav>
-    <main class="h-main mx-2">
+    <main class="mx-2 flex-grow">
         <slot />
     </main>
     <Footer />
-  </div>
+</div>
 </template>
 
 <script>

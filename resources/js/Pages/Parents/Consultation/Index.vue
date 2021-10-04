@@ -1,6 +1,6 @@
 <template>
     <Layout class="bg-gradient-to-b from-parent-300 to-blueGray">
-        <div class="container mx-auto min-h-screen">
+        <div class="container mx-auto">
             <div class="max-w-3xl mx-auto mt-12 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
                 <!-- Card -->
                 <div class="bg-white overflow-hidden shadow rounded-lg">
