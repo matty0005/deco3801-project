@@ -1,6 +1,6 @@
 <template>
 <div>
-    <Layout class="bg-blueGray-100 min-h-screen pb-8" >
+    <Layout class="bg-blueGray-100 min-h-screen" >
         <div class="space-y-6 sm:px-6 lg:px-0 lg:col-span-9">
             
                 <div class="shadow sm:rounded-md sm:overflow-hidden">

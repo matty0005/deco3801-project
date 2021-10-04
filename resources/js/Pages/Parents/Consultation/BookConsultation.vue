@@ -1,5 +1,5 @@
 <template>
-    <Layout class="bg-gradient-to-b from-parent-300 to-blueGray min-h-screen">
+    <Layout class="bg-gradient-to-b from-parent-300 to-blueGray">
         <div class="container mx-auto mt-12">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
             <div class="bg-white overflow-hidden shadow rounded-lg">
@@ -53,9 +53,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
         </div>
         </div>
