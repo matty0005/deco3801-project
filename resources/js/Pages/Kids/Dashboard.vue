@@ -7,36 +7,6 @@
           <h2 class="text-center text-3xl">for kids</h2>
         </div>
       </div>
-            <!-- <h1 class="text-center text-9xl">Seedlings</h1>
-            <h2 class="text-center text-5xl">for kids</h2> -->
-        <!-- <div class="flex flex-col items-center md:flex-row">
-            <div class="mx-auto">
-                <Link href="/kids/activities">
-                    <div class="bg-white rounded-full h-64 w-64 mx-auto">
-                    <img
-                        class="h-48 w-48 mx-auto pt-4"
-                        src="/images/kids/name_icon.png"
-                    />
-                    </div>
-                </Link>
-                <Link href="/kids/activities">
-                  <h3 class="py-2 my-6 w-64 mb-24 bg-white bg-opacity-90 ring-3 ring-gray-300 border rounded-full text-center text-4xl md:mb-6">Activities</h3>
-                </Link>
-            </div>
-            <div>
-                <Link href="/kids/draw">
-                    <div class="bg-white rounded-full h-64 w-64 mx-auto">
-                    <img
-                        class="h-48 w-48 mx-auto pt-4"
-                        src="/images/kids/name_icon.png"
-                    />
-                    </div>
-                </Link>
-                <Link href="/kids/draw">
-                  <h3 class="py-2 my-6 w-64 mb-24 bg-white ring-3 ring-gray-300 border rounded-full text-center text-4xl md:mb-6">Draw</h3>
-                </Link>
-            </div>
-      </div> -->
 
       <div class="flex flex-row-reverse absolute bottom-1/8 right-0 transform -translate-x-1/3">
         <div class="flex flex-col">
@@ -49,7 +19,7 @@
       <Select @selected="nextStage" v-model="selectNumber" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 w-72 mx-auto "  :options="questionsToAsk"/>
 
       <SpeechBubble v-if="textInSpeechBubble != ''" side="right" class="absolute bottom-3/4 left-1/6" :text="textInSpeechBubble" />
-      <Mascot emotion="excited" class="absolute bottom-1/4 left-1/6"/>
+      <Mascot emotion="excited" class="absolute bottom-1/4 left-1/6" />
      
     </div>
   </layout>
