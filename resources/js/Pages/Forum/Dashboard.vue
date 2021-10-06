@@ -1,9 +1,8 @@
 <template>
-    <Layout class="bg-gradient-to-b from-parent-300 to-blueGray min-h-screen">
+    <Layout class="bg-gradient-to-b from-parent-300 to-blueGray">
         <div v-if="topics" class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class=" ">
-
                     <div class="mb-4 flex flex-col relative">
                         <input v-model="searchText" class="shadow rounded-md py-2 w-full lg:w-1/2 mx-0 lg:mx-auto px-2 mb-2 outline-none focus:ring-2 mt-1 focus:ring-parent-600" :placeholder="searchPlaceholder" />
 
