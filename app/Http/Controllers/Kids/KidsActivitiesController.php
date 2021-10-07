@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Kids;
 
+use App\Models\Kids;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -38,5 +39,21 @@ class KidsActivitiesController extends Controller
         ]);
 
         
+    }
+
+    public function add() {
+        $kid_info = DB::table('kids')
+            ->select('kids.id', 'kids.question_count')
+            ->where('user_id', Auth::user()->id)
+            ->join('user_settings', 'user_settings.id', 'kids.user_settings_id')
+            ->first();
+
+        $kid = Kids::where('id', $kid_info->id)->first();
+
+        $kid->question_count = $kid->question_count + 1;
+
+        $kid->save();
+
+        return redirect()->back();
     }
 }

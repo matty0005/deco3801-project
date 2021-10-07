@@ -19,6 +19,7 @@ class CreateKidsTable extends Migration
             $table->integer('theme')->default(2);
             $table->date('dob')->nullable();
             $table->integer('activity_level')->default(1);
+            $table->integer('question_count')->default(0);
 
             $table->timestamps();
 

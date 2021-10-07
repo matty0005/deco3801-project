@@ -1,6 +1,12 @@
 <template>
   <layout class="bg-gray-100 min-h-screen ">
     <div class="relative m-auto text-gray-800 min-h-80v">
+
+      <div class="absolute top-0 left-0"> 
+        <p>Seed Points: {{question_count}}</p>
+        <p>Gain more points for new friends and clothes!</p>
+      </div>
+
       <div class="cloud w-128 h-64 mx-auto absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/4">
         <div class="pt-28 pb-2 pr-12">
           <h1 class="text-center text-6xl">Seedlings</h1>
@@ -16,7 +22,7 @@
           </Link>
         </div>
       </div>
-      <Select @selected="nextStage" v-model="selectNumber" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 w-72 mx-auto "  :options="questionsToAsk"/>
+      <Select @selected="clickedAnswer" v-model="selectNumber" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 w-72 mx-auto "  :options="questionsToAsk"/>
 
       <SpeechBubble v-if="textInSpeechBubble != ''" side="right" class="absolute bottom-3/4 left-1/6" :text="textInSpeechBubble" />
       <Mascot emotion="excited" class="absolute bottom-1/4 left-1/6" />
@@ -44,7 +50,8 @@ export default {
     Select
   },
   props: {
-      questions: Array
+      questions: Array,
+      question_count: Number,
   },
   data: () => {
     return {
@@ -112,6 +119,18 @@ export default {
         this.index = this.index + this.questions[this.index].offset + this.selectNumber + 1
         this.getQuestionAtIndex()
         this.selectNumber = null
+    },
+    clickedAnswer() {
+
+      this.$inertia.post('/kids/activities/count', {}, {
+        onFinish: () => {
+          this.$inertia.reload({
+            only: ['question_count']
+          })
+        }
+      })
+
+      this.nextStage()
     },
     ended() {
       var _this = this;
