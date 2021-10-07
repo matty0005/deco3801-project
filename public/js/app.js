@@ -21321,6 +21321,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_Mascot__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Shared/Mascot */ "./resources/js/Shared/Mascot.vue");
 /* harmony import */ var _Shared_SpeechBubble__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Shared/SpeechBubble */ "./resources/js/Shared/SpeechBubble.vue");
 /* harmony import */ var _Components_Kids_Select_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Components/Kids/Select.vue */ "./resources/js/Components/Kids/Select.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_6__);
+
 
 
 
@@ -21350,15 +21353,17 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    this.getQuestionAtIndex();
     this.soundOn = this.$page.props.auth.user.kids_audio == 1;
-
-    if (this.soundOn) {
-      console.log("here we go again!");
-      var audio = new Audio('/audio/welcome_to_kids_mode.mp3'); // path to file
-
-      audio.play();
-    }
+    this.getQuestionAtIndex(); // if (this.soundOn) {
+    //   axios.post('/text/to/speech', {
+    //     text: "Hi welcome to kids mode"
+    //   }).then(response => {
+    //     console.log(response)
+    //     console.log(response.data.path)
+    //     var audio = new Audio(response.data.path); // path to file
+    //     audio.play();
+    //   })
+    // }
   },
   methods: {
     startActivity: function startActivity() {// Take to another page for activity
@@ -21367,6 +21372,18 @@ __webpack_require__.r(__webpack_exports__);
     getQuestionAtIndex: function getQuestionAtIndex() {
       this.textInSpeechBubble = this.questions[this.index]['chatbox'];
       this.questionsToAsk = this.getSelectArray(this.questions[this.index]['answers']);
+
+      if (this.$page.props.auth.user.kids_audio == 1) {
+        axios__WEBPACK_IMPORTED_MODULE_6___default().post('/text/to/speech', {
+          text: this.textInSpeechBubble
+        }).then(function (response) {
+          console.log(response);
+          console.log(response.data.path);
+          var audio = new Audio(response.data.path); // path to file
+
+          audio.play();
+        });
+      }
 
       if (this.questions[this.index]['end']) {
         this.ended();

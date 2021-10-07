@@ -32,6 +32,7 @@ import { Link } from '@inertiajs/inertia-vue3';
 import Mascot from "@/Shared/Mascot"
 import SpeechBubble from "@/Shared/SpeechBubble"
 import Select from "@/Components/Kids/Select.vue"
+import axios from 'axios'
 
 export default {
   components: {
@@ -56,13 +57,22 @@ export default {
     };
   },
   mounted() {
-     this.getQuestionAtIndex();
     this.soundOn = this.$page.props.auth.user.kids_audio == 1;
-    if (this.soundOn) {
-      console.log("here we go again!");
-      var audio = new Audio('/audio/welcome_to_kids_mode.mp3'); // path to file
-      audio.play();
-    }
+
+    this.getQuestionAtIndex();
+    
+    
+
+    // if (this.soundOn) {
+    //   axios.post('/text/to/speech', {
+    //     text: "Hi welcome to kids mode"
+    //   }).then(response => {
+    //     console.log(response)
+    //     console.log(response.data.path)
+    //     var audio = new Audio(response.data.path); // path to file
+    //     audio.play();
+    //   })
+    // }
   },
   methods: {
     startActivity() {
@@ -72,6 +82,17 @@ export default {
     getQuestionAtIndex() {
         this.textInSpeechBubble = this.questions[this.index]['chatbox']
         this.questionsToAsk = this.getSelectArray(this.questions[this.index]['answers'])
+
+        if (this.$page.props.auth.user.kids_audio == 1) {
+          axios.post('/text/to/speech', {
+            text: this.textInSpeechBubble
+          }).then(response => {
+            console.log(response)
+            console.log(response.data.path)
+            var audio = new Audio(response.data.path); // path to file
+            audio.play();
+          })
+        }
 
         if (this.questions[this.index]['end']) {
             this.ended();
