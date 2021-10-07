@@ -64,7 +64,7 @@ class KidsProfileSettingsController extends Controller
             ->update([
                 'kids_audio' => $request->soundOn ? 0 : 1
             ]);
-        dd($request->soundOn);
+        // dd($request->soundOn);
         return response()->json("");
     }
 }
