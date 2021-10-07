@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TextToSpeechController;
 use App\Http\Controllers\UserSettingsController;
 use App\Http\Controllers\Account\BillingController;
 use App\Http\Controllers\Forums\ForumTopicController;
@@ -132,6 +133,7 @@ Route::post('/kids/draw/redraw', [KidsDrawingPageController:: class, 'update'])-
 //Route::post('/kids/profile', [KidsProfileSettingsController:: class, 'update'])->middleware(['auth', 'verified']);
 
 Route::post('/kids/audio', [KidsProfileSettingsController:: class, 'update'])->middleware(['auth', 'verified']);
+Route::post('/text/to/speech', [TextToSpeechController:: class, 'index'])->middleware(['auth', 'verified']);
 
 
 
