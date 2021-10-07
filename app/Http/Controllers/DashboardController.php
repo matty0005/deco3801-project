@@ -42,7 +42,7 @@ class DashboardController extends Controller
         if ($kidsMode) {
 
             $kid_info = DB::table('kids')
-            ->select('activity_level', 'display_name')
+            ->select('activity_level', 'display_name', 'question_count')
             ->where('user_id', Auth::user()->id)
             ->join('user_settings', 'user_settings.id', 'kids.user_settings_id')
             ->first();
@@ -60,6 +60,7 @@ class DashboardController extends Controller
 
             return Inertia::render('Kids/Dashboard', [
                 'questions' => $questions->data,
+                'question_count' => $kid_info->question_count,
             ]);
         }
 

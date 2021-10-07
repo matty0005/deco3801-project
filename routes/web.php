@@ -128,6 +128,8 @@ Route::get('/kids/activities', [KidsActivitiesController:: class, 'index'])->mid
 
 Route::post('/kids/draw', [KidsDrawingPageController:: class, 'store'])->middleware(['auth', 'verified']);
 Route::post('/kids/draw/redraw', [KidsDrawingPageController:: class, 'update'])->middleware(['auth', 'verified']);
+Route::post('/kids/activities/count', [KidsActivitiesController:: class, 'add'])->middleware(['auth', 'verified']);
+
 
 //Route::post('/kids/profile', [KidsProfileSettingsController:: class, 'update'])->middleware(['auth', 'verified']);
 
