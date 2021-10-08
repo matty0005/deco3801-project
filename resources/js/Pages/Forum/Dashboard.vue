@@ -3,24 +3,57 @@
         <div v-if="topics" class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class=" ">
-                    <div class="mb-4 flex flex-col relative">
-                        <input v-model="searchText" class="shadow rounded-md py-2 w-full lg:w-1/2 mx-0 lg:mx-auto px-2 mb-2 outline-none focus:ring-2 mt-1 focus:ring-parent-600" :placeholder="searchPlaceholder" />
-
-                        <div class="shadow-xl absolute z-50 top-12 left-1/2 transform  lg:w-1/2 -translate-x-1/2 w-full mx-auto  rounded-md rounded-t-none">
-                            <div class="mt-1" v-for="(thread, index) in searched" :key="index" :value="thread"> 
-                                <ThreadSearched :thread="thread" />
-                            </div>
-                        </div>
-                        
-                    </div>
+                    
 
                     <div class="bg-white overflow-visible shadow rounded-lg relative">
                         <div class="px-4 py-5 sm:p-6 flex flex-col">
-                             <div class="p-6 text-3xl" @click="goToDashboard">
-                                Community
+
+                            <div class="flex flex-row w-full">
+
+                                <div class="p-6 text-3xl">
+                                    <p v-if="topic">{{topic.title}}</p>
+                                    <p v-else>Community</p>
+                                </div>
+
+                                <div class="self-center ml-auto flex flex-col relative w-8/12">
+                                    <input v-model="searchText" class="shadow-xl border border-gray-100 rounded-md py-2 w-full mx-0 lg:mx-auto px-2 mb-2 outline-none focus:ring-2 mt-1 focus:ring-parent-600" :placeholder="searchPlaceholder" />
+
+                                    <div class="shadow absolute z-50 top-12 left-1/2 transform  -translate-x-1/2 w-full mx-auto  rounded-md rounded-t-none">
+                                        <div class="mt-1" v-for="(thread, index) in searched" :key="index" :value="thread"> 
+                                            <ThreadSearched :thread="thread" />
+                                        </div>
+                                    </div>
+                                    
+                                </div>
                             </div>
+
                             
-                            <div class="hidden lg:flex lg:flex-row lg:flex-wrap ">
+                            <slot>
+                                <div class="ml-5 mt-2 mb-4 text-sm text-gray-600">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                </div>
+
+                                <div class="w-full grid grid-cols-2">
+                                    <div v-for="(topic, index) in topics" :key="index"
+                                        @click="changeTopic(topic.title)"
+                                        class="p-4 hover:bg-parent-50 flex flex-row cursor-pointer border border-gray-300"
+                                        :class="(index % 2 == 0 ? ' border-l-0 ':' border-r-0 ').concat(
+                                        index == 0 || index == 1 ? ' border-t-2 ':'border-b-2 ')">
+                                        <div class="bg-parent-300 p-6 self-center"> </div>
+                                        <div class="self-center ml-10"> 
+                                            <div class="text-2xl"> 
+                                                {{topic.title}}
+                                            </div>
+                                            <div class="text-sm text-gray-600"> 
+                                                {{topic.short_desc}}
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </slot>
+                            
+                            <!-- <div class="hidden lg:flex lg:flex-row lg:flex-wrap ">
                                 <div v-for="(topic, index) in topics" :key="index" 
                                     @click="changeTopic(topic.title)" 
                                     class="mx-2 my-2 py-2 px-8 rounded-md" 
@@ -51,12 +84,10 @@
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                             
                         </div>
-
-                        <slot />
                     </div>
                    
                     <div class="mt-6" v-for="(thread, index) in threads" :key="index" :value="thread"> 
@@ -87,6 +118,7 @@
             threads: Array,
             topics: Array,
             searched: Array,
+            topic: Object,
         },
         
         data() {

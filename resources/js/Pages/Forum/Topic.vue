@@ -1,7 +1,21 @@
 <template>
-    <Dashboard :topics="topics" :threads="threads" :searched="searched"> 
-        <div class="bg-white overflow-hidden shadow rounded-lg">
-            <div class="px-4 py-5 sm:p-6">
+    <Dashboard :topic="topic" :topics="topics" :threads="threads" :searched="searched"> 
+
+        <div class="ml-5 mt-2 mb-4 text-sm text-gray-600 flex flex-row">
+            <p @click="goToDashboard" class="cursor-pointer hover:underline hover:text-gray-800"> Community </p>
+            <p>&nbsp;>>&nbsp;{{topic.title}} </p>
+        </div>
+
+        <div class="ml-5 flex flex-row text-gray-700">
+            <div class="w-9/12">
+                {{topic.desc}}
+            </div>
+
+            <div @click="modal = true" class="ml-auto shadow py-3 px-5 self-end rounded-xl bg-parent-300 hover:bg-parent-400"> New Post</div>
+        </div>
+
+        <ModalContainer @onConfirm="addThread" @onClose="modal = false" v-model="modal" :confirmText="'Make Post'">
+            <div class="px-4 py-5 sm:p-6 text-left">
                 <div>
                     <div class="my-2">
                         <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
@@ -47,11 +61,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-row-reverse">
-                    <button class="bg-parent-200 text-parent-800 py-2 px-4 rounded-md my-4" @click="addThread"> Add Thread </button>
-                </div>
             </div>
-        </div>
+        </ModalContainer>
     </Dashboard>
 </template>
 
@@ -59,12 +70,14 @@
 <script>
 import Dashboard from './Dashboard.vue'
 import Thread from './Thread.vue'
+import ModalContainer from '@/Shared/ModalContainer'
 
 export default {
 
     components: {  
         Dashboard,
         Thread,
+        ModalContainer
     },
 
     props: {
@@ -83,6 +96,19 @@ export default {
             anonymous: false,
             foul_title: false,
             foul_comment: false,
+            modal: false,
+        }
+    },
+
+    computed: {
+        topic() {
+            for (let topic of this.topics) {
+                if (topic.title === this.thread_topic_title) {
+                    return topic;
+                }
+            }
+
+            return null;
         }
     },
 
@@ -121,7 +147,10 @@ export default {
                     },
                 });
             }
-        }
+        },
+        goToDashboard() {
+            this.$inertia.visit(`/forum`)
+        },
     },
 }
 </script>

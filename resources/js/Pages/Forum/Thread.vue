@@ -4,6 +4,8 @@
         >
         <div class="px-4 py-5 sm:p-6">
             <div class="m-3">
+
+                <slot name="header" />
                 
                 <InlineAlert class="mb-4 -mt-8" v-if="thread.approved == 0" title="Awaiting Approval" body="To uphold the community standards of this forum, this post will be first moderated before becoming visible to the broader community"/>
 
