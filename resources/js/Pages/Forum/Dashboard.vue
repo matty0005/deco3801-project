@@ -36,8 +36,10 @@
                                 <div class="w-full grid grid-cols-2">
                                     <div v-for="(topic, index) in topics" :key="index"
                                         @click="changeTopic(topic.title)"
-                                        class="p-4 hover:bg-parent-50 flex flex-row cursor-pointer">
-                                        <div class="bg-parent-500 p-4 self-center"> </div>
+                                        class="p-4 hover:bg-parent-50 flex flex-row cursor-pointer border border-gray-300"
+                                        :class="(index % 2 == 0 ? ' border-l-0 ':' border-r-0 ').concat(
+                                        index == 0 || index == 1 ? ' border-t-2 ':'border-b-2 ')">
+                                        <div class="bg-parent-300 p-6 self-center"> </div>
                                         <div class="self-center ml-10"> 
                                             <div class="text-2xl"> 
                                                 {{topic.title}}
