@@ -8,7 +8,7 @@
 
         <div class="ml-5 flex flex-row text-gray-700">
             <div class="w-9/12">
-                {{topic.desc}}
+                {{topic.description}}
             </div>
 
             <div @click="modal = true" class="ml-auto shadow py-3 px-5 self-end rounded-xl bg-parent-300 hover:bg-parent-400"> New Post</div>

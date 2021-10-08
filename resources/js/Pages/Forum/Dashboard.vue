@@ -45,7 +45,7 @@
                                                 {{topic.title}}
                                             </div>
                                             <div class="text-sm text-gray-600"> 
-                                                {{topic.short_desc}}
+                                                {{topic.short_description}}
                                             </div>
                                         </div>
                                         
