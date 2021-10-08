@@ -5,9 +5,9 @@
             <template v-slot:header>
                 <div class="mt-2 mb-4 text-sm text-gray-600 flex flex-row">
                     <p @click="goToDashboard" class="cursor-pointer hover:underline hover:text-gray-800"> Community </p>
-                    <p>&nbsp;>>&nbsp;</p>
+                    <p>&nbsp;>&nbsp;</p>
                     <p @click="goToTopic" class="cursor-pointer hover:underline hover:text-gray-800">{{thread.thread_topic_title}}</p>
-                    <p>&nbsp;>>&nbsp;{{thread.id}}</p>
+                    <p>&nbsp;>&nbsp;{{thread.id}}</p>
                 </div>
             </template>
 
