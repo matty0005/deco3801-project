@@ -3,7 +3,7 @@
 
         <div class="ml-5 mt-2 mb-4 text-sm text-gray-600 flex flex-row">
             <p @click="goToDashboard" class="cursor-pointer hover:underline hover:text-gray-800"> Community </p>
-            <p>&nbsp;>>&nbsp;{{topic.title}} </p>
+            <p>&nbsp;>&nbsp;{{topic.title}} </p>
         </div>
 
         <div class="ml-5 flex flex-row text-gray-700">
