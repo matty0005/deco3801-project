@@ -8,7 +8,7 @@
 
         <div class="ml-5 flex flex-row text-gray-700">
             <div class="w-9/12">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lacus erat, efficitur et arcu sed, vestibulum eleifend dui. Morbi congue lectus et nunc accumsan, nec bibendum dui blandit. Suspendisse potenti. Vestibulum arcu nisi, semper eget tortor et, semper fermentum mi. Nunc in nulla suscipit, rutrum massa a, facilisis mi. Aenean quis ultricies purus, eu rutrum arcu. Vestibulum porttitor interdum lorem, nec convallis dui volutpat quis.
+                {{topic.desc}}
             </div>
 
             <div @click="modal = true" class="ml-auto shadow py-3 px-5 self-end rounded-xl bg-parent-300 hover:bg-parent-400"> New Post</div>

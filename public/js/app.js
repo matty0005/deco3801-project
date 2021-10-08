@@ -26943,13 +26943,9 @@ var _hoisted_18 = {
 var _hoisted_19 = {
   "class": "text-2xl"
 };
-
-var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_20 = {
   "class": "text-sm text-gray-600"
-}, " Lorem ipsum dolor sit amet. ", -1
-/* HOISTED */
-);
-
+};
 var _hoisted_21 = ["value"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_ThreadSearched = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ThreadSearched");
@@ -26996,7 +26992,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["p-4 hover:bg-parent-50 flex flex-row cursor-pointer border border-gray-300", (index % 2 == 0 ? ' border-l-0 ' : ' border-r-0 ').concat(index == 0 || index == 1 ? ' border-t-2 ' : 'border-b-2 ')])
           }, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(topic.title), 1
           /* TEXT */
-          ), _hoisted_20])], 10
+          ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(topic.short_desc), 1
+          /* TEXT */
+          )])], 10
           /* CLASS, PROPS */
           , _hoisted_16);
         }), 128
@@ -27469,13 +27467,9 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   "class": "ml-5 flex flex-row text-gray-700"
 };
-
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_3 = {
   "class": "w-9/12"
-}, " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lacus erat, efficitur et arcu sed, vestibulum eleifend dui. Morbi congue lectus et nunc accumsan, nec bibendum dui blandit. Suspendisse potenti. Vestibulum arcu nisi, semper eget tortor et, semper fermentum mi. Nunc in nulla suscipit, rutrum massa a, facilisis mi. Aenean quis ultricies purus, eu rutrum arcu. Vestibulum porttitor interdum lorem, nec convallis dui volutpat quis. ", -1
-/* HOISTED */
-);
-
+};
 var _hoisted_4 = {
   "class": "px-4 py-5 sm:p-6 text-left"
 };
@@ -27581,7 +27575,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": "cursor-pointer hover:underline hover:text-gray-800"
       }, " Community "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, " >> " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.topic.title), 1
       /* TEXT */
-      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.topic.desc), 1
+      /* TEXT */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         onClick: _cache[1] || (_cache[1] = function ($event) {
           return $data.modal = true;
         }),

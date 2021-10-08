@@ -45,7 +45,7 @@
                                                 {{topic.title}}
                                             </div>
                                             <div class="text-sm text-gray-600"> 
-                                                Lorem ipsum dolor sit amet.
+                                                {{topic.short_desc}}
                                             </div>
                                         </div>
                                         
