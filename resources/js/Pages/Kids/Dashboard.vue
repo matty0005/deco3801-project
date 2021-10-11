@@ -2,9 +2,9 @@
   <layout class="bg-gray-100 min-h-screen ">
     <div class="relative m-auto text-gray-800 min-h-80v">
 
-      <div class="absolute top-0 left-0"> 
-        <p>Seed Points: {{question_count}}</p>
-        <p>Gain more points for new friends and clothes!</p>
+      <div class="absolute flex flex-row -mt-24 top-0 left-0"> 
+        <img class="h-16" src = "/images/sunflower-icon.svg"/>
+        <p class="text-6xl">{{question_count}}</p>
       </div>
 
       <div class="cloud w-128 h-64 mx-auto absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/4">
