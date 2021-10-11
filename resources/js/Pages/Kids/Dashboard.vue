@@ -25,8 +25,16 @@
       <Select @selected="clickedAnswer" v-model="selectNumber" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 w-72 mx-auto "  :options="questionsToAsk"/>
 
       <SpeechBubble v-if="textInSpeechBubble != ''" side="right" class="absolute bottom-3/4 left-1/6" :text="textInSpeechBubble" />
-      <Mascot emotion="excited" class="absolute bottom-1/4 left-1/6" />
-     
+      <div class="flex flex-row absolute bottom-1/4 left-1/6">
+        <button v-on:click="currentMascot += 1">&#10094;</button>
+          <div>
+            <Mascot v-if="currentMascot % totalMascots == 0" emotion="excited"/>
+          </div>
+          <div>
+            <Mascot v-if="(question_count > 3) && (currentMascot % totalMascots == 1)" emotion="sad"/>
+          </div>
+          <button v-on:click="currentMascot += 1">&#10095;</button>
+        </div>
     </div>
   </layout>
 </template>
@@ -61,6 +69,8 @@ export default {
       questionsToAsk: [],
       index: 0,
       selectNumber: null,
+      currentMascot: 0,
+      totalMascots: 1,
     };
   },
   mounted() {
@@ -130,7 +140,15 @@ export default {
         }
       })
 
+      this.checkCount()
       this.nextStage()
+    },
+    checkCount() {
+      if (this.question_count > 3) {
+        this.totalMascots = 2
+      } else {
+        this.totalMascots = 1
+      }
     },
     ended() {
       var _this = this;
