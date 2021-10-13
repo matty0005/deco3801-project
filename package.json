@@ -29,7 +29,6 @@
     "dependencies": {
         "@inertiajs/inertia-vue3": "^0.4.7",
         "@tailwindcss/aspect-ratio": "^0.2.1",
-        "bad-words": "^3.0.4",
-        "metadata-scraper": "^0.2.43"
+        "bad-words": "^3.0.4"
     }
 }
