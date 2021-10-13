@@ -7,7 +7,7 @@
 
                 <slot name="header" />
                 
-                <InlineAlert class="mb-4 -mt-8" v-if="thread.approved == 0" title="Awaiting Approval" body="To uphold the community standards of this forum, this post will be first moderated before becoming visible to the broader community"/>
+                <InlineAlert class="mb-4" v-if="thread.approved == 0" title="Awaiting Approval" body="To uphold the community standards of this forum, this post will be first moderated before becoming visible to the broader community"/>
 
                 <div class="font-bold text-gray-700 text-xl mb-2 flex flex-row"> 
                     <p> {{thread.title}} </p>
