@@ -31,6 +31,7 @@ use App\Http\Controllers\Switchs\SwitchParentsModeController;
 use App\Http\Controllers\Resources\ResourceDashboardController;
 use App\Http\Controllers\Consultation\BookConsultationController;
 use App\Http\Controllers\Consultation\DoctorsConsultationController;
+use App\Http\Controllers\Consultation\IndividualConsultationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -111,7 +112,9 @@ Route::post('/evaluate/parent/{id}', [EvaluateParentController:: class, 'store']
 Route::get('/consultation', [ConsultationController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('consult_home');
 Route::get('/consultation/book', [DoctorsConsultationController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
 Route::get('/consultation/book/{doctor_id}', [BookConsultationController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('book_doctor');
+Route::get('/consultation/{consultation_id}', [IndividualConsultationController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('individual_consultation');
 Route::post('/consultation/create', [BookConsultationController::class, 'addConsultation']);
+Route::post('/consultation/delete', [IndividualConsultationController::class, 'deleteConsultation']);
 
 
 // Resources

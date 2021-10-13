@@ -16,7 +16,7 @@
                                         </div>
                                         <div class="mt-6 text-center sm:mt-6 sm:pt-1 sm:text-left">
                                             <p class="text-3xl font-bold text-gray-900 sm:text-3xl"> Hey {{ $page.props.auth.user.name }}!</p>
-                                            <p class="text-2xl text-gray-700 sm:text-2xl">You are booking a consult with Dr. {{doctor.name}}</p>
+                                            <p class="text-2xl text-gray-700 sm:text-2xl">This is your consultation page with Dr. {{doctor.name}}</p>
                                         </div>
                                     </div>
                                     </div>
@@ -37,19 +37,18 @@
                                 
                             </div>
                                 <div class="mt-3 ml-2">
-                                    <p class="text-xl text-gray-700 sm:text-xl mb-3">When would you like to book your consult with Dr. {{doctor.name}}? </p>
-                                    <div class="flex flex-direction-row content-center justify-start items-end">
+                                    <p class="mx-2 text-xl max-w-xl text-gray-700 sm:text-xl"> Dr. {{doctor.name}} is looking forward to see you! When it's close to your consult time please join this <a href="https://uqz.zoom.us/j/4671522626"> link! </a>  </p>
+                                    <div class="mt-3 flex flex-col">
                                         <div class="mx-2 flex flex-col">
-                                            <label id="listbox-label" class="block text-sm font-medium text-gray-700">
-                                                Date
-                                            </label>
-                                            <DatePickerText v-model="this.consultationDate" flex="true" class="mt-1" />
+                                            <p class="text-xl max-w-xl text-gray-700 sm:text-xl"> Would you like to change anything about this consult? </p>
                                         </div>
-                                        <Dropdown v-model="timeBooking" :options="timeOptions" label="Time" class="mx-2 w-36"/>
 
-                                        <button v-on:click="submitConsultation" type="submit" class="ml-5 h-10 bg-parent-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-parent-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-parent-600">
-                                            Save
-                                        </button>
+                                        <div class="mx-auto my-3"> 
+                                            <button v-on:click="deleteConsultation" type="submit" class="h-10 bg-parent-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-parent-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-parent-600">
+                                                Delete
+                                            </button>
+                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -175,6 +174,7 @@
         props: {
             doctor: Object,
             doctor_info: Object, 
+            consultation: Object,
         },
 
         data: () => {
@@ -192,22 +192,11 @@
         },
 
         methods: {
-            submitConsultation() {
-                var dateSplit = this.consultationDate.split(" ");
-                var month = this.month_names.indexOf(dateSplit[1]) + 1;
-                var tmpConsultationDate = `${dateSplit[3]}-${month}-${ dateSplit[2]} ${this.timeBooking}`
-                
-                console.log(tmpConsultationDate);
-                this.$inertia.post('/consultation/create', {
-                    doctor_id: this.doctor.id, 
-                    consultation: tmpConsultationDate
-                })
-            },
-            inputHandler (eventData) {
-              console.log(this.consultationDate.split(" "));
-              this.yourStringTimeValue = eventData["HH"] + ":" + eventData["mm"];
+            deleteConsultation() {
+                this.$inertia.post('/consultation/delete', {
+                    consultation_id: this.consultation.id
+                });
             }
-
         },
         computed: {
 

@@ -1,14 +1,10 @@
 <template>
   <div>
       <div class="bg-white shadow overflow-hidden sm:rounded-md">
-        <ul role="list" class="divide-y divide-gray-200">
-
-
-
-
+        <ul v-if='bookings.count != 0' role="list" class="divide-y divide-gray-200">
 
             <li v-for="booking in bookings" :key="booking">
-                <a href="#" class="block hover:bg-gray-50">
+                <Link :href="`/consultation/${booking.id}`"  class="block hover:bg-gray-50">
                     <div class="flex items-center px-4 py-4 sm:px-6">
                     <div class="min-w-0 flex-1 flex items-center">
                         <div class="flex-shrink-0">
@@ -50,24 +46,36 @@
                         </svg>
                     </div>
                     </div>
-                </a>
+                </Link>
             </li>
 
          
         </ul>
+        <div v-else class=""> 
+            <div class="">
+               <div class="px-4 py-5 sm:p-6 sm:pb-4 text-xl font-bold text-gray-700 text-center">
+                    You have no consultations scheduled! 
+                </div>
+            </div>
+        </div>
         </div>
   </div>
 </template>
 
 <script>
 
+
+ import { Link } from '@inertiajs/inertia-vue3'
+
 export default {
-    
+    components: {
+            Link,
+        },
     data: () => {
         return {
             bookings: [
-                {who: 'Josh Wallace', when: '12:30 20/09/21', contact: 'jw@gmail.com', type: 'Consult'},
-                {who: 'Guinea Pig', when: '9:25 30/09/21', contact: 'gp@gmail.com', type: 'Nom Nom'},
+                {who: 'Josh Wallace', when: '12:30 20/09/21', contact: 'jw@gmail.com', type: 'Consult', id: 0},
+                {who: 'Guinea Pig', when: '9:25 30/09/21', contact: 'gp@gmail.com', type: 'Nom Nom', id: 0},
             ]
         }
     },

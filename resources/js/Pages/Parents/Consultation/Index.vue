@@ -28,7 +28,7 @@
                         
 
                     
-                        <div class="bg-white overflow-hidden shadow rounded-lg mb-4">
+                        <div class="bg-white overflow-hidden shadow rounded-lg">
                             <div class="">
                                 <div class="px-4 py-5 sm:p-6 sm:pb-4 text-xl font-bold text-gray-700">
                                     My Consultations
@@ -41,11 +41,11 @@
                         <div class="bg-white overflow-hidden shadow rounded-lg">
 
                             <div class="grid grid-flow-col">
-                                <div> 
+                                <div class="mx-auto"> 
                                     <img class="h-40 rounded-full" src="/images/doctor.png"/>
                                 </div>
-                                <div class="px-4 py-5 sm:p-6 sm:pb-4 text-xl font-bold text-gray-700">
-                                    <div> 
+                                <div class="px-4 py-5 sm:p-6 sm:pb-4 text-xl font-bold text-gray-700 flex flex-col justify-around items-center mr-auto">
+                                    <div class=""> 
                                         Need some advice on your child? 
                                     </div>
                                     <div class="">
