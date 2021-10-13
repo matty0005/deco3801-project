@@ -25,16 +25,16 @@
       <Select @selected="clickedAnswer" v-model="selectNumber" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 w-72 mx-auto "  :options="questionsToAsk"/>
 
       <SpeechBubble v-if="textInSpeechBubble != ''" side="right" class="absolute bottom-3/4 left-1/6" :text="textInSpeechBubble" />
-      <div class="flex flex-row absolute bottom-1/4 left-1/6">
-        <button v-on:click="currentMascot += 1">&#10094;</button>
+      <div class="flex flex-col absolute bottom-1/4 left-1/6">
+        <div class="flex flex-row">
+          <button v-on:click="prevMascot">&#10094;</button>
           <div>
-            <Mascot v-if="currentMascot % totalMascots == 0" emotion="excited"/>
+            <Mascot v-bind:emotion="mascots[selectedMascot]"/>
           </div>
-          <div>
-            <Mascot v-if="(question_count > 3) && (currentMascot % totalMascots == 1)" emotion="sad"/>
-          </div>
-          <button v-on:click="currentMascot += 1">&#10095;</button>
+          <button v-on:click="nextMascot">&#10095;</button>
         </div>
+        <button class="mx-auto mt-16 -mb-16 w-16 bg-white border border-transparent font-medium rounded-full shadow-sm" type="button">Save!</button>
+      </div>
     </div>
   </layout>
 </template>
@@ -69,8 +69,8 @@ export default {
       questionsToAsk: [],
       index: 0,
       selectNumber: null,
-      currentMascot: 0,
-      totalMascots: 1,
+      mascots: ["excited", "sad", "confused", "angry"],
+      selectedMascot: 0,
     };
   },
   mounted() {
@@ -139,15 +139,16 @@ export default {
           })
         }
       })
-
-      this.checkCount()
       this.nextStage()
     },
-    checkCount() {
-      if (this.question_count > 3) {
-        this.totalMascots = 2
+    nextMascot() {
+      this.selectedMascot = (this.selectedMascot + 1) % this.mascots.length
+    },
+    prevMascot() {
+      if (this.selectedMascot == 1) {
+        this.selectedMascot = this.mascots.length
       } else {
-        this.totalMascots = 1
+        this.selectedMascot -= 1
       }
     },
     ended() {
