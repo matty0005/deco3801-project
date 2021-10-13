@@ -90,12 +90,16 @@
                         </div>
                     </div>
 
-                    <div class="mt-6 -mb-2 w-full bg-white rounded-t px-5 py-3 text-gray-600">
+                    <div class="mt-6 border-b-2 border-gray-300 w-full bg-white rounded-t px-5 py-3 text-gray-600">
                         <p v-if="topic">Most Recent posts in {{topic.title}}</p>
                         <p v-else>Most Recent posts</p>
                     </div>
+
+                    <div class=" w-full bg-white px-5 py-1 text-gray-600">
+                    
+                    </div>
                    
-                    <div :class="(index == 0 ? '':' mt-6 ')" v-for="(thread, index) in threads" :key="index" :value="thread"> 
+                    <div :class="(index == 0 ? ' -mt-2':' mt-6 ')" v-for="(thread, index) in threads" :key="index" :value="thread"> 
                         <Thread :thread="thread" />
                     </div>
                 </div>
