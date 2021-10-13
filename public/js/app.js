@@ -26947,7 +26947,7 @@ var _hoisted_20 = {
   "class": "text-sm text-gray-600"
 };
 var _hoisted_21 = {
-  "class": "mt-6 w-full bg-white rounded-t relative px-5 py-3 text-gray-600"
+  "class": "mt-6 -mb-2 w-full bg-white rounded-t px-5 py-3 text-gray-600"
 };
 var _hoisted_22 = {
   key: 0
@@ -26955,14 +26955,7 @@ var _hoisted_22 = {
 var _hoisted_23 = {
   key: 1
 };
-
-var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "absolute top-10 left-0 bg-white w-full py-2"
-}, null, -1
-/* HOISTED */
-);
-
-var _hoisted_25 = ["value"];
+var _hoisted_24 = ["value"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_ThreadSearched = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ThreadSearched");
 
@@ -26980,7 +26973,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
           return $data.searchText = $event;
         }),
-        "class": "shadow-xl border border-gray-300 rounded-md py-2 w-full mx-0 lg:mx-auto px-2 mb-2 outline-none focus:ring-2 mt-1 focus:ring-parent-600",
+        "class": "shadow-xl border-2 border-parent-500 rounded-md py-2 w-full mx-0 lg:mx-auto px-2 mb-2 outline-none focus:ring-2 mt-1 focus:ring-parent-600",
         placeholder: $options.searchPlaceholder
       }, null, 8
       /* PROPS */
@@ -27018,7 +27011,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         ))])];
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"hidden lg:flex lg:flex-row lg:flex-wrap \">\r\n                                <div v-for=\"(topic, index) in topics\" :key=\"index\" \r\n                                    @click=\"changeTopic(topic.title)\" \r\n                                    class=\"mx-2 my-2 py-2 px-8 rounded-md\" \r\n                                    :class=\"isOnPage(topic.title) ? 'bg-parent-300':'bg-parent-100'\"  \r\n                                    :value=\"topic\"\r\n                                    >\r\n\r\n                                    <button class=\"text-parent-800\"> {{topic.title}} </button>\r\n                                </div>\r\n                            </div>\r\n\r\n                            <div class=\"ml-auto relative lg:hidden\">\r\n                                <div>\r\n                                    <button @click=\"dropdown = !dropdown\" type=\"button\" class=\"inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-parent-500\" id=\"menu-button\" aria-expanded=\"true\" aria-haspopup=\"true\">\r\n                                    <div v-if=\"currentTopic\">{{currentTopic}}</div>\r\n                                    <div v-else>Topics</div>\r\n\r\n                                    <svg class=\"-mr-1 ml-2 h-5 w-5\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\r\n                                        <path fill-rule=\"evenodd\" d=\"M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z\" clip-rule=\"evenodd\" />\r\n                                    </svg>\r\n                                    </button>\r\n                                </div>\r\n\r\n                                <div v-if=\"dropdown\" class=\"origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none\" role=\"menu\" aria-orientation=\"vertical\" aria-labelledby=\"menu-button\" tabindex=\"-1\">\r\n                                    <div class=\"py-1\" role=\"none\">\r\n                                        <a @click=\"changeTopic(topic.title)\" v-for=\"(topic, index) in topics\" :key=\"index\" href=\"#\" class=\"text-gray-700 block px-4 py-2 text-sm\" role=\"menuitem\" tabindex=\"-1\" :id=\"'menu-item-' + index\">\r\n                                            {{topic.title}}\r\n                                        </a>\r\n                                    </div>\r\n                                </div>\r\n                            </div> ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [$props.topic ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_22, "Most Recent posts in " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.topic.title), 1
       /* TEXT */
-      )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_23, "Most Recent posts")), _hoisted_24]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.threads, function (thread, index) {
+      )) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("p", _hoisted_23, "Most Recent posts"))]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.threads, function (thread, index) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
           "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(index == 0 ? '' : ' mt-6 '),
           key: index,
@@ -27029,7 +27022,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         /* PROPS */
         , ["thread"])], 10
         /* CLASS, PROPS */
-        , _hoisted_25);
+        , _hoisted_24);
       }), 128
       /* KEYED_FRAGMENT */
       ))])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
