@@ -17,7 +17,7 @@
             <div @click="modal = true" class="ml-auto shadow py-3 px-5 self-end rounded-xl bg-parent-300 hover:bg-parent-400"> New Post</div>
         </div>
 
-        <ModalContainer @onConfirm="addThread" @onClose="modal = false" v-model="modal" :confirmText="'Make Post'">
+        <ModalContainer :defaultWidth="false" @onConfirm="addThread" @onClose="modal = false" v-model="modal" :confirmText="'Make Post'">
             <div class="px-4 py-5 sm:p-6 text-left">
                 <div>
                     <div class="my-2">
