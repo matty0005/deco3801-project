@@ -16,9 +16,9 @@
                                 </div>
 
                                 <div class="self-center ml-auto flex flex-col relative w-8/12">
-                                    <input v-model="searchText" class="shadow-xl border border-gray-300 rounded-md py-2 w-full mx-0 lg:mx-auto px-2 mb-2 outline-none focus:ring-2 mt-1 focus:ring-parent-600" :placeholder="searchPlaceholder" />
+                                    <input v-model="searchText" class="shadow-xl border-2 border-parent-500 rounded-md py-2 w-full mx-0 lg:mx-auto px-2 mb-2 outline-none focus:ring-2 mt-1 focus:ring-parent-600" :placeholder="searchPlaceholder" />
 
-                                    <div class="shadow absolute z-50 top-12 left-1/2 transform  -translate-x-1/2 w-full mx-auto  rounded-md rounded-t-none">
+                                    <div class="shadow-sm absolute z-50 top-12 left-1/2 transform  -translate-x-1/2 w-full mx-auto  rounded-md rounded-t-none">
                                         <div class="mt-1" v-for="(thread, index) in searched" :key="index" :value="thread"> 
                                             <ThreadSearched :thread="thread" />
                                         </div>
@@ -36,8 +36,8 @@
                                 <div class="w-full grid grid-cols-2">
                                     <div v-for="(topic, index) in topics" :key="index"
                                         @click="changeTopic(topic.title)"
-                                        class="p-4 hover:bg-parent-50 flex flex-row cursor-pointer border border-gray-300"
-                                        :class="(index % 2 == 0 ? ' border-l-0 ':' border-r-0 ').concat(
+                                        class="p-4 hover:bg-parent-50 flex flex-row cursor-pointer border border-gray-300 pl-8"
+                                        :class="(index % 2 == 0 ? ' border-l-0 -ml-6 ':' border-r-0 -mr-6 ').concat(
                                         index == 0 || index == 1 ? ' border-t-2 ':'border-b-2 ')">
                                         <div class="bg-parent-300 p-6 self-center"> </div>
                                         <div class="self-center ml-10"> 
@@ -90,13 +90,16 @@
                         </div>
                     </div>
 
-                    <div class="mt-6 w-full bg-white rounded-t relative px-5 py-3 text-gray-600">
+                    <div class="mt-6 border-b-2 border-gray-300 w-full bg-white rounded-t px-5 py-3 text-gray-600">
                         <p v-if="topic">Most Recent posts in {{topic.title}}</p>
                         <p v-else>Most Recent posts</p>
-                        <div class="absolute top-10 left-0 bg-white w-full py-2"> </div>
+                    </div>
+
+                    <div class=" w-full bg-white px-5 py-1 text-gray-600">
+                    
                     </div>
                    
-                    <div :class="(index == 0 ? '':' mt-6 ')" v-for="(thread, index) in threads" :key="index" :value="thread"> 
+                    <div :class="(index == 0 ? ' -mt-2':' mt-6 ')" v-for="(thread, index) in threads" :key="index" :value="thread"> 
                         <Thread :thread="thread" />
                     </div>
                 </div>
