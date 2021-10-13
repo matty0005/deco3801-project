@@ -69,7 +69,7 @@ export default {
       questionsToAsk: [],
       index: 0,
       selectNumber: null,
-      mascots: ["excited", "sad", "angry", "confused"],
+      mascots: ["excited"],
       selectedMascot: 0,
     };
   },
@@ -140,18 +140,20 @@ export default {
         }
       })
       this.nextStage()
+      this.unlockMascot()
     },
     unlockMascot() {
       if (this.question_count == 1) {
-        this.mascot.push("sad")
+        this.mascots.push("sad")
       } else if (this.question_count == 3) {
-        this.mascot.push("confused")
-      } else if (this.question_count == 4) {
-        this.mascot.push("angry")
+        this.mascots.push("confused")
+      } else if (this.question_count == 6) {
+        this.mascots.push("angry")
       }
     },
     nextMascot() {
       this.selectedMascot = (this.selectedMascot + 1) % this.mascots.length
+      
     },
     prevMascot() {
       if (this.selectedMascot == 1) {
