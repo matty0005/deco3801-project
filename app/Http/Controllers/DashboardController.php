@@ -47,6 +47,11 @@ class DashboardController extends Controller
             ->join('user_settings', 'user_settings.id', 'kids.user_settings_id')
             ->first();
 
+            $mascot = DB::table('user_settings')
+            ->select('selected_mascot')
+            ->where('user_id', Auth::user()->id)
+            ->first();
+
             $number_of_questions = DB::table('kids_activities')->count();
 
             $question = rand(1, $number_of_questions);
@@ -61,6 +66,7 @@ class DashboardController extends Controller
             return Inertia::render('Kids/Dashboard', [
                 'questions' => $questions->data,
                 'question_count' => $kid_info->question_count,
+                'selected_mascot' => $mascot->selected_mascot,
             ]);
         }
 

@@ -60,6 +60,7 @@ export default {
   props: {
       questions: Array,
       question_count: Number,
+      selected_mascot: String,
   },
   data: () => {
     return {
@@ -75,6 +76,7 @@ export default {
   },
   mounted() {
     this.soundOn = this.$page.props.auth.user.kids_audio == 1;
+    this.selectedMascot = this.mascots.indexOf(this.selected_mascot);
 
     this.getQuestionAtIndex();
     
@@ -139,8 +141,8 @@ export default {
           })
         }
       })
-      this.nextStage()
       this.unlockMascot()
+      this.nextStage()
     },
     unlockMascot() {
       if (this.question_count == 1) {
@@ -153,7 +155,9 @@ export default {
     },
     nextMascot() {
       this.selectedMascot = (this.selectedMascot + 1) % this.mascots.length
-      
+      axios.post('/kids/mascot', {
+        selected_mascot: this.mascots[this.selectedMascot]
+      })    
     },
     prevMascot() {
       if (this.selectedMascot == 1) {
@@ -161,6 +165,9 @@ export default {
       } else {
         this.selectedMascot -= 1
       }
+      axios.post('/kids/mascot', {
+        selected_mascot: this.mascots[this.selectedMascot]
+      })   
     },
     ended() {
       var _this = this;
