@@ -29,11 +29,11 @@
         <div class="flex flex-row">
           <button v-on:click="prevMascot">&#10094;</button>
           <div>
-            <Mascot v-bind:emotion="mascots[selectedMascot]"/>
+            <Mascot :key="selectedMascot" :emotion="mascots[selectedMascot]"/>
           </div>
           <button v-on:click="nextMascot">&#10095;</button>
         </div>
-        <button class="mx-auto mt-16 -mb-16 w-16 bg-white border border-transparent font-medium rounded-full shadow-sm" type="button">Save!</button>
+        <!-- <button class="mx-auto mt-16 -mb-16 w-16 bg-white border border-transparent font-medium rounded-full shadow-sm" type="button">Save!</button> -->
       </div>
     </div>
   </layout>
@@ -69,7 +69,7 @@ export default {
       questionsToAsk: [],
       index: 0,
       selectNumber: null,
-      mascots: ["excited", "sad", "confused", "angry"],
+      mascots: ["excited", "sad", "angry", "confused"],
       selectedMascot: 0,
     };
   },
@@ -140,6 +140,15 @@ export default {
         }
       })
       this.nextStage()
+    },
+    unlockMascot() {
+      if (this.question_count == 1) {
+        this.mascot.push("sad")
+      } else if (this.question_count == 3) {
+        this.mascot.push("confused")
+      } else if (this.question_count == 4) {
+        this.mascot.push("angry")
+      }
     },
     nextMascot() {
       this.selectedMascot = (this.selectedMascot + 1) % this.mascots.length
