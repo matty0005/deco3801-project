@@ -27001,7 +27001,7 @@ var _hoisted_1 = {
   "class": "py-12"
 };
 var _hoisted_2 = {
-  "class": "max-w-7xl mx-auto sm:px-6 lg:px-8"
+  "class": "max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8"
 };
 var _hoisted_3 = {
   "class": ""
@@ -27010,13 +27010,13 @@ var _hoisted_4 = {
   "class": "bg-white overflow-visible shadow rounded-lg relative"
 };
 var _hoisted_5 = {
-  "class": "px-4 py-5 sm:p-6 flex flex-col"
+  "class": "px-4 pt-2 pb-4 sm:py-5 sm:p-6 flex flex-col"
 };
 var _hoisted_6 = {
-  "class": "flex flex-row w-full"
+  "class": "flex flex-col justify-start sm:flex-row"
 };
 var _hoisted_7 = {
-  "class": "p-6 text-3xl"
+  "class": "px-4 pt-4 pb-2 text-3xl font-semibold"
 };
 var _hoisted_8 = {
   key: 0
@@ -27025,7 +27025,7 @@ var _hoisted_9 = {
   key: 1
 };
 var _hoisted_10 = {
-  "class": "self-center ml-auto flex flex-col relative w-8/12"
+  "class": "px-4 sm:p-2 self-start sm:self-center sm:ml-auto flex flex-col relative w-full sm:w-8/12"
 };
 var _hoisted_11 = ["placeholder"];
 var _hoisted_12 = {
@@ -27034,8 +27034,8 @@ var _hoisted_12 = {
 var _hoisted_13 = ["value"];
 
 var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "ml-5 mt-2 mb-4 text-sm text-gray-600"
-}, " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ", -1
+  "class": "mx-4 mt-2 mb-4 text-sm text-gray-600"
+}, " Share experiences and discuss mental health issues with other parents in our friendly community forum. ", -1
 /* HOISTED */
 );
 
@@ -27093,7 +27093,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
           return $data.searchText = $event;
         }),
-        "class": "shadow-xl border-2 border-parent-500 rounded-md py-2 w-full mx-0 lg:mx-auto px-2 mb-2 outline-none focus:ring-2 mt-1 focus:ring-parent-600",
+        "class": "text-sm sm:text-base border-2 border-parent-500 rounded-md py-2 w-full mx-0 lg:mx-auto px-2 mb-2 outline-none focus:ring-2 mt-1 focus:ring-parent-600",
         placeholder: $options.searchPlaceholder
       }, null, 8
       /* PROPS */

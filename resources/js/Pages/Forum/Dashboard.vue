@@ -1,22 +1,18 @@
 <template>
     <Layout class="bg-gradient-to-b from-parent-300 to-blueGray">
         <div v-if="topics" class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
                 <div class=" ">
-                    
-
                     <div class="bg-white overflow-visible shadow rounded-lg relative">
-                        <div class="px-4 py-5 sm:p-6 flex flex-col">
-
-                            <div class="flex flex-row w-full">
-
-                                <div class="p-6 text-3xl">
+                        <div class="px-4 pt-2 pb-4 sm:py-5 sm:p-6 flex flex-col">
+                            <div class="flex flex-col justify-start sm:flex-row">
+                                <div class="px-4 pt-4 pb-2 text-3xl font-semibold">
                                     <p v-if="topic">{{topic.title}}</p>
                                     <p v-else>Community</p>
                                 </div>
 
-                                <div class="self-center ml-auto flex flex-col relative w-8/12">
-                                    <input v-model="searchText" class="shadow-xl border-2 border-parent-500 rounded-md py-2 w-full mx-0 lg:mx-auto px-2 mb-2 outline-none focus:ring-2 mt-1 focus:ring-parent-600" :placeholder="searchPlaceholder" />
+                                <div class="px-4 sm:p-2 self-start sm:self-center sm:ml-auto flex flex-col relative w-full sm:w-8/12">
+                                    <input v-model="searchText" class="text-sm sm:text-base border-2 border-parent-500 rounded-md py-2 w-full mx-0 lg:mx-auto px-2 mb-2 outline-none focus:ring-2 mt-1 focus:ring-parent-600" :placeholder="searchPlaceholder" />
 
                                     <div class="shadow-sm absolute z-50 top-12 left-1/2 transform  -translate-x-1/2 w-full mx-auto  rounded-md rounded-t-none">
                                         <div class="mt-1" v-for="(thread, index) in searched" :key="index" :value="thread"> 
@@ -29,8 +25,8 @@
 
                             
                             <slot>
-                                <div class="ml-5 mt-2 mb-4 text-sm text-gray-600">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                <div class="mx-4 mt-2 mb-4 text-sm text-gray-600">
+                                    Share experiences and discuss mental health issues with other parents in our friendly community forum.
                                 </div>
 
                                 <div class="w-full grid grid-cols-2">
