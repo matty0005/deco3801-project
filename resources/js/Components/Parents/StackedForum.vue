@@ -7,7 +7,7 @@
                     <div class="justify-center items-center rounded-md  flex-grow my-4">
                         <div v-if="!thread.anonymous" class="font-bold flex flex-row">
         
-                            <img class="rounded-lg h-10 w-10 mr-4 sm:h-12 sm:w-12" :src="thread.avatar"/>
+                            <img class="rounded-full h-10 w-10 mr-4 sm:h-12 sm:w-12" :src="thread.avatar"/>
                             <div class="flex flex-col">
                                 <div class="text-gray-600 text-base sm:text-lg md:text-xl"> {{thread.title}} </div>
 
@@ -17,7 +17,7 @@
                         </div>
 
                         <div v-else class="font-bold text-parent-600 flex flex-row">
-                            <img class="rounded-lg mr-3 h-16 w-16" src="/images/default_avatar.png"/>
+                            <img class="rounded-full h-10 w-10 mr-4 sm:h-12 sm:w-12" src="/images/default_avatar.png"/>
 
                             <div class="text-gray-400"> Anonymous <span class="text-gray-400 text-sm mb-4 ">posted at {{thread.time}}</span></div>
                         </div>

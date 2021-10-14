@@ -15,8 +15,8 @@
                                         <img class="mx-auto h-32 w-auto" src="https://variety.com/wp-content/uploads/2017/07/rilakkuma.jpg?w=681&h=383&crop=1" alt="">
                                         </div>
                                         <div class="mt-6 text-center sm:mt-6 sm:pt-1 sm:text-left">
-                                            <p class="text-3xl font-bold text-gray-900 sm:text-3xl"> Hey {{ $page.props.auth.user.name }}!</p>
-                                            <p class="text-2xl text-gray-700 sm:text-2xl">You are booking a consult with Dr. {{doctor.name}}</p>
+                                            <p class="text-2xl sm:text-3xl font-bold text-gray-700"> Hey {{ $page.props.auth.user.name }}!</p>
+                                            <p class="text-xl sm:text-2xl text-gray-600">You are booking a consult with Dr. {{doctor.name}}</p>
                                         </div>
                                     </div>
                                     </div>
@@ -25,21 +25,17 @@
                             </section>
                         </div>
 
-                        <div class="bg-white  shadow-xl rounded-lg">
-
-
+                        <div class="bg-white shadow-xl rounded-lg">
                             <div class="flex flex-row">
-
-                            <div class="grid grid-flow-col space-around ">
-                                <div class="p-2"> 
-                                    <img class="h-36 rounded-full" :src="doctor.avatar" alt="">
+                                <div class="grid grid-flow-col space-around ">
+                                    <div class="p-6"> 
+                                        <img class="h-28 sm:h-36 rounded-full" :src="doctor.avatar" alt="">
+                                    </div>
                                 </div>
-                                
-                            </div>
-                                <div class="mt-3 ml-2">
-                                    <p class="text-xl text-gray-700 sm:text-xl mb-3">When would you like to book your consult with Dr. {{doctor.name}}? </p>
+                                <div class="mt-4 ml-2">
+                                    <p class="text-sm sm:text-lg text-gray-600 mb-3">When would you like to book your appointment with Dr. {{doctor.name}}? </p>
                                     <div class="flex flex-direction-row content-center justify-start items-end">
-                                        <div class="mx-2 flex flex-col">
+                                        <div class="mr-2 flex flex-col">
                                             <label id="listbox-label" class="block text-sm font-medium text-gray-700">
                                                 Date
                                             </label>
