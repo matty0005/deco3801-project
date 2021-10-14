@@ -35,7 +35,9 @@ trait ForumTrait {
             $threads = $threads->addSelect('threads.thread_topic_title AS topic_on_dashboard');
         }
         if (isset($optional['thread_approved'])) {
-            $threads = $threads->where('threads.approved', 1);
+            $threads = $threads->where(function ($query) {
+                $query->where('threads.approved', 1)->orWhere('users.id', Auth::user()->id);
+            });
         }
 
         if (isset($optional['doctors_only'])) {
@@ -71,8 +73,10 @@ trait ForumTrait {
                             ->selectRaw('(SELECT COUNT(*) FROM thread_likes tl JOIN threads t ON t.id = tl.thread_id WHERE tl.liked = 2 AND tl.thread_id = threads.id) dislikes')
                             ->selectRaw('(SELECT liked FROM thread_likes tl JOIN threads t ON t.id = tl.thread_id WHERE tl.thread_id = threads.id AND tl.user_id = ' . $authId . ') liked')
                             ->join('users', 'users.id', 'threads.user_id')
+                            ->where(function ($query) {
+                                $query->where('threads.approved', 1)->orWhere('users.id', Auth::user()->id);
+                            })
                             ->where('user_settings.type', 1)
-                            ->where('threads.approved', 1)
                             ->join('user_settings','user_settings.user_id',  'users.id')
                             ->orderBy('threads.created_at', 'DESC');
         

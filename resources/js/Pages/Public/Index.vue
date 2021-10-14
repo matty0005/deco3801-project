@@ -10,10 +10,12 @@
                     <div class="lg:py-12">
                         <h1 class="mt-4 text-4xl tracking-tight font-extrabold text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
                         <span class="block">Seedlings</span> 
-                        <span class="pb-3 block bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-yellow-400 sm:pb-5">Let your child smile everyday</span>
+                        <span class="pb-3 block bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-yellow-400 sm:pb-5">
+                          Help your child grow
+                        </span>
                         </h1>
                         <p class="text-base text-gray-300 sm:text-xl lg:text-lg xl:text-xl">
-                        Help your child mental state improve
+                          Support your child's mental development 
                         </p>
                         <div class="mt-10 mb-5 sm:mt-12">
                         <div class="sm:max-w-xl sm:mx-auto lg:mx-0">
@@ -55,8 +57,7 @@
                   Assist your child's mental health needs.
                 </p>
                 <p class="mt-5 max-w-prose mx-auto text-xl text-gray-500">
-                  With capability to book comprehensive consultations while accessing a leading community forum for parents in the same boat. 
-                </p>
+                With the capability to book comprehensive consultations and access a leading community forum for mental health discussion.                 </p>
               </div>
               <div class="mt-12 -mb-10 sm:-mb-24 lg:-mb-80">
                 <!-- <img class="rounded-lg shadow-xl ring-1 ring-black ring-opacity-5" src="https://tailwindui.com/img/component-images/green-project-app-screenshot.jpg" alt=""> -->
