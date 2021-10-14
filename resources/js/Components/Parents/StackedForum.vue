@@ -22,7 +22,7 @@
                             <div class="text-gray-400"> Anonymous <span class="text-gray-400 text-sm mb-4 ">posted at {{thread.time}}</span></div>
                         </div>
                     </div>
-                    <div class="ml-14 sm:ml-16 flex-shrink-0 flex flex-row sm:flex-col text-sm font-normal gap-x-8 text-left justify-center pb-2 sm:px-2 md:px-3 items-center">
+                    <div class="ml-14 sm:ml-0 flex-shrink-0 flex flex-row sm:flex-col text-sm font-normal gap-x-8 text-left justify-center pb-2 sm:px-2 md:px-3 items-center">
                         <div class="text-gray-500">Likes: {{ thread.likes }}</div>
                         <div class="text-gray-500">Comments: {{ thread.comments }}</div>
                     </div>

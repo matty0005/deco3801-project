@@ -24574,7 +24574,7 @@ var _hoisted_15 = {
   "class": "text-gray-400 text-sm mb-4"
 };
 var _hoisted_16 = {
-  "class": "ml-14 sm:ml-16 flex-shrink-0 flex flex-row sm:flex-col text-sm font-normal gap-x-8 text-left justify-center pb-2 sm:px-2 md:px-3 items-center"
+  "class": "ml-14 sm:ml-0 flex-shrink-0 flex flex-row sm:flex-col text-sm font-normal gap-x-8 text-left justify-center pb-2 sm:px-2 md:px-3 items-center"
 };
 var _hoisted_17 = {
   "class": "text-gray-500"
