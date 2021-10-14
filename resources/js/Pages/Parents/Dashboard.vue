@@ -20,7 +20,7 @@
                                         <p class="text-xl sm:text-lg md:text-xl font-medium text-gray-600">
                                             Welcome back,
                                         </p>
-                                        <p class="text-3xl sm:text-2xl md:text-3xl font-bold text-gray-800 sm:text-3xl">
+                                        <p class="text-3xl sm:text-2xl md:text-3xl font-bold text-gray-700 sm:text-3xl">
                                             {{ $page.props.auth.user.name }}!
                                         </p>
                                     </div>
@@ -31,7 +31,7 @@
                                                 <div class="text-sm md:text-base text-gray-600">
                                                     Enter 
                                                 </div>
-                                                <div class="text-2xl md:text-3xl font-bold text-gray-800">
+                                                <div class="text-2xl md:text-3xl font-bold text-gray-700">
                                                     Kids Mode
                                                 </div>
                                             </div>
@@ -63,7 +63,7 @@
                         <div class="">
                             <!-- Content goes here -->
                             <div class="px-4 py-5 sm:p-6 sm:pb-4 text-xl font-bold text-gray-700">
-                                Trending comminity posts
+                                Trending community posts
                             </div>
                             <hr class=" mx-4 "/>
                             <StackedForum />

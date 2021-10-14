@@ -30041,7 +30041,7 @@ var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_12 = {
-  "class": "text-3xl sm:text-2xl md:text-3xl font-bold text-gray-800 sm:text-3xl"
+  "class": "text-3xl sm:text-2xl md:text-3xl font-bold text-gray-700 sm:text-3xl"
 };
 
 var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -30051,7 +30051,7 @@ var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "text-sm md:text-base text-gray-600"
 }, " Enter "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "text-2xl md:text-3xl font-bold text-gray-800"
+  "class": "text-2xl md:text-3xl font-bold text-gray-700"
 }, " Kids Mode ")])], -1
 /* HOISTED */
 );
@@ -30084,7 +30084,7 @@ var _hoisted_19 = {
 
 var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "px-4 py-5 sm:p-6 sm:pb-4 text-xl font-bold text-gray-700"
-}, " Trending comminity posts ", -1
+}, " Trending community posts ", -1
 /* HOISTED */
 );
 
