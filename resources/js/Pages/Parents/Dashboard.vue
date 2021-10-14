@@ -10,17 +10,35 @@
                     <!-- Welcome panel -->
                     <section aria-labelledby="profile-overview-title">
                         <div class="rounded-lg bg-white overflow-hidden shadow">
-                        <div class="bg-white p-6">
-                            <div class="sm:flex sm:items-center sm:justify-between">
-                            <div class="sm:flex sm:space-x-5">
-                                <div class="flex-shrink-0">
-                                <img class="mx-auto h-32 w-auto" src="https://variety.com/wp-content/uploads/2017/07/rilakkuma.jpg?w=681&h=383&crop=1" alt="">
+                        <div class="bg-white ">
+                            <div class="sm:flex sm:items-center sm:justify-between ">
+                                <div class="flex flex-row w-full">
+                                    <!-- <div class="flex-shrink-0">
+                                        <img class="mx-auto h-32 w-auto" src="https://variety.com/wp-content/uploads/2017/07/rilakkuma.jpg?w=681&h=383&crop=1" alt="">
+                                    </div> -->
+                                    <div class="w-5/12 p-6 mt-6 text-center sm:mt-6 sm:pt-1 sm:text-left">
+                                        <p class="text-xl font-medium text-gray-600">Welcome back,</p>
+                                        <p class="text-3xl font-bold text-gray-800 sm:text-3xl"> {{ $page.props.auth.user.name }}! </p>
+                                    </div>
+                                    
+                                    <Link  href="/switch/kids" method="post" class=" flex flex-row kidsModeBg w-full">
+                                        <div class="flex-grow flex flex-row- ml-32 my-auto">
+                                            <div class=" flex-col ">
+                                                <div class="text-gray-600">
+                                                    Enter 
+                                                </div>
+                                                <div class="text-3xl font-bold text-gray-800">
+                                                    Kids Mode
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <svg class="hidden lg:block right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2 " fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                                            <polygon points="50,0 100,0 50,100 0,100" />
+                                        </svg> -->
+                                        
+                                        <Mascot class="flex-grow-0" emotion="excited" height="h-24"/>
+                                    </Link>
                                 </div>
-                                <div class="mt-6 text-center sm:mt-6 sm:pt-1 sm:text-left">
-                                    <p class="text-xl font-medium text-gray-600">Welcome back,</p>
-                                    <p class="text-3xl font-bold text-gray-900 sm:text-3xl"> {{ $page.props.auth.user.name }}! </p>
-                                </div>
-                            </div>
                             </div>
                         </div>
                         </div>
@@ -48,7 +66,7 @@
                         </div>
                     </div>
 
-
+                  
                     <!-- Actions panel -->
                     
                     </div>
@@ -133,7 +151,7 @@
                             </span>
                         </Link>
 
-                        <div class="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-gray-200">
+                        <Link href="/consultation/book" class="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-gray-200">
                             <div>
                             <span class="rounded-lg inline-flex p-3 bg-parent-50 text-teal-700 ring-4 ring-white">
                                 <!-- Heroicon name: outline/users -->
@@ -159,7 +177,7 @@
                                 <path d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z" />
                             </svg>
                             </span>
-                        </div>
+                        </Link>
 
                         <Link href="/resources" class="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-gray-200">
                             <div>
@@ -204,6 +222,7 @@
     import { Link } from '@inertiajs/inertia-vue3'
     import StackedConsultations from "@/Components/Parents/StackedConsultations"
     import StackedForum from "@/Components/Parents/StackedForum"
+    import Mascot from "@/Shared/Mascot"
     
     export default {
         data: () => {
@@ -221,7 +240,8 @@
             Datepicker,
             Link,
             StackedConsultations,
-            StackedForum
+            StackedForum,
+            Mascot
         },
         methods: {
             week(weekNum) {
@@ -230,3 +250,13 @@
         },
     }
 </script>
+
+<style scoped>
+.kidsModeBg {
+    
+    background-image: url("/images/kids_portal.png");
+    background-size: cover;
+    
+
+}
+</style>

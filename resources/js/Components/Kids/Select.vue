@@ -1,7 +1,8 @@
 <template>
     <div>
         <div v-for="(option, index) in options" :key="option.title">
-            <button type="button" @click="selected(option.title, index)" :class="optionsSelected.includes(option.title) ? 'bg-lime-300 hover:bg-lime-400':'hover:bg-gray-50 '" class="my-2 w-72 h-16 inline-flex items-center px-4 py-2 border-4 border-gray-300 shadow-sm text-base font-medium rounded-full text-gray-700 bg-white  focus:outline-none focus:ring-none">
+            <!-- Note: I added && false because clicking for activities automatically selects answer :) -->
+            <button type="button" @click="selected(option.title, index)" :class="optionsSelected.includes(option.title) && false ? 'bg-lime-300 hover:bg-lime-400':'hover:bg-gray-50 '" class="my-2 w-72 h-16 inline-flex items-center px-4 py-2 border-4 border-gray-300 shadow-sm text-base font-medium rounded-full text-gray-700 bg-white  focus:outline-none focus:ring-none">
                 <div class="text-center mx-auto">
                     {{ option.title }}
                 </div>

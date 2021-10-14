@@ -14,6 +14,7 @@ class DoctorsConsultationController extends Controller
 
         $doctors = DB::table('doctors')
                 ->select(
+                    'user_settings.avatar',
                     'doctors.user_id',
                     'users.name', 
                     'users.email',
@@ -23,6 +24,7 @@ class DoctorsConsultationController extends Controller
                 ->selectRaw('(SELECT COUNT(*) FROM ratings WHERE ratings.doctor_id = doctors.id) count, (SELECT ROUND(AVG(rating), 1) FROM ratings WHERE ratings.doctor_id = doctors.id) rating, 
                 (SELECT time FROM doctor_available_dates d WHERE d.doctor_id = doctors.id) time')
                 ->join('users', 'users.id', 'doctors.user_id')
+                ->join('user_settings', 'user_settings.user_id', 'users.id')
                 ->get();
                 
         return Inertia::render('Parents/Consultation/DoctorConsultation',[

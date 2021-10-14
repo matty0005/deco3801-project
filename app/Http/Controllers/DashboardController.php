@@ -40,7 +40,28 @@ class DashboardController extends Controller
         $kidsMode = Session::get('kidsMode');
 
         if ($kidsMode) {
-            return Inertia::render('Kids/Dashboard');
+
+            $kid_info = DB::table('kids')
+            ->select('activity_level', 'display_name', 'question_count')
+            ->where('user_id', Auth::user()->id)
+            ->join('user_settings', 'user_settings.id', 'kids.user_settings_id')
+            ->first();
+
+            $number_of_questions = DB::table('kids_activities')->count();
+
+            $question = rand(1, $number_of_questions);
+
+            $questions = DB::table('kids_activities')
+                ->select('level_name', 'data')
+                ->where('id', $question)
+                ->first();
+            
+            $questions->data = json_decode(str_replace("{user_name}", $kid_info->display_name, $questions->data));
+
+            return Inertia::render('Kids/Dashboard', [
+                'questions' => $questions->data,
+                'question_count' => $kid_info->question_count,
+            ]);
         }
 
         $doctors = DB::table('doctors')
@@ -57,10 +78,13 @@ class DashboardController extends Controller
                 'users.name as who', 
                 'doctor_consultations.time as when', 
                 'users.email as contact', 
-                'doctors.specialisation as type'
+                'doctors.specialisation as type',
+                'user_settings.avatar',
+                'doctor_consultations.id'
             )
             ->join('doctors', 'doctors.user_id', 'doctor_consultations.doctor_id')
             ->join('users', 'users.id', 'doctor_consultations.doctor_id')
+            ->join('user_settings', 'user_settings.user_id', 'users.id')
             ->where('doctor_consultations.user_id', Auth::id())
             ->limit(5)
             ->get(); 
@@ -77,6 +101,8 @@ class DashboardController extends Controller
             ->selectRaw('(SELECT COUNT(*) FROM thread_likes tl JOIN threads t ON t.id = tl.thread_id WHERE tl.liked = 1 AND tl.thread_id = threads.id) likes')
             ->selectRaw('(SELECT COUNT(*) FROM thread_messages tm JOIN threads t ON t.id = tm.thread_id WHERE tm.thread_id = threads.id) comments')
             ->join('user_settings', 'user_settings.user_id', 'threads.user_id')
+            ->where('threads.approved', 1)
+            ->where('user_settings.type', 1)
             ->orderBy('likes', 'desc')
             ->limit(3)
             ->get();

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Request as InertiaRequest;
 
 class EvaluateParentController extends Controller
@@ -31,7 +32,6 @@ class EvaluateParentController extends Controller
             'response' => ['max:255'],
         ]);
 
-        dd($data['response']) ;
 
         DB::table('quiz_responses')
             ->insert([
@@ -43,6 +43,7 @@ class EvaluateParentController extends Controller
                 'updated_at'=>now()
             ]) ;
             
-        dd($data) ;
+        return Redirect::route('consult_home');
+
     }
 }
