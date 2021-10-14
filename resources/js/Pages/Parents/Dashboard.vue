@@ -17,17 +17,21 @@
                                         <img class="mx-auto h-32 w-auto" src="https://variety.com/wp-content/uploads/2017/07/rilakkuma.jpg?w=681&h=383&crop=1" alt="">
                                     </div> -->
                                     <div class="w-5/12 p-6 mt-6 text-center sm:mt-6 sm:pt-1 sm:text-left">
-                                        <p class="text-xl font-medium text-gray-600">Welcome back,</p>
-                                        <p class="text-3xl font-bold text-gray-800 sm:text-3xl"> {{ $page.props.auth.user.name }}! </p>
+                                        <p class="text-xl sm:text-lg md:text-xl font-medium text-gray-600">
+                                            Welcome back,
+                                        </p>
+                                        <p class="text-3xl sm:text-2xl md:text-3xl font-bold text-gray-700 sm:text-3xl">
+                                            {{ $page.props.auth.user.name }}!
+                                        </p>
                                     </div>
                                     
-                                    <Link  href="/switch/kids" method="post" class=" flex flex-row kidsModeBg w-full">
+                                    <Link  href="/switch/kids" method="post" class="invisible sm:visible flex flex-row kidsModeBg w-full">
                                         <div class="flex-grow flex flex-row- ml-32 my-auto">
                                             <div class=" flex-col ">
-                                                <div class="text-gray-600">
+                                                <div class="text-sm md:text-base text-gray-600">
                                                     Enter 
                                                 </div>
-                                                <div class="text-3xl font-bold text-gray-800">
+                                                <div class="text-2xl md:text-3xl font-bold text-gray-700">
                                                     Kids Mode
                                                 </div>
                                             </div>
@@ -59,7 +63,7 @@
                         <div class="">
                             <!-- Content goes here -->
                             <div class="px-4 py-5 sm:p-6 sm:pb-4 text-xl font-bold text-gray-700">
-                                Trending comminity posts
+                                Trending Community Posts
                             </div>
                             <hr class=" mx-4 "/>
                             <StackedForum />

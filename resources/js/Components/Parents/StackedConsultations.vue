@@ -1,7 +1,7 @@
 <template>
   <div>
       <div class="bg-white shadow overflow-hidden sm:rounded-md">
-        <ul v-if='bookings.count' role="list" class="divide-y divide-gray-200">
+        <ul v-if='bookings.length  > 0' role="list" class="divide-y divide-gray-200">
 
             <li v-for="booking in bookings" :key="booking">
                 <Link :href="`/consultation/${booking.id}`"  class="block hover:bg-gray-50">
