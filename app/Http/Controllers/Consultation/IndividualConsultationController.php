@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Redirect;
 
 
 
-class BookConsultationController extends Controller
+class IndividualConsultationController extends Controller
 {
-    public function index($doctor_id) {
+    public function index($consultation_id) {
 
         // $doctor = DB::table('doctors')
         //         ->select(
@@ -27,8 +27,21 @@ class BookConsultationController extends Controller
         //         ->join('users', 'users.id', 'doctors.user_id')
         //         ->where('doctors.user_id', $doctor_id)
         //         ->get();
-
-        $doctor = DB::table('users')->select('users.id', 'user_settings.avatar', 'users.name')->join('user_settings', 'user_settings.user_id', 'users.id')->where('users.id', $doctor_id)->first(); 
+        $consultation = DB::table('doctor_consultations')
+                ->select(
+                    'doctor_consultations.doctor_id',
+                    'doctor_consultations.user_id',
+                    'doctor_consultations.time as when', 
+                    'doctor_consultations.id'
+                )
+                ->where('doctor_consultations.id', $consultation_id)
+                ->first(); 
+        $doctor_id = DB::table('doctor_consultations')->where('doctor_consultations.id', $consultation_id)->value('doctor_id');
+        $doctor = DB::table('users')
+                ->select('*')
+                ->join('user_settings', 'user_settings.user_id', 'users.id')
+                ->where('users.id', $doctor_id)
+                ->first(); 
         $doctor_info = DB::table('doctors')
                 ->select(
                     'doctors.user_id',
@@ -39,30 +52,20 @@ class BookConsultationController extends Controller
                 ->where('doctors.user_id', $doctor_id)
                 ->first();
         
-        return Inertia::render('Parents/Consultation/BookConsultation',[
+        return Inertia::render('Parents/Consultation/ConsultationPage',[
+            'consultation' => $consultation,
             'doctor' => $doctor,
             'doctor_info' => $doctor_info,
         ]);
     }
 
-    public function addConsultation(Request $request) {
-        $data = InertiaRequest::validate([
-            'doctor_id' => ['required', 'max:16777214'],
-            'consultation' => ['required', 'date'],
-        ]); 
-
+    public function deleteConsultation(Request $request) {
         
-        $user_id = Auth::id(); 
-
-        DB::table('doctor_consultations')
-            ->insert([
-                'doctor_id' => $data['doctor_id'],
-                'user_id' => $user_id,
-                'time' => $data['consultation'],
-            ]); 
-
-        return redirect()->route('evaluate/parent', ['id' => 1]);
-
+        $data = InertiaRequest::validate([
+            'consultation_id' => ['required', 'max:16777214'],
+        ]);     
+        DB::table('doctor_consultations')->where('id', $data)->delete();
+        return redirect()->route('dashboard');
         
     }
 }
