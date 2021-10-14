@@ -50,7 +50,8 @@ class User extends Authenticatable
         'theme',
         'display_name',
         'name',
-        'is_doctor'
+        'is_doctor',
+        'selected_mascot'
     ];
 
     public function getIsDoctorAttribute() {
@@ -72,6 +73,16 @@ class User extends Authenticatable
 
         return $display_name->display_name;
 
+    }
+
+    public function getSelectedMascotAttribute() {
+        $mascot_attribute = DB::table('user_settings')
+            ->select('selected_mascot')
+            ->where('user_id', $this->id)
+            ->where('type', Session::get('kidsMode') ? 2:1)
+            ->first();
+
+        return $mascot_attribute?->selected_mascot;
     }
 
     public function getNameAttribute() {

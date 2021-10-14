@@ -79,6 +79,7 @@ export default {
     this.selectedMascot = this.mascots.indexOf(this.selected_mascot);
 
     this.getQuestionAtIndex();
+    this.unlockMascot();
     
     
 
@@ -141,16 +142,15 @@ export default {
           })
         }
       })
-      this.unlockMascot()
       this.nextStage()
     },
     unlockMascot() {
-      if (this.question_count == 1) {
-        this.mascots.push("sad")
-      } else if (this.question_count == 3) {
-        this.mascots.push("confused")
-      } else if (this.question_count == 6) {
-        this.mascots.push("angry")
+      if (this.question_count <= 2) {
+        this.mascots = ["excited", "sad"];
+      } else if (this.question_count <= 4) {
+        this.mascots = ["excited", "sad", "confused"];
+      } else {
+        this.mascots = ["excited", "sad", "confused", "angry"];
       }
     },
     nextMascot() {

@@ -67,7 +67,8 @@ class KidsProfileSettingsController extends Controller
         // dd($request->soundOn);
 
         DB::table('user_settings')
-            ->where('id', Auth::user()->id)
+            ->where('user_id', Auth::user()->id)
+            ->where('type', 2)
             ->update([
                 'selected_mascot' => $request->selected_mascot
             ]);

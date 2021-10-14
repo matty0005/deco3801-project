@@ -61,7 +61,7 @@
                         </transition>
 
                         <SpeechBubble :text="speechBubbleText" class="mb-24 "/>
-                        <Mascot emotion="excited"/>
+                        <Mascot :emotion="mascot"/>
                     </div>
                 </div>
             </div>
@@ -107,11 +107,16 @@
                 isDrawing: false,
                 positiveResponses: ['Wow! That is looking great', "You're an amazing artist", "You should be an artist", "Fantastic work! It's really good"],
                 drawName: "",
-                soundOn: true
+                soundOn: true,
+                mascot: "excited",
             }
         },
         mounted() {
             this.soundOn = this.$page.props.auth.user.kids_audio == 1;
+            if (this.$page.props.auth.user.selected_mascot != null) {
+                this.mascot = this.$page.props.auth.user.selected_mascot;
+            }
+            console.log(this.mascot);
 
             console.log("hoo")
             this.canvas = document.getElementById('drawingCanvas')
@@ -165,7 +170,6 @@
                     setTimeout(() => {
                         _t.showSelect = true
                     }, 750); 
-
                     return
                 }
 
