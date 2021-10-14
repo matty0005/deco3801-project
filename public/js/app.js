@@ -25269,7 +25269,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     href: "/switch/kids",
     method: "post",
     as: "button",
-    "class": "bg-parent-500 text-xs md:text-base text-white rounded-md py-1 sm:px-2 md:px-4 mx-2",
+    "class": "bg-parent-500 text-xs md:text-sm lg:text-base text-white rounded-md py-0.5 lg:py-1 sm:px-2 md:px-3 lg:px-4 mx-2",
     role: "menuitem",
     tabindex: "-1"
   }, {
@@ -25289,7 +25289,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "aria-expanded": "false",
     "aria-haspopup": "true"
   }, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    "class": "h-8 w-8 rounded-full",
+    "class": "h-10 w-10 md:h-12 md:w-12 rounded-full",
     src: _ctx.$page.props.auth.user.avatar,
     alt: ""
   }, null, 8
@@ -30084,7 +30084,7 @@ var _hoisted_19 = {
 
 var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "px-4 py-5 sm:p-6 sm:pb-4 text-xl font-bold text-gray-700"
-}, " Trending community posts ", -1
+}, " Trending Community Posts ", -1
 /* HOISTED */
 );
 

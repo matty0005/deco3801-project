@@ -63,7 +63,7 @@
                         <div class="">
                             <!-- Content goes here -->
                             <div class="px-4 py-5 sm:p-6 sm:pb-4 text-xl font-bold text-gray-700">
-                                Trending community posts
+                                Trending Community Posts
                             </div>
                             <hr class=" mx-4 "/>
                             <StackedForum />
