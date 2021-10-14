@@ -139,7 +139,5 @@ Route::post('/kids/activities/count', [KidsActivitiesController:: class, 'add'])
 
 Route::post('/kids/audio', [KidsProfileSettingsController:: class, 'update'])->middleware(['auth', 'verified']);
 Route::post('/text/to/speech', [TextToSpeechController:: class, 'index'])->middleware(['auth', 'verified']);
-
-
-
+Route::post('/kids/mascot', [KidsProfileSettingsController:: class, 'update'])->middleware(['auth', 'verified']);
 require __DIR__.'/auth.php';

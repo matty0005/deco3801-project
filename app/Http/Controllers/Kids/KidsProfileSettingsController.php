@@ -24,7 +24,7 @@ class KidsProfileSettingsController extends Controller
         $settings = DB::table('user_settings')  
             ->select(
                     'display_name',
-                    'kids.theme'
+                    'kids.theme',
                 )
             ->where('user_id', Auth::user()->id)
             ->where('type', 2)
@@ -65,6 +65,14 @@ class KidsProfileSettingsController extends Controller
                 'kids_audio' => $request->soundOn ? 0 : 1
             ]);
         // dd($request->soundOn);
+
+        DB::table('user_settings')
+            ->where('user_id', Auth::user()->id)
+            ->where('type', 2)
+            ->update([
+                'selected_mascot' => $request->selected_mascot
+            ]);
+        
         return response()->json("");
     }
 }
