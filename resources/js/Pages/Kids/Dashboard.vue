@@ -58,7 +58,7 @@ export default {
     Select
   },
   props: {
-      questions: Array,
+      all_questions: Array,
       question_count: Number,
       selected_mascot: String,
   },
@@ -69,14 +69,18 @@ export default {
       textInSpeechBubble: "",
       questionsToAsk: [],
       index: 0,
+      set_index: 0,
       selectNumber: null,
       mascots: ["excited"],
       selectedMascot: 0,
+      questions: Array,
     };
   },
   mounted() {
     this.soundOn = this.$page.props.auth.user.kids_audio == 1;
     this.selectedMascot = this.mascots.indexOf(this.selected_mascot);
+    
+    this.choseSet();
 
     this.getQuestionAtIndex();
     this.unlockMascot();
@@ -95,11 +99,20 @@ export default {
     // }
   },
   methods: {
+    choseSet() {
+      this.set_index = Math.floor(Math.random() * this.all_questions.length);
+      this.questions = this.all_questions[this.set_index].data;
+    },
     startActivity() {
       // Take to another page for activity
       // 
     },
     getQuestionAtIndex() {
+
+        if (this.questions[this.index].draw === true) {
+          this.$inertia.visit('/kids/draw');
+        }
+
         this.textInSpeechBubble = this.questions[this.index]['chatbox']
         this.questionsToAsk = this.getSelectArray(this.questions[this.index]['answers'])
 
@@ -174,13 +187,9 @@ export default {
       setTimeout(function() { 
         _this.textInSpeechBubble = "";
         setTimeout(function() {
-          _this.$inertia.reload({
-            only: ['questions'], 
-            onFinish: () => {
-                        _this.index = 0;
-                        _this.getQuestionAtIndex();
-                      },
-            });
+          _this.index = 0;
+          _this.choseSet();
+          _this.getQuestionAtIndex();
         }, 3000);
       }, 5000);
     },
