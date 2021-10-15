@@ -24,16 +24,18 @@
       </div>
       <Select @selected="clickedAnswer" v-model="selectNumber" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 w-72 mx-auto "  :options="questionsToAsk"/>
 
-      <SpeechBubble v-if="textInSpeechBubble != ''" side="right" class="absolute bottom-3/4 left-1/6" :text="textInSpeechBubble" />
-      <div class="flex flex-col absolute bottom-1/4 left-1/6">
-        <div class="flex flex-row">
-          <button v-on:click="prevMascot">&#10094;</button>
-          <div>
-            <Mascot :key="selectedMascot" :emotion="mascots[selectedMascot]"/>
+      <div class="absolute bottom-1/4 left-1/10 flex flex-col">
+        <SpeechBubble class="self-start" v-if="textInSpeechBubble != ''" side="right"  :text="textInSpeechBubble" />
+        <div class="flex flex-col self-start">
+          <div class="flex flex-row">
+            <button v-on:click="prevMascot">&#10094;</button>
+            <div>
+              <Mascot :key="selectedMascot" :emotion="mascots[selectedMascot]"/>
+            </div>
+            <button v-on:click="nextMascot">&#10095;</button>
           </div>
-          <button v-on:click="nextMascot">&#10095;</button>
+          <!-- <button class="mx-auto mt-16 -mb-16 w-16 bg-white border border-transparent font-medium rounded-full shadow-sm" type="button">Save!</button> -->
         </div>
-        <!-- <button class="mx-auto mt-16 -mb-16 w-16 bg-white border border-transparent font-medium rounded-full shadow-sm" type="button">Save!</button> -->
       </div>
     </div>
   </layout>
