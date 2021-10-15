@@ -25,7 +25,7 @@
       <Select @selected="clickedAnswer" v-model="selectNumber" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 w-72 mx-auto "  :options="questionsToAsk"/>
 
       <div class="absolute bottom-1/4 left-1/10 flex flex-col">
-        <SpeechBubble class="self-start" v-if="textInSpeechBubble != ''" side="right"  :text="textInSpeechBubble" />
+        <SpeechBubble class="self-start" v-if="textInSpeechBubble != ''" side="left"  :text="textInSpeechBubble" />
         <div class="flex flex-col self-start">
           <div class="flex flex-row">
             <button v-on:click="prevMascot">&#10094;</button>
