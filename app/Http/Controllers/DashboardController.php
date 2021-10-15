@@ -52,19 +52,18 @@ class DashboardController extends Controller
             ->where('user_id', Auth::user()->id)
             ->first();
 
-            $number_of_questions = DB::table('kids_activities')->count();
-
-            $question = rand(1, $number_of_questions);
-
             $questions = DB::table('kids_activities')
-                ->select('level_name', 'data')
-                ->where('id', $question)
-                ->first();
+                ->select('id','level_name', 'data')
+                ->get();
+
+            foreach ($questions as $question) {
+                $question->data = json_decode(str_replace("{user_name}", $kid_info->display_name, $question->data));
+            }
             
-            $questions->data = json_decode(str_replace("{user_name}", $kid_info->display_name, $questions->data));
+            //$questions->data = json_decode(str_replace("{user_name}", $kid_info->display_name, $questions->data));
 
             return Inertia::render('Kids/Dashboard', [
-                'questions' => $questions->data,
+                'all_questions' => $questions,
                 'question_count' => $kid_info->question_count,
                 'selected_mascot' => $mascot->selected_mascot,
             ]);
