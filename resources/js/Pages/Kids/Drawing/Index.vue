@@ -60,7 +60,7 @@
                             <Select v-if="showSelect"  class="w-72 mx-auto " @onClick="handleKidInput" :options="questionsList"/>
                         </transition>
 
-                        <SpeechBubble v-show="speechBubbleText != ''" :text="speechBubbleText" class="mb-24 "/>
+                        <SpeechBubble v-show="speechBubbleText != '' && speechBubbleText != null" :text="speechBubbleText" class="mb-24 "/>
                         <Mascot :emotion="mascot"/>
                     </div>
                 </div>
@@ -75,6 +75,7 @@
     import SpeechBubble from "@/Shared/SpeechBubble"
     import Mascot from "@/Shared/Mascot"
     import Select from "@/Components/Kids/Select.vue"
+    import axios from 'axios'
 
     export default {
         components: {
@@ -152,8 +153,8 @@
             let _t = this
 
             setInterval(() => {
-                if (_t.hasDrawn) {
-                    _t.speechBubbleText = _t.positiveResponses[_t.randomNumber(0, _t.positiveResponses.length)]
+                if (_t.hasDrawn && _t.isOnPage('/kids/draw')) {
+                    _t.speechBubbleText = _t.positiveResponses[_t.randomNumber(0, _t.positiveResponses.length - 1)]
 
                     if (_t.$page.props.auth.user.kids_audio == 1) {
                         axios.post('/text/to/speech', {
@@ -171,6 +172,12 @@
 
         },
         methods: {
+            isOnPage (url) {
+                var ver = 0
+                // var urlMod = url.split("/").filter(l => l)[ver]
+                var currentUrl = window.location.pathname//.split("/").filter(t => t)[ver]
+                return url === currentUrl
+            },
             handleKidInput(index) {
                 console.log("index", index)
                 console.log("questionsId", this.questionsId)
