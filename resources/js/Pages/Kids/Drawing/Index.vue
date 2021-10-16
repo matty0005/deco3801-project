@@ -60,7 +60,7 @@
                             <Select v-if="showSelect"  class="w-72 mx-auto " @onClick="handleKidInput" :options="questionsList"/>
                         </transition>
 
-                        <SpeechBubble :text="speechBubbleText" class="mb-24 "/>
+                        <SpeechBubble v-show="speechBubbleText != ''" :text="speechBubbleText" class="mb-24 "/>
                         <Mascot :emotion="mascot"/>
                     </div>
                 </div>
@@ -109,6 +109,7 @@
                 drawName: "",
                 soundOn: true,
                 mascot: "excited",
+                hasDrawn: false
             }
         },
         mounted() {
@@ -138,21 +139,35 @@
             window.addEventListener('resize', this.updateCanvasSize);
 
             // Randomly pick if in freestyle mode or not.
-            this.freestyleMode = Math.random() < 0.5
+            this.freestyleMode = true//Math.random() < 0.5
 
             if (this.freestyleMode) {
-                this.freestyleModeStart()
+                // this.freestyleModeStart()
             } else {
                 this.setModeStart()
             }
             this.showSelect = true
 
+            
+            let _t = this
+
             setInterval(() => {
-                let _t = this
-                if (this.isDrawing) {
+                if (_t.hasDrawn) {
                     _t.speechBubbleText = _t.positiveResponses[_t.randomNumber(0, _t.positiveResponses.length)]
+
+                    if (_t.$page.props.auth.user.kids_audio == 1) {
+                        axios.post('/text/to/speech', {
+                            text: _t.speechBubbleText
+                        }).then(response => {
+                            console.log(response)
+                            console.log(response.data.path)
+                            var audio = new Audio(response.data.path); // path to file
+                            audio.play();
+                        })
+                    }
+                    
                 }
-            }, 60000);
+            }, 6000);
 
         },
         methods: {
@@ -251,10 +266,10 @@
             },
 
             playAudio(file) { 
-                if (this.soundOn) {
-                    var audio = new Audio(file); // path to file
-                    audio.play();
-                }
+                // if (this.soundOn) {
+                //     var audio = new Audio(file); // path to file
+                //     audio.play();
+                // }
             },
             randomNumber(min, max) {
                 return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -264,7 +279,7 @@
                 this.speechBubbleText = `Hey there, I don't have any current requests from any of my friends. Let's see what you can draw - draw anything you like.`
                 this.questionsList = [{title: 'Okay!'}, {title: "Hmmm I'm unsure, can you help me out."}]
                 this.questionsId = 0
-                this.playAudio('/audio/no_request_kids_draw.mp3')
+                // this.playAudio('/audio/no_request_kids_draw.mp3')
 
             },
             setModeStart () {
@@ -306,6 +321,7 @@
                 this.x = e.offsetX;
                 this.y = e.offsetY;
                 this.isDrawing = true;
+                this.hasDrawn = true
                 this.drawLine(this.x, this.y, e.offsetX, e.offsetY);
 
             },
