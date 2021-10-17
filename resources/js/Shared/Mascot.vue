@@ -1,9 +1,7 @@
 <template>
-    <div>
-        <img v-if="showFirst && emotion == 'happy_old'" :class="height" class=" object-contain" src="/images/kids/mascot_1.png"/> 
-        <img v-if="showSecond && emotion == 'happy_old'" :class="height" class=" object-contain" src="/images/kids/mascot_2.png"/> 
-        <img v-if="showFirst && (emotion == 'happy' || emotion == 'excited')" :class="height.concat(height == 'h-24' ? ' transform translate-y-6':' transform translate-y-16')" class=" object-contain" src="/images/kids/Sprout_happy_3.svg"/> 
-        <img v-if="showSecond && (emotion == 'excited' || emotion == 'happy')" :class="height.concat(height == 'h-24' ? ' transform translate-y-4':' transform translate-y-14')" class=" object-contain" src="/images/kids/Sprout_happy_4.svg"/> 
+    <div> 
+        <img v-if="showFirst && (emotion == 'excited')" :class="height.concat(height == 'h-24' ? ' transform translate-y-6':' transform translate-y-16')" class=" object-contain" src="/images/kids/Sprout_happy_3.svg"/> 
+        <img v-if="showSecond && (emotion == 'excited')" :class="height.concat(height == 'h-24' ? ' transform translate-y-4':' transform translate-y-14')" class=" object-contain" src="/images/kids/Sprout_happy_4.svg"/> 
         <img v-if="showThird && emotion == 'excited'" :class="height.concat(height == 'h-24' ? ' transform translate-y-3':' transform translate-y-10')" class=" object-contain " src="/images/kids/Sprout_happy_1.svg"/> 
         <img v-if="showForth && emotion == 'excited'" :class="height.concat(height == 'h-24' ? ' transform translate-y-0':' transform translate-y-0')" class=" object-contain" src="/images/kids/Sprout_happy_2.svg"/> 
         <img v-if="showFith && emotion == 'excited'" :class="height.concat(height == 'h-24' ? ' transform translate-y-3':' transform translate-y-6')" class=" object-contain " src="/images/kids/Sprout_happy_1.svg"/> 
@@ -31,7 +29,7 @@ export default {
     props: {
         emotion: {
             type: String,
-            default: "happy"
+            default: "excited"
         },
         height: {
             type: String,

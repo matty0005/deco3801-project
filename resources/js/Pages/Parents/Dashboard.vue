@@ -40,7 +40,7 @@
                                             <polygon points="50,0 100,0 50,100 0,100" />
                                         </svg> -->
                                         
-                                        <Mascot class="flex-grow-0" emotion="excited" height="h-24"/>
+                                        <Mascot class="flex-grow-0" :emotion="mascot" height="h-24"/>
                                     </Link>
                                 </div>
                             </div>
@@ -233,11 +233,17 @@
             return {
                 username: "John Smith",
                 date: new Date(),
+                mascot: "excited",
             }
         },
         props: {
             doctors: Array,
             bookings: Array,
+        },
+        mounted() {
+            if (this.$page.props.auth.user.selected_mascot != null) {
+                this.mascot = this.$page.props.auth.user.selected_mascot;
+            }
         },
         components: {
             Layout,

@@ -68,7 +68,6 @@ class KidsProfileSettingsController extends Controller
 
         DB::table('user_settings')
             ->where('user_id', Auth::user()->id)
-            ->where('type', 2)
             ->update([
                 'selected_mascot' => $request->selected_mascot
             ]);
