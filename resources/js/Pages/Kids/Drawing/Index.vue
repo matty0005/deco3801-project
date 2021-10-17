@@ -118,9 +118,7 @@
             if (this.$page.props.auth.user.selected_mascot != null) {
                 this.mascot = this.$page.props.auth.user.selected_mascot;
             }
-            console.log(this.mascot);
-
-            console.log("hoo")
+            
             this.canvas = document.getElementById('drawingCanvas')
             this.ctx = this.canvas.getContext('2d')
             this.ctx.strokeStyle = 'black';
