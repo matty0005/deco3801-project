@@ -24,16 +24,18 @@
       </div>
       <Select @selected="clickedAnswer" v-model="selectNumber" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 w-72 mx-auto "  :options="questionsToAsk"/>
 
-      <SpeechBubble v-if="textInSpeechBubble != ''" side="right" class="absolute bottom-3/4 left-1/6" :text="textInSpeechBubble" />
-      <div class="flex flex-col absolute bottom-1/4 left-1/6">
-        <div class="flex flex-row">
-          <button v-on:click="prevMascot">&#10094;</button>
-          <div>
-            <Mascot :key="selectedMascot" :emotion="mascots[selectedMascot]"/>
+      <div class="absolute bottom-1/4 left-1/10 flex flex-col">
+        <SpeechBubble class="self-start" v-if="textInSpeechBubble != ''" side="left"  :text="textInSpeechBubble" />
+        <div class="flex flex-col self-start">
+          <div class="flex flex-row">
+            <button v-on:click="nextMascot(-1)">&#10094;</button>
+            <div>
+              <Mascot :key="selectedMascot" :emotion="mascots[selectedMascot]"/>
+            </div>
+            <button v-on:click="nextMascot(1)">&#10095;</button>
           </div>
-          <button v-on:click="nextMascot">&#10095;</button>
+          <!-- <button class="mx-auto mt-16 -mb-16 w-16 bg-white border border-transparent font-medium rounded-full shadow-sm" type="button">Save!</button> -->
         </div>
-        <!-- <button class="mx-auto mt-16 -mb-16 w-16 bg-white border border-transparent font-medium rounded-full shadow-sm" type="button">Save!</button> -->
       </div>
     </div>
   </layout>
@@ -78,12 +80,14 @@ export default {
   },
   mounted() {
     this.soundOn = this.$page.props.auth.user.kids_audio == 1;
+
+    this.unlockMascot();
+
     this.selectedMascot = this.mascots.indexOf(this.selected_mascot);
     
     this.choseSet();
 
     this.getQuestionAtIndex();
-    this.unlockMascot();
     
     
 
@@ -147,7 +151,6 @@ export default {
         this.selectNumber = null
     },
     clickedAnswer() {
-
       this.$inertia.post('/kids/activities/count', {}, {
         onFinish: () => {
           this.$inertia.reload({
@@ -158,29 +161,25 @@ export default {
       this.nextStage()
     },
     unlockMascot() {
-      if (this.question_count <= 2) {
-        this.mascots = ["excited", "sad"];
-      } else if (this.question_count <= 4) {
-        this.mascots = ["excited", "sad", "confused"];
-      } else {
-        this.mascots = ["excited", "sad", "confused", "angry"];
+      if (this.question_count >= 6) {
+        this.mascots = ["excited", "angry", "confused", "sad"];
+      } else if (this.question_count >= 4) {
+        this.mascots = ["excited", "angry", "confused"];
+      } else if (this.question_count >= 2) {
+        this.mascots = ["excited", "angry"];
       }
     },
-    nextMascot() {
-      this.selectedMascot = (this.selectedMascot + 1) % this.mascots.length
+    nextMascot(step) {
+      this.unlockMascot();
+      if (step > 0) {
+        this.selectedMascot = (this.selectedMascot + 1) % this.mascots.length
+      } else {
+        this.selectedMascot -= 1;
+        this.selectedMascot = this.selectedMascot > 0 ? this.selectedMascot : this.mascots.length; 
+      }
       axios.post('/kids/mascot', {
         selected_mascot: this.mascots[this.selectedMascot]
       })    
-    },
-    prevMascot() {
-      if (this.selectedMascot == 1) {
-        this.selectedMascot = this.mascots.length
-      } else {
-        this.selectedMascot -= 1
-      }
-      axios.post('/kids/mascot', {
-        selected_mascot: this.mascots[this.selectedMascot]
-      })   
     },
     ended() {
       var _this = this;
