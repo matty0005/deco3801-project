@@ -1,7 +1,7 @@
 <template>
     <Dashboard :topic="topic" :topics="topics" :threads="threads" :searched="searched"> 
 
-        <div class="ml-5 mt-2 mb-4 text-sm text-gray-600 flex flex-row font-bold">
+        <div class="ml-6 mt-2 mb-4 text-sm text-gray-600 flex flex-row font-bold">
             <p @click="goToDashboard" class="cursor-pointer hover:underline hover:text-gray-800"> Community </p>
             <svg class="flex-shrink-0 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
@@ -9,12 +9,15 @@
             <p>{{topic.title}}</p>
         </div>
 
-        <div class="ml-5 flex flex-row text-gray-700">
-            <div class="w-9/12">
+        <div class="mx-6 flex flex-col md:flex-row mb-6">
+            <div class="w-full md:w-10/12 text-gray-500">
                 {{topic.description}}
             </div>
-
-            <div @click="modal = true" class="ml-auto shadow py-3 px-5 self-end rounded-xl bg-parent-300 hover:bg-parent-400"> New Post</div>
+            <div class="w-full py-4 md:w-2/12 bg-parent-100 flex items-center justify-center">
+                <div @click="modal = true" class="text-center w-1/2 md:w-9/12 shadow py-3 px-5 rounded-xl bg-parent-500 text-white hover:bg-parent-400">
+                    New Post
+                </div>
+            </div>
         </div>
 
         <ModalContainer :defaultWidth="false" @onConfirm="addThread" @onClose="modal = false" v-model="modal" :confirmText="'Make Post'">
