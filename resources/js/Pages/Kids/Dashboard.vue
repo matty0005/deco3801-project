@@ -104,7 +104,12 @@ export default {
   },
   methods: {
     choseSet() {
-      this.set_index = Math.floor(Math.random() * this.all_questions.length);
+      var ind = Math.floor(Math.random() * this.all_questions.length)
+      while(ind == this.set_index) {
+        ind = Math.floor(Math.random() * this.all_questions.length)
+      }
+
+      this.set_index = ind;
       this.questions = this.all_questions[this.set_index].data;
     },
     startActivity() {
