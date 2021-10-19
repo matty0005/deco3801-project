@@ -4,29 +4,38 @@
         >
         <div class="px-4 py-5 sm:p-6">
             <div class="m-3">
-
                 <slot name="header" />
                 
                 <InlineAlert class="mb-4" v-if="thread.approved == 0" title="Awaiting Approval" body="To uphold the community standards of this forum, this post will be first moderated before becoming visible to the broader community"/>
 
-                <div class="font-bold text-gray-700 text-xl mb-2 flex flex-row"> 
+                <div class="font-medium text-gray-700 text-base sm:text-lg md:text-xl mb-2 flex flex-col md:flex-row gap-x-2"> 
                     <p> {{thread.title}} </p>
 
-                    <p class="ml-auto text-base text-gray-400" v-if="thread.topic_on_dashboard"> posted in {{thread.topic_on_dashboard}} </p>
+                    <p class="md:ml-auto text-xs md:text-base text-gray-400" v-if="thread.topic_on_dashboard"> posted in {{thread.topic_on_dashboard}} </p>
                 </div>
                 <div class="border-2 border-parent-300 rounded-md p-4 mb-6">
                     <div v-if="!thread.anonymous" class="font-bold text-parent-600 flex flex-row">
 
-                        <img class="rounded-lg mr-3 h-16 w-16" :src="thread.avatar"/>
+                        <img class="rounded-lg mr-3 h-14 w-14 sm:h-16 sm:w-16" :src="thread.avatar"/>
 
-                        <div>{{thread.display_name}} <span class="text-sm mb-4 ">posted at {{time}}</span></div>
+                        <div class="text-sm sm:text-base">
+                            {{thread.display_name}} 
+                            <span class="text-xs sm:text-sm mb-4 ">
+                                posted at {{time}}
+                            </span>
+                        </div>
                     </div>
                     <div v-else class="font-bold text-parent-600 flex flex-row">
-                        <img class="rounded-lg mr-3 h-16 w-16" src="/images/default_avatar.png"/>
+                        <img class="rounded-lg mr-3 h-14 w-14 sm:h-16 sm:w-16" src="/images/default_avatar.png"/>
 
-                        <div> Anonymous <span class="text-sm mb-4 ">posted at {{time}}</span></div>
+                        <div class="text-sm sm:text-base"> 
+                            Anonymous 
+                            <span class="text-xs sm:text-sm mb-4 ">
+                                posted at {{time}}
+                            </span>
+                        </div>
                     </div>
-                     <div class="mt-2 mb-2 ml-4">
+                     <div class="mt-2 mb-2 ml-4 text-sm sm:text-base text-gray-600">
                         {{thread.comment}}
                     </div>
                 </div>

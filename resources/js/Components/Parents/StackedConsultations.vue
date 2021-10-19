@@ -53,7 +53,7 @@
         </ul>
         <div v-else class=""> 
             <div class="">
-               <div class="px-4 py-5 sm:px-6 sm:pt-2 sm:pb-4 text-sm font-regular text-gray-500 text-left">
+               <div class="px-4 py-5 sm:px-6 sm:pt-2 sm:pb-4 text-base font-regular text-gray-500 text-left">
                     You currently have no consultations scheduled.
                 </div>
             </div>
