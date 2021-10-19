@@ -33,11 +33,11 @@
                                 <div class="w-full grid grid-cols-2 ">
                                     <div v-for="(topic, index) in topics" :key="index"
                                         @click="changeTopic(topic.title)"
-                                        class="p-4 hover:bg-parent-50 flex flex-row cursor-pointer border-b border-gray-300 pl-8"
-                                        :class="(index % 2 == 0 ? ' border-l-0 border-r -ml-6 ':' border-r-0  -mr-6 ').concat(
+                                        class="py-4 hover:bg-parent-50 flex flex-row cursor-pointer border-b border-gray-300 pl-6 sm:pl-8"
+                                        :class="(index % 2 == 0 ? ' border-l-0 border-r -ml-4 sm:-ml-6 ':' border-r-0  -mr-4 sm:-mr-6 ').concat(
                                         index == 0 || index == 1 ? ' border-t ':'')">
                                         <div class="hidden sm:block bg-parent-300 p-6 self-center"> </div>
-                                        <div class="self-center pl-2 sm:ml-10"> 
+                                        <div class="self-center sm:ml-10"> 
                                             <div class="font-medium text-gray-700 text-lg sm:text-xl md:text-2xl"> 
                                                 {{topic.title}}
                                             </div>
@@ -92,7 +92,7 @@
                         <p v-else>Most Recent posts</p>
                     </div> -->
 
-                    <div v-if="topic" class=" w-full bg-white px-5 py-1 text-gray-500 py-16 rounded my-4 text-center">
+                    <div v-if="topic" class="text-sm sm:text-base w-full bg-white px-5 py-1 text-gray-500 py-16 rounded my-4 text-center">
                         There are currently no posts in {{topic.title}}.
                     </div>
                    

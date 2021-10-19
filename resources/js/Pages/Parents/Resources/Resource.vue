@@ -12,8 +12,10 @@
                     <LikeBar class="ml-auto" :id="resource.id" :likes="resource.likes" :status="resource.liked" />
                 </div>
 
-                <p class="text-3xl font-bold text-gray-900 sm:text-3xl text-center">{{resource.title}}</p>
-                <div class="text-xl font-medium text-gray-600 text-justify mt-4" v-html="resource.content"> </div>
+                <p class="text-2xl font-semibold text-gray-700 sm:text-3xl text-center">
+                    {{resource.title}}
+                </p>
+                <div class="text-xl font-base text-gray-700 text-justify mt-4" v-html="resource.content"> </div>
             </div>
     </Layout>
 </template>
