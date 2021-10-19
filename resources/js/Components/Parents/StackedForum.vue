@@ -1,22 +1,22 @@
 <template>
   <div class="">
-      <Link :href="`/forum/topic/${thread.topic_on_dashboard}/${thread.id}`" class="font-bold text-gray-700 text-xl flex flex-row border border-l-0 border-r-0 border-b-0 border-gray-300 px-4" v-for="thread in $page.props.trendingForumPosts" :key="thread"> 
+      <Link :href="`/forum/topic/${thread.topic_on_dashboard}/${thread.id}`" class="font-medium text-gray-700 text-lg flex flex-row border border-l-0 border-r-0 border-b-0 border-gray-300 px-4" v-for="thread in $page.props.trendingForumPosts" :key="thread"> 
                     <!-- <p> {{thread.title}} </p> -->
                 <div class="justify-center items-start sm:items-center flex flex-col sm:flex-row flex-grow">
                     <!-- <p class="ml-auto text-base text-gray-400" v-if="thread.topic_on_dashboard"> posted in {{thread.topic_on_dashboard}} </p> -->
                     <div class="justify-center items-center rounded-md  flex-grow my-4">
-                        <div v-if="!thread.anonymous" class="font-bold flex flex-row">
+                        <div v-if="!thread.anonymous" class="font-medium flex flex-row">
         
                             <img class="rounded-full h-10 w-10 mr-4 sm:h-12 sm:w-12" :src="thread.avatar"/>
                             <div class="flex flex-col">
-                                <div class="text-gray-600 text-base sm:text-lg md:text-xl"> {{thread.title}} </div>
+                                <div class="text-gray-700 text-base sm:text-lg md:text-xl"> {{thread.title}} </div>
 
                                 <div class="text-gray-500 text-sm flex-grow font-normal">posted in {{thread.topic_on_dashboard}} - <span class="text-xs">by {{thread.display_name}} </span></div>
                                 <p class="font-normal text-sm text-gray-500" v-if="thread.count >= 0"> {{thread.comments}} comments </p>
                             </div>
                         </div>
 
-                        <div v-else class="font-bold text-parent-600 flex flex-row">
+                        <div v-else class="font-medium text-parent-600 flex flex-row">
                             <img class="rounded-full h-10 w-10 mr-4 sm:h-12 sm:w-12" src="/images/default_avatar.png"/>
 
                             <div class="text-gray-400"> Anonymous <span class="text-gray-400 text-sm mb-4 ">posted at {{thread.time}}</span></div>
