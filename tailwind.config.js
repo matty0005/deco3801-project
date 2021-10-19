@@ -128,6 +128,9 @@ module.exports = {
             borderWidth: {
                 '3': '3px',
             },
+            fontWeight: {
+                'normalHeavy': '450',
+            },
             inset: {
                 '1/5': '20%',
                 '1/6': '16.7%',

@@ -51,8 +51,8 @@
                     <div class="bg-white overflow-hidden shadow rounded-lg">
                         <div class="">
                             <!-- Content goes here -->
-                            <div class="px-4 py-5 sm:p-6 sm:pb-4 text-xl font-bold text-gray-700">
-                                My Consultations
+                            <div class="px-4 py-5 sm:p-6 sm:pb-4 text-xl font-semibold text-gray-700">
+                                Your Consultations
                             </div>
                             <hr class=" mx-4 "/>
                             <StackedConsultations :bookings="bookings"/>
@@ -62,7 +62,7 @@
                     <div class="bg-white overflow-hidden shadow rounded-lg">
                         <div class="">
                             <!-- Content goes here -->
-                            <div class="px-4 py-5 sm:p-6 sm:pb-4 text-xl font-bold text-gray-700">
+                            <div class="px-4 py-5 sm:p-6 sm:pb-4 text-xl font-semibold text-gray-700">
                                 Trending Community Posts
                             </div>
                             <hr class=" mx-4 "/>

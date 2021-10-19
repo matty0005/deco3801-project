@@ -6,7 +6,7 @@
                     <div class="bg-white overflow-visible shadow rounded-lg relative">
                         <div class="px-4 pt-2  sm:pt-5 sm:p-6 sm:pb-0  flex flex-col">
                             <div class="flex flex-col justify-start sm:flex-row">
-                                <div class="px-4 pt-4 pb-2 text-3xl font-semibold">
+                                <div class="px-6 pt-4 pb-2 text-3xl font-semibold text-gray-700">
                                     <p class="text-sm text-gray-400 pb-2" v-if="topic">Most Recent in:</p>
                                     <p v-if="topic">{{topic.title}}</p>
                                     <p v-else>Community</p>
@@ -178,10 +178,10 @@
             searchPlaceholder() {
             
                 if (this.currentTopic === undefined) {
-                    return 'Search Threads';
+                    return 'Search threads...';
                 }
 
-                return 'Search Threads in ' + this.currentTopic;
+                return 'Search threads in ' + this.currentTopic + '...';
             }
         }
     }
