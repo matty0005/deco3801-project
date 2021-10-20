@@ -21,8 +21,8 @@ class CreateUserSettingsTable extends Migration
             $table->string('name');
             $table->smallInteger('type')->comment('1 = parent; 2 = child')->default(1);
             $table->mediumText('avatar')->nullable();
+            $table->string('selected_mascot')->default("excited");
             $table->timestamps();
-            
         });
     }
 

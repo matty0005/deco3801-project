@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TextToSpeechController;
 use App\Http\Controllers\UserSettingsController;
 use App\Http\Controllers\Account\BillingController;
 use App\Http\Controllers\Forums\ForumTopicController;
@@ -31,6 +32,7 @@ use App\Http\Controllers\Switchs\SwitchParentsModeController;
 use App\Http\Controllers\Resources\ResourceDashboardController;
 use App\Http\Controllers\Consultation\BookConsultationController;
 use App\Http\Controllers\Consultation\DoctorsConsultationController;
+use App\Http\Controllers\Consultation\IndividualConsultationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -111,7 +113,9 @@ Route::post('/evaluate/parent/{id}', [EvaluateParentController:: class, 'store']
 Route::get('/consultation', [ConsultationController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('consult_home');
 Route::get('/consultation/book', [DoctorsConsultationController:: class, 'index'])->middleware(['auth', 'verified', 'role']);
 Route::get('/consultation/book/{doctor_id}', [BookConsultationController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('book_doctor');
+Route::get('/consultation/{consultation_id}', [IndividualConsultationController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('individual_consultation');
 Route::post('/consultation/create', [BookConsultationController::class, 'addConsultation']);
+Route::post('/consultation/delete', [IndividualConsultationController::class, 'deleteConsultation']);
 
 
 // Resources
@@ -128,11 +132,12 @@ Route::get('/kids/activities', [KidsActivitiesController:: class, 'index'])->mid
 
 Route::post('/kids/draw', [KidsDrawingPageController:: class, 'store'])->middleware(['auth', 'verified']);
 Route::post('/kids/draw/redraw', [KidsDrawingPageController:: class, 'update'])->middleware(['auth', 'verified']);
+Route::post('/kids/activities/count', [KidsActivitiesController:: class, 'add'])->middleware(['auth', 'verified']);
+
 
 //Route::post('/kids/profile', [KidsProfileSettingsController:: class, 'update'])->middleware(['auth', 'verified']);
 
 Route::post('/kids/audio', [KidsProfileSettingsController:: class, 'update'])->middleware(['auth', 'verified']);
-
-
-
+Route::post('/text/to/speech', [TextToSpeechController:: class, 'index'])->middleware(['auth', 'verified']);
+Route::post('/kids/mascot', [KidsProfileSettingsController:: class, 'update'])->middleware(['auth', 'verified']);
 require __DIR__.'/auth.php';

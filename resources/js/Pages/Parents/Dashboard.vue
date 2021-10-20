@@ -17,17 +17,21 @@
                                         <img class="mx-auto h-32 w-auto" src="https://variety.com/wp-content/uploads/2017/07/rilakkuma.jpg?w=681&h=383&crop=1" alt="">
                                     </div> -->
                                     <div class="w-5/12 p-6 mt-6 text-center sm:mt-6 sm:pt-1 sm:text-left">
-                                        <p class="text-xl font-medium text-gray-600">Welcome back,</p>
-                                        <p class="text-3xl font-bold text-gray-800 sm:text-3xl"> {{ $page.props.auth.user.name }}! </p>
+                                        <p class="text-xl sm:text-lg md:text-xl font-medium text-gray-600">
+                                            Welcome back,
+                                        </p>
+                                        <p class="text-3xl sm:text-2xl md:text-3xl font-bold text-gray-700 sm:text-3xl">
+                                            {{ $page.props.auth.user.name }}!
+                                        </p>
                                     </div>
                                     
-                                    <Link  href="/switch/kids" method="post" class=" flex flex-row kidsModeBg w-full">
+                                    <Link  href="/switch/kids" method="post" class="invisible sm:visible flex flex-row kidsModeBg w-full">
                                         <div class="flex-grow flex flex-row- ml-32 my-auto">
                                             <div class=" flex-col ">
-                                                <div class="text-gray-600">
+                                                <div class="text-sm md:text-base text-gray-600">
                                                     Enter 
                                                 </div>
-                                                <div class="text-3xl font-bold text-gray-800">
+                                                <div class="text-2xl md:text-3xl font-bold text-gray-700">
                                                     Kids Mode
                                                 </div>
                                             </div>
@@ -36,7 +40,7 @@
                                             <polygon points="50,0 100,0 50,100 0,100" />
                                         </svg> -->
                                         
-                                        <Mascot class="flex-grow-0" emotion="excited" height="h-24"/>
+                                        <Mascot class="flex-grow-0" :emotion="mascot" height="h-24"/>
                                     </Link>
                                 </div>
                             </div>
@@ -47,8 +51,8 @@
                     <div class="bg-white overflow-hidden shadow rounded-lg">
                         <div class="">
                             <!-- Content goes here -->
-                            <div class="px-4 py-5 sm:p-6 sm:pb-4 text-xl font-bold text-gray-700">
-                                My Consultations
+                            <div class="px-4 py-5 sm:p-6 sm:pb-4 text-xl font-semibold text-gray-700">
+                                Your Consultations
                             </div>
                             <hr class=" mx-4 "/>
                             <StackedConsultations :bookings="bookings"/>
@@ -58,8 +62,8 @@
                     <div class="bg-white overflow-hidden shadow rounded-lg">
                         <div class="">
                             <!-- Content goes here -->
-                            <div class="px-4 py-5 sm:p-6 sm:pb-4 text-xl font-bold text-gray-700">
-                                Trending comminity posts
+                            <div class="px-4 py-5 sm:p-6 sm:pb-4 text-xl font-semibold text-gray-700">
+                                Trending Community Posts
                             </div>
                             <hr class=" mx-4 "/>
                             <StackedForum />
@@ -151,7 +155,7 @@
                             </span>
                         </Link>
 
-                        <div class="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-gray-200">
+                        <Link href="/consultation/book" class="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-gray-200">
                             <div>
                             <span class="rounded-lg inline-flex p-3 bg-parent-50 text-teal-700 ring-4 ring-white">
                                 <!-- Heroicon name: outline/users -->
@@ -177,7 +181,7 @@
                                 <path d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z" />
                             </svg>
                             </span>
-                        </div>
+                        </Link>
 
                         <Link href="/resources" class="relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-gray-200">
                             <div>
@@ -229,11 +233,17 @@
             return {
                 username: "John Smith",
                 date: new Date(),
+                mascot: "excited",
             }
         },
         props: {
             doctors: Array,
             bookings: Array,
+        },
+        mounted() {
+            if (this.$page.props.auth.user.selected_mascot != null) {
+                this.mascot = this.$page.props.auth.user.selected_mascot;
+            }
         },
         components: {
             Layout,

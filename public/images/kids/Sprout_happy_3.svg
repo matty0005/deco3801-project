@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 6401 5129" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:10;">
+    <path d="M4965.8,3287.1C4982.6,3362.6 5079.5,3846.4 4654.5,4178.6C4278.5,4472.5 3725.5,4466.9 3245.8,4462.1C2770.1,4457.3 2201.7,4451.6 1826.9,4141.3C1455.2,3833.6 1508.5,3420.6 1525.8,3287.1C1584.1,2835.9 1976.8,2245.1 2725.2,2089.7C3743.5,1878.2 4812.5,2598.7 4965.8,3287.1Z" style="fill:url(#_Linear1);fill-rule:nonzero;stroke:rgb(35,24,21);stroke-width:1px;"/>
+    <path d="M2781,1294.1C3064.3,1549.7 3105.3,1966.3 2939.4,2052C2727.4,2161.5 2299.7,1667.7 1251.8,1393.6C664.9,1240.1 345,1276.3 344.1,1225.1C341.9,1104.1 2129.1,705.9 2781,1294.1Z" style="fill:rgb(125,194,115);fill-rule:nonzero;stroke:rgb(35,24,21);stroke-width:1px;"/>
+    <path d="M4849.6,2068.8C5587.8,2249.5 5751.9,2386.5 5900.9,2307.2C6119,2191.1 6110.5,1715 5862.7,1401.2C5486.7,925.2 4562.2,825.7 3913,1059.5C3207.3,1313.7 2823.4,1963.2 2948.2,2084.5C3046.6,2180.2 3409.4,1896.1 4085,1925.8C4304.4,1935.4 4486.1,1979.9 4849.6,2068.8Z" style="fill:rgb(125,194,115);fill-rule:nonzero;stroke:rgb(35,24,21);stroke-width:1px;"/>
+    <g transform="matrix(0.2401,-0.9708,0.9708,0.2401,-1274.49,4900.27)">
+        <ellipse cx="2492.6" cy="3264.2" rx="266.5" ry="218.2" style="fill:rgb(35,24,21);stroke:rgb(35,24,21);stroke-width:1px;"/>
+    </g>
+    <circle cx="2596.7" cy="3264.3" r="75" style="fill:white;stroke:rgb(35,24,21);stroke-width:1px;"/>
+    <path d="M2975.8,2022.1C3040.8,1935.7 3288.6,1629.9 3798.6,1489.9C4225.3,1372.7 4593.7,1437.9 4728.9,1467.4" style="fill:none;fill-rule:nonzero;stroke:rgb(35,24,21);stroke-width:14px;"/>
+    <path d="M2872.8,2032.1C2831.5,1942.1 2736.4,1773.9 2524.2,1617.3C2300.4,1452.1 2059.9,1383.5 1937.2,1355.4" style="fill:none;fill-rule:nonzero;stroke:rgb(35,24,21);stroke-width:14px;"/>
+    <g transform="matrix(0.9833,-0.1819,0.1819,0.9833,-534.19,703.359)">
+        <ellipse cx="3567.6" cy="3264" rx="218.2" ry="266.5" style="fill:rgb(35,24,21);stroke:rgb(35,24,21);stroke-width:1px;"/>
+    </g>
+    <circle cx="3444.9" cy="3264.3" r="75" style="fill:white;stroke:rgb(35,24,21);stroke-width:1px;"/>
+    <ellipse cx="2199.2" cy="3659.3" rx="236.4" ry="122.7" style="fill:rgb(228,0,127);stroke:rgb(35,24,21);stroke-width:1px;"/>
+    <ellipse cx="3972.2" cy="3659.3" rx="236.4" ry="122.7" style="fill:rgb(228,0,127);stroke:rgb(35,24,21);stroke-width:1px;"/>
+    <path d="M2835.3,3736.1C2845,3867.6 2959.5,3964.3 3081,3954.7C3190.1,3946.1 3282,3853.5 3289.9,3736.1L2835.3,3736.1Z" style="fill:rgb(137,137,137);fill-rule:nonzero;stroke:rgb(35,24,21);stroke-width:10px;"/>
+    <path d="M2132.3,2865.1C2134.9,2851.4 2160.3,2727 2271.2,2675.6C2376.5,2626.7 2514.7,2664.2 2596.7,2773.2" style="fill:none;fill-rule:nonzero;stroke:rgb(35,24,21);stroke-width:10px;"/>
+    <path d="M3535.8,2811C3632,2693.7 3776.9,2652.9 3883,2702.5C3958.7,2737.9 3993,2809.1 4004.9,2837.8" style="fill:none;fill-rule:nonzero;stroke:rgb(35,24,21);stroke-width:10px;"/>
+    <defs>
+        <linearGradient id="_Linear1" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(3474.13,0,0,3474.13,1512.99,3257.77)"><stop offset="0" style="stop-color:rgb(176,215,159);stop-opacity:1"/><stop offset="0.25" style="stop-color:rgb(172,214,162);stop-opacity:1"/><stop offset="0.49" style="stop-color:rgb(160,211,170);stop-opacity:1"/><stop offset="0.73" style="stop-color:rgb(141,206,183);stop-opacity:1"/><stop offset="0.97" style="stop-color:rgb(114,198,202);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(109,197,205);stop-opacity:1"/></linearGradient>
+    </defs>
+</svg>

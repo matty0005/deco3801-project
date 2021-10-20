@@ -31,10 +31,13 @@ class ConsultationController extends Controller
                     'users.name as who', 
                     'doctor_consultations.time as when', 
                     'users.email as contact', 
-                    'doctors.specialisation as type'
+                    'doctors.specialisation as type',
+                    'user_settings.avatar',
+                    'doctor_consultations.id'
                 )
                 ->join('doctors', 'doctors.user_id', 'doctor_consultations.doctor_id')
                 ->join('users', 'users.id', 'doctor_consultations.doctor_id')
+                ->join('user_settings', 'user_settings.user_id', 'users.id')
                 ->where('doctor_consultations.user_id', Auth::id())
                 ->get(); 
         

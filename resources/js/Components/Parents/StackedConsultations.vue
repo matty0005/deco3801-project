@@ -1,18 +1,14 @@
 <template>
   <div>
       <div class="bg-white shadow overflow-hidden sm:rounded-md">
-        <ul role="list" class="divide-y divide-gray-200">
-
-
-
-
+        <ul v-if='bookings.length  > 0' role="list" class="divide-y divide-gray-200">
 
             <li v-for="booking in bookings" :key="booking">
-                <a href="#" class="block hover:bg-gray-50">
+                <Link :href="`/consultation/${booking.id}`"  class="block hover:bg-gray-50">
                     <div class="flex items-center px-4 py-4 sm:px-6">
                     <div class="min-w-0 flex-1 flex items-center">
                         <div class="flex-shrink-0">
-                        <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                        <img class="h-10 w-10 rounded-full" :src="booking.avatar" alt="">
                         </div>
                         <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
                         <div>
@@ -50,24 +46,36 @@
                         </svg>
                     </div>
                     </div>
-                </a>
+                </Link>
             </li>
 
          
         </ul>
+        <div v-else class=""> 
+            <div class="">
+               <div class="px-4 py-5 sm:px-6 sm:pt-2 sm:pb-4 text-sm font-regular text-gray-500 text-left">
+                    You currently have no consultations scheduled.
+                </div>
+            </div>
+        </div>
         </div>
   </div>
 </template>
 
 <script>
 
+
+ import { Link } from '@inertiajs/inertia-vue3'
+
 export default {
-    
+    components: {
+            Link,
+        },
     data: () => {
         return {
             bookings: [
-                {who: 'Josh Wallace', when: '12:30 20/09/21', contact: 'jw@gmail.com', type: 'Consult'},
-                {who: 'Guinea Pig', when: '9:25 30/09/21', contact: 'gp@gmail.com', type: 'Nom Nom'},
+                {who: 'Josh Wallace', when: '12:30 20/09/21', contact: 'jw@gmail.com', type: 'Consult', id: 0},
+                {who: 'Guinea Pig', when: '9:25 30/09/21', contact: 'gp@gmail.com', type: 'Nom Nom', id: 0},
             ]
         }
     },

@@ -28,7 +28,7 @@ class BookConsultationController extends Controller
         //         ->where('doctors.user_id', $doctor_id)
         //         ->get();
 
-        $doctor = DB::table('users')->where('users.id', $doctor_id)->first(); 
+        $doctor = DB::table('users')->select('users.id', 'user_settings.avatar', 'users.name')->join('user_settings', 'user_settings.user_id', 'users.id')->where('users.id', $doctor_id)->first(); 
         $doctor_info = DB::table('doctors')
                 ->select(
                     'doctors.user_id',

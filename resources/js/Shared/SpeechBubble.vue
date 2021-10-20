@@ -5,7 +5,7 @@
 				<p>{{ text }}</p>
 			</div>
 		</div>
-		<div v-if="side == 'left'" class="bg-gray-100 m-4 inline-block relative w-full h-auto tri-right border rounded-xl btm-right-in">
+		<div v-if="side == 'left'" class="bg-gray-100 m-4 inline-block relative w-full h-auto tri-right  border rounded-xl btm-left-in">
 			<div class="m-4">
 				<p>{{ text }}</p>
 			</div>
@@ -196,5 +196,34 @@ export default {
 	border: 20px solid;
 	border-color: #f3f4f6 transparent transparent transparent;
 }
+
+/*Right triangle, placed bottom left side slightly in*/
+.tri-right.border.btm-left-in:before {
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 30px;
+  right: auto;
+  top: auto;
+	bottom: -40px;
+	border: 20px solid;
+	border-color: #666 transparent transparent #666;
+}
+.tri-right.btm-left-in:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 38px;
+  right: auto;
+  top: auto;
+	bottom: -20px;
+	border: 12px solid;
+	border-color: #f3f4f6 transparent transparent #f3f4f6;
+
+}
+
+
 
 </style>

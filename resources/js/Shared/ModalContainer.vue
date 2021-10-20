@@ -15,9 +15,9 @@
                     <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
 
                     
-                    <div v-if="modelValue" class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+                    <div v-if="modelValue" class="inline-block align-bottom bg-white rounded-lg pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:p-6" :class="(defaultWidth ? 'sm:max-w-lg sm:w-full px-4':'px-30')">
                     <div>
-                        <div :class="getColor" class="mx-auto flex items-center justify-center h-12 w-12 rounded-full ">
+                        <div v-if="defaultWidth" :class="getColor" class="mx-auto flex items-center justify-center h-12 w-12 rounded-full ">
                         <svg v-if="type == 'tick'" class="h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                         </svg>
@@ -66,7 +66,11 @@ export default {
         autoClose: {
             type: Boolean,
             default: false
-        }
+        },
+        defaultWidth: {
+            type: Boolean,
+            default: true,
+        },
     },
     methods: {
         closeModal() {

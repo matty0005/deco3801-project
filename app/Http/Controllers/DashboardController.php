@@ -40,7 +40,33 @@ class DashboardController extends Controller
         $kidsMode = Session::get('kidsMode');
 
         if ($kidsMode) {
-            return Inertia::render('Kids/Dashboard');
+
+            $kid_info = DB::table('kids')
+            ->select('activity_level', 'display_name', 'question_count')
+            ->where('user_id', Auth::user()->id)
+            ->join('user_settings', 'user_settings.id', 'kids.user_settings_id')
+            ->first();
+
+            $mascot = DB::table('user_settings')
+            ->select('selected_mascot')
+            ->where('user_id', Auth::user()->id)
+            ->first();
+
+            $questions = DB::table('kids_activities')
+                ->select('id','level_name', 'data')
+                ->get();
+
+            foreach ($questions as $question) {
+                $question->data = json_decode(str_replace("{user_name}", $kid_info->display_name, $question->data));
+            }
+            
+            //$questions->data = json_decode(str_replace("{user_name}", $kid_info->display_name, $questions->data));
+
+            return Inertia::render('Kids/Dashboard', [
+                'all_questions' => $questions,
+                'question_count' => $kid_info->question_count,
+                'selected_mascot' => $mascot->selected_mascot,
+            ]);
         }
 
         $doctors = DB::table('doctors')
@@ -57,10 +83,13 @@ class DashboardController extends Controller
                 'users.name as who', 
                 'doctor_consultations.time as when', 
                 'users.email as contact', 
-                'doctors.specialisation as type'
+                'doctors.specialisation as type',
+                'user_settings.avatar',
+                'doctor_consultations.id'
             )
             ->join('doctors', 'doctors.user_id', 'doctor_consultations.doctor_id')
             ->join('users', 'users.id', 'doctor_consultations.doctor_id')
+            ->join('user_settings', 'user_settings.user_id', 'users.id')
             ->where('doctor_consultations.user_id', Auth::id())
             ->limit(5)
             ->get(); 

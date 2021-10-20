@@ -54,6 +54,7 @@ export default {
             attributes: [
                 {name: 'Doctor Icon 1', license: 'NC 4.0 Licence', author: 'Vectorified', link: 'https://vectorified.com/father-icon', src: '/images/temp-male-avatar.png', used: '/'},
                 {name: 'Doctor Icon 2', license: 'NC 4.0 Licence', author: 'Vectorified', link: 'https://vectorified.com/mother-icon', src: '/images/temp-female-avatar.png', used: '/'},
+                {name: 'Freindly avatar', license: 'Non-commercial', author: 'SAN-X-Co', link: 'https://www.theverge.com/2017/8/3/16086940/netflix-japan-rilakkuma-hello-kitty-devilman-crybaby-kakegurui', src: 'https://variety.com/wp-content/uploads/2017/07/rilakkuma.jpg?w=681&h=383&crop=1', used: '/'},
             ]
         }
     }
