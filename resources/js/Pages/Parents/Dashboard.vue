@@ -54,7 +54,7 @@
                             <div class="px-4 py-5 sm:p-6 sm:pb-4 text-xl font-semibold text-gray-700">
                                 Your Consultations
                             </div>
-                            <hr class=" mx-4 "/>
+                            <hr class="mx-4"/>
                             <StackedConsultations :bookings="bookings"/>
                         </div>
                     </div>

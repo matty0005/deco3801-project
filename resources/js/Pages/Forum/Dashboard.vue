@@ -13,20 +13,19 @@
                                 </div>
 
                                 <div class="px-2 sm:px-4 sm:p-2 self-start sm:self-center sm:ml-auto flex flex-col relative w-full sm:w-8/12">
-                                    <input v-model="searchText" class="text-sm sm:text-base border-2 border-parent-500 rounded-md py-2 w-full mx-0 lg:mx-auto px-2 mb-2 outline-none focus:ring-2 mt-1 focus:ring-parent-600" :placeholder="searchPlaceholder" />
+                                    <input v-model="searchText" class="text-sm sm:text-base border-2 border-parent-500 rounded-md py-2 w-full mx-0 lg:mx-auto px-2 mb-2 outline-none focus:ring-1 sm:focus:ring-2 mt-1 focus:ring-parent-600" :placeholder="searchPlaceholder" />
 
                                     <div class="shadow-sm absolute z-50 top-12 left-1/2 transform  -translate-x-1/2 w-full mx-auto  rounded-md rounded-t-none">
-                                        <div class="mt-1" v-for="(thread, index) in searched" :key="index" :value="thread"> 
+                                        <div class="border border-l-0 border-r-0 border-t-0 border-gray-300" v-for="(thread, index) in searched" :key="index" :value="thread"> 
                                             <ThreadSearched :thread="thread" />
                                         </div>
                                     </div>
-                                    
                                 </div>
                             </div>
 
                             
                             <slot>
-                                <div class="px-2 sm:px-4 mt-2 mb-4 text-sm text-gray-600">
+                                <div class="px-2 sm:px-4 mt-2 mb-4 text-sm text-gray-500">
                                     Share experiences and discuss mental health issues with other parents in our friendly community forum.
                                 </div>
 

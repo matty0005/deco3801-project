@@ -1,11 +1,13 @@
 <template>
-    <div @click="visitResource" class="bg-white overflow-hidden shadow rounded-lg" 
+    <div @click="visitResource" class="bg-white overflow-hidden" 
         :class="clickable ? ' hover:bg-gray-50 cursor-pointer ':''"
         >
-        <div class="px-2 py-1">
+        <div class="border border-l-0 border-r-0 border-b-0 border-gray-300 px-4 pt-2 sm:px-6">
             <div class="m-3">
 
-                <p class="font-bold"> {{resource.title}} </p>   
+                <p class="font-medium text-gray-700">
+                    {{resource.title}}
+                </p>   
 
                 <LikeBar class="ml-auto text-gray-500" 
                         :likes="resource.likes"
