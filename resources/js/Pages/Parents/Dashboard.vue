@@ -16,7 +16,7 @@
                                     <!-- <div class="flex-shrink-0">
                                         <img class="mx-auto h-32 w-auto" src="https://variety.com/wp-content/uploads/2017/07/rilakkuma.jpg?w=681&h=383&crop=1" alt="">
                                     </div> -->
-                                    <div class="w-7/12 p-6 mt-6 text-center sm:mt-6 sm:pt-1 sm:text-left">
+                                    <div class="w-8/12 p-6 mt-6 text-center sm:mt-6 sm:pt-1 sm:text-left">
                                         <p class="text-xl sm:text-lg md:text-xl font-medium text-gray-600">
                                             Welcome back,
                                         </p>

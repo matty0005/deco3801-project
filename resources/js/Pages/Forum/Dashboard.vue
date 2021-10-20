@@ -35,7 +35,7 @@
                                         class="py-4 hover:bg-parent-50 flex flex-row cursor-pointer border-b border-gray-300 pl-6 sm:pl-8"
                                         :class="(index % 2 == 0 ? ' border-l-0 border-r -ml-4 sm:-ml-6 ':' border-r-0  -mr-4 sm:-mr-6 ').concat(
                                         index == 0 || index == 1 ? ' border-t ':'')">
-                                        <div class="hidden sm:block bg-parent-300 p-6 self-center"> </div>
+                                        <img class="hidden sm:block h-12 w-12 self-center" :src="topic.icon">
                                         <div class="self-center sm:ml-10"> 
                                             <div class="font-medium text-gray-700 text-lg sm:text-xl md:text-2xl"> 
                                                 {{topic.title}}
@@ -48,54 +48,14 @@
                                     </div>
                                 </div>
                             </slot>
-                            
-                            <!-- <div class="hidden lg:flex lg:flex-row lg:flex-wrap ">
-                                <div v-for="(topic, index) in topics" :key="index" 
-                                    @click="changeTopic(topic.title)" 
-                                    class="mx-2 my-2 py-2 px-8 rounded-md" 
-                                    :class="isOnPage(topic.title) ? 'bg-parent-300':'bg-parent-100'"  
-                                    :value="topic"
-                                    >
-
-                                    <button class="text-parent-800"> {{topic.title}} </button>
-                                </div>
-                            </div>
-
-                            <div class="ml-auto relative lg:hidden">
-                                <div>
-                                    <button @click="dropdown = !dropdown" type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-parent-500" id="menu-button" aria-expanded="true" aria-haspopup="true">
-                                    <div v-if="currentTopic">{{currentTopic}}</div>
-                                    <div v-else>Topics</div>
-
-                                    <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                    </svg>
-                                    </button>
-                                </div>
-
-                                <div v-if="dropdown" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-                                    <div class="py-1" role="none">
-                                        <a @click="changeTopic(topic.title)" v-for="(topic, index) in topics" :key="index" href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" :id="'menu-item-' + index">
-                                            {{topic.title}}
-                                        </a>
-                                    </div>
-                                </div>
-                            </div> -->
-
-                            
                         </div>
                     </div>
-
-                    <!-- <div class="mt-6 border-b-2 border-gray-300 w-full bg-white rounded-t px-5 py-3 text-gray-600">
-                        <p v-if="topic">Most Recent posts in {{topic.title}}</p>
-                        <p v-else>Most Recent posts</p>
-                    </div> -->
 
                     <div v-if="topic" class="text-sm sm:text-base w-full bg-white px-5 py-1 text-gray-500 py-16 rounded my-4 text-center">
                         There are currently no posts in {{topic.title}}.
                     </div>
                    
-                    <div class="mt-6"  v-for="(thread, index) in threads" :key="index" :value="thread"> 
+                    <div class="pt-4"  v-for="(thread, index) in threads" :key="index" :value="thread"> 
                         <Thread :thread="thread" />
                     </div>
                 </div>

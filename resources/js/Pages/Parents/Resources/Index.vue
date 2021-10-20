@@ -36,7 +36,7 @@
                                     </div>
                                 </div>
                                 <div class="px-2 sm:px-4 mt-2 mb-4 text-sm text-gray-500">
-                                    View the most popular and helpful articles about various mental health and parenting topics, or search for specific resources with the search bar.
+                                    View the most popular and helpful articles about various mental health and parenting topics. Can't find what you're looking for or need something specific? Narrow down your search with the search bar.
                                 </div>
                             </div>                                
 
@@ -62,32 +62,102 @@
 
                         <section aria-labelledby="recent-hires-title">
                             <div class="rounded-lg bg-white overflow-hidden shadow">
-                            <div class="p-6">
-                                <h2 class="text-base font-medium text-gray-900">Quick Links</h2>
-                                <div class="flow-root mt-6">
-                                <ul class="-my-5 divide-y divide-gray-200">
-                                    <div class="flex flex-col space-x-4">
-                                        <p class="text-sm font-medium text-gray-900 truncate">
-                                            Hi
-                                        </p>
-                                        <p class="text-sm font-medium text-gray-900 truncate">
-                                            Hi
-                                        </p>
-                                        <p class="text-sm font-medium text-gray-900 truncate">
-                                            Hi
-                                        </p>
-                                        <p class="text-sm font-medium text-gray-900 truncate">
-                                            Hi
-                                        </p>
+                                <div class="p-6">
+                                <h2 class="text-base font-medium text-gray-900">USEFUL LINKS</h2>    
+                                    <div class="flow-root mt-6">
+                                        <ul class="-my-5 divide-y divide-gray-200">
+                                            <li class="py-4">
+                                                <div class="flex items-center space-x-4">
+                                                    <div class="flex-1 min-w-0">
+                                                        <p class="text-sm font-medium text-gray-900 truncate">
+                                                            Raising Children
+                                                        </p>
+                                                        <p class="text-sm text-gray-500 truncate">
+                                                            Mental health topics
+                                                        </p>
+
+                                                    </div>
+                                                    <div>
+                                                        <a href="https://raisingchildren.net.au/for-professionals/mental-health-resources" target="_blank" class="inline-flex items-center shadow-sm px-2.5 py-0.5 border border-gray-300 text-sm leading-5 font-medium rounded-full text-gray-700 bg-parent-100 hover:bg-parent-300">
+                                                            Learn More
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="py-4">
+                                                <div class="flex items-center space-x-4">
+                                                    <div class="flex-1 min-w-0">
+                                                        <p class="text-sm font-medium text-gray-900 truncate">
+                                                            Common Signs Test
+                                                        </p>
+                                                        <p class="text-sm text-gray-500 truncate">
+                                                            Symptoms Checklist
+                                                        </p>
+
+                                                    </div>
+                                                    <div>
+                                                        <a href="https://screening.mhanational.org/screening-tools/parent/" target="_blank" class="inline-flex items-center shadow-sm px-2.5 py-0.5 border border-gray-300 text-sm leading-5 font-medium rounded-full text-gray-700 bg-parent-100 hover:bg-parent-300">
+                                                            Learn More
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="py-4">
+                                                <div class="flex items-center space-x-4">
+                                                    <div class="flex-1 min-w-0">
+                                                        <p class="text-sm font-medium text-gray-900 truncate">
+                                                            Link 3
+                                                        </p>
+                                                        <p class="text-sm text-gray-500 truncate">
+                                                            Desc
+                                                        </p>
+
+                                                    </div>
+                                                    <div>
+                                                        <a href="#" class="inline-flex items-center shadow-sm px-2.5 py-0.5 border border-gray-300 text-sm leading-5 font-medium rounded-full text-gray-700 bg-parent-100 hover:bg-parent-300">
+                                                            Learn More
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="py-4">
+                                                <div class="flex items-center space-x-4">
+                                                    <div class="flex-1 min-w-0">
+                                                        <p class="text-sm font-medium text-gray-900 truncate">
+                                                            Link 4
+                                                        </p>
+                                                        <p class="text-sm text-gray-500 truncate">
+                                                            Desc
+                                                        </p>
+
+                                                    </div>
+                                                    <div>
+                                                        <a href="#" class="inline-flex items-center shadow-sm px-2.5 py-0.5 border border-gray-300 text-sm leading-5 font-medium rounded-full text-gray-700 bg-parent-100 hover:bg-parent-300">
+                                                            Learn More
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="py-4">
+                                                <div class="flex items-center space-x-4">
+                                                    <div class="flex-1 min-w-0">
+                                                        <p class="text-sm font-medium text-gray-900 truncate">
+                                                            Link 5
+                                                        </p>
+                                                        <p class="text-sm text-gray-500 truncate">
+                                                            Desc
+                                                        </p>
+                                                    </div>
+                                                    <div>
+                                                        <a href="#" class="inline-flex items-center shadow-sm px-2.5 py-0.5 border border-gray-300 text-sm leading-5 font-medium rounded-full text-gray-700 bg-parent-100 hover:bg-parent-300">
+                                                            Learn More
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </div>
-                                </ul>
                                 </div>
-                                <div class="mt-6">
-                                <a href="#" class="w-full flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
-                                    View all
-                                </a>
-                                </div>
-                            </div>
                             </div>
                         </section>
                     </div>
