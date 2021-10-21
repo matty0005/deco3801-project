@@ -10,17 +10,17 @@
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:space-x-4 md:space-x-8">
             <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
-            <Link href="/dashboard" :class="isOnPage('dashboard') ? 'border-parent-500 text-gray-900':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-xs md:text-sm font-medium" role="menuitem" tabindex="-1" >Dashboard</Link>
-            <Link href="/consultation" :class="isOnPage('consultation') ? 'border-parent-500 text-gray-900':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-xs md:text-sm font-medium" role="menuitem" tabindex="-1" >Consultation</Link>
-            <Link href="/forum" :class="isOnPage('forum') ? 'border-parent-500 text-gray-900':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-xs md:text-sm font-medium" role="menuitem" tabindex="-1" >Community</Link>
+            <Link href="/dashboard" :class="isOnPage('dashboard') ? 'border-parent-500 text-gray-700':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-xs md:text-sm font-medium" role="menuitem" tabindex="-1" >Dashboard</Link>
+            <Link href="/consultation" :class="isOnPage('consultation') ? 'border-parent-500 text-gray-700':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-xs md:text-sm font-medium" role="menuitem" tabindex="-1" >Consultation</Link>
+            <Link href="/forum" :class="isOnPage('forum') ? 'border-parent-500 text-gray-700':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-xs md:text-sm font-medium" role="menuitem" tabindex="-1" >Community</Link>
             <!-- <Link href="/evaluate" :class="isOnPage('evaluate') ? 'border-parent-500 text-gray-900':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" role="menuitem" tabindex="-1" >Evaluate</Link> -->
-            <Link href="/resources" :class="isOnPage('resources') ? 'border-parent-500 text-gray-900':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-xs md:text-sm font-medium" role="menuitem" tabindex="-1" >Resources</Link>
+            <Link href="/resources" :class="isOnPage('resources') ? 'border-parent-500 text-gray-700':'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"  class=" inline-flex items-center px-1 pt-1 border-b-2 text-xs md:text-sm font-medium" role="menuitem" tabindex="-1" >Resources</Link>
 
 
           </div>
         </div>
         <div class="hidden sm:ml-6 sm:flex sm:items-center">
-          <Link href="/switch/kids" method="post"  as="button" class="bg-parent-500 text-xs md:text-sm lg:text-base text-white rounded-md py-0.5 lg:py-1 sm:px-2 md:px-3 lg:px-4 mx-2" role="menuitem" tabindex="-1" >Kid's Mode</Link>
+          <Link href="/switch/kids" method="post"  as="button" class="bg-parent-500 hover:bg-parent-600 text-xs md:text-sm lg:text-base text-white rounded-md py-0.5 lg:py-1 sm:px-2 md:px-3 lg:px-4 mx-2" role="menuitem" tabindex="-1" >Kid's Mode</Link>
 
           <!-- Profile dropdown -->
           <div class="ml-3 relative">

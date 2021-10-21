@@ -16,7 +16,7 @@
                 <div class="border-2 border-parent-300 rounded-md p-4 mb-6">
                     <div v-if="!thread.anonymous" class="font-bold text-parent-600 flex flex-row">
 
-                        <img class="rounded-lg mr-3 h-14 w-14 sm:h-16 sm:w-16" :src="thread.avatar"/>
+                        <img class="rounded-full mr-3 h-14 w-14 sm:h-16 sm:w-16" :src="thread.avatar"/>
 
                         <div class="text-sm sm:text-base">
                             {{thread.display_name}} 
@@ -39,11 +39,15 @@
                         {{thread.comment}}
                     </div>
                 </div>
-                
-                <p class="text-gray-700" v-if="thread.count >= 0"> {{thread.count}} comments </p>
-
-                <LikeBar :likes="thread.likes" :dislikes="thread.dislikes" :status="thread.liked" :id="thread.id" :isThread="true" />
-
+                <div class="flex flex-row flex-start gap-x-4 -mb-2">
+                    <LikeBar :likes="thread.likes" :dislikes="thread.dislikes" :status="thread.liked" :id="thread.id" :isThread="true" />
+                    <div class="flex">
+                        <p class="text-gray-700" v-if="thread.count >= 0">{{thread.count}}</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                        </svg>
+                    </div>                
+                </div>
                 <slot/>
 
             </div>

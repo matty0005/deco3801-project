@@ -16,7 +16,7 @@
                                     <input v-model="searchText" class="text-sm sm:text-base border-2 border-parent-500 rounded-md py-2 w-full mx-0 lg:mx-auto px-2 mb-2 outline-none focus:ring-1 sm:focus:ring-2 mt-1 focus:ring-parent-600" :placeholder="searchPlaceholder" />
 
                                     <div class="shadow-sm absolute z-50 top-12 left-1/2 transform  -translate-x-1/2 w-full mx-auto  rounded-md rounded-t-none">
-                                        <div class="border border-l-0 border-r-0 border-t-0 border-gray-300" v-for="(thread, index) in searched" :key="index" :value="thread"> 
+                                        <div class="border border-l-0 border-r-0 border-t-0 border-gray-200" v-for="(thread, index) in searched" :key="index" :value="thread"> 
                                             <ThreadSearched :thread="thread" />
                                         </div>
                                     </div>
@@ -40,7 +40,7 @@
                                             <div class="font-medium text-gray-700 text-lg sm:text-xl md:text-2xl"> 
                                                 {{topic.title}}
                                             </div>
-                                            <div class="text-xs sm:text-sm text-gray-600"> 
+                                            <div class="text-xs sm:text-sm text-gray-600 pr-4"> 
                                                 {{topic.short_description}}
                                             </div>
                                         </div>

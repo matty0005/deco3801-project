@@ -69,7 +69,7 @@
                                             <div
                                                 @click.stop="getDateValue(date)"
                                                 class="cursor-pointer text-center text-sm leading-none rounded-full leading-loose transition ease-in-out duration-100"
-                                                :class="{'bg-parent-500 text-parent-50': isToday(date) == true, 'bg-parent-600 text-parent-50': isSelected(date) == true, 'text-gray-700 hover:bg-blue-200': isToday(date) == false }"	
+                                                :class="{'bg-parent-500 text-parent-50': isToday(date) == true, 'bg-parent-600 text-parent-50': isSelected(date) == true, 'text-gray-700 hover:bg-parent-100': isToday(date) == false }"	
                                             > {{ date }}</div>
                                         </div>
                                     </template>
