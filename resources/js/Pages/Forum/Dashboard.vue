@@ -32,7 +32,7 @@
                                 <div class="w-full grid grid-cols-2 ">
                                     <div v-for="(topic, index) in topics" :key="index"
                                         @click="changeTopic(topic.title)"
-                                        class="py-4 hover:bg-parent-50 flex flex-row cursor-pointer border-b border-gray-300 pl-6 sm:pl-8"
+                                        class="py-4 hover:bg-gray-100 flex flex-row cursor-pointer border-b border-gray-300 pl-6 sm:pl-8"
                                         :class="(index % 2 == 0 ? ' border-l-0 border-r -ml-4 sm:-ml-6 ':' border-r-0  -mr-4 sm:-mr-6 ').concat(
                                         index == 0 || index == 1 ? ' border-t ':'')">
                                         <img class="hidden sm:block h-12 w-12 self-center" :src="topic.icon">
