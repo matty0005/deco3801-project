@@ -43,7 +43,7 @@
                                         </div>
                                         <Dropdown v-model="timeBooking" :options="timeOptions" label="Time" class="mx-2 w-36"/>
 
-                                        <button v-on:click="submitConsultation" type="submit" class="ml-5 h-10 bg-parent-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-parent-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-parent-600">
+                                        <button v-on:click="submitConsultation" type="submit" class="ml-5 h-10 bg-parent-500 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-parent-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-parent-600">
                                             Save
                                         </button>
                                     </div>
