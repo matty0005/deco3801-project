@@ -1,7 +1,7 @@
 <template>
     <Dashboard :topic="topic" :topics="topics" :threads="threads" :searched="searched"> 
 
-        <div class="ml-6 mt-2 mb-4 text-sm text-gray-600 flex flex-row font-bold">
+        <div class="px-2 sm:px-4 mt-2 mb-2 text-sm text-gray-600 flex flex-row font-bold">
             <p @click="goToDashboard" class="cursor-pointer hover:underline hover:text-gray-800"> Community </p>
             <svg class="flex-shrink-0 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
@@ -9,12 +9,12 @@
             <p>{{topic.title}}</p>
         </div>
 
-        <div class="mx-6 flex flex-col md:flex-row mb-6">
-            <div class="w-full md:w-10/12 text-gray-500">
+        <div class="px-2 sm:px-4 flex flex-col lg:flex-row mb-6">
+            <div class="w-full text-sm sm:text-base md:9/12 lg:w-10/12 text-gray-500">
                 {{topic.description}}
             </div>
-            <div class="w-full py-4 md:w-2/12 bg-parent-100 flex items-center justify-center">
-                <div @click="modal = true" class="text-center w-1/2 md:w-9/12 shadow py-3 px-5 rounded-xl bg-parent-500 text-white hover:bg-parent-400">
+            <div class="w-full py-4 lg:w-2/12 flex items-center justify-center">
+                <div @click="modal = true" class="text-center w-1/2 sm:w-1/3 lg:w-9/12 shadow py-3 px-4 lg:px-5 rounded-xl bg-parent-500 text-white hover:bg-parent-400">
                     New Post
                 </div>
             </div>
@@ -51,8 +51,8 @@
                                 <input v-model="doctors_only" id="comments" name="comments" type="checkbox" class="focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300 rounded" />
                             </div>
                             <div class="ml-3 text-sm">
-                                <label for="comments" aria-describedby="comments-description" class="font-medium text-gray-700">Doctor Only Comments</label>
-                                <p id="comments-description" class="text-gray-500 hidden lg:block">Only allow doctors to comment on your thread.</p>
+                                <label for="comments" aria-describedby="comments-description" class="font-medium text-gray-700">Specialist Only Comments</label>
+                                <p id="comments-description" class="text-gray-500 hidden lg:block">Only allow specialists to comment on your thread.</p>
                             </div>
                         </div>
 
@@ -62,7 +62,7 @@
                             </div>
                             <div class="ml-3 text-sm">
                                 <label for="anonymous" aria-describedby="anonymous-description" class="font-medium text-gray-700">Anonymous</label>
-                                <p id="anonymous-description" class="text-gray-500 hidden lg:block">Remain Anonymous, nobody can see that you posted.</p>
+                                <p id="anonymous-description" class="text-gray-500 hidden lg:block">Remain Anonymous, your display name will not be shown.</p>
                             </div>
                         </div>
                     </div>

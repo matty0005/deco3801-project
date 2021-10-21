@@ -1,6 +1,6 @@
 <template>
   <div class="">
-      <Link :href="`/forum/topic/${thread.topic_on_dashboard}/${thread.id}`" class="font-medium text-gray-700 text-lg flex flex-row border border-l-0 border-r-0 border-b-0 border-gray-300 px-4" v-for="thread in $page.props.trendingForumPosts" :key="thread"> 
+      <Link :href="`/forum/topic/${thread.topic_on_dashboard}/${thread.id}`" class="hover:bg-gray-50 font-medium text-gray-700 text-lg flex flex-row border border-l-0 border-r-0 border-b-0 border-gray-300 px-4" v-for="thread in $page.props.trendingForumPosts" :key="thread"> 
                     <!-- <p> {{thread.title}} </p> -->
                 <div class="justify-center items-start sm:items-center flex flex-col sm:flex-row flex-grow">
                     <!-- <p class="ml-auto text-base text-gray-400" v-if="thread.topic_on_dashboard"> posted in {{thread.topic_on_dashboard}} </p> -->
@@ -22,9 +22,16 @@
                             <div class="text-gray-400"> Anonymous <span class="text-gray-400 text-sm mb-4 ">posted at {{thread.time}}</span></div>
                         </div>
                     </div>
-                    <div class="ml-14 sm:ml-0 flex-shrink-0 flex flex-row sm:flex-col text-sm font-normal gap-x-8 text-left justify-center pb-2 sm:px-2 md:px-3 items-center">
-                        <div class="text-gray-500">Likes: {{ thread.likes }}</div>
-                        <div class="text-gray-500">Comments: {{ thread.comments }}</div>
+                    <div class="ml-14 sm:gap-y-1 sm:ml-0 flex-shrink-0 flex flex-row sm:flex-col text-sm font-normal gap-x-8 text-left justify-center pb-2 sm:px-2 md:px-3">
+                        <LikeBar :likes="thread.likes" :dislikes="thread.dislikes" :status="thread.liked" :id="thread.id" :isThread="true" />
+                        <div class="flex flex-row">
+                            <p class="text-gray-700">
+                                {{thread.comments}}
+                            </p>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                            </svg>
+                        </div>
                     </div>
                 </div>
 
