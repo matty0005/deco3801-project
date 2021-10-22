@@ -36,7 +36,7 @@
                         </div>
                     </div>
                     <div class="mt-5 flex flex-row-reverse">
-                        <button @click="confirmClick" type="button" class="px-6 inline-flex justify-center rounded-md border border-transparent shadow-sm py-2 bg-parent-600 text-base font-medium text-white hover:bg-parent-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-parent-500 sm:col-start-2 sm:text-sm">
+                        <button @click="confirmClick" type="button" class="mt-3 sm:mt-0 mr-5 sm:mr-0 px-6 inline-flex justify-center rounded-md border border-transparent shadow-sm py-2 bg-parent-500 text-base font-medium text-white hover:bg-parent-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-parent-500 sm:col-start-2 sm:text-sm">
                             {{ confirmText }}
                         </button>
                         <button @click="cancelClick" type="button" class="mt-3 mr-2 inline-flex justify-center rounded-md  shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-parent-500 sm:mt-0 sm:col-start-1 sm:text-sm">
