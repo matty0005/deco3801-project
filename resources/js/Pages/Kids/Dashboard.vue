@@ -177,7 +177,7 @@ export default {
     nextMascot(step) {
       this.unlockMascot();
       if (step > 0) {
-        this.selectedMascot = (this.selectedMascot + 1) % this.mascots.length
+        this.selectedMascot = (this.selectedMascot + 1) % this.mascots.length;
       } else {
         this.selectedMascot -= 1;
         this.selectedMascot = this.selectedMascot > 0 ? this.selectedMascot : this.mascots.length; 
