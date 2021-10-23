@@ -20,6 +20,7 @@ class CreateDoctorsTable extends Migration
             $table->smallInteger('gender'); 
             $table->string('specialisation');
             $table->string('link');
+            $table->string('desc');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }

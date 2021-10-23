@@ -12,11 +12,11 @@
                                     <div class="sm:flex sm:items-center sm:justify-between">
                                     <div class="sm:flex sm:space-x-5">
                                         <div class="flex-shrink-0">
-                                        <img class="mx-auto h-32 w-auto" src="https://variety.com/wp-content/uploads/2017/07/rilakkuma.jpg?w=681&h=383&crop=1" alt="">
+                                            <img class="mx-auto h-32 w-auto" src="/images/doctor.png" alt="doctor">
                                         </div>
                                         <div class="mt-6 text-center sm:mt-6 sm:pt-1 sm:text-left">
-                                            <p class="text-3xl font-bold text-gray-900 sm:text-3xl"> Hey {{ $page.props.auth.user.name }}!</p>
-                                            <p class="text-2xl text-gray-700 sm:text-2xl">This is your consultation page with {{  doctor.title }} {{  doctor.name }}</p>
+                                            <p class="text-3xl font-semibold text-gray-700 sm:text-3xl"> Welcome, {{ $page.props.auth.user.name }}!</p>
+                                            <p class="text-lg text-gray-500 sm:text-xl">This is your consultation booking page with {{ doctor.title }} {{  doctor.name }}.</p>
                                         </div>
                                     </div>
                                     </div>
@@ -24,37 +24,99 @@
                                 </div>
                             </section>
                         </div>
-
-                        <div class="bg-white  shadow-xl rounded-lg">
-
-
-                            <div class="flex flex-row">
-
-                            <div class="grid grid-flow-col space-around ">
-                                <div class="p-2"> 
-                                    <img class="h-36 rounded-full" :src="doctor.avatar" alt="profilePicture">
+                        
+                        <div class="bg-white overflow-visible shadow rounded-lg relative">
+                            <div class="px-4 pt-2 sm:pt-2 sm:p-6 sm:pb-4 flex flex-col divide-y divide-gray-200">
+                                <div class="flex flex-col px-2 sm:px-4 pt-4 pb-4">
+                                    <p class="text-lg sm:text-xl font-semibold text-gray-700">
+                                        Consultation Details
+                                    </p>
                                 </div>
-                                
+                                <div class="flex flex-col px-2 sm:px-4 pt-4 pb-2">
+                                    <p class="text-sm text-gray-600">
+                                        You have a consultation scheduled with {{ doctor.title }} {{ doctor.name }} scheduled for:
+                                    </p>
+                                    <p class="self-center text-sm sm:text-base text-gray-700 py-2">
+                                        [DATE/TIME]
+                                    </p>
+                                    <p class="text-sm text-gray-600 py-2">
+                                        At this allocated time, please join this <a class="underline text-700 font-medium hover:font-bold" href="#" target="_blank">link</a>.
+                                    </p>
+                                </div>
                             </div>
-                                <div class="mt-3 ml-2">
-                                    <p class="mx-2 text-xl max-w-xl text-gray-700 sm:text-xl">{{ doctor.title }} {{ doctor.name }} is looking forward to see you! When it's close to your consult time please join this <a href="https://uqz.zoom.us/j/4671522626"> link! </a>  </p>
-                                    <div class="mt-3 flex flex-col">
-                                        <div class="mx-2 flex flex-col">
-                                            <p class="text-xl max-w-xl text-gray-700 sm:text-xl"> Would you like to change anything about this consult? </p>
-                                        </div>
-
-                                        <div class="mx-auto my-3"> 
-                                            <button v-on:click="deleteConsultation" type="submit" class="h-10 bg-parent-500 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-parent-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-parent-600">
-                                                Delete
-                                            </button>
-                                        </div>
-                                        
-                                    </div>
+                        </div>
+                        <div class="bg-white overflow-visible shadow rounded-lg relative">
+                            <div class="px-4 pt-2 sm:pt-2 sm:p-6 sm:pb-4 flex flex-col divide-y divide-gray-200">
+                                <div class="flex flex-col px-2 sm:px-4 pt-4 pb-4">
+                                    <p class="text-lg sm:text-xl font-semibold text-gray-700">
+                                        Cancellation
+                                    </p>
+                                </div>
+                                <div class="flex flex-col px-2 sm:px-4 pt-4 pb-2">
+                                    <p class="text-sm text-gray-600 pb-3"> 
+                                        If this consultation is no longer suitable for you, you can cancel it and reschedule.
+                                    </p>
+                                    <button v-on:click="deleteConsultation" type="submit" class="self-center h-10 bg-parent-500 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-parent-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-parent-600">
+                                        Cancel
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <Datepicker class="mx-6/12" v-model="date"/>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="">
+                            <Datepicker class="mx-6/12" v-model="date"/>
+                        </div>
+                        <div class="rounded-lg bg-white overflow-hidden shadow">
+                            <div class="p-6">
+                                <h2 class="text-base font-medium text-gray-700">SPECIALIST INFORMATION</h2>
+                                <div class="flow-root mt-6">
+                                    <ul class="-my-5 divide-y divide-gray-200 text-sm">
+                                        <li class="py-4">
+                                            <div class="flex items-center">
+                                                <p class="text-gray-700 font-medium w-5/12">
+                                                    Contact
+                                                </p>
+                                                <p class="text-gray-600">
+                                                    {{ doctor.email }}
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li class="py-4">
+                                            <div class="flex items-center">
+                                                <p class="text-gray-700 font-medium w-5/12">
+                                                    Specialty
+                                                </p>
+                                                <p class="text-gray-600">
+                                                    Specialisation {{ doctor.specialisation }}
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li class="py-4">
+                                            <div class="flex items-center">
+                                                <p class="text-gray-700 font-medium w-5/12">
+                                                    Rating
+                                                </p>
+                                                <p class="text-gray-600">
+                                                    Rating/5 {{ doctor.rating }}
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li class="py-4">
+                                            <div class="flex items-center">
+                                                <p class="text-gray-700 font-medium w-5/12">
+                                                    Gender
+                                                </p>
+                                                <p class="text-gray-600">
+                                                    Gender {{ doctor.gender }}
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -67,14 +129,14 @@
     import Dropdown from '@/Shared/Dropdown.vue'
     import { Link } from '@inertiajs/inertia-vue3'
     import DateTimePicker from '@/Components/DateTimePicker.vue'
-    import DatePicker from "@/Shared/DatePicker.vue"
+    import Datepicker from '@/Components/Datepicker.vue'
     import DatePickerText from "@/Shared/DatePickerText.vue"
     export default {
         components: {
             Layout,
             Link,
             Dropdown,
-            DatePicker,
+            Datepicker,
             DateTimePicker,
             DatePickerText
             },

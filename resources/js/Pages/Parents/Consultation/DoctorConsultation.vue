@@ -13,7 +13,7 @@
                                         <p class="text-gray-700 font-semibold">Book a Consultation</p>
                                     </div>
                                     <div class="px-2 sm:px-4 pt-4 pb-2 text-3xl">
-                                        <p class="text-sm text-gray-500 font-regular">Schedule a session with a professional you would like your child to consult with. You can view ratings and specialisations to find the most suited professional for you.</p>
+                                        <p class="text-sm text-gray-500 font-regular">Schedule a session with a professional you would like your child to consult with. You can view ratings and specialisations to find the most suited professional for your child.</p>
                                     </div>
                                     <div class="px-2 sm:px-4 pt-2 pb-2 text-3xl">                                       
                                         <input v-model="filter" class="text-sm sm:text-base border-2 border-parent-500 rounded-md py-2 w-full mx-0 lg:mx-auto px-2 mb-2 outline-none focus:ring-1 sm:focus:ring-2 mt-1 focus:ring-parent-600" placeholder="Search for a specialist..." />
@@ -29,7 +29,7 @@
                                                 <th @click="sort('name')" class="px-6 py-5 text-left text-xs font-heavy text-gray-500 hover:text-gray-700 uppercase tracking-wider cursor-pointer" scope="col">Name</th>
                                                 <th @click="sort('special')" class="hidden sm:table-cell px-6 py-5 text-left text-xs font-heavy text-gray-500 hover:text-gray-700 uppercase tracking-wider cursor-pointer" scope="col">Specialty</th>                                    
                                                 <th @click="sort('rating')" class="hidden sm:table-cell px-6 py-5 text-left text-xs font-heavy text-gray-500 hover:text-gray-700 uppercase tracking-wider cursor-pointer" scope="col">Rating</th>
-                                                <th @click="sort('gender')" class="hidden sm:table-cell px-6 py-5 text-left text-xs font-heavy text-gray-500 hover:text-gray-700 uppercase tracking-wider cursor-pointer" scope="col">Gender</th>
+                                                <th @click="sort('gender')" class="hidden md:table-cell px-6 py-5 text-left text-xs font-heavy text-gray-500 hover:text-gray-700 uppercase tracking-wider cursor-pointer" scope="col">Gender</th>
                                                 <th class="pl-6 py-5 w-full text-left text-xs font-heavy text-gray-500 uppercase tracking-wider" scope="col">
                                                     <div class="flex flex-row items-center content-center">
                                                         <div class="">
@@ -53,7 +53,7 @@
                                                         <div class="flex-shrink-0 h-10 w-10">
                                                             <img class="flex-row-reverse sm:flex-row h-10 w-10 rounded-full" :src="doctor.avatar" alt="profile picture">
                                                         </div>
-                                                        <div class="sm:ml-4">
+                                                        <div class="ml-2 sm:ml-4">
                                                             <div class="text-sm font-medium text-gray-700">
                                                                 {{doctor.name}}
                                                             </div>
@@ -71,14 +71,19 @@
                                                     <div class="text-sm text-gray-700">{{doctor.rating}}/5</div>
                                                     <div class="text-sm text-gray-500">{{doctor.count}} Reviews </div>
                                                 </td>
-                                                <td class="hidden sm:table-cell px-6 py-4 whitespace-nowrap">
+                                                <td class="hidden md:table-cell px-6 py-4 whitespace-nowrap">
                                                     <div class="text-sm text-gray-500">{{doctor.gender === 0 ? "Male" : "Female"}}</div>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <div>
 
                                                         <Link :href="`/consultation/book/${doctor.user_id}`" class="w-full flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
-                                                            Book Session
+                                                            <p class="hidden sm:block">
+                                                                Book Session
+                                                            </p>
+                                                            <p class="block sm:hidden">
+                                                                Book
+                                                            </p>
                                                         </Link>
                                                     
                                                     </div>

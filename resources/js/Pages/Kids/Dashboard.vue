@@ -4,13 +4,13 @@
 
       <div class="absolute flex flex-row -mt-24 top-0 left-0"> 
         <img class="h-16" src = "/images/sunflower-icon.svg"/>
-        <p class="text-6xl">{{question_count}}</p>
+        <p class="text-gray-700 text-6xl">{{question_count}}</p>
       </div>
 
       <div class="cloud w-128 h-64 mx-auto absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/4">
         <div class="pt-28 pb-2 pr-12">
-          <h1 class="text-center text-6xl">Seedlings</h1>
-          <h2 class="text-center text-3xl">for kids</h2>
+          <h1 class="text-center text-gray-700 text-6xl">Seedlings</h1>
+          <h2 class="text-center text-gray-700 text-3xl">for kids</h2>
         </div>
       </div>
 

@@ -86,7 +86,7 @@
                     <section aria-labelledby="recent-hires-title" v-if="week(7)">
                         <div class="rounded-lg bg-white overflow-hidden shadow -mt-4">
                         <div class="p-6">
-                            <h2 class="text-base font-medium text-gray-900">MY SPECIALISTS</h2>
+                            <h2 class="text-base font-medium text-gray-700">MY SPECIALISTS</h2>
                             <div class="flow-root mt-6">
                             <ul class="-my-5 divide-y divide-gray-200">
                                 <li v-for="doctor in doctors" :key="doctor" class="py-4">
@@ -103,18 +103,18 @@
                                         </p>
                                         </div>
                                         <div>
-                                        <a href="#" class="inline-flex items-center shadow-sm px-2.5 py-0.5 border border-gray-300 text-sm leading-5 font-medium rounded-full text-gray-700 bg-parent-100 hover:bg-parent-300">
+                                        <Link href="/consultation/consultation/{{doctor.user_id}}" class="inline-flex items-center shadow-sm px-2.5 py-0.5 border border-gray-300 text-sm leading-5 font-medium rounded-full text-gray-700 bg-parent-100 hover:bg-parent-300">
                                             View
-                                        </a>
+                                        </Link>
                                         </div>
                                     </div>
                                 </li>
                             </ul>
                             </div>
                             <div class="mt-6">
-                            <a href="#" class="w-full flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
-                                View all
-                            </a>
+                                <Link href="/consultation/book" class="w-full flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                                    View all
+                                </Link>
                             </div>
                         </div>
                         </div>

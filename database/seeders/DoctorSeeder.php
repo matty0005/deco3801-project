@@ -21,6 +21,7 @@ class DoctorSeeder extends Seeder {
                 "gender" => 1,
                 "specialisation" => "ADHD",
                 "link" => "Zoom Link Here",
+                "desc" => "Long",
             ),
             array(
                 "id" => 2,
@@ -29,6 +30,7 @@ class DoctorSeeder extends Seeder {
                 "gender" => 0,
                 "specialisation" => "Depression",
                 "link" => "Zoom Link Here",
+                "desc" => "Long",
             ),
             array(
                 "id" => 3,
@@ -37,7 +39,7 @@ class DoctorSeeder extends Seeder {
                 "gender" => 1,
                 "specialisation" => "Learning Disabilities",
                 "link" => "Zoom Link Here",
-
+                "desc" => "Long",
             ),
             array(
                 "id" => 4,
@@ -46,6 +48,7 @@ class DoctorSeeder extends Seeder {
                 "gender" => 0,
                 "specialisation" => "Autism",
                 "link" => "Zoom Link Here",
+                "desc" => "Long",
             ),
             array(
                 "id" => 5,
@@ -54,6 +57,7 @@ class DoctorSeeder extends Seeder {
                 "gender" => 0,
                 "specialisation" => "Depression",
                 "link" => "Zoom Link Here",
+                "desc" => "Long",
             ),
             array(
                 "id" => 6,
@@ -62,6 +66,7 @@ class DoctorSeeder extends Seeder {
                 "gender" => 0,
                 "specialisation" => "Autism",
                 "link" => "Zoom Link Here",
+                "desc" => "Long",
             ),
         );
 

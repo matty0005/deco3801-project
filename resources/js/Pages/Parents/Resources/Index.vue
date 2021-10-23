@@ -72,14 +72,14 @@
                                                         <p class="text-sm font-medium text-gray-900 truncate">
                                                             Raising Children
                                                         </p>
-                                                        <p class="text-sm text-gray-500 truncate">
+                                                        <p class="text-xs sm:text-sm text-gray-500 truncate">
                                                             More mental health resources
                                                         </p>
 
                                                     </div>
                                                     <div>
                                                         <a href="https://raisingchildren.net.au/for-professionals/mental-health-resources" target="_blank" class="inline-flex items-center shadow-sm px-2.5 py-0.5 border border-gray-300 text-sm leading-5 font-medium rounded-full text-gray-700 bg-parent-100 hover:bg-parent-300">
-                                                            Learn More
+                                                            View
                                                         </a>
                                                     </div>
                                                 </div>
@@ -90,14 +90,14 @@
                                                         <p class="text-sm font-medium text-gray-900 truncate">
                                                             Symptoms Checklist
                                                         </p>
-                                                        <p class="text-sm text-gray-500 truncate">
+                                                        <p class="text-xs sm:text-sm text-gray-500 truncate">
                                                             Common signs of mental illness
                                                         </p>
 
                                                     </div>
                                                     <div>
                                                         <a href="https://screening.mhanational.org/screening-tools/parent/" target="_blank" class="inline-flex items-center shadow-sm px-2.5 py-0.5 border border-gray-300 text-sm leading-5 font-medium rounded-full text-gray-700 bg-parent-100 hover:bg-parent-300">
-                                                            Learn More
+                                                            View
                                                         </a>
                                                     </div>
                                                 </div>
@@ -108,14 +108,14 @@
                                                         <p class="text-sm font-medium text-gray-900 truncate">
                                                             Youth Mental Health
                                                         </p>
-                                                        <p class="text-sm text-gray-500 truncate">
+                                                        <p class="text-xs sm:text-sm text-gray-500 truncate">
                                                             Government resources
                                                         </p>
 
                                                     </div>
                                                     <div>
                                                         <a href="https://youth.gov/youth-topics/youth-mental-health" target="_blank" class="inline-flex items-center shadow-sm px-2.5 py-0.5 border border-gray-300 text-sm leading-5 font-medium rounded-full text-gray-700 bg-parent-100 hover:bg-parent-300">
-                                                            Learn More
+                                                            View
                                                         </a>
                                                     </div>
                                                 </div>
@@ -126,14 +126,14 @@
                                                         <p class="text-sm font-medium text-gray-900 truncate">
                                                             Parenting Style
                                                         </p>
-                                                        <p class="text-sm text-gray-500 truncate">
+                                                        <p class="text-xs sm:text-sm text-gray-500 truncate">
                                                             Understand how you parent 
                                                         </p>
 
                                                     </div>
                                                     <div>
                                                         <a href="https://psychcentral.com/quizzes/parenting-style-quiz#1" target="_blank" class="inline-flex items-center shadow-sm px-2.5 py-0.5 border border-gray-300 text-sm leading-5 font-medium rounded-full text-gray-700 bg-parent-100 hover:bg-parent-300">
-                                                            Learn More
+                                                            View
                                                         </a>
                                                     </div>
                                                 </div>
@@ -144,13 +144,13 @@
                                                         <p class="text-sm font-medium text-gray-900 truncate">
                                                             Government Survey
                                                         </p>
-                                                        <p class="text-sm text-gray-500 truncate">
+                                                        <p class="text-xs sm:text-sm text-gray-500 truncate">
                                                             Survey of youth mental health
                                                         </p>
                                                     </div>
                                                     <div>
                                                         <a href="https://www.health.gov.au/resources/publications/the-mental-health-of-children-and-adolescents" target="_blank" class="inline-flex items-center shadow-sm px-2.5 py-0.5 border border-gray-300 text-sm leading-5 font-medium rounded-full text-gray-700 bg-parent-100 hover:bg-parent-300">
-                                                            Learn More
+                                                            View
                                                         </a>
                                                     </div>
                                                 </div>

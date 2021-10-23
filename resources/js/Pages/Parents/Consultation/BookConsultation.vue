@@ -6,7 +6,7 @@
                     <div class="grid grid-cols-1 gap-4 lg:col-span-2">
                         <div class="bg-white overflow-hidden shadow rounded-lg">
 
-                            <section aria-labelledby="profile-overview-title">
+                            <!-- <section aria-labelledby="profile-overview-title">
                                 <div class="rounded-lg bg-white overflow-hidden shadow">
                                 <div class="bg-white p-6">
                                     <div class="sm:flex sm:items-center sm:justify-between">
@@ -22,6 +22,28 @@
                                     </div>
                                 </div>
                                 </div>
+                            </section> -->
+                            <section aria-labelledby="profile-overview-title">
+                                <div class="rounded-lg bg-white overflow-hidden shadow">
+                                    <div class="bg-white p-6 divide-y divide-gray-200">
+                                        <div class="flex items-center pb-4">
+                                            <div class="flex-shrink-0">
+                                                <img class="flex-row-reverse sm:flex-row h-16 w-16 rounded-full" :src="doctor.avatar" alt="profile picture">
+                                            </div>
+                                            <div class="ml-2 sm:ml-4">
+                                                <div class="text-lg sm:text-xl font-semibold text-gray-700">
+                                                    {{doctor.title}} {{doctor.name}}
+                                                </div>
+                                                <div class="text-lg sm:text-xl font-medium text-gray-500">
+                                                    {{doctor.email}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center py-3 text-gray-500 text-sm">
+                                            doctor.details
+                                        </div>
+                                    </div>
+                                </div>
                             </section>
                         </div>
 
@@ -30,7 +52,7 @@
                                 <div class="grid grid-flow-col space-around ">
                                 </div>
                                 <div class="py-4 px-6">
-                                    <p class="text-sm sm:text-base text-gray-600 mb-3">
+                                    <p class="text-sm text-gray-500 mb-3">
                                         Select when you would like to have your consultation with {{doctor.title}} {{doctor.name}}.
                                     </p>
                                     <div class="flex flex-direction-row content-center justify-start items-end">
@@ -65,14 +87,15 @@
     import Dropdown from '@/Shared/Dropdown.vue'
     import { Link } from '@inertiajs/inertia-vue3'
     import DateTimePicker from '@/Components/DateTimePicker.vue'
-    import DatePicker from "@/Shared/DatePicker.vue"
     import DatePickerText from "@/Shared/DatePickerText.vue"
+    import Datepicker from '@/Components/Datepicker.vue'
+
     export default {
         components: {
             Layout,
             Link,
             Dropdown,
-            DatePicker,
+            Datepicker,
             DateTimePicker,
             DatePickerText,
             },
