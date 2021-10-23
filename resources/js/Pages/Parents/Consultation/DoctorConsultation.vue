@@ -108,7 +108,7 @@
     import Button from '@/Components/Button.vue'
     import StackedConsultations from "@/Components/Parents/StackedConsultations"
     import { Link } from '@inertiajs/inertia-vue3'
-        import Datepicker from '@/Components/Datepicker.vue'
+    import Datepicker from '@/Components/Datepicker.vue'
 
 
     export default {

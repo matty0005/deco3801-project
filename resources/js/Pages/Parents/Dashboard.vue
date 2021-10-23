@@ -103,7 +103,7 @@
                                         </p>
                                         </div>
                                         <div>
-                                        <Link href="/consultation/consultation/{{doctor.user_id}}" class="inline-flex items-center shadow-sm px-2.5 py-0.5 border border-gray-300 text-sm leading-5 font-medium rounded-full text-gray-700 bg-parent-100 hover:bg-parent-300">
+                                        <Link href="#" class="inline-flex items-center shadow-sm px-2.5 py-0.5 border border-gray-300 text-sm leading-5 font-medium rounded-full text-gray-700 bg-parent-100 hover:bg-parent-300">
                                             View
                                         </Link>
                                         </div>

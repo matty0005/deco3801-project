@@ -20,8 +20,14 @@ class DoctorSeeder extends Seeder {
                 "title" => "Dr",
                 "gender" => 1,
                 "specialisation" => "ADHD",
-                "link" => "Zoom Link Here",
-                "desc" => "Long",
+                "link" => "https://uqz.zoom.us/j/4671522626",
+                "desc" => "<div>
+                <p>My name is Dr Samantha Tran, I am a registered counsellor with the ACA (Australian Counselling Association) and hold a Doctor in Clinical Psychology. I offer a professional and gentle approach to providing counselling.</p>
+                <br>
+                <p>I have over 5 years specialised experience with youth and troubled adolescents, extending to supporting children and their families.</p>
+                <br>
+                <p>My experience and education uniquely provides me with tools to assist your child with their troubles, family relationships and social struggles including stress, anxiety, mood and behavioural disorders.</p>
+                </div>",
             ),
             array(
                 "id" => 2,
@@ -29,7 +35,7 @@ class DoctorSeeder extends Seeder {
                 "title" => "Mr",
                 "gender" => 0,
                 "specialisation" => "Depression",
-                "link" => "Zoom Link Here",
+                "link" => "https://uqz.zoom.us/j/4671522626",
                 "desc" => "Long",
             ),
             array(
@@ -38,7 +44,7 @@ class DoctorSeeder extends Seeder {
                 "title" => "Ms",
                 "gender" => 1,
                 "specialisation" => "Learning Disabilities",
-                "link" => "Zoom Link Here",
+                "link" => "https://uqz.zoom.us/j/4671522626",
                 "desc" => "Long",
             ),
             array(
@@ -47,7 +53,7 @@ class DoctorSeeder extends Seeder {
                 "title" => "Dr",
                 "gender" => 0,
                 "specialisation" => "Autism",
-                "link" => "Zoom Link Here",
+                "link" => "https://uqz.zoom.us/j/4671522626",
                 "desc" => "Long",
             ),
             array(
@@ -56,7 +62,7 @@ class DoctorSeeder extends Seeder {
                 "title" => "Mr",
                 "gender" => 0,
                 "specialisation" => "Depression",
-                "link" => "Zoom Link Here",
+                "link" => "https://uqz.zoom.us/j/4671522626",
                 "desc" => "Long",
             ),
             array(
@@ -65,7 +71,7 @@ class DoctorSeeder extends Seeder {
                 "title" => "Dr",
                 "gender" => 0,
                 "specialisation" => "Autism",
-                "link" => "Zoom Link Here",
+                "link" => "https://uqz.zoom.us/j/4671522626",
                 "desc" => "Long",
             ),
         );

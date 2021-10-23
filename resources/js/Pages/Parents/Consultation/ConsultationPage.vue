@@ -16,7 +16,7 @@
                                         </div>
                                         <div class="mt-6 text-center sm:mt-6 sm:pt-1 sm:text-left">
                                             <p class="text-3xl font-semibold text-gray-700 sm:text-3xl"> Welcome, {{ $page.props.auth.user.name }}!</p>
-                                            <p class="text-lg text-gray-500 sm:text-xl">This is your consultation booking page with {{ doctor.title }} {{  doctor.name }}.</p>
+                                            <p class="text-lg text-gray-500 sm:text-xl">This is your consultation booking page with {{ doctor_info.title }} {{  doctor.name }}.</p>
                                         </div>
                                     </div>
                                     </div>
@@ -34,13 +34,13 @@
                                 </div>
                                 <div class="flex flex-col px-2 sm:px-4 pt-4 pb-2">
                                     <p class="text-sm text-gray-600">
-                                        You have a consultation scheduled with {{ doctor.title }} {{ doctor.name }} scheduled for:
+                                        You have a consultation scheduled with {{ doctor_info.title }} {{ doctor.name }} scheduled for:
                                     </p>
                                     <p class="self-center text-sm sm:text-base text-gray-700 py-2">
-                                        [DATE/TIME]
+                                        {{ consultation.when }}
                                     </p>
                                     <p class="text-sm text-gray-600 py-2">
-                                        At this allocated time, please join this <a class="underline text-700 font-medium hover:font-bold" href="#" target="_blank">link</a>.
+                                        At this allocated time, please join this <a class="underline text-700 font-medium" :href="`{doctor_info.link}`" target="_blank">link</a>.
                                     </p>
                                 </div>
                             </div>
@@ -85,10 +85,10 @@
                                         <li class="py-4">
                                             <div class="flex items-center">
                                                 <p class="text-gray-700 font-medium w-5/12">
-                                                    Specialty
+                                                    Specialisation
                                                 </p>
                                                 <p class="text-gray-600">
-                                                    Specialisation {{ doctor.specialisation }}
+                                                    {{ doctor_info.specialisation }}
                                                 </p>
                                             </div>
                                         </li>
@@ -98,7 +98,7 @@
                                                     Rating
                                                 </p>
                                                 <p class="text-gray-600">
-                                                    Rating/5 {{ doctor.rating }}
+                                                    Fix
                                                 </p>
                                             </div>
                                         </li>
@@ -108,7 +108,7 @@
                                                     Gender
                                                 </p>
                                                 <p class="text-gray-600">
-                                                    Gender {{ doctor.gender }}
+                                                    {{doctor_info.gender === 0 ? "Male" : "Female"}}
                                                 </p>
                                             </div>
                                         </li>

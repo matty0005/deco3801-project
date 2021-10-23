@@ -30,7 +30,6 @@
                         </div>
 
                         <div class="bg-white overflow-hidden shadow rounded-lg">
-
                             <div class="grid grid-flow-col">
                                 <div class="px-2 py-5 sm:p-6 sm:pb-4 text-xl flex flex-col divide-y divide-gray-200">
                                     <div class="font-semibold text-gray-700 pb-4 px-2"> 

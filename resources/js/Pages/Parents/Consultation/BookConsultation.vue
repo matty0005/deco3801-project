@@ -32,15 +32,20 @@
                                             </div>
                                             <div class="ml-2 sm:ml-4">
                                                 <div class="text-lg sm:text-xl font-semibold text-gray-700">
-                                                    {{doctor.title}} {{doctor.name}}
+                                                    {{doctor_info.title}} {{doctor.name}}
                                                 </div>
                                                 <div class="text-lg sm:text-xl font-medium text-gray-500">
-                                                    {{doctor.email}}
+                                                    {{ doctor_info.specialisation }}
                                                 </div>
                                             </div>
+                                            <div class="flex flex-row ml-auto mt-1.5 sm:mt-0 self-start cursor-pointer hover:underline" @click="this.$inertia.visit('/consultation/book')"> 
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                                                </svg>
+                                                <p class="text-sm font-medium text-gray-600 self-center">Search</p>
+                                            </div>
                                         </div>
-                                        <div class="flex items-center py-3 text-gray-500 text-sm">
-                                            doctor.details
+                                        <div class="flex items-center py-3 text-gray-500 text-sm " v-html="doctor_info.desc">   
                                         </div>
                                     </div>
                                 </div>
@@ -53,7 +58,7 @@
                                 </div>
                                 <div class="py-4 px-6">
                                     <p class="text-sm text-gray-500 mb-3">
-                                        Select when you would like to have your consultation with {{doctor.title}} {{doctor.name}}.
+                                        Select when you would like to have your consultation with {{doctor_info.title}} {{doctor.name}}.
                                     </p>
                                     <div class="flex flex-direction-row content-center justify-start items-end">
                                         <div class="mr-2 flex flex-col">
