@@ -13,11 +13,11 @@
                             <div class="bg-white">
                                 <div class="sm:flex sm:items-center sm:justify-between ">
                                     <div class="flex flex-col sm:flex-row w-full">
-                                        <div class="flex-shrink-0 p-6">
+                                        <div class="flex-shrink-0 p-6 sm:p-0">
                                             <img class="block sm:hidden mx-auto h-32 w-auto self-center" src="https://variety.com/wp-content/uploads/2017/07/rilakkuma.jpg?w=681&h=383&crop=1" alt="">
                                         </div>
                                         <!-- . -->
-                                        <div class="sm:w-7/12 pb-4 sm:p-6 text-center sm:mt-6 sm:pt-1 sm:text-left">
+                                        <div class="sm:w-7/12 pb-4 sm:p-6 text-center sm:mt-6 sm:pt-1 text-center sm:text-left">
                                             <p class="text-xl sm:text-lg md:text-xl font-medium text-gray-600">
                                                 Welcome back,
                                             </p>
