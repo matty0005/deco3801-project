@@ -15,24 +15,16 @@ class BookConsultationController extends Controller
 {
     public function index($doctor_id) {
 
-        // $doctor = DB::table('doctors')
-        //         ->select(
-        //             'doctors.user_id',
-        //             'users.name', 
-        //             'users.email',
-        //             'doctors.gender', 
-        //         )
-        //         ->selectRaw('(SELECT COUNT(*) FROM ratings WHERE ratings.doctor_id = doctors.id) count, (SELECT ROUND(AVG(rating), 1) FROM ratings WHERE ratings.doctor_id = doctors.id) rating, 
-        //         (SELECT time FROM doctor_available_dates d WHERE d.doctor_id = doctors.id) time')
-        //         ->join('users', 'users.id', 'doctors.user_id')
-        //         ->where('doctors.user_id', $doctor_id)
-        //         ->get();
 
         $doctor = DB::table('users')->select('users.id', 'user_settings.avatar', 'users.name')->join('user_settings', 'user_settings.user_id', 'users.id')->where('users.id', $doctor_id)->first(); 
         $doctor_info = DB::table('doctors')
                 ->select(
                     'doctors.user_id',
-                    'doctors.gender', 
+                    'doctors.gender',
+                    'doctors.title',
+                    'doctors.desc', 
+                    'doctors.specialisation'
+                    
                 )
                 ->selectRaw('(SELECT COUNT(*) FROM ratings WHERE ratings.doctor_id = doctors.id) count, (SELECT ROUND(AVG(rating), 1) FROM ratings WHERE ratings.doctor_id = doctors.id) rating, 
                 (SELECT time FROM doctor_available_dates d WHERE d.doctor_id = doctors.id) time')

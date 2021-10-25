@@ -7,8 +7,8 @@
 
 
                 <div class="mb-2 flex flex-row"> 
-                    <img v-if="!thread.anonymous" class="rounded-lg mr-3 h-8 w-8" :src="thread.avatar"/>
-                    <img v-else class="rounded-lg mr-3 h-8 w-8" src="/images/default_avatar.png"/>
+                    <img v-if="!thread.anonymous" class="rounded-full mr-3 h-8 w-8" :src="thread.avatar"/>
+                    <img v-else class="rounded-full mr-3 h-8 w-8" src="/images/default_avatar.png"/>
                     <p class="text-sm sm:text-base text-gray-700"> {{thread.title}} </p>
 
                     <p class="ml-auto text-sm sm:text-base text-gray-400" v-if="thread.topic_on_dashboard"> posted in {{thread.topic_on_dashboard}} </p>

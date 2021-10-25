@@ -14,7 +14,7 @@
                 {{topic.description}}
             </div>
             <div class="w-full py-4 lg:w-2/12 flex items-center justify-center">
-                <div @click="modal = true" class="text-center w-1/2 sm:w-1/3 lg:w-9/12 shadow py-3 px-4 lg:px-5 rounded-xl bg-parent-500 text-white hover:bg-parent-400">
+                <div @click="modal = true" class="text-center w-1/2 sm:w-1/3 lg:w-9/12 shadow py-3 px-4 lg:px-5 rounded-xl bg-parent-500 text-white hover:bg-parent-600">
                     New Post
                 </div>
             </div>

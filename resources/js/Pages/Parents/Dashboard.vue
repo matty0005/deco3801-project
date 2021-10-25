@@ -10,41 +10,40 @@
                     <!-- Welcome panel -->
                     <section aria-labelledby="profile-overview-title">
                         <div class="rounded-lg bg-white overflow-hidden shadow">
-                        <div class="bg-white ">
-                            <div class="sm:flex sm:items-center sm:justify-between ">
-                                <div class="flex flex-row w-full">
-                                    <!-- <div class="flex-shrink-0">
-                                        <img class="mx-auto h-32 w-auto" src="https://variety.com/wp-content/uploads/2017/07/rilakkuma.jpg?w=681&h=383&crop=1" alt="">
-                                    </div> -->
-                                    <div class="w-7/12 p-6 mt-6 text-center sm:mt-6 sm:pt-1 sm:text-left">
-                                        <p class="text-xl sm:text-lg md:text-xl font-medium text-gray-600">
-                                            Welcome back,
-                                        </p>
-                                        <p class="text-3xl sm:text-2xl md:text-3xl font-bold text-gray-700 sm:text-3xl">
-                                            {{ $page.props.auth.user.name }}!
-                                        </p>
-                                    </div>
-                                    
-                                    <Link  href="/switch/kids" method="post" class="invisible sm:visible flex flex-row kidsModeBg w-full">
-                                        <div class="flex-grow flex flex-row- ml-32 my-auto">
-                                            <div class=" flex-col ">
-                                                <div class="text-sm md:text-base text-gray-600">
-                                                    Enter 
-                                                </div>
-                                                <div class="text-2xl md:text-3xl font-bold text-gray-700">
-                                                    Kids Mode
+                            <div class="bg-white">
+                                <div class="sm:flex sm:items-center sm:justify-between ">
+                                    <div class="flex flex-col sm:flex-row w-full">
+                                        <div class="flex-shrink-0 p-6 sm:p-0">
+                                            <img class="block sm:hidden mx-auto h-32 w-auto self-center" src="https://variety.com/wp-content/uploads/2017/07/rilakkuma.jpg?w=681&h=383&crop=1" alt="">
+                                        </div>
+                                        <!-- . -->
+                                        <div class="sm:w-7/12 pb-4 sm:p-6 text-center sm:mt-6 sm:pt-1 text-center sm:text-left">
+                                            <p class="text-xl sm:text-lg md:text-xl font-medium text-gray-600">
+                                                Welcome back,
+                                            </p>
+                                            <p class="text-3xl sm:text-2xl md:text-3xl font-bold text-gray-700 sm:text-3xl">
+                                                {{ $page.props.auth.user.name }}!
+                                            </p>
+                                        </div>
+                                        <!-- . -->
+                                        
+                                        <Link  href="/switch/kids" method="post" class="hidden sm:flex flex flex-row kidsModeBg w-full">
+                                            <div class="flex-grow flex flex-row- ml-32 my-auto">
+                                                <div class=" flex-col ">
+                                                    <div class="text-sm md:text-base text-gray-600">
+                                                        Enter 
+                                                    </div>
+                                                    <div class="text-2xl md:text-3xl font-bold text-gray-700">
+                                                        Kids Mode
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <!-- <svg class="hidden lg:block right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2 " fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                                            <polygon points="50,0 100,0 50,100 0,100" />
-                                        </svg> -->
-                                        
-                                        <Mascot class="flex-grow-0" :emotion="mascot" height="h-24"/>
-                                    </Link>
+                                            
+                                            <Mascot class="flex-grow-0" :emotion="mascot" height="h-24"/>
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         </div>
                     </section>
 
@@ -87,7 +86,7 @@
                     <section aria-labelledby="recent-hires-title" v-if="week(7)">
                         <div class="rounded-lg bg-white overflow-hidden shadow -mt-4">
                         <div class="p-6">
-                            <h2 class="text-base font-medium text-gray-900">MY SPECIALISTS</h2>
+                            <h2 class="text-base font-medium text-gray-700">MY SPECIALISTS</h2>
                             <div class="flow-root mt-6">
                             <ul class="-my-5 divide-y divide-gray-200">
                                 <li v-for="doctor in doctors" :key="doctor" class="py-4">
@@ -104,18 +103,18 @@
                                         </p>
                                         </div>
                                         <div>
-                                        <a href="#" class="inline-flex items-center shadow-sm px-2.5 py-0.5 border border-gray-300 text-sm leading-5 font-medium rounded-full text-gray-700 bg-parent-100 hover:bg-parent-300">
+                                        <Link href="#" class="inline-flex items-center shadow-sm px-2.5 py-0.5 border border-gray-300 text-sm leading-5 font-medium rounded-full text-gray-700 bg-parent-100 hover:bg-parent-300">
                                             View
-                                        </a>
+                                        </Link>
                                         </div>
                                     </div>
                                 </li>
                             </ul>
                             </div>
                             <div class="mt-6">
-                            <a href="#" class="w-full flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
-                                View all
-                            </a>
+                                <Link href="/consultation/book" class="w-full flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                                    View all
+                                </Link>
                             </div>
                         </div>
                         </div>
