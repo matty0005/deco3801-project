@@ -40,7 +40,7 @@
                                         {{ consultation.when }}
                                     </p>
                                     <p class="text-sm text-gray-600 py-2">
-                                        At this allocated time, please join this <a class="underline text-700 font-medium" href={{doctor_info.link}} target="_blank">link</a>.
+                                        At this allocated time, please join this <a class="underline text-700 font-medium" :href="`${doctor_info.link}`" target="_blank">link</a>.
                                     </p>
                                 </div>
                             </div>
