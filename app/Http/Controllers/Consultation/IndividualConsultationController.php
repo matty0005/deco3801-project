@@ -37,6 +37,7 @@ class IndividualConsultationController extends Controller
                     'doctors.gender', 
                     'doctors.title',
                     'doctors.link',
+                    'doctors.cost',
                     'doctors.specialisation',
                 )
                 ->selectRaw('(SELECT COUNT(*) FROM ratings WHERE ratings.doctor_id = doctors.id) count, (SELECT ROUND(AVG(rating), 1) FROM ratings WHERE ratings.doctor_id = doctors.id) rating, 

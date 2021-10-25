@@ -95,15 +95,15 @@
                                         <img class="h-8 w-8 rounded-full" :src="doctor.avatar" alt="">
                                         </div>
                                         <div class="flex-1 min-w-0">
-                                        <p class="text-sm font-medium text-gray-900 truncate">
+                                        <p class="text-sm font-medium text-gray-700 truncate">
                                             {{ doctor.name }}
                                         </p>
                                         <p class="text-sm text-gray-500 truncate">
-                                            {{ doctor.specialisation }} Specialist
+                                            {{ doctor.specialisation }}
                                         </p>
                                         </div>
                                         <div>
-                                        <Link href="#" class="inline-flex items-center shadow-sm px-2.5 py-0.5 border border-gray-300 text-sm leading-5 font-medium rounded-full text-gray-700 bg-parent-100 hover:bg-parent-300">
+                                        <Link :href="`/consultation/book/${doctor.user_id}`" class="inline-flex items-center shadow-sm px-2.5 py-0.5 border border-gray-300 text-sm leading-5 font-medium rounded-full text-gray-700 bg-parent-100 hover:bg-parent-300">
                                             View
                                         </Link>
                                         </div>
