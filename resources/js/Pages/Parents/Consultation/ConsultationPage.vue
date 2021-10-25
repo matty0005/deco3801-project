@@ -40,7 +40,7 @@
                                         {{ consultation.when }}
                                     </p>
                                     <p class="text-sm text-gray-600 py-2">
-                                        At this allocated time, please join this <a class="underline text-700 font-medium" :href="`{doctor_info.link}`" target="_blank">link</a>.
+                                        At this allocated time, please join this <a class="underline text-700 font-medium" :href="`${doctor_info.link}`" target="_blank">link</a>.
                                     </p>
                                 </div>
                             </div>
@@ -98,17 +98,17 @@
                                                     Rating
                                                 </p>
                                                 <p class="text-gray-600">
-                                                    Fix
+                                                    {{ doctor_info.rating }}/5 from {{doctor_info.count}} reviews
                                                 </p>
                                             </div>
                                         </li>
                                         <li class="py-4">
                                             <div class="flex items-center">
                                                 <p class="text-gray-700 font-medium w-5/12">
-                                                    Gender
+                                                    Session Fee
                                                 </p>
                                                 <p class="text-gray-600">
-                                                    {{doctor_info.gender === 0 ? "Male" : "Female"}}
+                                                    &dollar;{{doctor_info.cost}} (AUD)
                                                 </p>
                                             </div>
                                         </li>

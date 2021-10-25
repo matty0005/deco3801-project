@@ -1,15 +1,14 @@
 <template>
     <div>
-        <div class="mx-3 flex items-center justify-center font-semibold text-gray-600">
+        <div class="flex items-center text-small sm:text-base font-medium text-gray-700">
             {{ label }}
         </div>
-        <div class="mx-3 my-3 flex items-center justify-center space-x-4 md:space-x-6 lg:space-x-8">
-            
-            <div class="px-3 md:px-4 lg:px-5 text-small lg:text-base font-medium text-parent-600">
+        <div class="py-3 flex items-center justify-between sm:justify-center sm:space-x-4 md:space-x-6 lg:space-x-8">
+            <div class="hidden sm:block text-base font-medium text-parent-600">
                 Agree      
             </div>
             
-            <div class="h-10 w-10 md:h-12 md:w-12 lg:h-14 lg:w-14 rounded-full border-3 cursor-pointer"
+            <div class="h-9 w-9 sm:h-10 sm:w-10 md:h-12 md:w-12 lg:h-14 lg:w-14 rounded-full border-3 cursor-pointer"
             :class="optionSelected == 7 ? 'bg-parent-500 border-parent-200' : 'bg-white border-parent-500 hover:bg-parent-200'"
             @click="selected(7)"></div>
             
@@ -34,14 +33,23 @@
             :class="optionSelected == 2 ? 'bg-red-900 border-red-200' : 'bg-white border-red-900 hover:bg-red-200'"
             @click="selected(2)"></div>
             
-            <div class="h-10 w-10 md:h-12 md:w-12 lg:h-14 lg:w-14 rounded-full border-3 cursor-pointer"
+            <div class="h-9 w-9 sm:h-10 sm:w-10 md:h-12 md:w-12 lg:h-14 lg:w-14 rounded-full border-3 cursor-pointer"
             :class="optionSelected == 1 ? 'bg-red-900 border-red-200' : 'bg-white border-red-900 hover:bg-red-200'"
             @click="selected(1)"></div>
             
-            <div class="px-3 md:px-4 lg:px-5 text-small lg:text-base font-medium text-red-900">
+            <div class="hidden sm:block text-base font-medium text-red-900">
                 Disagree 
             </div> 
         </div>
+        <div class="block sm:hidden flex">
+            <div class="text-sm font-medium text-parent-600 flex-col">
+                Agree      
+            </div>
+            <div class="ml-auto text-sm font-medium text-red-900">
+                Disagree 
+            </div> 
+        </div>
+        
     </div>
 </template>
 

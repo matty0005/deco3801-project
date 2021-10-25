@@ -21,6 +21,7 @@ class CreateDoctorsTable extends Migration
             $table->string('specialisation');
             $table->string('link');
             $table->mediumText('desc');
+            $table->smallInteger('cost');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
