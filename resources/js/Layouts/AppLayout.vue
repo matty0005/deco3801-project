@@ -19,15 +19,15 @@
 
           </div>
         </div>
-        <div class="hidden sm:ml-6 sm:flex sm:items-center">
+        <div class="hidden sm:ml-6 sm:pr-2 sm:flex sm:items-center">
           <Link href="/switch/kids" method="post"  as="button" class="bg-parent-500 hover:bg-parent-600 text-xs md:text-sm lg:text-base text-white rounded-md py-0.5 lg:py-1 sm:px-2 md:px-3 lg:px-4 mx-2" role="menuitem" tabindex="-1" >Kid's Mode</Link>
 
           <!-- Profile dropdown -->
-          <div class="ml-3 relative">
+          <div class="ml-3 relative z-50">
             <div>
               <button type="button" @click="showProfileDropdown = !showProfileDropdown" class="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-parent-500" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                 <span class="sr-only">Open user menu</span>
-                <img class="h-10 w-10 md:h-12 md:w-12 rounded-full" :src="$page.props.auth.user.avatar" alt="">
+                <img class="h-10 w-10 md:h-12 md:w-12 rounded-full" :src="$page.props.auth.user.avatar" alt="user image">
               </button>
             </div>
 

@@ -4,7 +4,7 @@
     {{ label }}
   </label>
   <div class="mt-1 relative">
-    <button @click="showDropdown = !showDropdown" type="button" class="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-kid-500 focus:border-kid-500 sm:text-sm" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
+    <button @click="showDropdown = !showDropdown" type="button" class="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-parent-500 focus:border-parent-500 sm:text-sm" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label">
       <span class="block truncate">
         {{ modelValue}}
       </span>

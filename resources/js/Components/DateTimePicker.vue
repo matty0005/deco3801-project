@@ -676,7 +676,7 @@ export default {
     display: none;
   }
   .okButton{
-    color: #ed4d00;
+    color: #C6F7E2;
     font-size: 15px;
     font-weight: bold;
     padding: 0;

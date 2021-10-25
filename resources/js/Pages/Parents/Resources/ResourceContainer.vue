@@ -8,7 +8,7 @@
                     {{resource.title}}
                 </p>   
 
-                <LikeBar class="text-gray-500 ml-auto" 
+                <LikeBar class="text-gray-500 sm:ml-auto" 
                         :likes="resource.likes"
                         :status="resource.liked" :id="resource.id" 
                         :disabled="true" 

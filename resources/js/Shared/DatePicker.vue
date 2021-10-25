@@ -1,23 +1,22 @@
 <template>
   <div class="flex flex-row">
-        <div class="mx-2 ">
+        <div class="mx-2">
             <label for="location" class="block text-sm font-medium text-gray-700">Day</label>
-            <select id="location" name="location" class="mt-1 block w-24 pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+            <select id="location" name="location" class="mt-1 block w-24 pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-parent-500 focus:border-parent-500 sm:text-sm rounded-md">
                 <option v-for="day in getDays" :key="day" :selected="day == selectedDay" @click="setDay(day)">{{ day }}</option>
-
             </select>
         </div>
 
         <div class="mx-2 ">
             <label for="location" class="block text-sm font-medium text-gray-700">Month</label>
-            <select id="location" name="location" class="mt-1 block w-32 pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+            <select id="location" name="location" class="mt-1 block w-32 pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-parent-500 focus:border-parent-500 sm:text-sm rounded-md">
                 <option v-for="month in months" :selected="month == selectedMonth"  :key="month" @click="setMonth(month)">{{ month }}</option>
             </select>
         </div>
 
         <div class="mx-2 ">
             <label for="location" class="block text-sm font-medium text-gray-700">Year</label>
-            <select id="location" name="location" class="mt-1 block w-36 pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+            <select id="location" name="location" class="mt-1 block w-36 pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-parent-500 focus:border-parent-500 sm:text-sm rounded-md">
                 <option v-for="year in years" :selected="year == selectedYear" :key="year" @click="setYear(year)">{{ year }}</option>
             </select>
         </div>

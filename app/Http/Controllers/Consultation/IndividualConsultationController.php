@@ -15,18 +15,7 @@ class IndividualConsultationController extends Controller
 {
     public function index($consultation_id) {
 
-        // $doctor = DB::table('doctors')
-        //         ->select(
-        //             'doctors.user_id',
-        //             'users.name', 
-        //             'users.email',
-        //             'doctors.gender', 
-        //         )
-        //         ->selectRaw('(SELECT COUNT(*) FROM ratings WHERE ratings.doctor_id = doctors.id) count, (SELECT ROUND(AVG(rating), 1) FROM ratings WHERE ratings.doctor_id = doctors.id) rating, 
-        //         (SELECT time FROM doctor_available_dates d WHERE d.doctor_id = doctors.id) time')
-        //         ->join('users', 'users.id', 'doctors.user_id')
-        //         ->where('doctors.user_id', $doctor_id)
-        //         ->get();
+
         $consultation = DB::table('doctor_consultations')
                 ->select(
                     'doctor_consultations.doctor_id',
@@ -46,6 +35,9 @@ class IndividualConsultationController extends Controller
                 ->select(
                     'doctors.user_id',
                     'doctors.gender', 
+                    'doctors.title',
+                    'doctors.link',
+                    'doctors.specialisation',
                 )
                 ->selectRaw('(SELECT COUNT(*) FROM ratings WHERE ratings.doctor_id = doctors.id) count, (SELECT ROUND(AVG(rating), 1) FROM ratings WHERE ratings.doctor_id = doctors.id) rating, 
                 (SELECT time FROM doctor_available_dates d WHERE d.doctor_id = doctors.id) time')
