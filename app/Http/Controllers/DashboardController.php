@@ -70,10 +70,10 @@ class DashboardController extends Controller
         }
 
         $doctors = DB::table('doctors')
-            ->select('users.name', 'specialisation', 'avatar')
+            ->select('users.name', 'specialisation', 'avatar', 'doctors.user_id')
             ->join('users','users.id','doctors.user_id')
             ->join('user_settings', 'user_settings.user_id', 'users.id')
-            ->limit(5)
+            ->limit(3)
             ->get();
 
         $bookings = DB::table('doctor_consultations')

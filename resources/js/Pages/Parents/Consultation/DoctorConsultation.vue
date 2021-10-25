@@ -72,7 +72,7 @@
                                                     <div class="text-sm text-gray-500">{{doctor.count}} Reviews </div>
                                                 </td>
                                                 <td class="hidden sm:table-cell px-6 py-4 whitespace-nowrap">
-                                                    <div class="text-sm text-gray-700">{{doctor.cost}}</div>
+                                                    <div class="text-sm text-gray-700">&dollar;{{doctor.cost}}</div>
                                                     <div class="text-sm text-gray-500">hourly</div>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
