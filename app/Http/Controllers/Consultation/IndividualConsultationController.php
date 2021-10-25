@@ -37,11 +37,12 @@ class IndividualConsultationController extends Controller
                     'doctors.gender', 
                     'doctors.title',
                     'doctors.link',
+                    'doctors.cost',
                     'doctors.specialisation',
                 )
                 ->selectRaw('(SELECT COUNT(*) FROM ratings WHERE ratings.doctor_id = doctors.id) count, (SELECT ROUND(AVG(rating), 1) FROM ratings WHERE ratings.doctor_id = doctors.id) rating, 
                 (SELECT time FROM doctor_available_dates d WHERE d.doctor_id = doctors.id) time')
-                ->where('doctors.user_id', $doctor_id)
+                ->join('users', 'users.id', 'doctors.user_id')
                 ->first();
         
         return Inertia::render('Parents/Consultation/ConsultationPage',[

@@ -5,24 +5,6 @@
                 <div class="grid grid-cols-1 gap-4 items-start lg:grid-cols-3 lg:gap-8 pb-24">
                     <div class="grid grid-cols-1 gap-4 lg:col-span-2">
                         <div class="bg-white overflow-hidden shadow rounded-lg">
-
-                            <!-- <section aria-labelledby="profile-overview-title">
-                                <div class="rounded-lg bg-white overflow-hidden shadow">
-                                <div class="bg-white p-6">
-                                    <div class="sm:flex sm:items-center sm:justify-between">
-                                        <div class="sm:flex sm:space-x-5">
-                                            <div class="flex-shrink-0">
-                                                <img class="mx-auto h-32 w-auto" src="https://variety.com/wp-content/uploads/2017/07/rilakkuma.jpg?w=681&h=383&crop=1" alt="">
-                                            </div> 
-                                            <div class="mt-6 text-center sm:mt-6 sm:pt-1 sm:text-left">
-                                                <p class="text-2xl sm:text-3xl font-bold text-gray-700"> Hey {{ $page.props.auth.user.name }}!</p>
-                                                <p class="text-xl sm:text-2xl text-gray-600">You are booking a consult with Dr. {{doctor.name}}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
-                            </section> -->
                             <section aria-labelledby="profile-overview-title">
                                 <div class="rounded-lg bg-white overflow-hidden shadow">
                                     <div class="bg-white p-6 divide-y divide-gray-200">
@@ -45,8 +27,26 @@
                                                 <p class="text-sm font-medium text-gray-600 self-center">Search</p>
                                             </div>
                                         </div>
-                                        <div class="flex items-center py-3 text-gray-500 text-sm " v-html="doctor_info.desc">   
+                                        <div class="flex flex-row gap-x-20 py-3">
+                                            <div class="text-sm gap-x-4 flex flex-row">
+                                                <p class="text-gray-700">
+                                                    Price (AUD)
+                                                </p>
+                                                
+                                                <p class="text-gray-500">
+                                                    &dollar;{{ doctor_info.cost }} <span class="text-xs"> hourly</span>
+                                                </p>
+                                            </div>
+                                            <div class="text-sm gap-x-4 flex flex-row">
+                                                <p class="text-gray-700">
+                                                    Rating
+                                                </p>
+                                                <p class="text-gray-500">
+                                                    {{ doctor_info.rating }}/5 <span class="text-xs">from {{doctor_info.count}} reviews</span>
+                                                </p>
+                                            </div>
                                         </div>
+                                        <div class="flex items-center text-gray-500 text-sm pt-3" v-html="doctor_info.desc"></div>
                                     </div>
                                 </div>
                             </section>

@@ -27,9 +27,9 @@
                                         <thead class="bg-parent-50">
                                             <tr>
                                                 <th @click="sort('name')" class="px-6 py-5 text-left text-xs font-heavy text-gray-500 hover:text-gray-700 uppercase tracking-wider cursor-pointer" scope="col">Name</th>
-                                                <th @click="sort('special')" class="hidden sm:table-cell px-6 py-5 text-left text-xs font-heavy text-gray-500 hover:text-gray-700 uppercase tracking-wider cursor-pointer" scope="col">Specialty</th>                                    
+                                                <th @click="sort('special')" class="hidden sm:table-cell px-6 py-5 text-left text-xs font-heavy text-gray-500 hover:text-gray-700 uppercase tracking-wider cursor-pointer" scope="col">Type</th>                                    
                                                 <th @click="sort('rating')" class="hidden sm:table-cell px-6 py-5 text-left text-xs font-heavy text-gray-500 hover:text-gray-700 uppercase tracking-wider cursor-pointer" scope="col">Rating</th>
-                                                <th @click="sort('gender')" class="hidden md:table-cell px-6 py-5 text-left text-xs font-heavy text-gray-500 hover:text-gray-700 uppercase tracking-wider cursor-pointer" scope="col">Gender</th>
+                                                <th @click="sort('cost')" class="hidden md:table-cell px-6 py-5 text-left text-xs font-heavy text-gray-500 hover:text-gray-700 uppercase tracking-wider cursor-pointer" scope="col">Price</th>
                                                 <th class="pl-6 py-5 w-full text-left text-xs font-heavy text-gray-500 uppercase tracking-wider" scope="col">
                                                     <div class="flex flex-row items-center content-center">
                                                         <div class="">
@@ -54,7 +54,7 @@
                                                             <img class="flex-row-reverse sm:flex-row h-10 w-10 rounded-full" :src="doctor.avatar" alt="profile picture">
                                                         </div>
                                                         <div class="ml-2 sm:ml-4">
-                                                            <div class="text-sm font-medium text-gray-700">
+                                                            <div class="text-sm font-medium text-parent-600">
                                                                 {{doctor.name}}
                                                             </div>
                                                             <div class="text-sm text-gray-500">
@@ -67,21 +67,19 @@
                                                 <td class="hidden sm:table-cell px-6 py-4 whitespace-nowrap">
                                                     <div class="text-sm text-gray-500">{{doctor.specialty}}</div>
                                                 </td>
-                                                <td class="hidden sm:table-cell px-6 py-4 whitespace-nowrap">
+                                                <td class="hidden md:table-cell px-6 py-4 whitespace-nowrap">
                                                     <div class="text-sm text-gray-700">{{doctor.rating}}/5</div>
                                                     <div class="text-sm text-gray-500">{{doctor.count}} Reviews </div>
                                                 </td>
-                                                <td class="hidden md:table-cell px-6 py-4 whitespace-nowrap">
-                                                    <div class="text-sm text-gray-500">{{doctor.gender === 0 ? "Male" : "Female"}}</div>
+                                                <td class="hidden sm:table-cell px-6 py-4 whitespace-nowrap">
+                                                    <div class="text-sm text-gray-700">{{doctor.cost}}</div>
+                                                    <div class="text-sm text-gray-500">hourly</div>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <div>
 
                                                         <Link :href="`/consultation/book/${doctor.user_id}`" class="w-full flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
-                                                            <p class="hidden sm:block">
-                                                                Book Session
-                                                            </p>
-                                                            <p class="block sm:hidden">
+                                                            <p class="">
                                                                 Book
                                                             </p>
                                                         </Link>
@@ -155,9 +153,9 @@
                         if(a.rating > b.rating) return 1 * modifier;
                         return 0;
                     } 
-                    if (this.currentSort === 'gender') {
-                        if (a.gender < b.gender) return -1 * modifier; 
-                        if(a.gender > b.gender) return 1 * modifier;
+                    if (this.currentSort === 'cost') {
+                        if (a.cost < b.cost) return -1 * modifier; 
+                        if(a.cost > b.cost) return 1 * modifier;
                         return 0;
                     } 
                 })
