@@ -51,7 +51,7 @@
                         </div>
                     </div>
 
-                    <div v-if="topic" class="text-sm sm:text-base w-full bg-white px-5 py-1 text-gray-500 py-16 rounded my-4 text-center">
+                    <div v-if="topic && threads.length == 0" class="text-sm sm:text-base w-full bg-white px-5 py-1 text-gray-500 py-16 rounded my-4 text-center">
                         There are currently no posts in {{topic.title}}.
                     </div>
                    
