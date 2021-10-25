@@ -15,6 +15,7 @@ use App\Http\Controllers\Quizzes\EvaluationController;
 use App\Http\Controllers\Quizzes\FirstProgressionQuiz;
 use App\Http\Controllers\Resources\ResourceController;
 use App\Http\Controllers\Account\ManageChildController;
+use App\Http\Controllers\Forums\ForumApproveController;
 use App\Http\Controllers\Kids\KidsActivitiesController;
 use App\Http\Controllers\Switchs\CreateChildController;
 use App\Http\Controllers\Account\ParentAvatarController;
@@ -89,6 +90,8 @@ Route::post('/account/change-password', [ChangePasswordController:: class, 'upda
 
 
 // Forum
+Route::get('/forum/approve', [ForumApproveController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('forum_approve');
+Route::post('/forum/approve', [ForumApproveController:: class, 'store'])->middleware(['auth', 'verified', 'role']);
 Route::get('/forum', [ForumDashboardController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('forum_home');
 Route::get('/forum/topic/{topic_title}', [ForumTopicController:: class, 'index'])->middleware(['auth', 'verified', 'role'])->name('forum_topic');
 Route::get('/forum/topic/{topic_title}/{thread_id}', [ForumThreadController::class, 'index'])->middleware(['auth', 'verified', 'role'])->name('forum_thread');

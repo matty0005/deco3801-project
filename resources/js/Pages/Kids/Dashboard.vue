@@ -27,12 +27,12 @@
       <div class="absolute bottom-1/4 left-1/10 flex flex-col">
         <SpeechBubble class="self-start" v-if="textInSpeechBubble != ''" side="left"  :text="textInSpeechBubble" />
         <div class="flex flex-col self-start">
-          <div class="flex flex-row">
-            <button v-on:click="nextMascot(-1)">&#10094;</button>
-            <div>
+          <div class="flex flex-row relative w-56">
+            <div class="mx-auto">
               <Mascot :key="selectedMascot" :emotion="mascots[selectedMascot]"/>
             </div>
-            <button v-on:click="nextMascot(1)">&#10095;</button>
+            <button class="absolute top-1/2 left-0" v-on:click="nextMascot(-1)">&#10094;</button>
+            <button class="absolute top-1/2 right-0" v-on:click="nextMascot(1)">&#10095;</button>
           </div>
           <!-- <button class="mx-auto mt-16 -mb-16 w-16 bg-white border border-transparent font-medium rounded-full shadow-sm" type="button">Save!</button> -->
         </div>
@@ -177,7 +177,7 @@ export default {
     nextMascot(step) {
       this.unlockMascot();
       if (step > 0) {
-        this.selectedMascot = (this.selectedMascot + 1) % this.mascots.length
+        this.selectedMascot = (this.selectedMascot + 1) % this.mascots.length;
       } else {
         this.selectedMascot -= 1;
         this.selectedMascot = this.selectedMascot > 0 ? this.selectedMascot : this.mascots.length; 
