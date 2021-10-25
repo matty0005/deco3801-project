@@ -14,7 +14,9 @@
                     <label for="datepicker" class="my-0 text-sm text-gray-600 block">{{ title }}</label>
                     <div class="relative ">
                         <input type="hidden" name="date" ref="date">
-                        <input type="text" v-model="datepickerValue" @click="showDatepicker = !showDatepicker" :class="(square ? '':'rounded-md ').concat(borderNone ? 'border-none':'border-gray-200')" class="form-input mt-0 pt-1 focus:ring-gray-50 focus:border-none w-full">
+                        <input type="text" v-model="datepickerValue" @click="showDatepicker = !showDatepicker" :class="(square ? '':'rounded-md ').concat(borderNone ? 'border-none':'border-gray-200').concat(error ? 'border-red-400 border-2 focus:border-red-600':'')" class="form-input mt-0 pt-1 focus:ring-gray-50 focus:border-none w-full">
+
+                        <div class="m-1 text-red-400 text-sm" v-if="error">{{ error }}</div>
 
 
                             <!-- <div x-text="no_of_days.length"></div>
@@ -120,7 +122,11 @@ export default {
         flex: {
             type: Boolean,
             default: false
-        }
+        },
+        error: {
+            type: Object,
+            default: null
+        },
     },
     emits: ['update:modelValue'],
     beforeMount() {
