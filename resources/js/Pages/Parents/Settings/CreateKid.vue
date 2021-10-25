@@ -1,6 +1,6 @@
 <template>
-    <Layout class="bg-gray-100">
-        <div class="bg-green-200 h-48"></div>
+    <Layout class="bg-gradient-to-b from-parent-300 to-blueGray">
+        <div class=" h-36"></div>
         <div class="container  mx-auto -mt-24 bg-white overflow-hidden shadow rounded-lg">
             <div class="text-3xl px-4 pt-5 py-3 sm:px-6">
                 Create your child's account
