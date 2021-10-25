@@ -65,7 +65,7 @@
                                             <label id="listbox-label" class="block text-sm font-medium text-gray-700">
                                                 Date
                                             </label>
-                                            <DatePickerText v-model="this.consultationDate" flex="true" class="mt-1" />
+                                            <DatePickerText v-model="this.consultationDate" flex="true" class="mt-1" :error="errors.consultation"/>
                                         </div>
                                         <Dropdown v-model="timeBooking" :options="timeOptions" label="Time" class="mx-2 w-36"/>
 
@@ -107,11 +107,12 @@
         props: {
             doctor: Object,
             doctor_info: Object, 
+            errors: Object
         },
 
         data: () => {
             return {
-                date: new Date(),
+                date: null,
                 consultationDate: "2021-09-29",
                 example: "2021-09-29 09:10:00",
                 timeBooking: '10:00',
@@ -121,7 +122,8 @@
         },
         beforeMount(){
             var tmp = new Date()
-            this.consultationDate = `${tmp.getFullYear()}-${tmp.getMonth() + 1}-${tmp.getDate()}`
+            // this.consultationDate = `${tmp.getFullYear()}-${tmp.getMonth() + 1}-${tmp.getDate()}`
+            this.consultationDate = tmp.toDateString()
         },
 
         methods: {
