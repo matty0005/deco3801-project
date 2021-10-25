@@ -47,7 +47,7 @@ use App\Http\Controllers\Consultation\IndividualConsultationController;
 */
 
 Route::get('/', function () {
-    if (Auth::user() == null) {
+    if (Auth::user() == null && !Auth::check()) {
        return Redirect::route('home');
     }
 
