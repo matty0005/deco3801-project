@@ -23,8 +23,8 @@ class BookConsultationController extends Controller
                     'doctors.gender',
                     'doctors.title',
                     'doctors.desc', 
-                    'doctors.specialisation'
-                    
+                    'doctors.specialisation',
+                    'doctors.cost',
                 )
                 ->selectRaw('(SELECT COUNT(*) FROM ratings WHERE ratings.doctor_id = doctors.id) count, (SELECT ROUND(AVG(rating), 1) FROM ratings WHERE ratings.doctor_id = doctors.id) rating, 
                 (SELECT time FROM doctor_available_dates d WHERE d.doctor_id = doctors.id) time')
