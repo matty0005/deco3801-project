@@ -23,7 +23,7 @@
           <Link href="/switch/kids" method="post"  as="button" class="bg-parent-500 hover:bg-parent-600 text-xs md:text-sm lg:text-base text-white rounded-md py-0.5 lg:py-1 sm:px-2 md:px-3 lg:px-4 mx-2" role="menuitem" tabindex="-1" >Kid's Mode</Link>
 
           <!-- Profile dropdown -->
-          <div class="ml-3 relative z-50">
+          <div class="ml-3 relative ">
             <div>
               <button type="button" @click="showProfileDropdown = !showProfileDropdown" class="bg-white rounded-full flex text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-parent-500" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                 <span class="sr-only">Open user menu</span>
@@ -39,7 +39,7 @@
               leave-class=" transform opacity-100 scale-100"
               leave-to-class="transform opacity-0 scale-95"
             >
-            <div v-if="showProfileDropdown" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+            <div v-if="showProfileDropdown" class="z-40 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
               <!-- Active: "bg-gray-100", Not Active: "" -->
               <Link href="/account" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" >Settings</Link>
               <!-- <Link v-if="week(5)" :href="week(6) ? '/switch/kids':'#'" :method="week(6) ?'post':'get'"  as="button" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" >Kids mode</Link> -->
