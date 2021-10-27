@@ -1,5 +1,6 @@
 <?php
 
+use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
@@ -52,6 +53,10 @@ Route::get('/', function () {
     }
 
     return Redirect::route('dashboard');
+});
+
+Route::get('/svg', function () {
+    return Inertia::render('Public/svgpattern');
 });
 
 
