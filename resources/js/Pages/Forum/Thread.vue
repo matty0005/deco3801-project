@@ -90,7 +90,7 @@ export default {
         time() {
             if (this.thread && this.thread.created_at) {
 
-                var raw = new Date(this.thread.created_at);
+                var raw = new Date(this.thread.created_at.replace(' ', 'T'));
 
                 return raw.toLocaleTimeString().split(":")[0] + ":" + 
                     raw.toLocaleTimeString().split(":")[1] + " " + raw.toDateString();
