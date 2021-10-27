@@ -1,5 +1,5 @@
 # User Guide/Testing Guide
-Please visit [**seedlings.site**](https://seedlings.site) in your browser of choice. 
+Please visit [**seedlings.site**](https://seedlings.site) in google chrome or firefox. 
 We have provided a testing account for you to simply use our website. The details are as follows: 
 ## Test Users
 |  Username             |  Password  |
@@ -23,13 +23,14 @@ Once booked you will be asked to fill out a questionnaire to provide the special
 
 ## Community Page
 On the community page you can view posts made by other parents. You can create your own posts, like other posts and comment on other posts. 
-<img width="1438" alt="image" src="https://user-images.githubusercontent.com/54462610/139035715-e81ec06d-7db7-4bf0-8a46-eed8929da19d.png">
+<img width="1438" alt="image" src="https://user-images.githubusercontent.com/54462610/139041444-52756426-498c-468e-8e4c-7c046ba3ec94.png">
 You're able to search through the existing posts and filter the posts by topics. 
-<img width="1438" alt="image" src="https://user-images.githubusercontent.com/54462610/139035853-86719b3e-ff77-400c-bfd4-895ce0208141.png">
+<img width="1438" alt="image" src="https://user-images.githubusercontent.com/54462610/139041504-4e9cf490-e283-4127-87d7-5f8c9626541c.png">
 You can create a new post by clicking on a topic. The post can be made anonymous if you so choose, and only viewed by specialists if you prefer.
 <img width="1438" alt="image" src="https://user-images.githubusercontent.com/54462610/139036474-b2c7b180-93c2-41a3-822f-fed371494cb4.png">
 After a posting, you can see a preview of your post with a note that it is awaiting moderation (all posts are moderated to ensure a safe environment). 
-<img width="1438" alt="image" src="https://user-images.githubusercontent.com/54462610/139036655-8b7743b4-4bd3-4c2a-8c44-cbbbff112d2c.png">
+<img width="1438" alt="image" src="https://user-images.githubusercontent.com/54462610/139041725-64ecd54a-3a7d-483e-b9f3-94ced3b780c2.png">
+
 
 ## Resources Page
 On our resources page you can view resources that could provide any assistance with you and your child. 
