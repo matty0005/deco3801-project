@@ -121,7 +121,7 @@ export default {
         time(obj) {
             if (obj && obj.created_at) {
 
-                var raw = new Date(obj.created_at);
+                var raw = new Date(obj.created_at.replace(' ', 'T'));
 
                 var rawHours = raw.getHours();
                 var hours = rawHours < 10 ? "0" + rawHours : rawHours;
