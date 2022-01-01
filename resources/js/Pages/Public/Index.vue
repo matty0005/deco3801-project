@@ -3,6 +3,7 @@
     <div class="bg-white">
       <div class="relative overflow-hidden">
           <main>
+            <Warning />
           <div class="pt-5 bg-green-800 sm:pt-8 lg:pt-4 lg:pb-0 lg:overflow-hidden">
               <div class="mx-auto max-w-7xl lg:px-8">
               <div class="lg:grid lg:grid-cols-2 lg:gap-8">
@@ -113,10 +114,12 @@
 <script>
 import { Link } from '@inertiajs/inertia-vue3'
 import Layout from "@/Layouts/PublicAppLayout"
+import Warning from "@/Shared/Warning"
 export default {
   components: {
     Link,
-    Layout
+    Layout,
+    Warning
   },
   data: () => {
     return {
