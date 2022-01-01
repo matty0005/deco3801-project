@@ -8,6 +8,7 @@
                 Register
                 </h2>
             </div>
+            <Warning />
 
             <div class="mt-8">
 
@@ -79,6 +80,7 @@
     import BreezeInput from '@/Components/Input'
     import BreezeLabel from '@/Components/Label'
     import BreezeValidationErrors from '@/Components/ValidationErrors'
+    import Warning from "@/Shared/Warning"
 
     export default {
         // layout: BreezeGuestLayout,
@@ -88,6 +90,7 @@
             BreezeInput,
             BreezeLabel,
             BreezeValidationErrors,
+            Warning
         },
         props: {
             errors: Object
